@@ -1,0 +1,10 @@
+node_modules/
+build/
+dist/
+.astro/
+coverage/
+.scannerwork/
+.wireit/
+.agents/
+storybook-static/
+pnpm-lock.yaml

@@ -1,24 +1,74 @@
-# build output
-dist/
-# generated types
-.astro/
-
-# dependencies
+# Dependencies
 node_modules/
+.pnpm-store/
+.pnpm_patches/
 
-# logs
+# Production & Build Outputs
+/dist/
+/build/
+/out/
+/.output/
+/storybook-static/
+
+# Framework & Tool Caches
+/.astro/
+/.wireit/
+/.wrangler/
+/.turbo/
+/.cache/
+*.tsbuildinfo
+.eslintcache
+.stylelintcache
+.prettiercache
+
+# Testing & Coverage
+/coverage/
+/.vitest/
+/.scannerwork/
+/test-results/
+/playwright-report/
+/blob-report/
+
+# Logs
+*.log
+logs/
+*storybook.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
-
-# environment variables
+# Environment & Secrets
 .env
-.env.production
+.env.*
+!.env.example
+!.env.template
+*.pem
+*.key
+*.crt
 
-# macOS-specific files
+# Operating System Files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
-# jetbrains setting folder
+# IDE & Editor Specific
 .idea/
+.fleet/
+.zed/
+*.sublime-project
+*.sublime-workspace
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# Playwright
+/playwright/.cache/
+/playwright/.auth/

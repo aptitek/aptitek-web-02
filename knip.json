@@ -1,0 +1,20 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": [
+    "src/pages/**/*.{astro,md,mdx,ts,js}",
+    "src/tokens/**",
+    "src/components/**/*.{ts,tsx}"
+  ],
+  "project": [
+    "src/**/*.{astro,ts,tsx,js,jsx}",
+    "scripts/**/*.{ts,js,mjs}",
+    "playwright/**/*.{ts,js}"
+  ],
+  "ignoreDependencies": ["@astrojs/check"],
+  "ignoreExportsUsedInFile": true,
+  "rules": {
+    "duplicates": "off",
+    "exports": "off",
+    "types": "off"
+  }
+}
