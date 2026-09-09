@@ -7,6 +7,15 @@
       "~/*": ["./src/*"]
     }
   },
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  "include": [
+    ".astro/types.d.ts",
+    "src/**/*",
+    "stories/**/*",
+    "playwright/**/*",
+    "scripts/**/*",
+    "*.ts",
+    "*.js",
+    "*.mjs"
+  ],
+  "exclude": ["dist", "storybook-static", "node_modules", ".astro", "coverage"]
 }

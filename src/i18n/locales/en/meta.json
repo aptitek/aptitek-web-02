@@ -1,0 +1,18 @@
+{
+  "home": {
+    "title": "AptiSpace LMS • Dashboard",
+    "description": "Welcome to AptiSpace LMS. Access courses and learning modules."
+  },
+  "login": {
+    "title": "AptiSpace LMS • Login",
+    "description": "Authenticate into AptiSpace LMS to access courses and learning modules."
+  },
+  "onboarding": {
+    "title": "AptiSpace LMS • Student Onboarding",
+    "description": "Configure your ISO/IEC 7810 ID-1 official identification card and begin your learning journey."
+  },
+  "planning": {
+    "title": "AptiSpace LMS • Planning & Timetable",
+    "description": "Interactive academic planning, scheduled classes, and cohort timetables with live iCal subscription."
+  }
+}

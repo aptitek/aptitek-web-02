@@ -1,0 +1,36 @@
+{
+  "title": "AptiSpace Student Onboarding",
+  "subtitle": "Initialize your student identification badge and configure your profile.",
+  "card": {
+    "agency": "APTISPACE LMS",
+    "badgeType": "ISO/IEC 7810 ID-1 IDENTIFICATION BADGE",
+    "authorizedSignature": "Authorized Signature",
+    "mrz": "Machine Readable Zone (MRZ)",
+    "mrzZone": "ICAO 9303 Machine Readable Zone",
+    "mrzValid": "ICAO OK",
+    "mrzInvalid": "CHECK ERR",
+    "logoAlt": "AptiSpace",
+    "defaultCohort": "Cohort {{year}}",
+    "defaultCohortDescription": "Academic training and course cohort."
+  },
+  "form": {
+    "firstName": "First Name",
+    "firstNamePlaceholder": "First name",
+    "familyName": "Family Name",
+    "familyNamePlaceholder": "Family name",
+    "email": "Institutional Email",
+    "submit": "Complete & Continue"
+  },
+  "requirements": {
+    "title": "Complete to Continue",
+    "subtitle": "Fill in your name on the card to continue.",
+    "firstName": "First Name",
+    "familyName": "Family Name",
+    "email": "Institutional Email",
+    "readyChip": "✓ Ready to Continue",
+    "progressChip": "{{completed}} / 3 Completed",
+    "saving": "Saving...",
+    "tooltipReady": "All required fields filled! Click to continue.",
+    "tooltipIncomplete": "Please fill in {{missing}} on the card to continue."
+  }
+}

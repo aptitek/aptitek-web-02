@@ -1,0 +1,36 @@
+{
+  "title": "Intégration des étudiants AptiSpace",
+  "subtitle": "Initialisez votre badge d'identification étudiant et configurez votre profil.",
+  "card": {
+    "agency": "APTISPACE LMS",
+    "badgeType": "BADGE D'IDENTIFICATION ISO/IEC 7810 ID-1",
+    "authorizedSignature": "Signature autorisée",
+    "mrz": "Zone de lecture automatique (MRZ)",
+    "mrzZone": "Zone de lecture automatique ICAO 9303",
+    "mrzValid": "ICAO OK",
+    "mrzInvalid": "ERR VÉRIF",
+    "logoAlt": "AptiSpace",
+    "defaultCohort": "Promotion {{year}}",
+    "defaultCohortDescription": "Cohorte académique et de formation."
+  },
+  "form": {
+    "firstName": "Prénom",
+    "firstNamePlaceholder": "Prénom",
+    "familyName": "Nom de famille",
+    "familyNamePlaceholder": "Nom de famille",
+    "email": "Email institutionnel",
+    "submit": "Valider et continuer"
+  },
+  "requirements": {
+    "title": "Complétez pour continuer",
+    "subtitle": "Renseignez votre nom sur la carte pour continuer.",
+    "firstName": "Prénom",
+    "familyName": "Nom de famille",
+    "email": "Email institutionnel",
+    "readyChip": "✓ Prêt à continuer",
+    "progressChip": "{{completed}} / 3 Complétés",
+    "saving": "Enregistrement...",
+    "tooltipReady": "Tous les champs requis sont remplis ! Cliquez pour continuer.",
+    "tooltipIncomplete": "Veuillez renseigner {{missing}} sur la carte pour continuer."
+  }
+}
