@@ -171,6 +171,7 @@ function resolveGrassTokens(
 export interface ForegroundGrassBladesProps {
   isDarkMode?: boolean;
   seasonProgress?: number;
+  scaleY?: number;
 }
 
 interface FloorFlower {
@@ -215,22 +216,41 @@ const SPRING_FALLEN_PETALS = [
   { cx: 1365, cy: 68, r: 3.5, rot: 18 },
 ] as const;
 
-const FloorFlowerNode: FC<{ flower: FloorFlower; isDarkMode?: boolean }> = ({
-  flower,
-  isDarkMode = false,
-}) => {
+function getFloorFlowerColors(isSakura: boolean) {
+  if (isSakura) {
+    return {
+      petalTop: "var(--color-season-spring-blossom-petal)",
+      petalMid: "var(--color-season-spring-blossom)",
+      petalDeep: "var(--color-season-spring-blossom-deep)",
+      core: "var(--color-season-spring-blossom-core)",
+    };
+  }
+  return {
+    petalTop: "var(--color-season-spring-daisy-petal)",
+    petalMid: "var(--color-season-spring-daisy-petal)",
+    petalDeep: "var(--color-season-spring-daisy-petal)",
+    core: "var(--color-season-spring-daisy-core)",
+  };
+}
+
+const FloorFlowerNode: FC<{
+  flower: FloorFlower;
+  isDarkMode?: boolean;
+  scaleY?: number;
+}> = ({ flower, isDarkMode = false, scaleY = 1 }) => {
   const { cx, cy, scale, rotation, type } = flower;
-  const isSakura = type === "sakura";
-  const stemHeight = 76 - cy;
+  const colors = getFloorFlowerColors(type === "sakura");
+  const stemHeight = (76 - cy) / Math.max(0.1, scaleY);
+  const stemCurve = rotation > 0 ? 3 : -3;
 
   return (
     <g
-      transform={`translate(${cx}, ${cy}) scale(${scale}) rotate(${rotation})`}
+      transform={`translate(${cx}, ${cy}) scale(1, ${scaleY}) scale(${scale}) rotate(${rotation})`}
     >
       <GrassFlowerSwayGroup>
         {/* Delicate organic stem rooted down to ground */}
         <path
-          d={`M0,0 Q${rotation > 0 ? 3 : -3},${stemHeight * 0.5} 0,${stemHeight}`}
+          d={`M0,0 Q${stemCurve},${stemHeight * 0.5} 0,${stemHeight}`}
           stroke="var(--color-season-spring-grass)"
           strokeWidth="1.5"
           strokeLinecap="round"
@@ -238,92 +258,42 @@ const FloorFlowerNode: FC<{ flower: FloorFlower; isDarkMode?: boolean }> = ({
           opacity={isDarkMode ? 0.75 : 1}
         />
         {/* 5 Petals */}
-        <circle
-          cx="0"
-          cy="-6.5"
-          r="4.8"
-          fill={
-            isSakura
-              ? "var(--color-season-spring-blossom-petal)"
-              : "var(--color-season-spring-daisy-petal)"
-          }
-        />
-        <circle
-          cx="6.2"
-          cy="-2.0"
-          r="4.8"
-          fill={
-            isSakura
-              ? "var(--color-season-spring-blossom)"
-              : "var(--color-season-spring-daisy-petal)"
-          }
-        />
-        <circle
-          cx="3.8"
-          cy="5.2"
-          r="4.8"
-          fill={
-            isSakura
-              ? "var(--color-season-spring-blossom-deep)"
-              : "var(--color-season-spring-daisy-petal)"
-          }
-        />
-        <circle
-          cx="-3.8"
-          cy="5.2"
-          r="4.8"
-          fill={
-            isSakura
-              ? "var(--color-season-spring-blossom)"
-              : "var(--color-season-spring-daisy-petal)"
-          }
-        />
-        <circle
-          cx="-6.2"
-          cy="-2.0"
-          r="4.8"
-          fill={
-            isSakura
-              ? "var(--color-season-spring-blossom-petal)"
-              : "var(--color-season-spring-daisy-petal)"
-          }
-        />
+        <circle cx="0" cy="-6.5" r="4.8" fill={colors.petalTop} />
+        <circle cx="6.2" cy="-2.0" r="4.8" fill={colors.petalMid} />
+        <circle cx="3.8" cy="5.2" r="4.8" fill={colors.petalDeep} />
+        <circle cx="-3.8" cy="5.2" r="4.8" fill={colors.petalMid} />
+        <circle cx="-6.2" cy="-2.0" r="4.8" fill={colors.petalTop} />
         {/* Center core */}
-        <circle
-          cx="0"
-          cy="0"
-          r="2.5"
-          fill={
-            isSakura
-              ? "var(--color-season-spring-blossom-core)"
-              : "var(--color-season-spring-daisy-core)"
-          }
-        />
+        <circle cx="0" cy="0" r="2.5" fill={colors.core} />
       </GrassFlowerSwayGroup>
     </g>
   );
 };
 
-const SpringFloorFlowers: FC<{ opacity: number; isDarkMode?: boolean }> = ({
-  opacity,
-  isDarkMode = false,
-}) => {
+const SpringFloorFlowers: FC<{
+  opacity: number;
+  isDarkMode?: boolean;
+  scaleY?: number;
+}> = ({ opacity, isDarkMode = false, scaleY = 1 }) => {
   if (opacity <= 0.01) return null;
 
   return (
     <g id="springFloorFlowers" opacity={opacity}>
       {/* Fallen petals resting gently on the grass */}
       {SPRING_FALLEN_PETALS.map((petal) => (
-        <ellipse
+        <g
           key={`petal-${petal.cx}-${petal.cy}`}
-          cx={petal.cx}
-          cy={petal.cy}
-          rx={petal.r}
-          ry={petal.r * 0.6}
-          transform={`rotate(${petal.rot}, ${petal.cx}, ${petal.cy})`}
-          fill="var(--color-season-spring-blossom-petal)"
-          opacity={isDarkMode ? 0.55 : 0.88}
-        />
+          transform={`translate(${petal.cx}, ${petal.cy}) scale(1, ${scaleY}) rotate(${petal.rot})`}
+        >
+          <ellipse
+            cx={0}
+            cy={0}
+            rx={petal.r}
+            ry={petal.r * 0.6}
+            fill="var(--color-season-spring-blossom-petal)"
+            opacity={isDarkMode ? 0.55 : 0.88}
+          />
+        </g>
       ))}
 
       {/* Spring Wildflowers and Sakura blossoms nestled in the grass */}
@@ -332,6 +302,7 @@ const SpringFloorFlowers: FC<{ opacity: number; isDarkMode?: boolean }> = ({
           key={`floor-flower-${flower.cx}-${flower.cy}`}
           flower={flower}
           isDarkMode={isDarkMode}
+          scaleY={scaleY}
         />
       ))}
     </g>
@@ -341,6 +312,7 @@ const SpringFloorFlowers: FC<{ opacity: number; isDarkMode?: boolean }> = ({
 export const ForegroundGrassBlades: FC<ForegroundGrassBladesProps> = ({
   isDarkMode = false,
   seasonProgress = 1.0,
+  scaleY = 1,
 }) => {
   const tokens = resolveGrassTokens(isDarkMode, seasonProgress);
   const distSpring = Math.min(seasonProgress, 4 - seasonProgress);
@@ -400,7 +372,11 @@ export const ForegroundGrassBlades: FC<ForegroundGrassBladesProps> = ({
       <path className="grass-blade-secondary" d={SECONDARY_GRASS_PATH} />
 
       {/* Spring flowers and blossoms on the floor */}
-      <SpringFloorFlowers opacity={flowerOpacity} isDarkMode={isDarkMode} />
+      <SpringFloorFlowers
+        opacity={flowerOpacity}
+        isDarkMode={isDarkMode}
+        scaleY={scaleY}
+      />
     </GrassSvg>
   );
 };

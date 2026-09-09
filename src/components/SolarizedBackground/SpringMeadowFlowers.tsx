@@ -69,11 +69,13 @@ const MeadowFlowerSwayGroup = styled("g")({
 interface MeadowFlowerItemProps {
   flower: (typeof SPRING_MEADOW_FLOWERS)[number];
   isDarkMode: boolean;
+  scaleY?: number;
 }
 
 const MeadowFlowerItem: FC<MeadowFlowerItemProps> = ({
   flower,
   isDarkMode,
+  scaleY = 1,
 }) => {
   const isSakura = flower.type === "sakura";
   const petalTop = isSakura
@@ -94,7 +96,7 @@ const MeadowFlowerItem: FC<MeadowFlowerItemProps> = ({
 
   return (
     <g
-      transform={`translate(${flower.cx}, ${flower.cy}) scale(${flower.scale}) rotate(${flower.rotation})`}
+      transform={`translate(${flower.cx}, ${flower.cy}) scale(1, ${scaleY}) scale(${flower.scale}) rotate(${flower.rotation})`}
     >
       <MeadowFlowerSwayGroup>
         {/* Green leaf sepals at flower base */}
@@ -131,23 +133,27 @@ const MeadowFlowerItem: FC<MeadowFlowerItemProps> = ({
 export const SpringMeadowFlowers: FC<{
   opacity: number;
   isDarkMode?: boolean;
-}> = ({ opacity, isDarkMode = false }) => {
+  scaleY?: number;
+}> = ({ opacity, isDarkMode = false, scaleY = 1 }) => {
   if (opacity <= 0.01) return null;
 
   return (
     <g id="springMeadowFloorFlowers" opacity={opacity}>
       {/* Fallen sakura petals scattered across the floor */}
       {SPRING_MEADOW_FALLEN_PETALS.map((petal) => (
-        <ellipse
+        <g
           key={`meadow-petal-${petal.cx}-${petal.cy}`}
-          cx={petal.cx}
-          cy={petal.cy}
-          rx={petal.rx}
-          ry={petal.ry}
-          transform={`rotate(${petal.rot}, ${petal.cx}, ${petal.cy})`}
-          fill="var(--color-season-spring-blossom-petal)"
-          opacity={isDarkMode ? 0.55 : 0.85}
-        />
+          transform={`translate(${petal.cx}, ${petal.cy}) scale(1, ${scaleY}) rotate(${petal.rot})`}
+        >
+          <ellipse
+            cx={0}
+            cy={0}
+            rx={petal.rx}
+            ry={petal.ry}
+            fill="var(--color-season-spring-blossom-petal)"
+            opacity={isDarkMode ? 0.55 : 0.85}
+          />
+        </g>
       ))}
 
       {/* Spring Wildflowers blooming across the foreground hill floor */}
@@ -156,6 +162,7 @@ export const SpringMeadowFlowers: FC<{
           key={`meadow-flower-${flower.cx}-${flower.cy}`}
           flower={flower}
           isDarkMode={isDarkMode}
+          scaleY={scaleY}
         />
       ))}
     </g>

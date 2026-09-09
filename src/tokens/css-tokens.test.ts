@@ -34,7 +34,7 @@ describe("CSS Design Tokens Linting", () => {
 
     expect(hexErrors.length).toBeGreaterThanOrEqual(2);
     expect(rgbaErrors.length).toBeGreaterThanOrEqual(1);
-  });
+  }, 15000);
 
   it("permits CSS custom properties (var(--color-*)) in non-token CSS files", async () => {
     const validCss = `

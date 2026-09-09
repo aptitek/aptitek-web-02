@@ -89,7 +89,8 @@ export const LandscapeClouds: FC = () => (
 export const LandscapeHills: FC<{
   seasonProgress?: number;
   isDarkMode?: boolean;
-}> = ({ seasonProgress = 1.0, isDarkMode = false }) => {
+  meadowScaleY?: number;
+}> = ({ seasonProgress = 1.0, isDarkMode = false, meadowScaleY = 1 }) => {
   const hillTokens = getSeasonalHillTokens(seasonProgress, isDarkMode);
   const distSpring = Math.min(seasonProgress, 4 - seasonProgress);
   const flowerOpacity = Math.max(0, 1 - distSpring * 1.6);
@@ -131,7 +132,11 @@ export const LandscapeHills: FC<{
         strokeWidth="1.8"
       />
       {/* Spring floor wildflowers & fallen petals on meadow */}
-      <SpringMeadowFlowers opacity={flowerOpacity} isDarkMode={isDarkMode} />
+      <SpringMeadowFlowers
+        opacity={flowerOpacity}
+        isDarkMode={isDarkMode}
+        scaleY={meadowScaleY}
+      />
     </HillsSvg>
   );
 };

@@ -99,6 +99,7 @@ const LandscapeLayerGroup: FC<{
   isDarkMode: boolean;
   parallax: Point2D;
   seasonProgress: number;
+  meadowScaleY?: number;
 }> = ({
   showHills,
   showClouds,
@@ -106,11 +107,16 @@ const LandscapeLayerGroup: FC<{
   isDarkMode,
   parallax,
   seasonProgress,
+  meadowScaleY = 1,
 }) => (
   <>
     {showClouds && <LandscapeClouds />}
     {showHills && (
-      <LandscapeHills seasonProgress={seasonProgress} isDarkMode={isDarkMode} />
+      <LandscapeHills
+        seasonProgress={seasonProgress}
+        isDarkMode={isDarkMode}
+        meadowScaleY={meadowScaleY}
+      />
     )}
     {showTree && (
       <PeacefulTreeGraphic
@@ -149,6 +155,50 @@ export const SolarizedBackground: FC<SolarizedBackgroundProps> = (props) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   const [parallaxOffset, setParallaxOffset] = useState<Point2D>({ x: 0, y: 0 });
+  const [aspectCorrection, setAspectCorrection] = useState({
+    meadowScaleY: 1,
+    grassScaleY: 1,
+  });
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const updateAspect = () => {
+      const w = container.clientWidth || 1440;
+      const h = container.clientHeight || 900;
+      const meadowScaleY = Math.max(
+        0.1,
+        Math.min(4, w / (1.6 * Math.max(1, h))),
+      );
+      const grassScaleY = Math.max(0.1, Math.min(4, w / 1440));
+
+      setAspectCorrection((prev) => {
+        if (
+          Math.abs(prev.meadowScaleY - meadowScaleY) < 0.001 &&
+          Math.abs(prev.grassScaleY - grassScaleY) < 0.001
+        ) {
+          return prev;
+        }
+        return { meadowScaleY, grassScaleY };
+      });
+    };
+
+    updateAspect();
+
+    if (typeof ResizeObserver !== "undefined") {
+      const observer = new ResizeObserver(updateAspect);
+      observer.observe(container);
+      return () => {
+        observer.disconnect();
+      };
+    }
+
+    window.addEventListener("resize", updateAspect);
+    return () => {
+      window.removeEventListener("resize", updateAspect);
+    };
+  }, []);
 
   const mouseStateRef = useRef<MouseState>({
     x: 400,
@@ -258,12 +308,14 @@ export const SolarizedBackground: FC<SolarizedBackgroundProps> = (props) => {
         isDarkMode={isDarkMode}
         parallax={parallaxOffset}
         seasonProgress={seasonProgress}
+        meadowScaleY={aspectCorrection.meadowScaleY}
       />
 
       {config.showGrass && (
         <ForegroundGrassBlades
           isDarkMode={isDarkMode}
           seasonProgress={seasonProgress}
+          scaleY={aspectCorrection.grassScaleY}
         />
       )}
 
