@@ -66,7 +66,72 @@ const MeadowFlowerSwayGroup = styled("g")({
   animation: `${meadowFlowerSway} 5.2s ease-in-out infinite`,
 });
 
-export const SpringMeadowFlowers: FC<{ opacity: number }> = ({ opacity }) => {
+interface MeadowFlowerItemProps {
+  flower: (typeof SPRING_MEADOW_FLOWERS)[number];
+  isDarkMode: boolean;
+}
+
+const MeadowFlowerItem: FC<MeadowFlowerItemProps> = ({
+  flower,
+  isDarkMode,
+}) => {
+  const isSakura = flower.type === "sakura";
+  const petalTop = isSakura
+    ? "var(--color-season-spring-blossom-petal)"
+    : "var(--color-season-spring-daisy-petal)";
+  const petalMid = isSakura
+    ? "var(--color-season-spring-blossom)"
+    : "var(--color-season-spring-daisy-petal)";
+  const petalDeep = isSakura
+    ? "var(--color-season-spring-blossom-deep)"
+    : "var(--color-season-spring-daisy-petal)";
+  const coreFill = isSakura
+    ? "var(--color-season-spring-blossom-core)"
+    : "var(--color-season-spring-daisy-core)";
+  const innerFill = isSakura
+    ? "rgba(255, 255, 255, 0.8)"
+    : "var(--color-solarized-orange)";
+
+  return (
+    <g
+      transform={`translate(${flower.cx}, ${flower.cy}) scale(${flower.scale}) rotate(${flower.rotation})`}
+    >
+      <MeadowFlowerSwayGroup>
+        {/* Green leaf sepals at flower base */}
+        <path
+          d="M-5,4 C-9,2 -9,-2 -3,0 Z"
+          fill="var(--color-season-spring-grass)"
+          opacity={isDarkMode ? 0.75 : 0.88}
+        />
+        <path
+          d="M5,4 C9,2 9,-2 3,0 Z"
+          fill="var(--color-season-spring-grass)"
+          opacity={isDarkMode ? 0.75 : 0.88}
+        />
+        {/* 5 Petals */}
+        <circle cx="0" cy="-6" r="4.8" fill={petalTop} />
+        <circle cx="5.8" cy="-1.9" r="4.8" fill={petalMid} />
+        <circle cx="3.6" cy="4.9" r="4.8" fill={petalDeep} />
+        <circle cx="-3.6" cy="4.9" r="4.8" fill={petalDeep} />
+        <circle cx="-5.8" cy="-1.9" r="4.8" fill={petalMid} />
+        {/* Center Core */}
+        <circle cx="0" cy="0" r="2.5" fill={coreFill} />
+        <circle
+          cx="0"
+          cy="0"
+          r="1.2"
+          fill={innerFill}
+          opacity={isDarkMode ? 0.45 : 0.75}
+        />
+      </MeadowFlowerSwayGroup>
+    </g>
+  );
+};
+
+export const SpringMeadowFlowers: FC<{
+  opacity: number;
+  isDarkMode?: boolean;
+}> = ({ opacity, isDarkMode = false }) => {
   if (opacity <= 0.01) return null;
 
   return (
@@ -81,107 +146,18 @@ export const SpringMeadowFlowers: FC<{ opacity: number }> = ({ opacity }) => {
           ry={petal.ry}
           transform={`rotate(${petal.rot}, ${petal.cx}, ${petal.cy})`}
           fill="var(--color-season-spring-blossom-petal)"
-          opacity="0.85"
+          opacity={isDarkMode ? 0.55 : 0.85}
         />
       ))}
 
       {/* Spring Wildflowers blooming across the foreground hill floor */}
-      {SPRING_MEADOW_FLOWERS.map((flower) => {
-        const isSakura = flower.type === "sakura";
-        return (
-          <g
-            key={`meadow-flower-${flower.cx}-${flower.cy}`}
-            transform={`translate(${flower.cx}, ${flower.cy}) scale(${flower.scale}) rotate(${flower.rotation})`}
-          >
-            <MeadowFlowerSwayGroup>
-              {/* Green leaf sepals at flower base */}
-              <path
-                d="M-5,4 C-9,2 -9,-2 -3,0 Z"
-                fill="var(--color-season-spring-grass)"
-                opacity="0.88"
-              />
-              <path
-                d="M5,4 C9,2 9,-2 3,0 Z"
-                fill="var(--color-season-spring-grass)"
-                opacity="0.88"
-              />
-              {/* 5 Petals */}
-              <circle
-                cx="0"
-                cy="-6"
-                r="4.8"
-                fill={
-                  isSakura
-                    ? "var(--color-season-spring-blossom-petal)"
-                    : "rgba(255, 255, 255, 0.96)"
-                }
-              />
-              <circle
-                cx="5.8"
-                cy="-1.9"
-                r="4.8"
-                fill={
-                  isSakura
-                    ? "var(--color-season-spring-blossom)"
-                    : "rgba(255, 255, 255, 0.9)"
-                }
-              />
-              <circle
-                cx="3.6"
-                cy="4.9"
-                r="4.8"
-                fill={
-                  isSakura
-                    ? "var(--color-season-spring-blossom-deep)"
-                    : "rgba(255, 255, 255, 0.96)"
-                }
-              />
-              <circle
-                cx="-3.6"
-                cy="4.9"
-                r="4.8"
-                fill={
-                  isSakura
-                    ? "var(--color-season-spring-blossom-deep)"
-                    : "rgba(255, 255, 255, 0.9)"
-                }
-              />
-              <circle
-                cx="-5.8"
-                cy="-1.9"
-                r="4.8"
-                fill={
-                  isSakura
-                    ? "var(--color-season-spring-blossom)"
-                    : "rgba(255, 255, 255, 0.96)"
-                }
-              />
-              {/* Center Core */}
-              <circle
-                cx="0"
-                cy="0"
-                r="2.5"
-                fill={
-                  isSakura
-                    ? "var(--color-season-spring-blossom-core)"
-                    : "var(--color-solarized-yellow)"
-                }
-              />
-              <circle
-                cx="0"
-                cy="0"
-                r="1.2"
-                fill={
-                  isSakura
-                    ? "rgba(255, 255, 255, 0.8)"
-                    : "var(--color-solarized-orange)"
-                }
-                opacity="0.7"
-              />
-            </MeadowFlowerSwayGroup>
-          </g>
-        );
-      })}
+      {SPRING_MEADOW_FLOWERS.map((flower) => (
+        <MeadowFlowerItem
+          key={`meadow-flower-${flower.cx}-${flower.cy}`}
+          flower={flower}
+          isDarkMode={isDarkMode}
+        />
+      ))}
     </g>
   );
 };

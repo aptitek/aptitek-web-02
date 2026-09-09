@@ -84,10 +84,10 @@ export const AmbientGlowOrb = styled("div")(({ theme }) => ({
   background: "rgba(255, 255, 255, 0.22)",
   transition: "background 0.8s ease",
   '[data-mode="dark"] &, [data-theme="dark"] &': {
-    background: "rgba(42, 161, 152, 0.22)",
+    background: "var(--color-celestial-night-sky-glow)",
   },
   ...theme.applyStyles("dark", {
-    background: "rgba(42, 161, 152, 0.22)",
+    background: "var(--color-celestial-night-sky-glow)",
   }),
 }));
 
@@ -134,7 +134,7 @@ export const MoonOrb = styled("div")({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  filter: "drop-shadow(0 0 24px rgba(42, 161, 152, 0.45))",
+  filter: "drop-shadow(0 0 24px var(--color-celestial-moon-aura))",
 });
 
 export const MoonCrescentSvg = styled("svg")({

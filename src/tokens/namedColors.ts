@@ -21,6 +21,8 @@ export const CELESTIAL_COLORS = {
     main: "#268bd2", // Blue
     glow: "#6c71c4", // Violet
     crater: "#586e75",
+    aura: "rgba(180, 215, 225, 0.35)",
+    nightSkyGlow: "rgba(180, 215, 225, 0.12)",
   },
   horizon: {
     day: "#fdf6e3",
@@ -128,6 +130,78 @@ export const SEASON_COLORS = {
   },
 } as const;
 
+// Seasonal Nocturnal / Dark Mode Environment Color Tokens
+export const SEASON_NIGHT_COLORS = {
+  spring: {
+    canopyA: "#5a283c", // Twilight plum shadow
+    canopyB: "#3d1525", // Midnight sakura shade
+    deepCanopyA: "#4d1e31",
+    deepCanopyB: "#2e0d1b",
+    canopyWarm: "#85405e", // Moonlit dusty rose highlight
+    canopyLight: "#6b2d48",
+    hillBack: "#062524",
+    hillMid: "#0a3330",
+    hillFront: "#0e3d38",
+    grass: "#164434",
+    blossom: "#c27ba0",
+    blossomDeep: "#944d6b",
+    blossomPetal: "#e2a8be",
+    blossomCore: "#7a2a4c",
+    leafVein: "#3b1424",
+    leafBottom: "#240a15",
+  },
+  summer: {
+    canopyA: "#1b4324", // Deep night forest green
+    canopyB: "#0f2d18", // Forest twilight shadow
+    deepCanopyA: "#13381e", // Midnight moss
+    deepCanopyB: "#0a2012", // Deep canopy shade
+    canopyWarm: "#2d5e35", // Moonlit foliage highlight
+    canopyLight: "#1f4827",
+    hillBack: "#052018",
+    hillMid: "#082c20",
+    hillFront: "#0d3829",
+    grass: "#174229",
+    leafVein: "#0a1f12",
+    leafBottom: "#05160c",
+  },
+  fall: {
+    foliageGold: "#8a4210", // Night golden amber
+    foliageOrange: "#6e2808", // Deep night russet
+    foliageRed: "#541c06", // Deep nocturnal maple
+    foliageSienna: "#381100", // Midnight sienna
+    canopyA: "#6e2808",
+    canopyB: "#4a1803",
+    deepCanopyA: "#5c2005",
+    deepCanopyB: "#381100",
+    canopyWarm: "#944210",
+    canopyLight: "#733008",
+    hillBack: "#1e1610",
+    hillMid: "#2a1e14",
+    hillFront: "#362618",
+    grass: "#422d16",
+    leafVein: "#381100",
+    leafBottom: "#200a00",
+  },
+  winter: {
+    snowWhite: "#d8eef2", // Moonlit snow
+    snowSoft: "#a8c6ce", // Frosted blue shadow
+    frostSlate: "#475e66", // Nocturnal frost slate
+    iceCyan: "#234a54", // Night ice shadow
+    canopyA: "#283b42",
+    canopyB: "#18282e",
+    deepCanopyA: "#1f3036",
+    deepCanopyB: "#121e22",
+    canopyWarm: "#435e68",
+    canopyLight: "#2e454d",
+    hillBack: "#0f232b",
+    hillMid: "#16323c",
+    hillFront: "#1e404c",
+    grass: "#223f4a",
+    leafVein: "#142228",
+    leafBottom: "#0d171b",
+  },
+} as const;
+
 // Progress percentage-based theme color spectrum
 export const PROGRESS_THEME_COLORS = {
   purple: "#6c71c4",
@@ -149,6 +223,7 @@ export const NAMED_COLORS = {
   flags: FLAG_COLORS,
   progress: PROGRESS_THEME_COLORS,
   seasons: SEASON_COLORS,
+  seasonNight: SEASON_NIGHT_COLORS,
 } as const;
 
 export type NamedColors = typeof NAMED_COLORS;
@@ -159,3 +234,4 @@ export type ProgressThemeColors = typeof PROGRESS_THEME_COLORS;
 export type BotanicalColors = typeof BOTANICAL_COLORS;
 export type PastelSkyColors = typeof PASTEL_SKY_COLORS;
 export type SeasonColors = typeof SEASON_COLORS;
+export type SeasonNightColors = typeof SEASON_NIGHT_COLORS;

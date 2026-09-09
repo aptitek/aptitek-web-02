@@ -87,11 +87,14 @@ const BlossomFloret: FC<{ cx: number; cy: number; scale: number }> = ({
   </g>
 );
 
-const CherryBlossomClusters: FC<{ opacity: number }> = ({ opacity }) => {
+const CherryBlossomClusters: FC<{ opacity: number; isDarkMode?: boolean }> = ({
+  opacity,
+  isDarkMode = false,
+}) => {
   if (opacity <= 0.01) return null;
 
   return (
-    <g id="treeCherryBlossoms" opacity={opacity}>
+    <g id="treeCherryBlossoms" opacity={isDarkMode ? opacity * 0.82 : opacity}>
       {BLOSSOM_POSITIONS.map((pos) => (
         <BlossomFloret
           key={`blossom-${pos.cx}-${pos.cy}`}
@@ -104,11 +107,17 @@ const CherryBlossomClusters: FC<{ opacity: number }> = ({ opacity }) => {
   );
 };
 
-const WinterSnowCaps: FC<{ opacity: number }> = ({ opacity }) => {
+const WinterSnowCaps: FC<{ opacity: number; isDarkMode?: boolean }> = ({
+  opacity,
+  isDarkMode = false,
+}) => {
   if (opacity <= 0.01) return null;
 
   return (
-    <g id="treeWinterSnow" opacity={opacity * 0.95}>
+    <g
+      id="treeWinterSnow"
+      opacity={isDarkMode ? opacity * 0.78 : opacity * 0.95}
+    >
       <path
         d="M165,105 C185,82 265,82 285,105 C260,116 230,112 195,116 Z"
         fill="var(--color-season-winter-snow-white)"
@@ -202,12 +211,16 @@ export const LandscapeHills: FC<{
       {/* Soft Ridge Highlights */}
       <path
         d="M0,712 C180,692 380,772 720,732 C1060,692 1260,782 1440,752"
-        stroke="rgba(255, 255, 255, 0.22)"
+        stroke={
+          isDarkMode
+            ? "var(--color-celestial-night-sky-glow)"
+            : "rgba(255, 255, 255, 0.22)"
+        }
         strokeDasharray="8 12"
         strokeWidth="1.8"
       />
       {/* Spring floor wildflowers & fallen petals on meadow */}
-      <SpringMeadowFlowers opacity={flowerOpacity} />
+      <SpringMeadowFlowers opacity={flowerOpacity} isDarkMode={isDarkMode} />
     </HillsSvg>
   );
 };
@@ -422,10 +435,16 @@ export const PeacefulTreeGraphic: FC<{
           <circle cx="410" cy="250" r="11" fill="url(#treeCanopyWarm)" />
 
           {/* Seasonal cherry blossom florets in spring */}
-          <CherryBlossomClusters opacity={tokens.blossomOpacity} />
+          <CherryBlossomClusters
+            opacity={tokens.blossomOpacity}
+            isDarkMode={isDarkMode}
+          />
 
           {/* Seasonal snow caps and drifts in winter */}
-          <WinterSnowCaps opacity={tokens.snowOpacity} />
+          <WinterSnowCaps
+            opacity={tokens.snowOpacity}
+            isDarkMode={isDarkMode}
+          />
         </g>
       </TreeSvg>
     </TreeWrapper>

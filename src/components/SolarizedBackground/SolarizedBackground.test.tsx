@@ -10,6 +10,8 @@ import type { WindState, MouseState } from "./SolarizedBackground.types";
 import {
   resolveSeasonProgress,
   getSeasonalCanopyTokens,
+  getSeasonalHillTokens,
+  getSeasonalGrassTokens,
   getSeasonalLeafPalette,
 } from "./seasonUtils";
 
@@ -369,5 +371,67 @@ describe("SolarizedBackground Component", () => {
     const fallPalette = getSeasonalLeafPalette(2.0, false);
     expect(fallPalette.leftMid).toBeDefined();
     expect(fallPalette.vein).toBeDefined();
+  });
+
+  it("uses mindful seasonal dark mode palettes without jarring electric neon colors", () => {
+    // Summer night canopy does NOT have cyan or blue circles
+    const summerNightCanopy = getSeasonalCanopyTokens(1.0, true);
+    expect(summerNightCanopy.foliage2A).not.toContain("268bd2");
+    expect(summerNightCanopy.foliage2B).not.toContain("2aa198");
+    expect(summerNightCanopy.foliage2A).not.toContain("6c71c4");
+
+    // Spring night canopy uses nocturnal cherry/rose tones
+    const springNightCanopy = getSeasonalCanopyTokens(0.0, true);
+    expect(springNightCanopy.blossomOpacity).toBeGreaterThan(0.8);
+    expect(springNightCanopy.snowOpacity).toBe(0.0);
+
+    // Fall night canopy uses rich nocturnal russet/amber
+    const fallNightCanopy = getSeasonalCanopyTokens(2.0, true);
+    expect(fallNightCanopy.foliage1A).toBeDefined();
+
+    // Winter night canopy uses frosted slate
+    const winterNightCanopy = getSeasonalCanopyTokens(3.0, true);
+    expect(winterNightCanopy.snowOpacity).toBeGreaterThan(0.8);
+
+    // Seasonal dark mode hills and grass
+    const springHills = getSeasonalHillTokens(0.0, true);
+    const fallGrass = getSeasonalGrassTokens(2.0, true);
+    expect(springHills.hillBack).toBeDefined();
+    expect(fallGrass.primaryStart).toBeDefined();
+
+    // Seasonal leaf palettes in dark mode
+    const springNightLeaf = getSeasonalLeafPalette(0.0, true);
+    const fallNightLeaf = getSeasonalLeafPalette(2.0, true);
+    expect(springNightLeaf.leftTop).toBeDefined();
+    expect(fallNightLeaf.leftMid).toBeDefined();
+
+    // Particle draw in dark mode across all seasons
+    const mockContext = {
+      save: vi.fn(),
+      restore: vi.fn(),
+      translate: vi.fn(),
+      rotate: vi.fn(),
+      scale: vi.fn(),
+      beginPath: vi.fn(),
+      moveTo: vi.fn(),
+      lineTo: vi.fn(),
+      bezierCurveTo: vi.fn(),
+      quadraticCurveTo: vi.fn(),
+      closePath: vi.fn(),
+      fill: vi.fn(),
+      stroke: vi.fn(),
+      arc: vi.fn(),
+      fillStyle: "",
+      strokeStyle: "",
+      lineWidth: 1,
+      lineCap: "round",
+      globalAlpha: 1,
+    } as unknown as CanvasRenderingContext2D;
+
+    const particle = new LeafParticle(true, 800, 600, { x: 100, y: 100 });
+    expect(() => particle.draw(mockContext, true, 0.0)).not.toThrow();
+    expect(() => particle.draw(mockContext, true, 1.0)).not.toThrow();
+    expect(() => particle.draw(mockContext, true, 2.0)).not.toThrow();
+    expect(() => particle.draw(mockContext, true, 3.0)).not.toThrow();
   });
 });

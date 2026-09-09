@@ -215,7 +215,10 @@ const SPRING_FALLEN_PETALS = [
   { cx: 1365, cy: 68, r: 3.5, rot: 18 },
 ] as const;
 
-const FloorFlowerNode: FC<{ flower: FloorFlower }> = ({ flower }) => {
+const FloorFlowerNode: FC<{ flower: FloorFlower; isDarkMode?: boolean }> = ({
+  flower,
+  isDarkMode = false,
+}) => {
   const { cx, cy, scale, rotation, type } = flower;
   const isSakura = type === "sakura";
   const stemHeight = 76 - cy;
@@ -232,6 +235,7 @@ const FloorFlowerNode: FC<{ flower: FloorFlower }> = ({ flower }) => {
           strokeWidth="1.5"
           strokeLinecap="round"
           fill="none"
+          opacity={isDarkMode ? 0.75 : 1}
         />
         {/* 5 Petals */}
         <circle
@@ -241,7 +245,7 @@ const FloorFlowerNode: FC<{ flower: FloorFlower }> = ({ flower }) => {
           fill={
             isSakura
               ? "var(--color-season-spring-blossom-petal)"
-              : "rgba(255, 255, 255, 0.95)"
+              : "var(--color-season-spring-daisy-petal)"
           }
         />
         <circle
@@ -251,7 +255,7 @@ const FloorFlowerNode: FC<{ flower: FloorFlower }> = ({ flower }) => {
           fill={
             isSakura
               ? "var(--color-season-spring-blossom)"
-              : "rgba(255, 255, 255, 0.9)"
+              : "var(--color-season-spring-daisy-petal)"
           }
         />
         <circle
@@ -260,8 +264,8 @@ const FloorFlowerNode: FC<{ flower: FloorFlower }> = ({ flower }) => {
           r="4.8"
           fill={
             isSakura
-              ? "var(--color-season-spring-blossom-petal)"
-              : "rgba(255, 255, 255, 0.95)"
+              ? "var(--color-season-spring-blossom-deep)"
+              : "var(--color-season-spring-daisy-petal)"
           }
         />
         <circle
@@ -271,7 +275,7 @@ const FloorFlowerNode: FC<{ flower: FloorFlower }> = ({ flower }) => {
           fill={
             isSakura
               ? "var(--color-season-spring-blossom)"
-              : "rgba(255, 255, 255, 0.9)"
+              : "var(--color-season-spring-daisy-petal)"
           }
         />
         <circle
@@ -281,7 +285,7 @@ const FloorFlowerNode: FC<{ flower: FloorFlower }> = ({ flower }) => {
           fill={
             isSakura
               ? "var(--color-season-spring-blossom-petal)"
-              : "rgba(255, 255, 255, 0.95)"
+              : "var(--color-season-spring-daisy-petal)"
           }
         />
         {/* Center core */}
@@ -292,7 +296,7 @@ const FloorFlowerNode: FC<{ flower: FloorFlower }> = ({ flower }) => {
           fill={
             isSakura
               ? "var(--color-season-spring-blossom-core)"
-              : "var(--color-solarized-yellow)"
+              : "var(--color-season-spring-daisy-core)"
           }
         />
       </GrassFlowerSwayGroup>
@@ -300,7 +304,10 @@ const FloorFlowerNode: FC<{ flower: FloorFlower }> = ({ flower }) => {
   );
 };
 
-const SpringFloorFlowers: FC<{ opacity: number }> = ({ opacity }) => {
+const SpringFloorFlowers: FC<{ opacity: number; isDarkMode?: boolean }> = ({
+  opacity,
+  isDarkMode = false,
+}) => {
   if (opacity <= 0.01) return null;
 
   return (
@@ -315,7 +322,7 @@ const SpringFloorFlowers: FC<{ opacity: number }> = ({ opacity }) => {
           ry={petal.r * 0.6}
           transform={`rotate(${petal.rot}, ${petal.cx}, ${petal.cy})`}
           fill="var(--color-season-spring-blossom-petal)"
-          opacity="0.88"
+          opacity={isDarkMode ? 0.55 : 0.88}
         />
       ))}
 
@@ -324,6 +331,7 @@ const SpringFloorFlowers: FC<{ opacity: number }> = ({ opacity }) => {
         <FloorFlowerNode
           key={`floor-flower-${flower.cx}-${flower.cy}`}
           flower={flower}
+          isDarkMode={isDarkMode}
         />
       ))}
     </g>
@@ -392,7 +400,7 @@ export const ForegroundGrassBlades: FC<ForegroundGrassBladesProps> = ({
       <path className="grass-blade-secondary" d={SECONDARY_GRASS_PATH} />
 
       {/* Spring flowers and blossoms on the floor */}
-      <SpringFloorFlowers opacity={flowerOpacity} />
+      <SpringFloorFlowers opacity={flowerOpacity} isDarkMode={isDarkMode} />
     </GrassSvg>
   );
 };

@@ -2,6 +2,7 @@ import {
   BOTANICAL_COLORS,
   PROGRESS_THEME_COLORS,
   SEASON_COLORS,
+  SEASON_NIGHT_COLORS,
 } from "~/tokens/theme";
 import type {
   LeafColors,
@@ -133,7 +134,7 @@ function renderCherryPetal(
   isDarkMode: boolean,
 ): void {
   context.fillStyle = isDarkMode
-    ? SEASON_COLORS.spring.blossomDeep
+    ? SEASON_NIGHT_COLORS.spring.blossom
     : SEASON_COLORS.spring.blossom;
   context.beginPath();
   context.moveTo(0, 0.9);
@@ -145,7 +146,7 @@ function renderCherryPetal(
   context.fill();
 
   context.strokeStyle = isDarkMode
-    ? "rgba(255, 255, 255, 0.35)"
+    ? SEASON_NIGHT_COLORS.spring.blossomPetal
     : SEASON_COLORS.spring.blossomPetal;
   context.lineWidth = 0.08;
   context.beginPath();
@@ -159,7 +160,7 @@ function renderSnowflake(
   isDarkMode: boolean,
 ): void {
   const color = isDarkMode
-    ? SEASON_COLORS.winter.iceCyan
+    ? SEASON_NIGHT_COLORS.winter.snowWhite
     : SEASON_COLORS.winter.snowWhite;
   context.strokeStyle = color;
   context.lineWidth = 0.12;
@@ -183,7 +184,7 @@ function renderSnowflake(
   }
 
   context.fillStyle = isDarkMode
-    ? SEASON_COLORS.winter.frostSlate
+    ? SEASON_NIGHT_COLORS.winter.frostSlate
     : SEASON_COLORS.winter.snowWhite;
   context.beginPath();
   context.arc(0, 0, 0.18, 0, Math.PI * 2);

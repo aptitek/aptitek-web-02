@@ -2,6 +2,7 @@ import {
   BOTANICAL_COLORS,
   PROGRESS_THEME_COLORS,
   SEASON_COLORS,
+  SEASON_NIGHT_COLORS,
 } from "~/tokens/theme";
 import type { LeafColors, SolarizedSeason } from "./SolarizedBackground.types";
 
@@ -122,6 +123,45 @@ const CANOPY_SEASON_PALETTES = [
   },
 ];
 
+const CANOPY_NIGHT_SEASON_PALETTES = [
+  // 0: Spring (Twilight cherry blossom plums & dusty rose)
+  {
+    foliage1A: SEASON_NIGHT_COLORS.spring.canopyA,
+    foliage1B: SEASON_NIGHT_COLORS.spring.canopyB,
+    foliage2A: SEASON_NIGHT_COLORS.spring.deepCanopyA,
+    foliage2B: SEASON_NIGHT_COLORS.spring.deepCanopyB,
+    foliageWarmA: SEASON_NIGHT_COLORS.spring.canopyWarm,
+    foliageWarmB: SEASON_NIGHT_COLORS.spring.canopyLight,
+  },
+  // 1: Summer (Deep nocturnal botanical greens)
+  {
+    foliage1A: SEASON_NIGHT_COLORS.summer.canopyA,
+    foliage1B: SEASON_NIGHT_COLORS.summer.canopyB,
+    foliage2A: SEASON_NIGHT_COLORS.summer.deepCanopyA,
+    foliage2B: SEASON_NIGHT_COLORS.summer.deepCanopyB,
+    foliageWarmA: SEASON_NIGHT_COLORS.summer.canopyWarm,
+    foliageWarmB: SEASON_NIGHT_COLORS.summer.canopyLight,
+  },
+  // 2: Fall / Autumn (Deep nocturnal warm russets & chestnut)
+  {
+    foliage1A: SEASON_NIGHT_COLORS.fall.canopyA,
+    foliage1B: SEASON_NIGHT_COLORS.fall.canopyB,
+    foliage2A: SEASON_NIGHT_COLORS.fall.deepCanopyA,
+    foliage2B: SEASON_NIGHT_COLORS.fall.deepCanopyB,
+    foliageWarmA: SEASON_NIGHT_COLORS.fall.canopyWarm,
+    foliageWarmB: SEASON_NIGHT_COLORS.fall.canopyLight,
+  },
+  // 3: Winter (Frosted nocturnal slate & moonlit pine)
+  {
+    foliage1A: SEASON_NIGHT_COLORS.winter.canopyA,
+    foliage1B: SEASON_NIGHT_COLORS.winter.canopyB,
+    foliage2A: SEASON_NIGHT_COLORS.winter.deepCanopyA,
+    foliage2B: SEASON_NIGHT_COLORS.winter.deepCanopyB,
+    foliageWarmA: SEASON_NIGHT_COLORS.winter.canopyWarm,
+    foliageWarmB: SEASON_NIGHT_COLORS.winter.canopyLight,
+  },
+];
+
 export function getSeasonalCanopyTokens(
   progress: number,
   isDarkMode: boolean,
@@ -134,29 +174,22 @@ export function getSeasonalCanopyTokens(
   const distWinter = Math.abs(progress - 3);
   const snowOpacity = Math.max(0, 1 - distWinter * 1.5);
 
-  if (isDarkMode) {
-    return {
-      trunkPrimary: "var(--color-solarized-base03)",
-      trunkSecondary: "var(--color-solarized-base02)",
-      foliage1A: "var(--color-solarized-cyan)",
-      foliage1B: "var(--color-solarized-base02)",
-      foliage2A: "var(--color-solarized-blue)",
-      foliage2B: "var(--color-solarized-base03)",
-      foliageWarmA: "var(--color-solarized-violet)",
-      foliageWarmB: "var(--color-solarized-blue)",
-      blossomOpacity,
-      snowOpacity,
-    };
-  }
-
   const { fromIndex, toIndex, blendFactor } =
     getSeasonTransitionState(progress);
 
-  const palFrom = CANOPY_SEASON_PALETTES[fromIndex]!;
-  const palTo = CANOPY_SEASON_PALETTES[toIndex]!;
+  const palettes = isDarkMode
+    ? CANOPY_NIGHT_SEASON_PALETTES
+    : CANOPY_SEASON_PALETTES;
 
-  const trunkPrimary = "var(--color-solarized-base01)";
-  const trunkSecondary = "var(--color-solarized-base02)";
+  const palFrom = palettes[fromIndex]!;
+  const palTo = palettes[toIndex]!;
+
+  const trunkPrimary = isDarkMode
+    ? "var(--color-solarized-base03)"
+    : "var(--color-solarized-base01)";
+  const trunkSecondary = isDarkMode
+    ? "var(--color-solarized-base02)"
+    : "var(--color-solarized-base00)";
 
   return {
     trunkPrimary,
@@ -207,22 +240,44 @@ const HILLS_SEASON_PALETTES = [
   },
 ];
 
+const HILLS_NIGHT_SEASON_PALETTES = [
+  // 0: Spring
+  {
+    back: SEASON_NIGHT_COLORS.spring.hillBack,
+    mid: SEASON_NIGHT_COLORS.spring.hillMid,
+    front: SEASON_NIGHT_COLORS.spring.hillFront,
+  },
+  // 1: Summer
+  {
+    back: SEASON_NIGHT_COLORS.summer.hillBack,
+    mid: SEASON_NIGHT_COLORS.summer.hillMid,
+    front: SEASON_NIGHT_COLORS.summer.hillFront,
+  },
+  // 2: Fall
+  {
+    back: SEASON_NIGHT_COLORS.fall.hillBack,
+    mid: SEASON_NIGHT_COLORS.fall.hillMid,
+    front: SEASON_NIGHT_COLORS.fall.hillFront,
+  },
+  // 3: Winter
+  {
+    back: SEASON_NIGHT_COLORS.winter.hillBack,
+    mid: SEASON_NIGHT_COLORS.winter.hillMid,
+    front: SEASON_NIGHT_COLORS.winter.hillFront,
+  },
+];
+
 export function getSeasonalHillTokens(
   progress: number,
   isDarkMode: boolean,
 ): SeasonalHillTokens {
-  if (isDarkMode) {
-    return {
-      hillBack: "var(--color-solarized-base02)",
-      hillMid: "var(--color-solarized-base01)",
-      hillFront: "var(--color-solarized-base02)",
-    };
-  }
-
   const { fromIndex, toIndex, blendFactor } =
     getSeasonTransitionState(progress);
-  const pFrom = HILLS_SEASON_PALETTES[fromIndex]!;
-  const pTo = HILLS_SEASON_PALETTES[toIndex]!;
+  const palettes = isDarkMode
+    ? HILLS_NIGHT_SEASON_PALETTES
+    : HILLS_SEASON_PALETTES;
+  const pFrom = palettes[fromIndex]!;
+  const pTo = palettes[toIndex]!;
 
   return {
     hillBack: interpolateHex(pFrom.back, pTo.back, blendFactor),
@@ -258,6 +313,33 @@ const GRASS_SEASON_PALETTES = [
   },
 ];
 
+const GRASS_NIGHT_SEASON_PALETTES = [
+  // 0: Spring
+  {
+    pStart: SEASON_NIGHT_COLORS.spring.grass,
+    pMid: SEASON_NIGHT_COLORS.spring.hillFront,
+    sStart: SEASON_NIGHT_COLORS.spring.hillMid,
+  },
+  // 1: Summer
+  {
+    pStart: SEASON_NIGHT_COLORS.summer.grass,
+    pMid: SEASON_NIGHT_COLORS.summer.hillFront,
+    sStart: SEASON_NIGHT_COLORS.summer.hillMid,
+  },
+  // 2: Fall
+  {
+    pStart: SEASON_NIGHT_COLORS.fall.grass,
+    pMid: SEASON_NIGHT_COLORS.fall.hillFront,
+    sStart: SEASON_NIGHT_COLORS.fall.hillMid,
+  },
+  // 3: Winter
+  {
+    pStart: SEASON_NIGHT_COLORS.winter.grass,
+    pMid: SEASON_NIGHT_COLORS.winter.hillFront,
+    sStart: SEASON_NIGHT_COLORS.winter.hillMid,
+  },
+];
+
 export function getSeasonalGrassTokens(
   progress: number,
   isDarkMode: boolean,
@@ -266,20 +348,13 @@ export function getSeasonalGrassTokens(
     ? "var(--color-solarized-base03)"
     : "var(--color-solarized-base2)";
 
-  if (isDarkMode) {
-    return {
-      primaryStart: "var(--color-solarized-base01)",
-      primaryMid: "var(--color-solarized-base02)",
-      primaryEnd: pEnd,
-      secondaryStart: "var(--color-solarized-base00)",
-      secondaryEnd: pEnd,
-    };
-  }
-
   const { fromIndex, toIndex, blendFactor } =
     getSeasonTransitionState(progress);
-  const pFrom = GRASS_SEASON_PALETTES[fromIndex]!;
-  const pTo = GRASS_SEASON_PALETTES[toIndex]!;
+  const palettes = isDarkMode
+    ? GRASS_NIGHT_SEASON_PALETTES
+    : GRASS_SEASON_PALETTES;
+  const pFrom = palettes[fromIndex]!;
+  const pTo = palettes[toIndex]!;
 
   return {
     primaryStart: interpolateHex(pFrom.pStart, pTo.pStart, blendFactor),
@@ -290,25 +365,108 @@ export function getSeasonalGrassTokens(
   };
 }
 
-export function getSeasonalLeafPalette(
-  progress: number,
-  isDarkMode: boolean,
+function getDarkSeasonalLeafPalette(
+  fromIndex: number,
+  toIndex: number,
+  blendFactor: number,
 ): LeafColors {
-  if (isDarkMode) {
+  // Fall transition (progress 1 -> 2)
+  if (fromIndex === 1 && toIndex === 2) {
     return {
-      vein: "rgba(42, 161, 152, 0.9)",
-      leftTop: PROGRESS_THEME_COLORS.cyan,
-      leftMid: PROGRESS_THEME_COLORS.blue,
-      leftBottom: PROGRESS_THEME_COLORS.purple,
-      rightTop: PROGRESS_THEME_COLORS.green,
-      rightMid: PROGRESS_THEME_COLORS.cyan,
-      rightBottom: PROGRESS_THEME_COLORS.darkContrast,
+      vein: interpolateHex(
+        SEASON_NIGHT_COLORS.summer.leafVein,
+        SEASON_NIGHT_COLORS.fall.foliageSienna,
+        blendFactor,
+      ),
+      leftTop: interpolateHex(
+        SEASON_NIGHT_COLORS.summer.canopyWarm,
+        SEASON_NIGHT_COLORS.fall.foliageGold,
+        blendFactor,
+      ),
+      leftMid: interpolateHex(
+        SEASON_NIGHT_COLORS.summer.canopyA,
+        SEASON_NIGHT_COLORS.fall.foliageOrange,
+        blendFactor,
+      ),
+      leftBottom: interpolateHex(
+        SEASON_NIGHT_COLORS.summer.canopyB,
+        SEASON_NIGHT_COLORS.fall.foliageRed,
+        blendFactor,
+      ),
+      rightTop: interpolateHex(
+        SEASON_NIGHT_COLORS.summer.canopyWarm,
+        SEASON_NIGHT_COLORS.fall.foliageOrange,
+        blendFactor,
+      ),
+      rightMid: interpolateHex(
+        SEASON_NIGHT_COLORS.summer.canopyLight,
+        SEASON_NIGHT_COLORS.fall.foliageGold,
+        blendFactor,
+      ),
+      rightBottom: interpolateHex(
+        SEASON_NIGHT_COLORS.summer.leafBottom,
+        SEASON_NIGHT_COLORS.fall.foliageSienna,
+        blendFactor,
+      ),
     };
   }
 
-  const { fromIndex, toIndex, blendFactor } =
-    getSeasonTransitionState(progress);
+  // Peak Fall
+  if (fromIndex === 2 && blendFactor < 0.5) {
+    return {
+      vein: SEASON_NIGHT_COLORS.fall.foliageSienna,
+      leftTop: SEASON_NIGHT_COLORS.fall.foliageGold,
+      leftMid: SEASON_NIGHT_COLORS.fall.foliageOrange,
+      leftBottom: SEASON_NIGHT_COLORS.fall.foliageRed,
+      rightTop: SEASON_NIGHT_COLORS.fall.foliageOrange,
+      rightMid: SEASON_NIGHT_COLORS.fall.foliageGold,
+      rightBottom: SEASON_NIGHT_COLORS.fall.foliageSienna,
+    };
+  }
 
+  // Winter night
+  if (fromIndex === 3 || (fromIndex === 2 && blendFactor >= 0.5)) {
+    return {
+      vein: SEASON_NIGHT_COLORS.winter.leafVein,
+      leftTop: SEASON_NIGHT_COLORS.winter.canopyWarm,
+      leftMid: SEASON_NIGHT_COLORS.winter.frostSlate,
+      leftBottom: SEASON_NIGHT_COLORS.winter.canopyB,
+      rightTop: SEASON_NIGHT_COLORS.winter.snowWhite,
+      rightMid: SEASON_NIGHT_COLORS.winter.snowSoft,
+      rightBottom: SEASON_NIGHT_COLORS.winter.leafBottom,
+    };
+  }
+
+  // Spring night
+  if (fromIndex === 0) {
+    return {
+      vein: SEASON_NIGHT_COLORS.spring.leafVein,
+      leftTop: SEASON_NIGHT_COLORS.spring.canopyWarm,
+      leftMid: SEASON_NIGHT_COLORS.spring.canopyA,
+      leftBottom: SEASON_NIGHT_COLORS.spring.canopyB,
+      rightTop: SEASON_NIGHT_COLORS.spring.blossom,
+      rightMid: SEASON_NIGHT_COLORS.spring.blossomPetal,
+      rightBottom: SEASON_NIGHT_COLORS.spring.leafBottom,
+    };
+  }
+
+  // Default: Summer night
+  return {
+    vein: SEASON_NIGHT_COLORS.summer.leafVein,
+    leftTop: SEASON_NIGHT_COLORS.summer.canopyWarm,
+    leftMid: SEASON_NIGHT_COLORS.summer.canopyA,
+    leftBottom: SEASON_NIGHT_COLORS.summer.canopyB,
+    rightTop: SEASON_NIGHT_COLORS.summer.canopyWarm,
+    rightMid: SEASON_NIGHT_COLORS.summer.canopyLight,
+    rightBottom: SEASON_NIGHT_COLORS.summer.leafBottom,
+  };
+}
+
+function getLightSeasonalLeafPalette(
+  fromIndex: number,
+  toIndex: number,
+  blendFactor: number,
+): LeafColors {
   // Fall orange/amber progression (progress 1 -> 2)
   if (fromIndex === 1 && toIndex === 2) {
     return {
@@ -373,4 +531,16 @@ export function getSeasonalLeafPalette(
     rightMid: BOTANICAL_COLORS.grassBladeHighlight,
     rightBottom: PROGRESS_THEME_COLORS.darkContrast,
   };
+}
+
+export function getSeasonalLeafPalette(
+  progress: number,
+  isDarkMode: boolean,
+): LeafColors {
+  const { fromIndex, toIndex, blendFactor } =
+    getSeasonTransitionState(progress);
+
+  return isDarkMode
+    ? getDarkSeasonalLeafPalette(fromIndex, toIndex, blendFactor)
+    : getLightSeasonalLeafPalette(fromIndex, toIndex, blendFactor);
 }

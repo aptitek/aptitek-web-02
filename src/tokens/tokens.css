@@ -58,6 +58,8 @@
   --color-celestial-moon-main: var(--color-solarized-blue);
   --color-celestial-moon-glow: var(--color-solarized-violet);
   --color-celestial-moon-crater: var(--color-solarized-base01);
+  --color-celestial-moon-aura: rgba(180, 215, 225, 0.35);
+  --color-celestial-night-sky-glow: rgba(180, 215, 225, 0.12);
   --color-celestial-horizon-day: var(--color-solarized-base3);
   --color-celestial-horizon-night: var(--color-solarized-base03);
 
@@ -74,11 +76,13 @@
   --color-sky-pastel-yellow: #fae8be;
   --color-sky-horizon: #eee6d3;
 
-  /* Seasonal Environment Tokens */
+  /* Seasonal Environment Tokens - Daytime / Light Defaults */
   --color-season-spring-blossom: #fbb1bd;
   --color-season-spring-blossom-deep: #f48498;
   --color-season-spring-blossom-core: #e05780;
   --color-season-spring-blossom-petal: #ffccd5;
+  --color-season-spring-daisy-petal: rgba(255, 255, 255, 0.96);
+  --color-season-spring-daisy-core: var(--color-solarized-yellow);
   --color-season-spring-grass: #9ec43b;
   --color-season-fall-foliage-gold: #e5a823;
   --color-season-fall-foliage-orange: #d35400;
@@ -455,4 +459,46 @@
   --md-sys-elevation-level3: 0 0 0 2px #ff007f;
   --md-sys-elevation-level4: 0 0 0 3px #ffff00;
   --md-sys-elevation-level5: 0 0 0 3px #ff00aa;
+}
+
+[data-mode="dark"],
+[data-theme="dark"],
+.dark {
+  /* Seasonal Nocturnal / Moonlit Environment Tokens */
+  --color-season-spring-blossom: #c27ba0;
+  --color-season-spring-blossom-deep: #944d6b;
+  --color-season-spring-blossom-core: #7a2a4c;
+  --color-season-spring-blossom-petal: #e2a8be;
+  --color-season-spring-daisy-petal: rgba(200, 220, 225, 0.7);
+  --color-season-spring-daisy-core: rgba(181, 137, 0, 0.8);
+  --color-season-spring-grass: #164434;
+  --color-season-fall-foliage-gold: #8a4210;
+  --color-season-fall-foliage-orange: #6e2808;
+  --color-season-fall-foliage-red: #541c06;
+  --color-season-fall-foliage-sienna: #381100;
+  --color-season-winter-snow-white: #d8eef2;
+  --color-season-winter-snow-soft: #a8c6ce;
+  --color-season-winter-frost-slate: #475e66;
+  --color-season-winter-ice-cyan: #234a54;
+}
+
+[data-mode="light"],
+[data-theme="light"],
+.light {
+  /* Seasonal Daytime Environment Tokens */
+  --color-season-spring-blossom: #fbb1bd;
+  --color-season-spring-blossom-deep: #f48498;
+  --color-season-spring-blossom-core: #e05780;
+  --color-season-spring-blossom-petal: #ffccd5;
+  --color-season-spring-daisy-petal: rgba(255, 255, 255, 0.96);
+  --color-season-spring-daisy-core: var(--color-solarized-yellow);
+  --color-season-spring-grass: #9ec43b;
+  --color-season-fall-foliage-gold: #e5a823;
+  --color-season-fall-foliage-orange: #d35400;
+  --color-season-fall-foliage-red: #b83b1f;
+  --color-season-fall-foliage-sienna: #873600;
+  --color-season-winter-snow-white: #f8fcfd;
+  --color-season-winter-snow-soft: #e0f2f1;
+  --color-season-winter-frost-slate: #93a1a1;
+  --color-season-winter-ice-cyan: #2aa198;
 }

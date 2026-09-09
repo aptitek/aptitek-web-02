@@ -23,6 +23,7 @@ export {
   BOTANICAL_COLORS,
   PASTEL_SKY_COLORS,
   SEASON_COLORS,
+  SEASON_NIGHT_COLORS,
   PROGRESS_THEME_COLORS,
   type NamedColors,
   type RoleColors,
@@ -32,6 +33,7 @@ export {
   type BotanicalColors,
   type PastelSkyColors,
   type SeasonColors,
+  type SeasonNightColors,
 } from "./namedColors";
 
 import { m3SharedComponents } from "./themeComponents";
