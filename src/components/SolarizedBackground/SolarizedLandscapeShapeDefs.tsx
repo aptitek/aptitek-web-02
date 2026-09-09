@@ -18,95 +18,6 @@ export interface LandscapeProps {
   seasonProgress?: number;
 }
 
-interface BlossomPosition {
-  cx: number;
-  cy: number;
-  scale: number;
-}
-
-const BLOSSOM_POSITIONS: readonly BlossomPosition[] = [
-  { cx: 105, cy: 170, scale: 1.1 },
-  { cx: 130, cy: 215, scale: 0.9 },
-  { cx: 165, cy: 125, scale: 1.2 },
-  { cx: 195, cy: 160, scale: 1.0 },
-  { cx: 225, cy: 95, scale: 1.2 },
-  { cx: 255, cy: 140, scale: 1.1 },
-  { cx: 290, cy: 115, scale: 1.0 },
-  { cx: 320, cy: 175, scale: 1.3 },
-  { cx: 355, cy: 140, scale: 0.95 },
-  { cx: 385, cy: 200, scale: 1.1 },
-  { cx: 415, cy: 220, scale: 0.9 },
-  { cx: 140, cy: 250, scale: 1.0 },
-  { cx: 210, cy: 310, scale: 0.85 },
-  { cx: 270, cy: 280, scale: 0.9 },
-  { cx: 340, cy: 245, scale: 1.05 },
-];
-
-const BlossomFloret: FC<{ cx: number; cy: number; scale: number }> = ({
-  cx,
-  cy,
-  scale,
-}) => (
-  <g transform={`translate(${cx}, ${cy}) scale(${scale})`}>
-    <circle
-      cx="0"
-      cy="-6"
-      r="4.5"
-      fill="var(--color-season-spring-blossom-petal)"
-    />
-    <circle
-      cx="5.7"
-      cy="-1.8"
-      r="4.5"
-      fill="var(--color-season-spring-blossom)"
-    />
-    <circle
-      cx="3.5"
-      cy="4.8"
-      r="4.5"
-      fill="var(--color-season-spring-blossom-petal)"
-    />
-    <circle
-      cx="-3.5"
-      cy="4.8"
-      r="4.5"
-      fill="var(--color-season-spring-blossom)"
-    />
-    <circle
-      cx="-5.7"
-      cy="-1.8"
-      r="4.5"
-      fill="var(--color-season-spring-blossom-petal)"
-    />
-    <circle
-      cx="0"
-      cy="0"
-      r="2"
-      fill="var(--color-season-spring-blossom-core)"
-    />
-  </g>
-);
-
-const CherryBlossomClusters: FC<{ opacity: number; isDarkMode?: boolean }> = ({
-  opacity,
-  isDarkMode = false,
-}) => {
-  if (opacity <= 0.01) return null;
-
-  return (
-    <g id="treeCherryBlossoms" opacity={isDarkMode ? opacity * 0.82 : opacity}>
-      {BLOSSOM_POSITIONS.map((pos) => (
-        <BlossomFloret
-          key={`blossom-${pos.cx}-${pos.cy}`}
-          cx={pos.cx}
-          cy={pos.cy}
-          scale={pos.scale}
-        />
-      ))}
-    </g>
-  );
-};
-
 const WinterSnowCaps: FC<{ opacity: number; isDarkMode?: boolean }> = ({
   opacity,
   isDarkMode = false,
@@ -433,12 +344,6 @@ export const PeacefulTreeGraphic: FC<{
           <circle cx="330" cy="85" r="15" fill="url(#treeCanopyGrad1)" />
           <circle cx="160" cy="90" r="13" fill="url(#treeCanopyWarm)" />
           <circle cx="410" cy="250" r="11" fill="url(#treeCanopyWarm)" />
-
-          {/* Seasonal cherry blossom florets in spring */}
-          <CherryBlossomClusters
-            opacity={tokens.blossomOpacity}
-            isDarkMode={isDarkMode}
-          />
 
           {/* Seasonal snow caps and drifts in winter */}
           <WinterSnowCaps

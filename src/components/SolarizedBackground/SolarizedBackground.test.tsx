@@ -293,7 +293,7 @@ describe("SolarizedBackground Component", () => {
     expect(winterTokens.blossomOpacity).toBe(0.0);
   });
 
-  it("renders cherry blossoms in spring and snow caps in winter", () => {
+  it("renders spring floor flowers and winter snow caps, with clean tree canopy", () => {
     const { container, rerender } = render(
       <ThemeModeProvider>
         <ThemeProvider theme={appTheme}>
@@ -302,8 +302,9 @@ describe("SolarizedBackground Component", () => {
       </ThemeModeProvider>,
     );
 
-    expect(container.querySelector("#treeCherryBlossoms")).not.toBeNull();
+    expect(container.querySelector("#treeCherryBlossoms")).toBeNull();
     expect(container.querySelector("#springFloorFlowers")).not.toBeNull();
+    expect(container.querySelector("#springMeadowFloorFlowers")).not.toBeNull();
     expect(container.querySelector("#treeWinterSnow")).toBeNull();
 
     // Rerender in winter
