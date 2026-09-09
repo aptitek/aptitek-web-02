@@ -7,6 +7,11 @@ import { SolarizedBackground } from "./SolarizedBackground";
 import { computeTargetWindVector } from "./useSolarizedCanvas";
 import { LeafParticle, WindBreezeStream } from "./SolarizedLeafRenderer";
 import type { WindState, MouseState } from "./SolarizedBackground.types";
+import {
+  resolveSeasonProgress,
+  getSeasonalCanopyTokens,
+  getSeasonalLeafPalette,
+} from "./seasonUtils";
 
 describe("SolarizedBackground Component", () => {
   beforeEach(() => {
@@ -255,5 +260,114 @@ describe("SolarizedBackground Component", () => {
     expect(leaf.x).toBeGreaterThan(initialLeafX);
     // leaf naturally settles gently toward ground
     expect(leaf.y).toBeGreaterThan(initialLeafY);
+  });
+
+  it("resolves season progress correctly for named variants and continuous values", () => {
+    expect(resolveSeasonProgress("spring")).toBe(0.0);
+    expect(resolveSeasonProgress("summer")).toBe(1.0);
+    expect(resolveSeasonProgress("fall")).toBe(2.0);
+    expect(resolveSeasonProgress("autumn")).toBe(2.0);
+    expect(resolveSeasonProgress("winter")).toBe(3.0);
+    expect(resolveSeasonProgress(undefined)).toBe(1.0); // Default summer
+    expect(resolveSeasonProgress("summer", 2.5)).toBe(2.5); // Slider overrides
+  });
+
+  it("calculates seasonal canopy tokens and blossom/snow presence", () => {
+    // Spring (progress = 0) has peak cherry blossoms and 0 snow
+    const springTokens = getSeasonalCanopyTokens(0.0, false);
+    expect(springTokens.blossomOpacity).toBeGreaterThan(0.8);
+    expect(springTokens.snowOpacity).toBe(0.0);
+
+    // Summer (progress = 1) has 0 blossoms and 0 snow, with pure botanical greens (no blue)
+    const summerTokens = getSeasonalCanopyTokens(1.0, false);
+    expect(summerTokens.blossomOpacity).toBe(0.0);
+    expect(summerTokens.snowOpacity).toBe(0.0);
+    expect(summerTokens.foliage2A).not.toContain("268bd2"); // Not blue
+    expect(summerTokens.foliage2B).not.toContain("2aa198"); // Not cyan
+
+    // Winter (progress = 3) has peak snow and 0 blossoms
+    const winterTokens = getSeasonalCanopyTokens(3.0, false);
+    expect(winterTokens.snowOpacity).toBeGreaterThan(0.8);
+    expect(winterTokens.blossomOpacity).toBe(0.0);
+  });
+
+  it("renders cherry blossoms in spring and snow caps in winter", () => {
+    const { container, rerender } = render(
+      <ThemeModeProvider>
+        <ThemeProvider theme={appTheme}>
+          <SolarizedBackground season="spring" />
+        </ThemeProvider>
+      </ThemeModeProvider>,
+    );
+
+    expect(container.querySelector("#treeCherryBlossoms")).not.toBeNull();
+    expect(container.querySelector("#springFloorFlowers")).not.toBeNull();
+    expect(container.querySelector("#treeWinterSnow")).toBeNull();
+
+    // Rerender in winter
+    rerender(
+      <ThemeModeProvider>
+        <ThemeProvider theme={appTheme}>
+          <SolarizedBackground season="winter" />
+        </ThemeProvider>
+      </ThemeModeProvider>,
+    );
+
+    expect(container.querySelector("#treeCherryBlossoms")).toBeNull();
+    expect(container.querySelector("#springFloorFlowers")).toBeNull();
+    expect(container.querySelector("#treeWinterSnow")).not.toBeNull();
+
+    // Rerender in summer
+    rerender(
+      <ThemeModeProvider>
+        <ThemeProvider theme={appTheme}>
+          <SolarizedBackground season="summer" />
+        </ThemeProvider>
+      </ThemeModeProvider>,
+    );
+
+    expect(container.querySelector("#treeCherryBlossoms")).toBeNull();
+    expect(container.querySelector("#springFloorFlowers")).toBeNull();
+    expect(container.querySelector("#treeWinterSnow")).toBeNull();
+  });
+
+  it("renders particles across seasonal slider without errors", () => {
+    const mockContext = {
+      save: vi.fn(),
+      restore: vi.fn(),
+      translate: vi.fn(),
+      rotate: vi.fn(),
+      scale: vi.fn(),
+      beginPath: vi.fn(),
+      moveTo: vi.fn(),
+      lineTo: vi.fn(),
+      bezierCurveTo: vi.fn(),
+      quadraticCurveTo: vi.fn(),
+      closePath: vi.fn(),
+      fill: vi.fn(),
+      stroke: vi.fn(),
+      arc: vi.fn(),
+      fillStyle: "",
+      strokeStyle: "",
+      lineWidth: 1,
+      lineCap: "round",
+      globalAlpha: 1,
+    } as unknown as CanvasRenderingContext2D;
+
+    const particle = new LeafParticle(false, 800, 600, { x: 100, y: 100 });
+
+    // Draw in Spring (petals)
+    expect(() => particle.draw(mockContext, false, 0.0)).not.toThrow();
+    // Draw in Summer (botanical green leaves)
+    expect(() => particle.draw(mockContext, false, 1.0)).not.toThrow();
+    // Draw in Fall (orange leaves)
+    expect(() => particle.draw(mockContext, false, 2.0)).not.toThrow();
+    // Draw in Winter (snowflakes)
+    expect(() => particle.draw(mockContext, false, 3.0)).not.toThrow();
+
+    // Verify fall palette is warm/orange
+    const fallPalette = getSeasonalLeafPalette(2.0, false);
+    expect(fallPalette.leftMid).toBeDefined();
+    expect(fallPalette.vein).toBeDefined();
   });
 });

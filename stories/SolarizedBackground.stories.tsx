@@ -28,6 +28,16 @@ const meta = {
       options: ["auto", "light", "sunset", "dark"],
       description: "Visual theme mode",
     },
+    season: {
+      control: "select",
+      options: ["spring", "summer", "fall", "winter"],
+      description: "Seasonal variant",
+    },
+    seasonProgress: {
+      control: { type: "range", min: 0.0, max: 4.0, step: 0.05 },
+      description:
+        "Continuous season slider (0.0=Spring petals, 1.0=Summer, 2.0=Fall orange, 3.0=Winter snow)",
+    },
     interactive: {
       control: "boolean",
       description: "Cursor-guided breeze and parallax",
@@ -260,6 +270,98 @@ export const MinimalHorizon: Story = {
     showGrass: true,
     leafCount: 28,
     windIntensity: 0.8,
+  },
+  render: (args: SolarizedBackgroundProps) => (
+    <StoryContainer>
+      <SolarizedBackground {...args} />
+    </StoryContainer>
+  ),
+};
+
+export const SpringCherryBlossoms: Story = {
+  args: {
+    mode: "light",
+    season: "spring",
+    seasonProgress: 0.0,
+    interactive: true,
+    showTree: true,
+    showHills: true,
+    showCelestial: true,
+    showClouds: true,
+    showGodrays: true,
+    showAurora: false,
+    showGrass: true,
+    leafCount: 46,
+    windIntensity: 0.9,
+  },
+  render: (args: SolarizedBackgroundProps) => (
+    <StoryContainer>
+      <SolarizedBackground {...args} />
+    </StoryContainer>
+  ),
+};
+
+export const AutumnFallSlider: Story = {
+  args: {
+    mode: "sunset",
+    season: "fall",
+    seasonProgress: 2.0,
+    interactive: true,
+    showTree: true,
+    showHills: true,
+    showCelestial: true,
+    showClouds: true,
+    showGodrays: true,
+    showAurora: false,
+    showGrass: true,
+    leafCount: 52,
+    windIntensity: 1.1,
+  },
+  render: (args: SolarizedBackgroundProps) => (
+    <StoryContainer>
+      <SolarizedBackground {...args} />
+    </StoryContainer>
+  ),
+};
+
+export const WinterSnowfall: Story = {
+  args: {
+    mode: "light",
+    season: "winter",
+    seasonProgress: 3.0,
+    interactive: true,
+    showTree: true,
+    showHills: true,
+    showCelestial: true,
+    showClouds: true,
+    showGodrays: true,
+    showAurora: false,
+    showGrass: true,
+    leafCount: 48,
+    windIntensity: 1.0,
+  },
+  render: (args: SolarizedBackgroundProps) => (
+    <StoryContainer>
+      <SolarizedBackground {...args} />
+    </StoryContainer>
+  ),
+};
+
+export const SeasonsCycleSlider: Story = {
+  args: {
+    mode: "light",
+    season: "summer",
+    seasonProgress: 1.0,
+    interactive: true,
+    showTree: true,
+    showHills: true,
+    showCelestial: true,
+    showClouds: true,
+    showGodrays: true,
+    showAurora: false,
+    showGrass: true,
+    leafCount: 44,
+    windIntensity: 1.0,
   },
   render: (args: SolarizedBackgroundProps) => (
     <StoryContainer>

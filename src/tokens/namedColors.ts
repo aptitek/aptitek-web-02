@@ -69,6 +69,65 @@ export const PASTEL_SKY_COLORS = {
   horizon: "#eee6d3", // Soft luminous base2 horizon transition
 } as const;
 
+// Seasonal Environment Color Tokens
+export const SEASON_COLORS = {
+  spring: {
+    blossom: "#fbb1bd", // Soft sakura petal pink
+    blossomDeep: "#f48498", // Rich cherry blossom pink
+    blossomCore: "#e05780", // Cherry blossom flower center
+    blossomPetal: "#ffccd5", // Light translucent petal
+    canopyA: "#fbb1bd",
+    canopyB: "#f48498",
+    canopyWarm: "#ffccd5",
+    hillBack: "#eee8d5",
+    hillMid: "#b58900",
+    hillFront: "#9ec43b",
+    hills: "#859900",
+    grass: "#9ec43b",
+  },
+  summer: {
+    canopyA: "#859900", // Vibrant solarized meadow green
+    canopyB: "#4d7318", // Deep botanical forest green
+    deepCanopyA: "#1f4e2b", // Rich deep forest shadow green
+    deepCanopyB: "#2e6030", // Deep shade moss green
+    canopyWarm: "#a6bd1a", // Sunny meadow light green
+    canopyLight: "#c2d936", // Sunlit lime-green highlight
+    hillBack: "#eee8d5",
+    hillMid: "#b58900",
+    hillFront: "#859900",
+    hills: "#859900",
+    grass: "#a6bd1a",
+  },
+  fall: {
+    foliageGold: "#e5a823", // Warm golden amber
+    foliageOrange: "#d35400", // Fiery autumn orange
+    foliageRed: "#b83b1f", // Russet maple red
+    foliageSienna: "#873600", // Burnt sienna
+    canopyA: "#d35400",
+    canopyB: "#b83b1f",
+    canopyWarm: "#e5a823",
+    hillBack: "#fae8be",
+    hillMid: "#d35400",
+    hillFront: "#b58900",
+    hills: "#b58900",
+    grass: "#d8c93b",
+  },
+  winter: {
+    snowWhite: "#f8fcfd", // Alpine snow white
+    snowSoft: "#e0f2f1", // Soft snowy shadow
+    frostSlate: "#93a1a1", // Frosted slate
+    iceCyan: "#2aa198", // Ice highlight
+    canopyA: "#93a1a1",
+    canopyB: "#586e75",
+    canopyWarm: "#e0f2f1",
+    hillBack: "#f8fcfd",
+    hillMid: "#e0f2f1",
+    hillFront: "#eee8d5",
+    hills: "#eee8d5",
+    grass: "#93a1a1",
+  },
+} as const;
+
 // Progress percentage-based theme color spectrum
 export const PROGRESS_THEME_COLORS = {
   purple: "#6c71c4",
@@ -89,6 +148,7 @@ export const NAMED_COLORS = {
   celestial: CELESTIAL_COLORS,
   flags: FLAG_COLORS,
   progress: PROGRESS_THEME_COLORS,
+  seasons: SEASON_COLORS,
 } as const;
 
 export type NamedColors = typeof NAMED_COLORS;
@@ -98,3 +158,4 @@ export type FlagColors = typeof FLAG_COLORS;
 export type ProgressThemeColors = typeof PROGRESS_THEME_COLORS;
 export type BotanicalColors = typeof BOTANICAL_COLORS;
 export type PastelSkyColors = typeof PASTEL_SKY_COLORS;
+export type SeasonColors = typeof SEASON_COLORS;

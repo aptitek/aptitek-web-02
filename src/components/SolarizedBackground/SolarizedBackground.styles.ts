@@ -169,7 +169,7 @@ export const CloudsSvg = styled("svg")({
   animation: `${cloudDriftKeyframes} 24s ease-in-out infinite`,
 });
 
-export const HillsSvg = styled("svg")(({ theme }) => ({
+export const HillsSvg = styled("svg")({
   position: "absolute",
   inset: 0,
   width: "100%",
@@ -177,49 +177,18 @@ export const HillsSvg = styled("svg")(({ theme }) => ({
   zIndex: 3,
   pointerEvents: "none",
   "& .hill-back-path": {
-    fill: "var(--color-solarized-base2)",
     opacity: 0.72,
     transition: "fill 0.8s ease",
   },
   "& .hill-mid-path": {
-    fill: "var(--color-solarized-yellow)",
     opacity: 0.45,
     transition: "fill 0.8s ease",
   },
   "& .hill-front-path": {
-    fill: "var(--color-solarized-green)",
     opacity: 0.88,
     transition: "fill 0.8s ease",
   },
-  '[data-mode="dark"] & .hill-back-path, [data-theme="dark"] & .hill-back-path':
-    {
-      fill: "var(--color-solarized-base02)",
-      opacity: 0.75,
-    },
-  '[data-mode="dark"] & .hill-mid-path, [data-theme="dark"] & .hill-mid-path': {
-    fill: "var(--color-solarized-base01)",
-    opacity: 0.55,
-  },
-  '[data-mode="dark"] & .hill-front-path, [data-theme="dark"] & .hill-front-path':
-    {
-      fill: "var(--color-solarized-base02)",
-      opacity: 0.95,
-    },
-  ...theme.applyStyles("dark", {
-    "& .hill-back-path": {
-      fill: "var(--color-solarized-base02)",
-      opacity: 0.75,
-    },
-    "& .hill-mid-path": {
-      fill: "var(--color-solarized-base01)",
-      opacity: 0.55,
-    },
-    "& .hill-front-path": {
-      fill: "var(--color-solarized-base02)",
-      opacity: 0.95,
-    },
-  }),
-}));
+});
 
 export const TreeWrapper = styled("div")({
   position: "absolute",

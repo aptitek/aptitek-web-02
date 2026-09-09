@@ -63,6 +63,7 @@ export interface UseSolarizedCanvasOptions {
   isDarkMode: boolean;
   mouseStateRef: RefObject<MouseState>;
   windStateRef: RefObject<WindState>;
+  seasonProgress?: number;
 }
 
 interface StreamsDrawOptions {
@@ -83,6 +84,7 @@ interface LeavesDrawOptions {
   canopyOrigin: Point2D;
   isDarkMode: boolean;
   reducedMotion: boolean;
+  seasonProgress: number;
 }
 
 function updateStreamsAndDraw(options: StreamsDrawOptions): void {
@@ -113,13 +115,14 @@ function updateLeavesAndDraw(options: LeavesDrawOptions): void {
     canopyOrigin,
     isDarkMode,
     reducedMotion,
+    seasonProgress,
   } = options;
 
   for (const fallingLeaf of leaves) {
     if (!reducedMotion) {
       fallingLeaf.update(windState, mouseState, viewport, canopyOrigin);
     }
-    fallingLeaf.draw(renderContext, isDarkMode);
+    fallingLeaf.draw(renderContext, isDarkMode, seasonProgress);
   }
 }
 
@@ -131,6 +134,7 @@ export function useSolarizedCanvas({
   isDarkMode,
   mouseStateRef,
   windStateRef,
+  seasonProgress = 1.0,
 }: UseSolarizedCanvasOptions): void {
   const leavesRef = useRef<LeafParticle[]>([]);
   const streamsRef = useRef<WindBreezeStream[]>([]);
@@ -252,6 +256,7 @@ export function useSolarizedCanvas({
         canopyOrigin,
         isDarkMode,
         reducedMotion: checkReducedMotion,
+        seasonProgress,
       });
 
       animationFrameIdRef.current = requestAnimationFrame(animationTick);
@@ -273,5 +278,6 @@ export function useSolarizedCanvas({
     isDarkMode,
     mouseStateRef,
     windStateRef,
+    seasonProgress,
   ]);
 }

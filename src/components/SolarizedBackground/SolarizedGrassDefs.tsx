@@ -1,5 +1,6 @@
 import type { FC } from "react";
 import { keyframes, styled } from "@mui/material/styles";
+import { getSeasonalGrassTokens } from "./seasonUtils";
 
 const grassBreezeSway = keyframes`
   0%, 100% {
@@ -7,6 +8,15 @@ const grassBreezeSway = keyframes`
   }
   50% {
     transform: skewX(2deg);
+  }
+`;
+
+const flowerBreezeSway = keyframes`
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(3deg);
   }
 `;
 
@@ -110,6 +120,11 @@ export const GrassSvg = styled("svg")({
   },
 });
 
+const GrassFlowerSwayGroup = styled("g")({
+  transformOrigin: "0px 0px",
+  animation: `${flowerBreezeSway} 4.2s ease-in-out infinite`,
+});
+
 interface GrassGradientTokens {
   primaryStart: string;
   primaryMid: string;
@@ -120,17 +135,6 @@ interface GrassGradientTokens {
   tertiaryMid: string;
   tertiaryEnd: string;
 }
-
-const LIGHT_GRASS_TOKENS: GrassGradientTokens = {
-  primaryStart: "var(--color-botanical-grass-light)",
-  primaryMid: "var(--color-botanical-grass-warm)",
-  primaryEnd: "var(--color-solarized-base2)",
-  secondaryStart: "var(--color-botanical-grass-warm)",
-  secondaryEnd: "var(--color-solarized-base2)",
-  tertiaryStart: "var(--color-botanical-grass-highlight)",
-  tertiaryMid: "var(--color-botanical-grass-light)",
-  tertiaryEnd: "var(--color-solarized-base2)",
-};
 
 const DARK_GRASS_TOKENS: GrassGradientTokens = {
   primaryStart: "var(--color-solarized-base01)",
@@ -143,18 +147,196 @@ const DARK_GRASS_TOKENS: GrassGradientTokens = {
   tertiaryEnd: "var(--color-solarized-base03)",
 };
 
-function resolveGrassTokens(isDarkMode: boolean): GrassGradientTokens {
-  return isDarkMode ? DARK_GRASS_TOKENS : LIGHT_GRASS_TOKENS;
+function resolveGrassTokens(
+  isDarkMode: boolean,
+  seasonProgress = 1.0,
+): GrassGradientTokens {
+  if (isDarkMode) {
+    return DARK_GRASS_TOKENS;
+  }
+
+  const seasonal = getSeasonalGrassTokens(seasonProgress, false);
+  return {
+    primaryStart: seasonal.primaryStart,
+    primaryMid: seasonal.primaryMid,
+    primaryEnd: seasonal.primaryEnd,
+    secondaryStart: seasonal.secondaryStart,
+    secondaryEnd: seasonal.secondaryEnd,
+    tertiaryStart: seasonal.secondaryStart,
+    tertiaryMid: seasonal.primaryStart,
+    tertiaryEnd: seasonal.primaryEnd,
+  };
 }
 
 export interface ForegroundGrassBladesProps {
   isDarkMode?: boolean;
+  seasonProgress?: number;
 }
+
+interface FloorFlower {
+  cx: number;
+  cy: number;
+  scale: number;
+  rotation: number;
+  type: "sakura" | "daisy";
+}
+
+const SPRING_FLOOR_FLOWERS: readonly FloorFlower[] = [
+  { cx: 65, cy: 22, scale: 1.4, rotation: -12, type: "sakura" },
+  { cx: 140, cy: 26, scale: 1.25, rotation: 18, type: "daisy" },
+  { cx: 225, cy: 18, scale: 1.5, rotation: 8, type: "sakura" },
+  { cx: 315, cy: 28, scale: 1.3, rotation: -16, type: "daisy" },
+  { cx: 405, cy: 20, scale: 1.55, rotation: 14, type: "sakura" },
+  { cx: 495, cy: 30, scale: 1.2, rotation: -20, type: "sakura" },
+  { cx: 575, cy: 18, scale: 1.45, rotation: 10, type: "daisy" },
+  { cx: 660, cy: 24, scale: 1.55, rotation: -6, type: "sakura" },
+  { cx: 745, cy: 28, scale: 1.3, rotation: 18, type: "daisy" },
+  { cx: 835, cy: 19, scale: 1.6, rotation: -14, type: "sakura" },
+  { cx: 920, cy: 26, scale: 1.3, rotation: 12, type: "sakura" },
+  { cx: 1005, cy: 20, scale: 1.45, rotation: -8, type: "daisy" },
+  { cx: 1090, cy: 29, scale: 1.25, rotation: 22, type: "sakura" },
+  { cx: 1175, cy: 22, scale: 1.5, rotation: -10, type: "daisy" },
+  { cx: 1260, cy: 28, scale: 1.35, rotation: 15, type: "sakura" },
+  { cx: 1345, cy: 20, scale: 1.45, rotation: -18, type: "sakura" },
+  { cx: 1415, cy: 26, scale: 1.3, rotation: 6, type: "daisy" },
+];
+
+const SPRING_FALLEN_PETALS = [
+  { cx: 105, cy: 68, r: 4.2, rot: 35 },
+  { cx: 175, cy: 71, r: 3.6, rot: -45 },
+  { cx: 280, cy: 69, r: 4.5, rot: 15 },
+  { cx: 440, cy: 72, r: 3.4, rot: -20 },
+  { cx: 590, cy: 67, r: 4.4, rot: 50 },
+  { cx: 685, cy: 70, r: 3.8, rot: -10 },
+  { cx: 780, cy: 68, r: 4.2, rot: 40 },
+  { cx: 865, cy: 71, r: 3.7, rot: -35 },
+  { cx: 1030, cy: 69, r: 4.6, rot: 25 },
+  { cx: 1210, cy: 70, r: 4.0, rot: -60 },
+  { cx: 1365, cy: 68, r: 3.5, rot: 18 },
+] as const;
+
+const FloorFlowerNode: FC<{ flower: FloorFlower }> = ({ flower }) => {
+  const { cx, cy, scale, rotation, type } = flower;
+  const isSakura = type === "sakura";
+  const stemHeight = 76 - cy;
+
+  return (
+    <g
+      transform={`translate(${cx}, ${cy}) scale(${scale}) rotate(${rotation})`}
+    >
+      <GrassFlowerSwayGroup>
+        {/* Delicate organic stem rooted down to ground */}
+        <path
+          d={`M0,0 Q${rotation > 0 ? 3 : -3},${stemHeight * 0.5} 0,${stemHeight}`}
+          stroke="var(--color-season-spring-grass)"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          fill="none"
+        />
+        {/* 5 Petals */}
+        <circle
+          cx="0"
+          cy="-6.5"
+          r="4.8"
+          fill={
+            isSakura
+              ? "var(--color-season-spring-blossom-petal)"
+              : "rgba(255, 255, 255, 0.95)"
+          }
+        />
+        <circle
+          cx="6.2"
+          cy="-2.0"
+          r="4.8"
+          fill={
+            isSakura
+              ? "var(--color-season-spring-blossom)"
+              : "rgba(255, 255, 255, 0.9)"
+          }
+        />
+        <circle
+          cx="3.8"
+          cy="5.2"
+          r="4.8"
+          fill={
+            isSakura
+              ? "var(--color-season-spring-blossom-petal)"
+              : "rgba(255, 255, 255, 0.95)"
+          }
+        />
+        <circle
+          cx="-3.8"
+          cy="5.2"
+          r="4.8"
+          fill={
+            isSakura
+              ? "var(--color-season-spring-blossom)"
+              : "rgba(255, 255, 255, 0.9)"
+          }
+        />
+        <circle
+          cx="-6.2"
+          cy="-2.0"
+          r="4.8"
+          fill={
+            isSakura
+              ? "var(--color-season-spring-blossom-petal)"
+              : "rgba(255, 255, 255, 0.95)"
+          }
+        />
+        {/* Center core */}
+        <circle
+          cx="0"
+          cy="0"
+          r="2.5"
+          fill={
+            isSakura
+              ? "var(--color-season-spring-blossom-core)"
+              : "var(--color-solarized-yellow)"
+          }
+        />
+      </GrassFlowerSwayGroup>
+    </g>
+  );
+};
+
+const SpringFloorFlowers: FC<{ opacity: number }> = ({ opacity }) => {
+  if (opacity <= 0.01) return null;
+
+  return (
+    <g id="springFloorFlowers" opacity={opacity}>
+      {/* Fallen petals resting gently on the grass */}
+      {SPRING_FALLEN_PETALS.map((petal) => (
+        <ellipse
+          key={`petal-${petal.cx}-${petal.cy}`}
+          cx={petal.cx}
+          cy={petal.cy}
+          rx={petal.r}
+          ry={petal.r * 0.6}
+          transform={`rotate(${petal.rot}, ${petal.cx}, ${petal.cy})`}
+          fill="var(--color-season-spring-blossom-petal)"
+          opacity="0.88"
+        />
+      ))}
+
+      {/* Spring Wildflowers and Sakura blossoms nestled in the grass */}
+      {SPRING_FLOOR_FLOWERS.map((flower) => (
+        <FloorFlowerNode
+          key={`floor-flower-${flower.cx}-${flower.cy}`}
+          flower={flower}
+        />
+      ))}
+    </g>
+  );
+};
 
 export const ForegroundGrassBlades: FC<ForegroundGrassBladesProps> = ({
   isDarkMode = false,
+  seasonProgress = 1.0,
 }) => {
-  const tokens = resolveGrassTokens(isDarkMode);
+  const tokens = resolveGrassTokens(isDarkMode, seasonProgress);
+  const distSpring = Math.min(seasonProgress, 4 - seasonProgress);
+  const flowerOpacity = Math.max(0, 1 - distSpring * 1.5);
 
   return (
     <GrassSvg
@@ -208,6 +390,9 @@ export const ForegroundGrassBlades: FC<ForegroundGrassBladesProps> = ({
       <path className="grass-blade-tertiary" d={TERTIARY_GRASS_PATH} />
       <path className="grass-blade-primary" d={PRIMARY_GRASS_PATH} />
       <path className="grass-blade-secondary" d={SECONDARY_GRASS_PATH} />
+
+      {/* Spring flowers and blossoms on the floor */}
+      <SpringFloorFlowers opacity={flowerOpacity} />
     </GrassSvg>
   );
 };

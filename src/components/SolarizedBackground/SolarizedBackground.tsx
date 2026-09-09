@@ -30,6 +30,7 @@ import { CelestialBody, Starfield } from "./SolarizedCelestialShapeDefs";
 import { AuroraBorealis } from "./SolarizedAtmosphereDefs";
 import { ForegroundGrassBlades } from "./SolarizedGrassDefs";
 import { useSolarizedCanvas } from "./useSolarizedCanvas";
+import { resolveSeasonProgress } from "./seasonUtils";
 
 const DEFAULT_LEAF_COUNT = 44;
 
@@ -53,6 +54,8 @@ interface ResolvedConfig {
   showGrass: boolean;
   leafCount: number;
   windIntensity: number;
+  season?: SolarizedBackgroundProps["season"];
+  seasonProgress?: number;
 }
 
 const DEFAULT_CONFIG: ResolvedConfig = {
@@ -66,6 +69,8 @@ const DEFAULT_CONFIG: ResolvedConfig = {
   showGrass: true,
   leafCount: DEFAULT_LEAF_COUNT,
   windIntensity: 1.0,
+  season: "summer",
+  seasonProgress: undefined,
 };
 
 function resolveBackgroundConfig(
@@ -93,13 +98,24 @@ const LandscapeLayerGroup: FC<{
   showTree: boolean;
   isDarkMode: boolean;
   parallax: Point2D;
-}> = ({ showHills, showClouds, showTree, isDarkMode, parallax }) => (
+  seasonProgress: number;
+}> = ({
+  showHills,
+  showClouds,
+  showTree,
+  isDarkMode,
+  parallax,
+  seasonProgress,
+}) => (
   <>
     {showClouds && <LandscapeClouds />}
-    {showHills && <LandscapeHills />}
+    {showHills && (
+      <LandscapeHills seasonProgress={seasonProgress} isDarkMode={isDarkMode} />
+    )}
     {showTree && (
       <PeacefulTreeGraphic
         isDarkMode={isDarkMode}
+        seasonProgress={seasonProgress}
         parallaxX={parallax.x}
         parallaxY={parallax.y}
       />
@@ -151,6 +167,11 @@ export const SolarizedBackground: FC<SolarizedBackgroundProps> = (props) => {
     gustBoost: 0,
   });
 
+  const seasonProgress = resolveSeasonProgress(
+    config.season,
+    config.seasonProgress,
+  );
+
   useSolarizedCanvas({
     canvasRef,
     containerRef,
@@ -159,6 +180,7 @@ export const SolarizedBackground: FC<SolarizedBackgroundProps> = (props) => {
     isDarkMode,
     mouseStateRef,
     windStateRef,
+    seasonProgress,
   });
 
   const updatePointerPosition = useCallback(
@@ -235,9 +257,15 @@ export const SolarizedBackground: FC<SolarizedBackgroundProps> = (props) => {
         showTree={config.showTree}
         isDarkMode={isDarkMode}
         parallax={parallaxOffset}
+        seasonProgress={seasonProgress}
       />
 
-      {config.showGrass && <ForegroundGrassBlades isDarkMode={isDarkMode} />}
+      {config.showGrass && (
+        <ForegroundGrassBlades
+          isDarkMode={isDarkMode}
+          seasonProgress={seasonProgress}
+        />
+      )}
 
       {children && <ContentWrapper>{children}</ContentWrapper>}
     </BackgroundRoot>

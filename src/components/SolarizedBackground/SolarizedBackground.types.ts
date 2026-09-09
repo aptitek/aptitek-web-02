@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 import type { SxProps, Theme } from "@mui/material/styles";
 
 export type SolarizedThemeMode = "light" | "sunset" | "dark" | "auto";
+export type SolarizedSeason =
+  "spring" | "summer" | "fall" | "autumn" | "winter";
 
 export interface SolarizedBackgroundProps {
   /**
@@ -10,6 +12,27 @@ export interface SolarizedBackgroundProps {
    * Defaults to 'auto'.
    */
   mode?: SolarizedThemeMode;
+
+  /**
+   * Visual season variant:
+   * - 'spring': Cherry blossom flowers on the canopy, pink sakura petals in the breeze.
+   * - 'summer': Lush green botanical meadow and leaves with golden sun.
+   * - 'fall' / 'autumn': Rich fiery orange, amber, and russet foliage and leaves.
+   * - 'winter': Snow-capped canopy and hills with drifting snowflakes.
+   * Defaults to 'summer'.
+   */
+  season?: SolarizedSeason;
+
+  /**
+   * Continuous seasonal slider / progress (0.0 to 4.0):
+   * - 0.0: Spring (Cherry blossoms)
+   * - 1.0: Summer (Lush meadow)
+   * - 2.0: Fall / Autumn (Peak vibrant orange)
+   * - 3.0: Winter (Pure snow)
+   * - (wraps cyclically back to 0.0 Spring)
+   * If provided, smoothly blends colors and particle types between seasons.
+   */
+  seasonProgress?: number;
 
   /**
    * Whether mouse cursor movement dynamically influences the breeze vector and subtle parallax.

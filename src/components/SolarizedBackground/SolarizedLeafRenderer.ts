@@ -1,10 +1,15 @@
-import { BOTANICAL_COLORS, PROGRESS_THEME_COLORS } from "~/tokens/theme";
+import {
+  BOTANICAL_COLORS,
+  PROGRESS_THEME_COLORS,
+  SEASON_COLORS,
+} from "~/tokens/theme";
 import type {
   LeafColors,
   MouseState,
   Point2D,
   WindState,
 } from "./SolarizedBackground.types";
+import { getSeasonalLeafPalette } from "./seasonUtils";
 
 export const LIGHT_LEAF_PALETTE: LeafColors = {
   vein: BOTANICAL_COLORS.leafVeinDark,
@@ -12,7 +17,7 @@ export const LIGHT_LEAF_PALETTE: LeafColors = {
   leftMid: PROGRESS_THEME_COLORS.orange,
   leftBottom: PROGRESS_THEME_COLORS.red,
   rightTop: PROGRESS_THEME_COLORS.green,
-  rightMid: PROGRESS_THEME_COLORS.cyan,
+  rightMid: BOTANICAL_COLORS.grassBladeHighlight,
   rightBottom: PROGRESS_THEME_COLORS.darkContrast,
 };
 
@@ -123,6 +128,86 @@ function renderVeinsAndStem(
   context.stroke();
 }
 
+function renderCherryPetal(
+  context: CanvasRenderingContext2D,
+  isDarkMode: boolean,
+): void {
+  context.fillStyle = isDarkMode
+    ? SEASON_COLORS.spring.blossomDeep
+    : SEASON_COLORS.spring.blossom;
+  context.beginPath();
+  context.moveTo(0, 0.9);
+  context.bezierCurveTo(-0.6, 0.6, -0.7, -0.4, -0.3, -0.9);
+  context.quadraticCurveTo(-0.1, -0.75, 0, -0.6);
+  context.quadraticCurveTo(0.1, -0.75, 0.3, -0.9);
+  context.bezierCurveTo(0.7, -0.4, 0.6, 0.6, 0, 0.9);
+  context.closePath();
+  context.fill();
+
+  context.strokeStyle = isDarkMode
+    ? "rgba(255, 255, 255, 0.35)"
+    : SEASON_COLORS.spring.blossomPetal;
+  context.lineWidth = 0.08;
+  context.beginPath();
+  context.moveTo(0, 0.8);
+  context.lineTo(0, -0.35);
+  context.stroke();
+}
+
+function renderSnowflake(
+  context: CanvasRenderingContext2D,
+  isDarkMode: boolean,
+): void {
+  const color = isDarkMode
+    ? SEASON_COLORS.winter.iceCyan
+    : SEASON_COLORS.winter.snowWhite;
+  context.strokeStyle = color;
+  context.lineWidth = 0.12;
+  context.lineCap = "round";
+
+  for (let armIndex = 0; armIndex < 3; armIndex++) {
+    context.beginPath();
+    context.moveTo(0, -1.0);
+    context.lineTo(0, 1.0);
+
+    context.moveTo(-0.25, -0.65);
+    context.lineTo(0, -0.45);
+    context.lineTo(0.25, -0.65);
+
+    context.moveTo(-0.25, 0.65);
+    context.lineTo(0, 0.45);
+    context.lineTo(0.25, 0.65);
+    context.stroke();
+
+    context.rotate(Math.PI / 3);
+  }
+
+  context.fillStyle = isDarkMode
+    ? SEASON_COLORS.winter.frostSlate
+    : SEASON_COLORS.winter.snowWhite;
+  context.beginPath();
+  context.arc(0, 0, 0.18, 0, Math.PI * 2);
+  context.fill();
+}
+
+function shouldRenderCherryPetal(
+  seasonProgress: number,
+  particleHash: number,
+): boolean {
+  const distSpring = Math.min(seasonProgress, 4 - seasonProgress);
+  if (distSpring >= 0.6) return false;
+  return particleHash < (0.6 - distSpring) / 0.6;
+}
+
+function shouldRenderSnowflake(
+  seasonProgress: number,
+  particleHash: number,
+): boolean {
+  const distWinter = Math.abs(seasonProgress - 3);
+  if (distWinter >= 0.6) return false;
+  return particleHash < (0.6 - distWinter) / 0.6;
+}
+
 export class LeafParticle {
   public x = 0;
   public y = 0;
@@ -229,9 +314,11 @@ export class LeafParticle {
     }
   }
 
-  public draw(context: CanvasRenderingContext2D, isDarkMode: boolean): void {
-    const palette = isDarkMode ? DARK_LEAF_PALETTE : LIGHT_LEAF_PALETTE;
-
+  public draw(
+    context: CanvasRenderingContext2D,
+    isDarkMode: boolean,
+    seasonProgress = 1.0,
+  ): void {
     context.save();
     context.translate(this.x, this.y);
     context.rotate(this.angle);
@@ -242,9 +329,18 @@ export class LeafParticle {
     context.scale(scaleFactorX, scaleFactorY);
     context.globalAlpha = this.opacity;
 
-    renderLeftSegments(context, palette);
-    renderRightSegments(context, palette);
-    renderVeinsAndStem(context, palette);
+    const particleHash = (this.driftAngleOffset + 0.175) / 0.35;
+
+    if (shouldRenderCherryPetal(seasonProgress, particleHash)) {
+      renderCherryPetal(context, isDarkMode);
+    } else if (shouldRenderSnowflake(seasonProgress, particleHash)) {
+      renderSnowflake(context, isDarkMode);
+    } else {
+      const palette = getSeasonalLeafPalette(seasonProgress, isDarkMode);
+      renderLeftSegments(context, palette);
+      renderRightSegments(context, palette);
+      renderVeinsAndStem(context, palette);
+    }
 
     context.restore();
   }

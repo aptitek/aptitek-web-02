@@ -5,6 +5,8 @@ import {
   TreeSvg,
   TreeWrapper,
 } from "./SolarizedBackground.styles";
+import { getSeasonalCanopyTokens, getSeasonalHillTokens } from "./seasonUtils";
+import { SpringMeadowFlowers } from "./SpringMeadowFlowers";
 
 export interface LandscapeProps {
   showHills?: boolean;
@@ -13,44 +15,131 @@ export interface LandscapeProps {
   treeParallaxX?: number;
   treeParallaxY?: number;
   isDarkMode?: boolean;
+  seasonProgress?: number;
 }
 
-export interface TreeGradientTokens {
-  trunkPrimary: string;
-  trunkSecondary: string;
-  foliage1A: string;
-  foliage1B: string;
-  foliage2A: string;
-  foliage2B: string;
-  foliageWarmA: string;
-  foliageWarmB: string;
+interface BlossomPosition {
+  cx: number;
+  cy: number;
+  scale: number;
 }
 
-function resolveTreeGradientTokens(isDarkMode: boolean): TreeGradientTokens {
-  if (isDarkMode) {
-    return {
-      trunkPrimary: "var(--color-solarized-base03)",
-      trunkSecondary: "var(--color-solarized-base02)",
-      foliage1A: "var(--color-solarized-cyan)",
-      foliage1B: "var(--color-solarized-base02)",
-      foliage2A: "var(--color-solarized-blue)",
-      foliage2B: "var(--color-solarized-base03)",
-      foliageWarmA: "var(--color-solarized-violet)",
-      foliageWarmB: "var(--color-solarized-blue)",
-    };
-  }
+const BLOSSOM_POSITIONS: readonly BlossomPosition[] = [
+  { cx: 105, cy: 170, scale: 1.1 },
+  { cx: 130, cy: 215, scale: 0.9 },
+  { cx: 165, cy: 125, scale: 1.2 },
+  { cx: 195, cy: 160, scale: 1.0 },
+  { cx: 225, cy: 95, scale: 1.2 },
+  { cx: 255, cy: 140, scale: 1.1 },
+  { cx: 290, cy: 115, scale: 1.0 },
+  { cx: 320, cy: 175, scale: 1.3 },
+  { cx: 355, cy: 140, scale: 0.95 },
+  { cx: 385, cy: 200, scale: 1.1 },
+  { cx: 415, cy: 220, scale: 0.9 },
+  { cx: 140, cy: 250, scale: 1.0 },
+  { cx: 210, cy: 310, scale: 0.85 },
+  { cx: 270, cy: 280, scale: 0.9 },
+  { cx: 340, cy: 245, scale: 1.05 },
+];
 
-  return {
-    trunkPrimary: "var(--color-solarized-base01)",
-    trunkSecondary: "var(--color-solarized-base02)",
-    foliage1A: "var(--color-solarized-green)",
-    foliage1B: "var(--color-solarized-base01)",
-    foliage2A: "var(--color-solarized-cyan)",
-    foliage2B: "var(--color-solarized-base02)",
-    foliageWarmA: "var(--color-solarized-yellow)",
-    foliageWarmB: "var(--color-solarized-orange)",
-  };
-}
+const BlossomFloret: FC<{ cx: number; cy: number; scale: number }> = ({
+  cx,
+  cy,
+  scale,
+}) => (
+  <g transform={`translate(${cx}, ${cy}) scale(${scale})`}>
+    <circle
+      cx="0"
+      cy="-6"
+      r="4.5"
+      fill="var(--color-season-spring-blossom-petal)"
+    />
+    <circle
+      cx="5.7"
+      cy="-1.8"
+      r="4.5"
+      fill="var(--color-season-spring-blossom)"
+    />
+    <circle
+      cx="3.5"
+      cy="4.8"
+      r="4.5"
+      fill="var(--color-season-spring-blossom-petal)"
+    />
+    <circle
+      cx="-3.5"
+      cy="4.8"
+      r="4.5"
+      fill="var(--color-season-spring-blossom)"
+    />
+    <circle
+      cx="-5.7"
+      cy="-1.8"
+      r="4.5"
+      fill="var(--color-season-spring-blossom-petal)"
+    />
+    <circle
+      cx="0"
+      cy="0"
+      r="2"
+      fill="var(--color-season-spring-blossom-core)"
+    />
+  </g>
+);
+
+const CherryBlossomClusters: FC<{ opacity: number }> = ({ opacity }) => {
+  if (opacity <= 0.01) return null;
+
+  return (
+    <g id="treeCherryBlossoms" opacity={opacity}>
+      {BLOSSOM_POSITIONS.map((pos) => (
+        <BlossomFloret
+          key={`blossom-${pos.cx}-${pos.cy}`}
+          cx={pos.cx}
+          cy={pos.cy}
+          scale={pos.scale}
+        />
+      ))}
+    </g>
+  );
+};
+
+const WinterSnowCaps: FC<{ opacity: number }> = ({ opacity }) => {
+  if (opacity <= 0.01) return null;
+
+  return (
+    <g id="treeWinterSnow" opacity={opacity * 0.95}>
+      <path
+        d="M165,105 C185,82 265,82 285,105 C260,116 230,112 195,116 Z"
+        fill="var(--color-season-winter-snow-white)"
+      />
+      <path
+        d="M100,165 C125,142 190,140 215,165 C185,176 150,172 120,178 Z"
+        fill="var(--color-season-winter-snow-white)"
+      />
+      <path
+        d="M260,165 C295,142 365,145 395,170 C360,182 325,178 290,182 Z"
+        fill="var(--color-season-winter-snow-white)"
+      />
+      <path
+        d="M70,205 C95,195 130,205 145,225 C125,228 100,222 80,220 Z"
+        fill="var(--color-season-winter-snow-white)"
+      />
+      <path
+        d="M360,205 C385,192 415,200 435,218 C410,222 385,216 370,218 Z"
+        fill="var(--color-season-winter-snow-white)"
+      />
+      <path
+        d="M140,265 C165,248 190,265 205,280 C185,282 165,278 145,280 Z"
+        fill="var(--color-season-winter-snow-soft)"
+      />
+      <path
+        d="M265,295 C295,275 330,285 355,298 C330,302 300,298 275,304 Z"
+        fill="var(--color-season-winter-snow-soft)"
+      />
+    </g>
+  );
+};
 
 export const LandscapeClouds: FC = () => (
   <CloudsSvg
@@ -77,44 +166,64 @@ export const LandscapeClouds: FC = () => (
   </CloudsSvg>
 );
 
-export const LandscapeHills: FC = () => (
-  <HillsSvg
-    viewBox="0 0 1440 900"
-    fill="none"
-    preserveAspectRatio="none"
-    aria-hidden="true"
-  >
-    {/* Background Rolling Hill */}
-    <path
-      className="hill-back-path"
-      d="M0,580 C320,530 520,620 820,570 C1100,520 1280,600 1440,560 L1440,900 L0,900 Z"
-    />
-    {/* Midground Rolling Hill */}
-    <path
-      className="hill-mid-path"
-      d="M0,660 C260,610 580,720 940,650 C1200,600 1340,680 1440,660 L1440,900 L0,900 Z"
-    />
-    {/* Foreground Anchor Hill */}
-    <path
-      className="hill-front-path"
-      d="M0,710 C180,690 380,770 720,730 C1060,690 1260,780 1440,750 L1440,900 L0,900 Z"
-    />
-    {/* Soft Ridge Highlights */}
-    <path
-      d="M0,712 C180,692 380,772 720,732 C1060,692 1260,782 1440,752"
-      stroke="rgba(255, 255, 255, 0.22)"
-      strokeDasharray="8 12"
-      strokeWidth="1.8"
-    />
-  </HillsSvg>
-);
+export const LandscapeHills: FC<{
+  seasonProgress?: number;
+  isDarkMode?: boolean;
+}> = ({ seasonProgress = 1.0, isDarkMode = false }) => {
+  const hillTokens = getSeasonalHillTokens(seasonProgress, isDarkMode);
+  const distSpring = Math.min(seasonProgress, 4 - seasonProgress);
+  const flowerOpacity = Math.max(0, 1 - distSpring * 1.6);
+
+  return (
+    <HillsSvg
+      viewBox="0 0 1440 900"
+      fill="none"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      {/* Background Rolling Hill */}
+      <path
+        className="hill-back-path"
+        fill={hillTokens.hillBack}
+        d="M0,580 C320,530 520,620 820,570 C1100,520 1280,600 1440,560 L1440,900 L0,900 Z"
+      />
+      {/* Midground Rolling Hill */}
+      <path
+        className="hill-mid-path"
+        fill={hillTokens.hillMid}
+        d="M0,660 C260,610 580,720 940,650 C1200,600 1340,680 1440,660 L1440,900 L0,900 Z"
+      />
+      {/* Foreground Anchor Hill */}
+      <path
+        className="hill-front-path"
+        fill={hillTokens.hillFront}
+        d="M0,710 C180,690 380,770 720,730 C1060,690 1260,780 1440,750 L1440,900 L0,900 Z"
+      />
+      {/* Soft Ridge Highlights */}
+      <path
+        d="M0,712 C180,692 380,772 720,732 C1060,692 1260,782 1440,752"
+        stroke="rgba(255, 255, 255, 0.22)"
+        strokeDasharray="8 12"
+        strokeWidth="1.8"
+      />
+      {/* Spring floor wildflowers & fallen petals on meadow */}
+      <SpringMeadowFlowers opacity={flowerOpacity} />
+    </HillsSvg>
+  );
+};
 
 export const PeacefulTreeGraphic: FC<{
   parallaxX?: number;
   parallaxY?: number;
   isDarkMode?: boolean;
-}> = ({ parallaxX = 0, parallaxY = 0, isDarkMode = false }) => {
-  const tokens = resolveTreeGradientTokens(isDarkMode);
+  seasonProgress?: number;
+}> = ({
+  parallaxX = 0,
+  parallaxY = 0,
+  isDarkMode = false,
+  seasonProgress = 1.0,
+}) => {
+  const tokens = getSeasonalCanopyTokens(seasonProgress, isDarkMode);
   const transformStyle = `translate3d(${parallaxX * 0.6}px, ${parallaxY * 0.3}px, 0)`;
 
   return (
@@ -311,6 +420,12 @@ export const PeacefulTreeGraphic: FC<{
           <circle cx="330" cy="85" r="15" fill="url(#treeCanopyGrad1)" />
           <circle cx="160" cy="90" r="13" fill="url(#treeCanopyWarm)" />
           <circle cx="410" cy="250" r="11" fill="url(#treeCanopyWarm)" />
+
+          {/* Seasonal cherry blossom florets in spring */}
+          <CherryBlossomClusters opacity={tokens.blossomOpacity} />
+
+          {/* Seasonal snow caps and drifts in winter */}
+          <WinterSnowCaps opacity={tokens.snowOpacity} />
         </g>
       </TreeSvg>
     </TreeWrapper>

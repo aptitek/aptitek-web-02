@@ -74,6 +74,21 @@
   --color-sky-pastel-yellow: #fae8be;
   --color-sky-horizon: #eee6d3;
 
+  /* Seasonal Environment Tokens */
+  --color-season-spring-blossom: #fbb1bd;
+  --color-season-spring-blossom-deep: #f48498;
+  --color-season-spring-blossom-core: #e05780;
+  --color-season-spring-blossom-petal: #ffccd5;
+  --color-season-spring-grass: #9ec43b;
+  --color-season-fall-foliage-gold: #e5a823;
+  --color-season-fall-foliage-orange: #d35400;
+  --color-season-fall-foliage-red: #b83b1f;
+  --color-season-fall-foliage-sienna: #873600;
+  --color-season-winter-snow-white: #f8fcfd;
+  --color-season-winter-snow-soft: #e0f2f1;
+  --color-season-winter-frost-slate: #93a1a1;
+  --color-season-winter-ice-cyan: #2aa198;
+
   /* Material 3 Expressive System Colors - Dark Mode (Solarized Dark) */
   --md-sys-color-primary: var(--color-solarized-blue); /* #268bd2 */
   --md-sys-color-surface-tint: var(--color-solarized-blue);
