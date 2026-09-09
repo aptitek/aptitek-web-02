@@ -51,11 +51,28 @@
   --color-celestial-sun-main: var(--color-solarized-yellow);
   --color-celestial-sun-glow: #d4a400;
   --color-celestial-sun-light: var(--color-solarized-base3);
+  --color-celestial-sun-golden-core: #fff3cc;
+  --color-celestial-sun-golden-mid: #f5af19;
+  --color-celestial-sun-golden-rim: #d48800;
+  --color-celestial-sun-golden-aura: #e67e22;
   --color-celestial-moon-main: var(--color-solarized-blue);
   --color-celestial-moon-glow: var(--color-solarized-violet);
   --color-celestial-moon-crater: var(--color-solarized-base01);
   --color-celestial-horizon-day: var(--color-solarized-base3);
   --color-celestial-horizon-night: var(--color-solarized-base03);
+
+  /* Botanical / Leaf & Grass Colors */
+  --color-botanical-leaf-vein-dark: #1f4e2b;
+  --color-botanical-grass-light: #a6bd1a;
+  --color-botanical-grass-highlight: #c2d936;
+  --color-botanical-grass-warm: #d8c93b;
+
+  /* Pastel Sunset Sky Palette */
+  --color-sky-zenith: #fdf8f0;
+  --color-sky-pastel-pink: #f5cad3;
+  --color-sky-pastel-orange: #fcd9be;
+  --color-sky-pastel-yellow: #fae8be;
+  --color-sky-horizon: #eee6d3;
 
   /* Material 3 Expressive System Colors - Dark Mode (Solarized Dark) */
   --md-sys-color-primary: var(--color-solarized-blue); /* #268bd2 */

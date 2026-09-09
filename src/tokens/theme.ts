@@ -20,12 +20,16 @@ export {
   UK_FLAG_COLORS,
   FLAG_COLORS,
   NAMED_COLORS,
+  BOTANICAL_COLORS,
+  PASTEL_SKY_COLORS,
   PROGRESS_THEME_COLORS,
   type NamedColors,
   type RoleColors,
   type CelestialColors,
   type FlagColors,
   type ProgressThemeColors,
+  type BotanicalColors,
+  type PastelSkyColors,
 } from "./namedColors";
 
 import { m3SharedComponents } from "./themeComponents";

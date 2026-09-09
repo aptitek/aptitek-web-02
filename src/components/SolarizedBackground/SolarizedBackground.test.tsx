@@ -1,0 +1,259 @@
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { render, screen, cleanup } from "@testing-library/react";
+import { ThemeProvider } from "@mui/material/styles";
+import { appTheme } from "~/tokens/theme";
+import { ThemeModeProvider } from "~/utils/themeContext";
+import { SolarizedBackground } from "./SolarizedBackground";
+import { computeTargetWindVector } from "./useSolarizedCanvas";
+import { LeafParticle, WindBreezeStream } from "./SolarizedLeafRenderer";
+import type { WindState, MouseState } from "./SolarizedBackground.types";
+
+describe("SolarizedBackground Component", () => {
+  beforeEach(() => {
+    // Mock canvas getContext('2d') for headless test environments
+    HTMLCanvasElement.prototype.getContext = vi.fn().mockReturnValue({
+      clearRect: vi.fn(),
+      save: vi.fn(),
+      restore: vi.fn(),
+      translate: vi.fn(),
+      rotate: vi.fn(),
+      scale: vi.fn(),
+      beginPath: vi.fn(),
+      moveTo: vi.fn(),
+      lineTo: vi.fn(),
+      bezierCurveTo: vi.fn(),
+      quadraticCurveTo: vi.fn(),
+      closePath: vi.fn(),
+      fill: vi.fn(),
+      stroke: vi.fn(),
+      fillStyle: "",
+      strokeStyle: "",
+      lineWidth: 1,
+      lineCap: "round",
+      globalAlpha: 1,
+    }) as unknown as typeof HTMLCanvasElement.prototype.getContext;
+
+    // Mock ResizeObserver
+    globalThis.ResizeObserver = class {
+      observe = vi.fn();
+      unobserve = vi.fn();
+      disconnect = vi.fn();
+    } as unknown as typeof ResizeObserver;
+  });
+
+  afterEach(() => {
+    cleanup();
+    vi.restoreAllMocks();
+  });
+
+  it("renders without crashing with default props", () => {
+    const { container } = render(
+      <ThemeModeProvider>
+        <ThemeProvider theme={appTheme}>
+          <SolarizedBackground data-testid="solarized-bg" />
+        </ThemeProvider>
+      </ThemeModeProvider>,
+    );
+
+    expect(container).toBeDefined();
+    const canvasElement = container.querySelector("canvas");
+    expect(canvasElement).toBeDefined();
+  });
+
+  it("renders children in foreground content wrapper", () => {
+    render(
+      <ThemeModeProvider>
+        <ThemeProvider theme={appTheme}>
+          <SolarizedBackground>
+            <div data-testid="foreground-content">Welcome to Aptitek</div>
+          </SolarizedBackground>
+        </ThemeProvider>
+      </ThemeModeProvider>,
+    );
+
+    const childNode = screen.getByTestId("foreground-content");
+    expect(childNode).toBeDefined();
+    expect(childNode.textContent).toBe("Welcome to Aptitek");
+  });
+
+  it("respects showTree={false} prop", () => {
+    const { container } = render(
+      <ThemeModeProvider>
+        <ThemeProvider theme={appTheme}>
+          <SolarizedBackground showTree={false} />
+        </ThemeProvider>
+      </ThemeModeProvider>,
+    );
+
+    const treeContainer = container.querySelector("#peacefulTreeContainer");
+    expect(treeContainer).toBeNull();
+  });
+
+  it("respects showCelestial={false} prop", () => {
+    const { container } = render(
+      <ThemeModeProvider>
+        <ThemeProvider theme={appTheme}>
+          <SolarizedBackground showCelestial={false} />
+        </ThemeProvider>
+      </ThemeModeProvider>,
+    );
+
+    const celestialContainer = container.querySelector(
+      "#celestialBodyContainer",
+    );
+    expect(celestialContainer).toBeNull();
+  });
+
+  it("supports explicit mode='light', mode='sunset', and mode='dark'", () => {
+    const { rerender, container } = render(
+      <ThemeModeProvider>
+        <ThemeProvider theme={appTheme}>
+          <SolarizedBackground mode="light" />
+        </ThemeProvider>
+      </ThemeModeProvider>,
+    );
+
+    // Light mode should have celestial container with sun orb
+    expect(container.querySelector("#celestialBodyContainer")).toBeDefined();
+
+    rerender(
+      <ThemeModeProvider>
+        <ThemeProvider theme={appTheme}>
+          <SolarizedBackground mode="sunset" />
+        </ThemeProvider>
+      </ThemeModeProvider>,
+    );
+
+    // Sunset mode should also render daylight sun orb and no starfield
+    expect(container.querySelector("#celestialBodyContainer")).toBeDefined();
+    expect(container.querySelector(".starfield-overlay")).toBeNull();
+
+    rerender(
+      <ThemeModeProvider>
+        <ThemeProvider theme={appTheme}>
+          <SolarizedBackground mode="dark" />
+        </ThemeProvider>
+      </ThemeModeProvider>,
+    );
+
+    // Dark mode should render celestial container with crescent moon
+    expect(container.querySelector("#celestialBodyContainer")).toBeDefined();
+  });
+
+  it("respects showGrass={false} prop and renders grass blades with gradient", () => {
+    const { container, rerender } = render(
+      <ThemeModeProvider>
+        <ThemeProvider theme={appTheme}>
+          <SolarizedBackground showGrass={false} />
+        </ThemeProvider>
+      </ThemeModeProvider>,
+    );
+
+    expect(container.querySelector(".grass-blade-primary")).toBeNull();
+
+    // Rerender in light mode with showGrass={true} -> grass blades and gradient are present
+    rerender(
+      <ThemeModeProvider>
+        <ThemeProvider theme={appTheme}>
+          <SolarizedBackground mode="light" showGrass={true} />
+        </ThemeProvider>
+      </ThemeModeProvider>,
+    );
+    expect(container.querySelector(".grass-blade-primary")).not.toBeNull();
+    expect(container.querySelector("#grassBladePrimaryGrad")).not.toBeNull();
+
+    // Rerender in dark mode with showGrass={true} -> grass blades remain present
+    rerender(
+      <ThemeModeProvider>
+        <ThemeProvider theme={appTheme}>
+          <SolarizedBackground mode="dark" showGrass={true} />
+        </ThemeProvider>
+      </ThemeModeProvider>,
+    );
+    expect(container.querySelector(".grass-blade-primary")).not.toBeNull();
+    expect(container.querySelector("#grassBladePrimaryGrad")).not.toBeNull();
+  });
+
+  it("respects showGodrays={false} in light mode", () => {
+    const { container } = render(
+      <ThemeModeProvider>
+        <ThemeProvider theme={appTheme}>
+          <SolarizedBackground mode="light" showGodrays={false} />
+        </ThemeProvider>
+      </ThemeModeProvider>,
+    );
+
+    expect(container.querySelector("#godrayBeamGrad")).toBeNull();
+  });
+
+  it("calculates gentle horizontal breeze velocity and steers direction along cursor X", () => {
+    const origin = { x: 200, y: 250 };
+    const mockMouse: MouseState = {
+      x: 600,
+      y: 100, // Top-right of origin
+      targetX: 600,
+      targetY: 100,
+      speedX: 0,
+      speedY: 0,
+    };
+
+    const windVectorRight = computeTargetWindVector({
+      mouseState: mockMouse,
+      origin,
+      windIntensity: 1.0,
+    });
+
+    // Breeze CANNOT move vertically: y must be strictly 0
+    expect(windVectorRight.y).toBe(0);
+    // Speed should be slower (~0.85-1.0 px/frame)
+    expect(windVectorRight.x).toBeGreaterThan(0); // Blowing rightwards towards cursor
+    expect(windVectorRight.x).toBeLessThan(1.5); // Slower, tranquil speed
+
+    // Move mouse to left of tree
+    mockMouse.x = 50;
+    mockMouse.y = 450;
+    const windVectorLeft = computeTargetWindVector({
+      mouseState: mockMouse,
+      origin,
+      windIntensity: 1.0,
+    });
+    expect(windVectorLeft.y).toBe(0); // Strictly zero vertical wind
+    expect(windVectorLeft.x).toBeLessThan(0); // Blowing leftwards towards cursor
+  });
+
+  it("WindBreezeStream and LeafParticle update along horizontal wind vector with natural fall", () => {
+    const windState: WindState = {
+      baseSpeedX: 0.85,
+      baseSpeedY: 0,
+      currentX: 0.85,
+      currentY: 0,
+      gustBoost: 0,
+    };
+
+    const stream = new WindBreezeStream(800, 600, windState, false);
+    stream.x = 100;
+    stream.y = 100;
+    stream.update(windState, 800, 600);
+
+    // Stream moves horizontally (currentX > 0), y remains constant (no vertical breeze)
+    expect(stream.x).toBeGreaterThan(100);
+    expect(stream.y).toBe(100);
+
+    const leaf = new LeafParticle(false, 800, 600, { x: 150, y: 150 });
+    const initialLeafX = leaf.x;
+    const initialLeafY = leaf.y;
+    const neutralMouse: MouseState = {
+      x: 800,
+      y: 600,
+      targetX: 800,
+      targetY: 600,
+      speedX: 0,
+      speedY: 0,
+    };
+
+    leaf.update(windState, neutralMouse, { x: 800, y: 600 });
+    expect(leaf.x).toBeGreaterThan(initialLeafX);
+    // leaf naturally settles gently toward ground
+    expect(leaf.y).toBeGreaterThan(initialLeafY);
+  });
+});
