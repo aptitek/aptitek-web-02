@@ -238,9 +238,15 @@ export class LeafParticle {
     screenHeight: number,
     canopyPoint?: Point2D,
   ): void {
+    const isWide = screenWidth >= 900;
+    const fallbackLeft = isWide ? screenWidth * 0.01 : screenWidth * -0.06;
+    const fallbackTreeW = Math.max(480, Math.min(840, screenWidth * 0.5));
+    const fallbackTreeH = Math.max(640, Math.min(1080, screenWidth * 0.68));
+    const fallbackTreeTop = screenHeight - fallbackTreeH;
+
     const originPoint = canopyPoint ?? {
-      x: screenWidth * 0.2,
-      y: screenHeight * 0.4,
+      x: fallbackLeft + fallbackTreeW * 0.49,
+      y: fallbackTreeTop + fallbackTreeH * 0.3,
     };
 
     if (isInitialDistribution) {
@@ -254,7 +260,7 @@ export class LeafParticle {
       );
     } else {
       this.x = originPoint.x + (Math.random() - 0.5) * 60;
-      this.y = originPoint.y + (Math.random() - 0.5) * 50;
+      this.y = originPoint.y + (Math.random() - 0.5) * 45;
     }
 
     this.size = 10 + Math.random() * 8;

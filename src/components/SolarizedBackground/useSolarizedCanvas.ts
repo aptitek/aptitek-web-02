@@ -8,24 +8,108 @@ import { LeafParticle, WindBreezeStream } from "./SolarizedLeafRenderer";
 
 const DEFAULT_STREAM_COUNT = 12;
 
+export interface CanopyMetrics {
+  center: Point2D;
+  radiusX: number;
+  radiusY: number;
+}
+
+function getDomCanopyMetrics(
+  containerElement: HTMLElement,
+): CanopyMetrics | null {
+  if (typeof containerElement.getBoundingClientRect !== "function") {
+    return null;
+  }
+  const containerRect = containerElement.getBoundingClientRect();
+  const canopyEl = containerElement.querySelector(".tree-swaying-canopy");
+  if (canopyEl && typeof canopyEl.getBoundingClientRect === "function") {
+    const canopyRect = canopyEl.getBoundingClientRect();
+    if (canopyRect.width > 10 && canopyRect.height > 10) {
+      return {
+        center: {
+          x: canopyRect.left - containerRect.left + canopyRect.width * 0.5,
+          y: canopyRect.top - containerRect.top + canopyRect.height * 0.5,
+        },
+        radiusX: canopyRect.width * 0.38,
+        radiusY: canopyRect.height * 0.32,
+      };
+    }
+  }
+
+  const treeEl = containerElement.querySelector("#peacefulTreeContainer");
+  if (treeEl && typeof treeEl.getBoundingClientRect === "function") {
+    const treeRect = treeEl.getBoundingClientRect();
+    if (treeRect.width > 10 && treeRect.height > 10) {
+      return {
+        center: {
+          x: treeRect.left - containerRect.left + treeRect.width * 0.49,
+          y: treeRect.top - containerRect.top + treeRect.height * 0.3,
+        },
+        radiusX: treeRect.width * 0.32,
+        radiusY: treeRect.height * 0.16,
+      };
+    }
+  }
+  return null;
+}
+
+function getCssFallbackCanopyMetrics(
+  containerWidth: number,
+  containerHeight: number,
+): CanopyMetrics {
+  const isWide = containerWidth >= 900;
+  const left = isWide ? containerWidth * 0.01 : containerWidth * -0.06;
+  const treeWidth = Math.max(480, Math.min(840, containerWidth * 0.5));
+  const treeHeight = Math.max(640, Math.min(1080, containerWidth * 0.68));
+  const treeTop = containerHeight - treeHeight;
+
+  return {
+    center: {
+      x: left + treeWidth * 0.49,
+      y: treeTop + treeHeight * 0.3,
+    },
+    radiusX: treeWidth * 0.32,
+    radiusY: treeHeight * 0.16,
+  };
+}
+
+export function getCanopyMetrics(
+  containerWidth: number,
+  containerHeight: number,
+  containerElement?: HTMLElement | null,
+): CanopyMetrics {
+  if (containerElement) {
+    const domMetrics = getDomCanopyMetrics(containerElement);
+    if (domMetrics) return domMetrics;
+  }
+  return getCssFallbackCanopyMetrics(containerWidth, containerHeight);
+}
+
 export function calculateCanopyOrigin(
   containerWidth: number,
   containerHeight: number,
+  containerElement?: HTMLElement | null,
 ): Point2D {
+  const metrics = getCanopyMetrics(
+    containerWidth,
+    containerHeight,
+    containerElement,
+  );
+  const angle = Math.random() * Math.PI * 2;
+  const radialRatio = Math.sqrt(Math.random()) * 0.72;
   return {
-    x: containerWidth * (0.16 + Math.random() * 0.14),
-    y: containerHeight * (0.34 + Math.random() * 0.16),
+    x: metrics.center.x + Math.cos(angle) * metrics.radiusX * radialRatio,
+    y: metrics.center.y + Math.sin(angle) * metrics.radiusY * radialRatio,
   };
 }
 
 export function getCanopyCenter(
   containerWidth: number,
   containerHeight: number,
+  containerElement?: HTMLElement | null,
 ): Point2D {
-  return {
-    x: containerWidth * 0.22,
-    y: containerHeight * 0.42,
-  };
+  return getCanopyMetrics(containerWidth, containerHeight, containerElement)
+    .center;
 }
 
 export interface ComputeWindVectorOptions {
@@ -158,9 +242,18 @@ export function useSolarizedCanvas({
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     // Initialize leaves
+    let cachedCanopy = getCanopyMetrics(
+      canvasWidth,
+      canvasHeight,
+      parentContainer,
+    );
     const initialLeaves: LeafParticle[] = [];
     for (let leafIndex = 0; leafIndex < leafCount; leafIndex++) {
-      const origin = calculateCanopyOrigin(canvasWidth, canvasHeight);
+      const origin = calculateCanopyOrigin(
+        canvasWidth,
+        canvasHeight,
+        parentContainer,
+      );
       initialLeaves.push(
         new LeafParticle(true, canvasWidth, canvasHeight, origin),
       );
@@ -190,8 +283,15 @@ export function useSolarizedCanvas({
       if (!entry) return;
       canvasWidth = canvasElement.width = entry.contentRect.width;
       canvasHeight = canvasElement.height = entry.contentRect.height;
+      cachedCanopy = getCanopyMetrics(
+        canvasWidth,
+        canvasHeight,
+        parentContainer,
+      );
     });
     resizeObserver.observe(parentContainer);
+
+    let frameCount = 0;
 
     function animationTick() {
       if (!renderContext) return;
@@ -199,6 +299,15 @@ export function useSolarizedCanvas({
       const mouseState = mouseStateRef.current;
       const windState = windStateRef.current;
       if (!mouseState || !windState) return;
+
+      frameCount++;
+      if (frameCount % 60 === 0) {
+        cachedCanopy = getCanopyMetrics(
+          canvasWidth,
+          canvasHeight,
+          parentContainer,
+        );
+      }
 
       const previousTargetX = mouseState.x;
       const previousTargetY = mouseState.y;
@@ -222,7 +331,7 @@ export function useSolarizedCanvas({
           windState.gustBoost * 0.96 < 0.01 ? 0 : windState.gustBoost * 0.96;
       }
 
-      const canopyCenter = getCanopyCenter(canvasWidth, canvasHeight);
+      const canopyCenter = cachedCanopy.center;
       const targetWind = computeTargetWindVector({
         mouseState,
         origin: canopyCenter,
@@ -245,15 +354,13 @@ export function useSolarizedCanvas({
         reducedMotion: checkReducedMotion,
       });
 
-      const canopyOrigin = calculateCanopyOrigin(canvasWidth, canvasHeight);
-
       updateLeavesAndDraw({
         renderContext,
         leaves: leavesRef.current,
         windState,
         mouseState,
         viewport,
-        canopyOrigin,
+        canopyOrigin: canopyCenter,
         isDarkMode,
         reducedMotion: checkReducedMotion,
         seasonProgress,
