@@ -191,22 +191,44 @@ function renderSnowflake(
   context.fill();
 }
 
-function shouldRenderCherryPetal(
-  seasonProgress: number,
+export type SeasonalParticleType = "petal" | "snowflake" | "leaf";
+
+function getWinterSpringParticle(
+  p: number,
   particleHash: number,
-): boolean {
-  const distSpring = Math.min(seasonProgress, 4 - seasonProgress);
-  if (distSpring >= 0.6) return false;
-  return particleHash < (0.6 - distSpring) / 0.6;
+): SeasonalParticleType {
+  // 3.0 -> 3.3: strictly snow, zero leaves
+  if (p <= 3.3) return "snowflake";
+  // 3.3 -> 4.0: snow transitions into cherry blossom petals, strictly zero leaves
+  const petalRatio = (p - 3.3) / 0.7;
+  return particleHash < petalRatio ? "petal" : "snowflake";
 }
 
-function shouldRenderSnowflake(
+export function getSeasonalParticleType(
   seasonProgress: number,
   particleHash: number,
-): boolean {
-  const distWinter = Math.abs(seasonProgress - 3);
-  if (distWinter >= 0.6) return false;
-  return particleHash < (0.6 - distWinter) / 0.6;
+): SeasonalParticleType {
+  const p = ((seasonProgress % 4) + 4) % 4;
+
+  // Winter into Spring transition (3.0 <= p < 4.0): Snow then petals, strictly zero leaves
+  if (p >= 3.0) {
+    return getWinterSpringParticle(p, particleHash);
+  }
+
+  // Spring into Summer (0.0 <= p <= 0.6): Petals transition into fresh green leaves
+  if (p <= 0.6) {
+    const petalRatio = 1 - p / 0.6;
+    return particleHash < petalRatio ? "petal" : "leaf";
+  }
+
+  // Autumn into Winter (2.4 <= p < 3.0): Leaves transition into snow
+  if (p >= 2.4) {
+    const snowRatio = (p - 2.4) / 0.6;
+    return particleHash < snowRatio ? "snowflake" : "leaf";
+  }
+
+  // Summer and Fall (0.6 < p < 2.4): 100% leaves
+  return "leaf";
 }
 
 export class LeafParticle {
@@ -336,11 +358,15 @@ export class LeafParticle {
     context.scale(scaleFactorX, scaleFactorY);
     context.globalAlpha = this.opacity;
 
-    const particleHash = (this.driftAngleOffset + 0.175) / 0.35;
+    const particleHash = Math.max(
+      0,
+      Math.min(1, (this.driftAngleOffset + 0.175) / 0.35),
+    );
+    const particleType = getSeasonalParticleType(seasonProgress, particleHash);
 
-    if (shouldRenderCherryPetal(seasonProgress, particleHash)) {
+    if (particleType === "petal") {
       renderCherryPetal(context, isDarkMode);
-    } else if (shouldRenderSnowflake(seasonProgress, particleHash)) {
+    } else if (particleType === "snowflake") {
       renderSnowflake(context, isDarkMode);
     } else {
       const palette = getSeasonalLeafPalette(seasonProgress, isDarkMode);

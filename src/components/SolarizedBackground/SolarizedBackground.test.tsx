@@ -5,7 +5,11 @@ import { appTheme } from "~/tokens/theme";
 import { ThemeModeProvider } from "~/utils/themeContext";
 import { SolarizedBackground } from "./SolarizedBackground";
 import { computeTargetWindVector } from "./useSolarizedCanvas";
-import { LeafParticle, WindBreezeStream } from "./SolarizedLeafRenderer";
+import {
+  LeafParticle,
+  WindBreezeStream,
+  getSeasonalParticleType,
+} from "./SolarizedLeafRenderer";
 import type { WindState, MouseState } from "./SolarizedBackground.types";
 import {
   resolveSeasonProgress,
@@ -434,5 +438,47 @@ describe("SolarizedBackground Component", () => {
     expect(() => particle.draw(mockContext, true, 1.0)).not.toThrow();
     expect(() => particle.draw(mockContext, true, 2.0)).not.toThrow();
     expect(() => particle.draw(mockContext, true, 3.0)).not.toThrow();
+  });
+
+  it("strictly suppresses falling leaves between winter and spring in favor of snow and petals", () => {
+    // 1. In Winter (3.0): all particles are snowflakes
+    for (let hash = 0; hash < 1; hash += 0.1) {
+      expect(getSeasonalParticleType(3.0, hash)).toBe("snowflake");
+    }
+
+    // 2. Right after Winter (3.1 - 3.3): strictly snow, zero leaves or petals
+    for (const p of [3.05, 3.1, 3.2, 3.29, 3.3]) {
+      for (let hash = 0; hash < 1; hash += 0.1) {
+        expect(getSeasonalParticleType(p, hash)).toBe("snowflake");
+      }
+    }
+
+    // 3. Between 3.3 and 4.0: snow transitions into flower petals, strictly ZERO leaves
+    for (const p of [3.35, 3.5, 3.65, 3.8, 3.95]) {
+      for (let hash = 0; hash < 1; hash += 0.05) {
+        const particleType = getSeasonalParticleType(p, hash);
+        expect(["snowflake", "petal"]).toContain(particleType);
+        expect(particleType).not.toBe("leaf");
+      }
+    }
+
+    // 4. In Spring (4.0 / 0.0): all particles are petals
+    for (let hash = 0; hash < 1; hash += 0.1) {
+      expect(getSeasonalParticleType(4.0, hash)).toBe("petal");
+      expect(getSeasonalParticleType(0.0, hash)).toBe("petal");
+    }
+
+    // 5. Spring to summer (0.0 to 0.6): petals transition into fresh green leaves
+    expect(getSeasonalParticleType(0.3, 0.1)).toBe("petal");
+    expect(getSeasonalParticleType(0.3, 0.9)).toBe("leaf");
+
+    // 6. Summer and early Autumn (0.6 to 2.4): 100% leaves
+    expect(getSeasonalParticleType(1.0, 0.2)).toBe("leaf");
+    expect(getSeasonalParticleType(1.5, 0.5)).toBe("leaf");
+    expect(getSeasonalParticleType(2.0, 0.8)).toBe("leaf");
+
+    // 7. Late Autumn to Winter (2.4 to 3.0): leaves transition into snowflakes
+    expect(getSeasonalParticleType(2.7, 0.1)).toBe("snowflake");
+    expect(getSeasonalParticleType(2.7, 0.9)).toBe("leaf");
   });
 });
