@@ -24,6 +24,9 @@ describe("i18n Internationalization", () => {
       "SYSTEM STATUS & DIAGNOSTICS",
     );
     expect(i18n.t("common:craftedBy")).toBe("Crafted by");
+    expect(i18n.t("common:heroTicker.prefix")).toBe("We craft ");
+    expect(i18n.t("common:heroTicker.suffix")).toBe(" that inspire.");
+    expect(i18n.t("common:welcomeCard.title")).toBe("AptiTek-02 Initialized");
 
     await i18n.changeLanguage("fr");
     expect(i18n.t("common:systemStatus.gateway")).toBe(
@@ -33,6 +36,9 @@ describe("i18n Internationalization", () => {
       "STATUT DU SYSTÈME ET DIAGNOSTICS",
     );
     expect(i18n.t("common:craftedBy")).toBe("Conçu par");
+    expect(i18n.t("common:heroTicker.prefix")).toBe("Nous façonnons ");
+    expect(i18n.t("common:heroTicker.suffix")).toBe(" qui inspirent.");
+    expect(i18n.t("common:welcomeCard.title")).toBe("AptiTek-02 Initialisé");
   });
 
   it("translates auth loginCard strings correctly in English and French", async () => {

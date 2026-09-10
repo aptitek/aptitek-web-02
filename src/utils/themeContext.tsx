@@ -34,14 +34,11 @@ export function ThemeModeProvider({ children }: { children: ReactNode }) {
     try {
       const storedMode = localStorage.getItem(THEME_STORAGE_KEY) as
         "dark" | "light" | null;
-      if (storedMode === "dark" || storedMode === "light") {
-        setBaseMode(storedMode);
-      } else if (
-        typeof window !== "undefined" &&
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: light)").matches
-      ) {
+      if (storedMode === "light") {
         setBaseMode("light");
+      } else {
+        // Enforce Solarized Dark as default mode
+        setBaseMode("dark");
       }
 
       const storedDebug = localStorage.getItem(DEBUG_STORAGE_KEY);
@@ -50,23 +47,6 @@ export function ThemeModeProvider({ children }: { children: ReactNode }) {
       }
     } catch {
       // Ignore storage access errors
-    }
-
-    if (typeof window !== "undefined" && window.matchMedia) {
-      const mediaQuery = window.matchMedia("(prefers-color-scheme: light)");
-      const handleMediaChange = (e: MediaQueryListEvent) => {
-        try {
-          const stored = localStorage.getItem(THEME_STORAGE_KEY);
-          if (!stored) {
-            setBaseMode(e.matches ? "light" : "dark");
-          }
-        } catch {
-          // Ignore storage access errors
-        }
-      };
-
-      mediaQuery.addEventListener("change", handleMediaChange);
-      return () => mediaQuery.removeEventListener("change", handleMediaChange);
     }
   }, []);
 

@@ -58,6 +58,8 @@ describe("Material Design 3 Typography & Recursive Tokens", () => {
       expect(RECURSIVE_PRESETS.mono).toContain("'MONO' 1");
       expect(RECURSIVE_PRESETS.casualMono).toContain("'CASL' 1, 'MONO' 1");
       expect(RECURSIVE_PRESETS.semiMono).toContain("'MONO' 0.5");
+      expect(RECURSIVE_PRESETS.casualSlantedSemiBold).toContain("'wght' 600");
+      expect(RECURSIVE_PRESETS.casualSlantedBold).toContain("'wght' 700");
     });
   });
 

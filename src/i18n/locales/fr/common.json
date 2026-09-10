@@ -2,6 +2,32 @@
   "copyright": "© {{year}} AptiSpace LMS. Tous droits réservés.",
   "craftedBy": "Conçu par",
   "craftedByAria": "Conçu par Aptitek",
+  "heroTicker": {
+    "prefix": "Nous façonnons ",
+    "suffix": " qui inspirent.",
+    "phrases": [
+      "des idées révolutionnaires",
+      "des expériences sans limites",
+      "des avenirs durables",
+      "l'intelligence artistique",
+      "des logiciels élégants"
+    ],
+    "controls": {
+      "previous": "Phrase précédente du slogan",
+      "next": "Phrase suivante du slogan",
+      "pause": "Mettre l'animation en pause",
+      "resume": "Reprendre l'animation",
+      "jumpTo": "Aller à la phrase : {{phrase}}",
+      "barAria": "Contrôles de l'animation du slogan"
+    },
+    "quillAria": "Plume calligraphique dessinant le texte",
+    "sloganAria": "Slogan principal : {{prefix}}{{phrase}}{{suffix}}"
+  },
+  "welcomeCard": {
+    "title": "AptiTek-02 Initialisé",
+    "description": "Site statique Astro avec Material UI 3 Expressif et thème Solarized. L'ensemble du pipeline, hooks Husky, graphe de tâches Wireit, ESLint, Prettier et suite de tests sont actifs.",
+    "cta": "Pipeline Prêt"
+  },
   "logoAlt": "Icône AptiSpace",
   "nav": {
     "planning": "Planning",

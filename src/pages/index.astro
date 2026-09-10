@@ -1,19 +1,8 @@
 ---
 import Layout from "~/layouts/Layout.astro";
-import { ThemeRegistry } from "~/components/ThemeRegistry";
-import { WelcomeCard } from "~/components/WelcomeCard";
+import { HomePage } from "~/components/HomePage";
 ---
 
 <Layout title="AptiTek-02 — Modern Static Website">
-  <main style="padding: 2rem 1rem; text-align: center;">
-    <h1 style="font-size: 2.25rem; margin-bottom: 0.5rem; color: var(--sol-blue, #268bd2);">
-      AptiTek-02
-    </h1>
-    <p style="margin-top: 0; color: var(--sol-base1, #93a1a1); font-size: 1.1rem;">
-      Clean Astro Static Website Foundation
-    </p>
-    <ThemeRegistry client:load>
-      <WelcomeCard client:load />
-    </ThemeRegistry>
-  </main>
+  <HomePage client:load />
 </Layout>

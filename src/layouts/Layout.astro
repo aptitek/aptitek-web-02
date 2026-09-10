@@ -4,23 +4,50 @@ import "~/tokens/tokens.css";
 interface Props {
   title?: string;
   description?: string;
+  lang?: string;
 }
 
 const {
   title = "AptiTek-02 — Modern Static Website",
   description = "AptiTek-02 static website powered by Astro, MUI 3 Expressive, and Solarized Theme",
+  lang = "en",
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang} data-theme="dark" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+    />
     <title>{title}</title>
+    <script is:inline>
+      (() => {
+        try {
+          const stored = localStorage.getItem("aptispace_theme_mode");
+          const mode = stored === "light" ? "light" : "dark";
+          document.documentElement.classList.remove("light", "dark", "debug");
+          document.documentElement.classList.add(mode);
+          document.documentElement.setAttribute("data-theme", mode);
+          document.documentElement.style.colorScheme = mode;
+        } catch {
+          document.documentElement.classList.add("dark");
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
   </head>
   <body>
     <slot />
@@ -31,13 +58,31 @@ const {
   :root {
     color-scheme: dark;
   }
+  :root.light,
+  [data-theme="light"] {
+    color-scheme: light;
+  }
+  html,
   body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background-color: var(--sol-base03, #002b36);
-    color: var(--sol-base0, #839496);
+    background-color: var(--color-solarized-base03, #002b36);
+    color: var(--color-solarized-base3, #fdf6e3);
     font-family:
       -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
+  }
+  html.dark body,
+  html[data-theme="dark"] body {
+    background-color: var(--color-solarized-base03, #002b36);
+    color: var(--color-solarized-base3, #fdf6e3);
+  }
+  html.light body,
+  html[data-theme="light"] body {
+    background-color: var(--color-solarized-base3, #fdf6e3);
+    color: var(--color-solarized-base03, #002b36);
   }
 </style>

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import {
   Card,
   CardContent,
@@ -10,6 +11,8 @@ import RocketLaunchRoundedIcon from "@mui/icons-material/RocketLaunchRounded";
 import CheckCircleOutlineRoundedIcon from "@mui/icons-material/CheckCircleOutlineRounded";
 
 export function WelcomeCard() {
+  const { t } = useTranslation("common");
+
   return (
     <Card
       elevation={2}
@@ -27,13 +30,14 @@ export function WelcomeCard() {
           <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
             <RocketLaunchRoundedIcon color="primary" sx={{ fontSize: 32 }} />
             <Typography variant="h5" component="h2" sx={{ fontWeight: 700 }}>
-              AptiTek-02 Initialized
+              {t("welcomeCard.title", "AptiTek-02 Initialized")}
             </Typography>
           </Box>
           <Typography variant="body1" color="text.secondary">
-            Empty Astro static website with Material UI 3 Expressive and
-            Solarized theme. The entire pipeline, Husky hooks, Wireit task
-            graph, ESLint, Prettier, and testing suite are active.
+            {t(
+              "welcomeCard.description",
+              "Empty Astro static website with Material UI 3 Expressive and Solarized theme. The entire pipeline, Husky hooks, Wireit task graph, ESLint, Prettier, and testing suite are active.",
+            )}
           </Typography>
           <Stack direction="row" spacing={1} sx={{ pt: 1 }}>
             <Button
@@ -41,7 +45,7 @@ export function WelcomeCard() {
               color="primary"
               startIcon={<CheckCircleOutlineRoundedIcon />}
             >
-              Pipeline Ready
+              {t("welcomeCard.cta", "Pipeline Ready")}
             </Button>
           </Stack>
         </Stack>

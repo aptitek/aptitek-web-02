@@ -6,6 +6,7 @@ import DarkModeRoundedIcon from "@mui/icons-material/DarkModeRounded";
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
 import NightlightRoundedIcon from "@mui/icons-material/NightlightRounded";
 import { M3_SPRINGS } from "~/tokens/motion";
+import { CELESTIAL_COLORS } from "~/tokens/namedColors";
 import type { SwitchSizeConfig } from "~/components/atoms/Switch";
 import {
   GlyphMotionCenter,
@@ -16,13 +17,14 @@ import {
 
 export const HighContrastSunGlyph: React.FC<{ size: number }> = ({ size }) => {
   const theme = useTheme();
+  const glow = theme.palette?.celestial?.sun?.glow ?? CELESTIAL_COLORS.sun.glow;
   return (
     <LightModeRoundedIcon
       sx={{
         fontSize: size,
         color: theme.palette.common.white,
         display: "block",
-        filter: `drop-shadow(0 0 4px ${theme.palette.celestial.sun.glow})`,
+        filter: `drop-shadow(0 0 4px ${glow})`,
       }}
       aria-hidden="true"
     />
@@ -31,13 +33,15 @@ export const HighContrastSunGlyph: React.FC<{ size: number }> = ({ size }) => {
 
 export const HighContrastMoonGlyph: React.FC<{ size: number }> = ({ size }) => {
   const theme = useTheme();
+  const glow =
+    theme.palette?.celestial?.moon?.glow ?? CELESTIAL_COLORS.moon.glow;
   return (
     <DarkModeRoundedIcon
       sx={{
         fontSize: size,
         color: theme.palette.common.white,
         display: "block",
-        filter: `drop-shadow(0 0 4px ${theme.palette.celestial.moon.glow})`,
+        filter: `drop-shadow(0 0 4px ${glow})`,
       }}
       aria-hidden="true"
     />
@@ -46,12 +50,14 @@ export const HighContrastMoonGlyph: React.FC<{ size: number }> = ({ size }) => {
 
 export const PeekingSunIcon: React.FC<{ size: number }> = ({ size }) => {
   const theme = useTheme();
+  const main = theme.palette?.celestial?.sun?.main ?? CELESTIAL_COLORS.sun.main;
+  const glow = theme.palette?.celestial?.sun?.glow ?? CELESTIAL_COLORS.sun.glow;
   return (
     <WbSunnyRoundedIcon
       sx={{
         fontSize: size,
-        color: theme.palette.celestial.sun.main,
-        filter: `drop-shadow(0 0 3px ${theme.palette.celestial.sun.glow})`,
+        color: main,
+        filter: `drop-shadow(0 0 3px ${glow})`,
       }}
       aria-hidden="true"
     />
@@ -60,12 +66,16 @@ export const PeekingSunIcon: React.FC<{ size: number }> = ({ size }) => {
 
 export const PeekingMoonIcon: React.FC<{ size: number }> = ({ size }) => {
   const theme = useTheme();
+  const main =
+    theme.palette?.celestial?.moon?.main ?? CELESTIAL_COLORS.moon.main;
+  const glow =
+    theme.palette?.celestial?.moon?.glow ?? CELESTIAL_COLORS.moon.glow;
   return (
     <NightlightRoundedIcon
       sx={{
         fontSize: size,
-        color: theme.palette.celestial.moon.main,
-        filter: `drop-shadow(0 0 3px ${theme.palette.celestial.moon.glow})`,
+        color: main,
+        filter: `drop-shadow(0 0 3px ${glow})`,
       }}
       aria-hidden="true"
     />

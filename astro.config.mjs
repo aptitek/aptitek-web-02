@@ -6,4 +6,15 @@ import react from "@astrojs/react";
 export default defineConfig({
   output: "static",
   integrations: [react()],
+  vite: {
+    optimizeDeps: {
+      include: [
+        "react",
+        "react-dom",
+        "react-dom/client",
+        "react-i18next",
+        "i18next",
+      ],
+    },
+  },
 });

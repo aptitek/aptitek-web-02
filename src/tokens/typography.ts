@@ -57,6 +57,8 @@ export const RECURSIVE_PRESETS = {
   casual: "'CASL' 1, 'MONO' 0, 'slnt' 0, 'CRSV' 0.5",
   casualBold: "'CASL' 1, 'MONO' 0, 'wght' 700, 'slnt' 0, 'CRSV' 0.5",
   casualSlanted: "'CASL' 1, 'MONO' 0, 'slnt' -15, 'CRSV' 1",
+  casualSlantedSemiBold: "'CASL' 1, 'MONO' 0, 'wght' 600, 'slnt' -15, 'CRSV' 1",
+  casualSlantedBold: "'CASL' 1, 'MONO' 0, 'wght' 700, 'slnt' -15, 'CRSV' 1",
   linear: "'CASL' 0, 'MONO' 0, 'slnt' 0, 'CRSV' 0",
   linearBold: "'CASL' 0, 'MONO' 0, 'wght' 700, 'slnt' 0, 'CRSV' 0",
   linearSlanted: "'CASL' 0, 'MONO' 0, 'slnt' -15, 'CRSV' 0",

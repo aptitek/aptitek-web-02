@@ -95,6 +95,8 @@ const APPROVED_VARIATION_PRESETS = new Set([
   "'CASL' 1, 'MONO' 0, 'slnt' 0, 'CRSV' 0.5",
   "'CASL' 1, 'MONO' 0, 'wght' 700, 'slnt' 0, 'CRSV' 0.5",
   "'CASL' 1, 'MONO' 0, 'slnt' -15, 'CRSV' 1",
+  "'CASL' 1, 'MONO' 0, 'wght' 600, 'slnt' -15, 'CRSV' 1",
+  "'CASL' 1, 'MONO' 0, 'wght' 700, 'slnt' -15, 'CRSV' 1",
   "'CASL' 0, 'MONO' 0, 'slnt' 0, 'CRSV' 0",
   "'CASL' 0, 'MONO' 0, 'wght' 700, 'slnt' 0, 'CRSV' 0",
   "'CASL' 0, 'MONO' 0, 'slnt' -15, 'CRSV' 0",
