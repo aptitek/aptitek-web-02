@@ -7,12 +7,12 @@ export const boundariesSettings = {
     { type: "molecules", pattern: "molecules/*", base: "src/components" },
     { type: "organisms", pattern: "organisms/*", base: "src/components" },
     { type: "templates", pattern: "templates/*", base: "src/components" },
-    { type: "pages", pattern: "routes/**", base: "app" },
-    { type: "tokens", pattern: "tokens/*", base: "app" },
+    { type: "pages", pattern: "pages/**", base: "src" },
+    { type: "tokens", pattern: "tokens/*", base: "src" },
     {
       type: "shared",
-      pattern: "{utils,i18n,config,services,db}/*",
-      base: "app",
+      pattern: "{utils,i18n,types,content,layouts}/*",
+      base: "src",
     },
   ],
 };

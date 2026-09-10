@@ -14,16 +14,56 @@
     "slnt" 0;
   box-sizing: border-box;
   transition: background-color var(--motion-duration-medium1, 250ms) ease;
+  /* Default Theme: Dark (matching site default) */
+  --cv-bg: var(--color-solarized-base03);
+  --cv-text: var(--color-solarized-base3);
+  --cv-card-bg: var(--color-solarized-base02);
+  --cv-card-border: var(--color-solarized-base01);
+  --cv-entry-bg: var(--color-solarized-base03);
+  --cv-entry-border: var(--color-solarized-base01);
+  --cv-sidebar-bg: var(--color-solarized-base03);
+  --cv-sidebar-text: var(--color-solarized-base3);
+  --cv-table-bg: var(--color-solarized-base03);
+  --cv-date-color: var(--color-solarized-base2);
+  --cv-place-color: var(--color-solarized-base1);
+  --cv-clients-bg: var(--color-solarized-base02);
+  --cv-clients-border: var(--color-solarized-base01);
+  --cv-client-pill-bg: var(--color-solarized-base03);
+  --cv-client-pill-border: var(--color-solarized-base01);
+  --cv-client-aptitek-bg: var(--color-solarized-base3);
+  --cv-client-aptitek-text: var(--color-solarized-base03);
+}
+
+/* === Floating Action Button Container (PDF Download) === */
+.fabContainer {
+  position: fixed;
+  bottom: var(--space-6, 2rem);
+  right: var(--space-6, 2rem);
+  z-index: 100;
+}
+
+@media (max-width: 600px) {
+  .fabContainer {
+    bottom: var(--space-4, 1rem);
+    right: var(--space-4, 1rem);
+  }
+}
+
+@media print {
+  .fabContainer {
+    display: none !important;
+  }
 }
 
 /* === Solarized Theme Variants === */
-.theme-light {
+:global([data-theme="light"]) .container,
+:global(.light) .container,
+.theme-light,
+.container[data-theme="light"] {
   --cv-bg: var(--color-solarized-base3);
   --cv-text: var(--color-solarized-base03);
   --cv-card-bg: var(--color-solarized-base3);
   --cv-card-border: var(--color-solarized-base2);
-  --cv-toolbar-bg: var(--color-solarized-base2);
-  --cv-toolbar-border: var(--color-solarized-base1);
   --cv-entry-bg: var(--color-solarized-base2);
   --cv-entry-border: var(--color-solarized-base1);
   --cv-sidebar-bg: var(--color-solarized-base02);
@@ -39,13 +79,14 @@
   --cv-client-aptitek-text: var(--color-solarized-base3);
 }
 
-.theme-dark {
+:global([data-theme="dark"]) .container,
+:global(.dark) .container,
+.theme-dark,
+.container[data-theme="dark"] {
   --cv-bg: var(--color-solarized-base03);
   --cv-text: var(--color-solarized-base3);
   --cv-card-bg: var(--color-solarized-base02);
   --cv-card-border: var(--color-solarized-base01);
-  --cv-toolbar-bg: var(--color-solarized-base02);
-  --cv-toolbar-border: var(--color-solarized-base01);
   --cv-entry-bg: var(--color-solarized-base03);
   --cv-entry-border: var(--color-solarized-base01);
   --cv-sidebar-bg: var(--color-solarized-base03);
@@ -67,7 +108,6 @@
   flex-direction: column;
   gap: var(--space-6, 24px);
   width: 100%;
-  margin-top: var(--space-4, 16px);
 }
 
 .fluidCard {

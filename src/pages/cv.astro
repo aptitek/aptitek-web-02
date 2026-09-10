@@ -1,6 +1,6 @@
 ---
 import Layout from "~/layouts/Layout.astro";
-import { CvDocument } from "~/components/organisms/Cv/CvDocument";
+import { CvPage } from "~/components/CvPage";
 ---
 
 <Layout
@@ -8,7 +8,7 @@ import { CvDocument } from "~/components/organisms/Cv/CvDocument";
   description="Curriculum Vitae professionnel d'Antoine Gréa, Docteur en IA et Dirigeant Aptitek. Version web interactive et PDF A4 prêt pour l'impression généré par WeasyPrint."
 >
   <main class="cv-page-wrapper">
-    <CvDocument client:load />
+    <CvPage client:load />
   </main>
 </Layout>
 

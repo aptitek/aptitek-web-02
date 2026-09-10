@@ -206,13 +206,16 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^9.4.0",
     "@mui/material": "^9.4.0",
+    "@mui/x-date-pickers": "^9.13.0",
     "astro": "^7.3.2",
+    "dayjs": "^1.11.23",
     "framer-motion": "^13.2.0",
     "i18next": "^26.4.2",
     "material-shapes-ts": "^0.3.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-i18next": "^17.0.13"
+    "react-i18next": "^17.0.13",
+    "react-material-expressive": "^1.1.2"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",

@@ -5,6 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { getThemeByMode } from "~/tokens/theme";
 import "~/i18n";
 import "~/tokens/tokens.css";
+import "react-material-expressive/styles.css";
 
 import { ThemeModeProvider, useThemeMode } from "~/utils/themeContext";
 

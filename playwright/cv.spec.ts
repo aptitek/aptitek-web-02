@@ -26,10 +26,10 @@ test.describe("CV Fluid Web Layout & Interactions", () => {
     ).toHaveCount(0);
   });
 
-  test("should provide a direct link to the WeasyPrint compiled PDF", async ({
+  test("should provide a direct link to the WeasyPrint compiled PDF via Floating Action Button", async ({
     page,
   }) => {
-    const pdfLink = page.getByRole("link", { name: /télécharger pdf/i });
+    const pdfLink = page.getByTestId("fab-pdf");
     await expect(pdfLink).toBeVisible();
     await expect(pdfLink).toHaveAttribute("href", "/cv.pdf");
     await expect(pdfLink).toHaveAttribute("download", "CV-Antoine-Grea.pdf");
@@ -64,70 +64,27 @@ test.describe("CV Fluid Web Layout & Interactions", () => {
     await expect(juryTable.getByText(/Directeur de thèse/i)).toBeVisible();
   });
 
-  test("should toggle between Solarized light and dark themes", async ({
+  test("should toggle between Solarized light and dark themes via page theme switch", async ({
     page,
   }) => {
     const docEl = page.locator("html");
-    const cvDoc = page.getByTestId("cv-document");
 
-    // Click Sombre (Dark)
-    const darkBtn = page.getByRole("tab", { name: /sombre/i });
-    await darkBtn.click();
-    await expect(cvDoc).toHaveAttribute("data-theme", "dark");
-    await expect(docEl).toHaveAttribute("data-theme", "dark");
+    const themeToggle = page.getByTestId("zenith-theme-switch");
+    await expect(themeToggle).toBeVisible();
 
-    // Click Clair (Light)
-    const lightBtn = page.getByRole("tab", { name: /clair/i });
-    await lightBtn.click();
-    await expect(cvDoc).toHaveAttribute("data-theme", "light");
-    await expect(docEl).toHaveAttribute("data-theme", "light");
+    const initialTheme = await docEl.getAttribute("data-theme");
+    await themeToggle.click();
+    await expect(docEl).not.toHaveAttribute("data-theme", initialTheme || "");
   });
 
-  test("should highlight matched entries when filtering by skill", async ({
-    page,
-  }) => {
-    const aiTag = page.getByTestId("skill-tag-ai");
-    await expect(aiTag).toBeVisible();
-    await aiTag.click();
-
-    // Matched entries should have .skill-matched class
-    const matched = page.locator(".entry.skill-matched");
-    await expect(matched.first()).toBeVisible();
-    const matchedCount = await matched.count();
-    expect(matchedCount).toBeGreaterThan(0);
-
-    // Dimmed entries should have .skill-dimmed class
-    const dimmed = page.locator(".entry.skill-dimmed");
-    await expect(dimmed.first()).toBeVisible();
-    const dimmedCount = await dimmed.count();
-    expect(dimmedCount).toBeGreaterThan(0);
-
-    // Reset filter
-    const resetBtn = page.getByRole("button", { name: /réinitialiser/i });
-    await expect(resetBtn).toBeVisible();
-    await resetBtn.click();
-
-    // Filter reset should clear highlight and dimmed classes
-    await expect(page.locator(".entry.skill-matched")).toHaveCount(0);
-    await expect(page.locator(".entry.skill-dimmed")).toHaveCount(0);
-  });
-
-  test("should copy email and telephone with toast feedback", async ({
-    page,
-  }) => {
-    // Grant clipboard permissions in browser context
-    await page
-      .context()
-      .grantPermissions(["clipboard-read", "clipboard-write"]);
-
-    const copyEmailBtn = page.getByRole("button", { name: /copier email/i });
-    await copyEmailBtn.click();
-
-    const toast = page.locator(
-      'aside[aria-label="Commandes du CV"] [role="status"]',
-    );
-    await expect(toast).toBeVisible();
-    await expect(toast).toContainText(/copié/i);
+  test("should not render the removed toolbar headerbar", async ({ page }) => {
+    await expect(
+      page.locator('aside[aria-label="Commandes du CV"]'),
+    ).toHaveCount(0);
+    await expect(page.getByText(/filtrer par compétences/i)).toHaveCount(0);
+    await expect(
+      page.getByRole("button", { name: /copier email/i }),
+    ).toHaveCount(0);
   });
 
   test("should render responsively on mobile without horizontal page overflow", async ({

@@ -146,7 +146,7 @@ export function ThemeSwitch({
   className,
   size = "small",
   disabled = false,
-  "data-testid": dataTestId = "theme-toggle",
+  "data-testid": dataTestId = "zenith-theme-switch",
 }: ThemeSwitchProps) {
   const { t } = useTranslation("common");
   const { mode, toggleColorMode } = useThemeMode();
@@ -156,6 +156,7 @@ export function ThemeSwitch({
       className={className}
       role="region"
       aria-label={t("theme.toggleLabel", "Select color mode")}
+      data-testid="theme-toggle"
     >
       <ZenithSwitch
         mode={mode}
