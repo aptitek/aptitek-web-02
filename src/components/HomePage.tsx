@@ -1,8 +1,9 @@
 import Box from "@mui/material/Box";
+import PictureAsPdfRoundedIcon from "@mui/icons-material/PictureAsPdfRounded";
 import { ThemeRegistry } from "./ThemeRegistry";
-import { WelcomeCard } from "./WelcomeCard";
 import { HeroTicker } from "./molecules/HeroTicker";
 import { ThemeSwitch } from "./molecules/FancySwitch/variants/theme.switch";
+import { FloatingActionButton } from "./atoms/FloatingActionButton";
 
 export function HomePage() {
   return (
@@ -18,6 +19,25 @@ export function HomePage() {
       >
         <ThemeSwitch />
       </Box>
+
+      <Box
+        component="div"
+        sx={{
+          position: "fixed",
+          bottom: { xs: "1.5rem", sm: "2rem" },
+          right: { xs: "1.5rem", sm: "2rem" },
+          zIndex: 50,
+        }}
+      >
+        <FloatingActionButton
+          tooltip="Curriculum Vitae (PDF)"
+          href="/cv.pdf"
+          target="_blank"
+          testId="fab-pdf"
+          icon={<PictureAsPdfRoundedIcon sx={{ fontSize: 28 }} />}
+        />
+      </Box>
+
       <Box
         component="main"
         sx={{
@@ -43,7 +63,6 @@ export function HomePage() {
             showNib={true}
           />
         </Box>
-        <WelcomeCard />
       </Box>
     </ThemeRegistry>
   );

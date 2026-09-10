@@ -1,0 +1,244 @@
+::: cv-layout :::
+
+::: sidebar :::
+
+![Photo de profil d'Antoine Gréa](icons/grea09.svg){.main-logo}
+
+# Antoine [Gréa]{.color-green}
+
+![Logo Aptitek](icons/Aptitek.svg){.logo} [-- Dirigeant]{.position}
+
+## [person]{.md-icon .color-magenta} Bio
+
+> **D[octeur en IA]{.color-magenta}** et **ingénieur système**, je mets ma passion pour l’informatique au service d’une pédagogie active et de systèmes intelligents compréhensibles.
+
+
+## [link]{.md-icon .color-blue} Liens
+
+::: icons
+- [call]{.md-icon .color-magenta} [+33 7 66 77 21 26](tel:+33766772126)
+- [mail]{.md-icon .color-green} [antoine@aptitek.io](mailto:antoine@aptitek.io)
+- [language]{.md-icon .color-blue} [aptitek.io](https://aptitek.io)
+- [github]{.md-icon .color-base0} [GitHub](https://github.com/grea09)
+- [linkedin]{.md-icon .color-cyan} [LinkedIn](https://linkedin.com/in/grea09)
+:::
+
+
+## [workspace_premium]{.md-icon .color-red} Certifications
+
+::: icons
+- [directions_car]{.md-icon .color-base0} Permis B
+- [hub]{.md-icon .color-blue} CCNA 1 & 3
+:::
+
+## [translate]{.md-icon .color-green} Langues
+
+::: langs
+- ![Drapeau français](flags/fr.svg) **Français** [●●●●●]{.level .color-blue}
+- ![Drapeau britannique](flags/en.svg) **Anglais**  [●●●●●]{.level .color-blue}
+- ![Drapeau espagnol](flags/es.svg) **Espagnol** [●●○○○]{.level .color-orange}
+:::
+
+## [tune]{.md-icon .color-yellow} Compétences
+
+::: icons
+- [psychology]{.md-icon .color-magenta} IA, Tensorflow, LLM
+- [code]{.md-icon .color-violet} Python, Java, C++
+- [terminal]{.md-icon .color-blue} Windows, Linux
+- [inventory_2]{.md-icon .color-green} Docker, Git, Bash
+- [sync]{.md-icon .color-yellow} CI/CD, GitHub Actions
+- [palette]{.md-icon .color-orange} Typo, Graphisme
+:::
+
+:::
+
+::: main-content :::
+
+## [business]{.md-icon .color-base0} Entreprise Individuelle ![Logo Aptitek](icons/Aptitek.svg){.logo}
+
+### [school]{.md-icon .color-yellow} Former autrement : ludique, concret, durable
+
+::: icons
+- [psychology]{.md-icon .color-magenta} *IA générative, Prompt engineering, TensorFlow, Langchain*
+- [terminal]{.md-icon .color-green} *Docker, Linux, Réseau, Virtualisation*
+- [code]{.md-icon .color-violet} *Développement, Git, Bash, No-code*
+- [language]{.md-icon .color-blue} *Web, APIs, Automatisation, Données*
+:::
+
+::: {.clients}
+[Sciences-U](https://www.sciences-u-lyon.fr/){.logo-sciences-u .color-blue} [estiam](https://estiam.education/){.logo-estiam .color-violet} [GEMA](https://www.groupe-gema.com/){.logo-gema .color-magenta} [LA MACHE](https://www.ecolelamache.org/){.logo-la-mache .color-cyan} [+ Vous](https://aptitek.io){.logo-aptitek}
+:::
+
+[calendar_month]{.md-icon} [2023-04 → aujourd'hui]{.date} -- [location_on]{.md-icon} [Villeurbanne, France]{.place} 
+
+## [school]{.md-icon .color-magenta} Enseignement
+
+::: entry :::
+### Enseignant Chercheur [CPE Lyon]{.logo-cpe}
+
+::: icons
+- [language]{.md-icon} Programmation Web, IoT, Domotique
+:::
+
+[calendar_month]{.md-icon} [2020]{.date} -- [location_on]{.md-icon} [Lyon, France]{.place}  
+
+:::
+
+::: entry :::
+### Moniteur puis Attaché Temporaire d'Enseignement et de Recherche [![Logo Polytech](icons/polytech_pastille.svg) Polytech Lyon]{.logo-polytech}
+
+::: icons
+- [hub]{.md-icon} Réseaux, Encodage, Protocoles et Routage  
+- [code]{.md-icon} Programmation Java, UML, Algorithmique  
+- [terminal]{.md-icon} Systèmes Linux, IPC, scripts...
+:::
+
+[calendar_month]{.md-icon} [2014 → 2017 | 2018 → 2019]{.date} -- [location_on]{.md-icon} [Lyon, France]{.place}
+:::
+
+::: entry :::
+### Attaché Temporaire d'Enseignement et de Recherche [IUT Lumière Lyon 2]{.logo-lyon2 .color-red}
+
+::: icons
+- [keyboard]{.md-icon} Bases de l'informatique, Microsoft Office  
+- [database]{.md-icon} Bases de données : Modèle Relationnel, SQL  
+:::
+
+[calendar_month]{.md-icon} [2017 → 2018]{.date} -- [location_on]{.md-icon} [Bron, France]{.place}
+:::
+
+
+## [school]{.md-icon .color-green} Formation
+
+::: entry :::
+### Doctorat en Informatique [![Logo Université Claude Bernard Lyon 1](icons/lyon1_pastille.svg)Université Lyon 1]{.logo-lyon1}
+
+IA Explicable, Planification, Logique de Description et Languages
+
+[calendar_month]{.md-icon} [2014-10 → 2020-01]{.date} -- [location_on]{.md-icon} [Lyon, France]{.place}
+:::
+
+::: entry :::
+### Diplôme d’ingénieur | Master 2 [![Logo UTBM](icons/utbm_pastille.svg) utbm]{.logo-utbm}
+
+Réseaux et Systèmes Embarqués | Informatique Mobile et Répartie
+
+[calendar_month]{.md-icon} [2010-09 → 2013-07]{.date} -- [location_on]{.md-icon} [Belfort, France]{.place}
+:::
+
+::: entry :::
+### Diplôme Universitaire Technologique [![Logo Université Claude Bernard Lyon 1](icons/lyon1_pastille.svg)IUT Lyon 1]{.logo-lyon1}
+
+Informatique Générale
+
+[calendar_month]{.md-icon} [2008-09 → 2010-07]{.date} -- [location_on]{.md-icon} [Bourg-en-Bresse, France]{.place}
+:::
+
+## [work]{.md-icon .color-blue} Expérience
+
+::: entry :::
+### Consultant Junior [![Logo Business & Decision](icons/b-and-d_pastille.svg) Business & Decision]{.logo-b-and-d}
+
+[calendar_month]{.md-icon} [2013-07 → 2013-11]{.date} -- [location_on]{.md-icon} [Lyon, France]{.place}
+:::
+
+::: entry :::
+### Stage Ingénieur [Atos Worldline]{.logo-atos}
+
+[calendar_month]{.md-icon} [2013-02 → 2013-07]{.date} -- [location_on]{.md-icon} [Lyon, France]{.place}
+:::
+
+::: entry :::
+### Stage Assistant Ingénieur [gfi]{.logo-gfi}
+
+[calendar_month]{.md-icon} [2011-09 → 2012-01]{.date} -- [location_on]{.md-icon} [Belfort, France]{.place}
+:::
+
+:::
+
+:::
+
+::: page-break
+:::
+
+## [school]{.md-icon .color-blue} Thèse de doctorat [![Logo Université Claude Bernard Lyon 1](icons/lyon1_pastille.svg)Université Lyon 1]{.logo-lyon1} -- [LIRIS]{.logo-liris}
+
+::: thesis
+
+#### [gavel]{.md-icon .color-green} Jury
+
+|                           | Nom                   | Titre                 | Institution                                   | Rôle                     |
+|:-|:---|:---|:---|:---|
+| [person]{.md-icon .color-red}        | Hamamache Kheddouci   | Professeur            | [LIRIS]{.logo-liris}                          | Président                |
+| [description]{.md-icon .color-magenta}    | Eva Onainda           | Professeure           | ![Logo Universitat Politècnica De València](icons/updv.svg)| Rapporteuse              |
+| [description]{.md-icon .color-magenta}    | Damien Pellier        | Professeur Associé    | ![Logo LIG](icons/lig.svg)                         | Rapporteur               |
+| [visibility]{.md-icon .color-blue}       | Ivan Varzinczac       | Professeur Associé    | ![Logo CRIL](icons/cril.svg)                       | Examinateur              |
+| [school]{.md-icon .color-green}      | Samir Aknine          | Professeur            | [LIRIS]{.logo-liris}                          | Directeur de thèse       |
+| [group]{.md-icon .color-green}      | Lætitia Matignon      | Professeure Associée  | [LIRIS]{.logo-liris}                          | Co-directrice de thèse   |
+
+#### [lightbulb]{.md-icon .color-yellow} Sujet
+
+> Méta-langage endomorphe et planification abstraite pour la reconnaissance des intentions en temps réel
+
+**Comment représenter et manipuler la connaissance de manière plus fluide, explicable et adaptable** pour améliorer l'interaction personne-machine dans des systèmes d’IA complexes.
+
+#### [explore]{.md-icon .color-red} Axes de recherche
+
+1. **Modèle mathématique original**
+   * Définition d’un formalisme inspiré du lambda-calcul et de la théorie des catégories.
+   * Création d’un métalangage flexible sans mots-clés, capable d’adapter dynamiquement sa grammaire et sa sémantique.
+
+2. **Cadriciels expressifs pour l’IA**
+   * Application à la planification automatique avec un cadre unifié pour divers types de domaines.
+   * Construction de représentations intermédiaires plus utiles que des solutions entièrement optimisées.
+
+3. **Algorithmes de planification hybride**
+   * Réparation de plans par heuristique.
+   * Génération de plans abstraits hiérarchiques utilisables en temps réel.
+
+4. **Reconnaissance d’intention**
+   * Usage de la planification inversée avec des plans abstraits.
+   * Réduction de la dépendance aux bibliothèques prédéfinies de plans.
+
+:::
+
+## [menu_book]{.md-icon .color-base0} Publications
+
+::: publications
+
+::: entry
+### [heart]{.logo-heart .color-magenta} -- Using Abstract Plans As A Guarantee Of Downward Refinement In Decompositional Planning
+
+Antoine Gréa, Samir Aknine, Lætitia Matignon
+
+::: icons
+- [location_on]{.md-icon} ICAAI 2019 -- International Conference on Agents and Artificial Intelligence
+- [location_on]{.md-icon} IJCAI 2018 -- XAI Workshop
+- [location_on]{.md-icon} ICAPS 2018 -- HPlan Workshop
+:::
+
+:::
+
+::: entry
+### [LOLLIPOP]{.logo-lollipops .color-green} -- Generating and Using an Operator Graph and Negative Refinements for Online Partial Order Planning
+
+Antoine Gréa, Samir Aknine, Lætitia Matignon
+
+::: icons
+- [location_on]{.md-icon} JFPDA 2016 -- Journées Francophones sur la Planification, la Décision et l'Apprentissage
+:::
+
+:::
+
+::: entry
+### [Astro]{.logo-astro .color-blue} -- A Robotic and Automation Services Ontology
+
+Antoine Gréa, Jacques Saraydaryan, Fabrice Jumel, Adrien Guenard
+
+::: icons
+- [location_on]{.md-icon} CAR 2015 -- Control Architectures of Robots
+:::
+
+:::
+
+:::

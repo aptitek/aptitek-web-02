@@ -8,3 +8,5 @@ coverage/
 .agents/
 storybook-static/
 pnpm-lock.yaml
+src/content/cv/cv-generated.html
+src/content/cv/cv-data.json

@@ -90,7 +90,7 @@ export const iconRules = {
       },
     },
     create(context) {
-      const brandExceptions = new Set(["GitHub"]);
+      const brandExceptions = new Set(["GitHub", "LinkedIn"]);
       const filledToOutlineMap = {
         CheckCircleRounded: "CheckCircleOutlineRounded",
         DeleteRounded: "DeleteOutlineRounded",

@@ -1,0 +1,99 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2, 8px);
+  padding: var(--space-1, 4px) var(--space-3, 12px);
+  border-radius: var(--shape-corner-full, 9999px);
+  font-family: var(--font-family-body, inherit);
+  font-size: var(--typography-body-sm-font-size, 0.8125rem);
+  font-weight: 600;
+  border: 1px solid var(--cv-toolbar-border, var(--color-solarized-base1));
+  background-color: var(--cv-card-bg, var(--color-solarized-base3));
+  color: var(--cv-text, var(--color-solarized-base03));
+  cursor: pointer;
+  transition: all var(--motion-duration-short2, 150ms)
+    var(--motion-easing-standard, ease);
+  user-select: none;
+}
+
+.tag:hover {
+  background-color: var(--cv-entry-bg, var(--color-solarized-base2));
+  color: var(--cv-text, var(--color-solarized-base03));
+  border-color: var(--color-solarized-blue);
+}
+
+.tag:focus-visible {
+  outline: 2px solid var(--color-solarized-blue);
+  outline-offset: 2px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--shape-corner-full, 9999px);
+  background-color: currentColor;
+  transition: transform var(--motion-duration-short2, 150ms)
+    var(--motion-easing-standard, ease);
+}
+
+.label {
+  line-height: 1.2;
+}
+
+.count {
+  font-size: 0.75rem;
+  opacity: 0.75;
+  margin-left: 2px;
+}
+
+.active {
+  background-color: var(--color-solarized-base02) !important;
+  color: var(--color-solarized-base3) !important;
+  border-color: var(--color-solarized-base03) !important;
+  box-shadow: 0 2px 6px var(--color-solarized-bg-alpha);
+}
+
+.active .dot {
+  transform: scale(1.25);
+}
+
+/* Color variations */
+.color-magenta.active {
+  background-color: var(--color-solarized-magenta) !important;
+  color: var(--color-flag-fr-white) !important;
+}
+
+.color-blue.active {
+  background-color: var(--color-flag-eu-blue) !important;
+  color: var(--color-solarized-base3) !important;
+}
+
+.color-green.active {
+  background-color: var(--color-solarized-green) !important;
+  color: var(--color-solarized-base03) !important;
+}
+
+.color-yellow.active {
+  background-color: var(--color-solarized-yellow) !important;
+  color: var(--color-solarized-base03) !important;
+}
+
+.color-violet.active {
+  background-color: var(--color-solarized-violet) !important;
+  color: var(--color-flag-fr-white) !important;
+}
+
+.color-orange.active {
+  background-color: var(--color-solarized-orange) !important;
+  color: var(--color-flag-fr-white) !important;
+}
+
+.color-cyan.active {
+  background-color: var(--color-solarized-cyan) !important;
+  color: var(--color-solarized-base03) !important;
+}
+
+.color-red.active {
+  background-color: var(--color-solarized-red) !important;
+  color: var(--color-flag-fr-white) !important;
+}

@@ -22,6 +22,9 @@
     "test:coverage": "wireit",
     "knip": "wireit",
     "knip:fix": "knip --fix --allow-remove-files",
+    "cv:build": "wireit",
+    "cv:pdf": "wireit",
+    "cv:render": "wireit",
     "prepare": "husky"
   },
   "wireit": {
@@ -78,6 +81,9 @@
     },
     "test:unit": {
       "command": "vitest run",
+      "dependencies": [
+        "cv:build"
+      ],
       "files": [
         "src/**/*",
         "vitest.config.ts",
@@ -122,6 +128,7 @@
     "build": {
       "command": "astro build",
       "dependencies": [
+        "cv:build",
         "typecheck",
         "lint",
         "test"
@@ -135,6 +142,29 @@
       ],
       "output": [
         "dist/**/*"
+      ]
+    },
+    "cv:build": {
+      "command": "node scripts/build-cv.ts",
+      "files": [
+        "src/content/cv/cv.qmd",
+        "src/content/cv/cv-print.css",
+        "scripts/build-cv.ts"
+      ],
+      "output": [
+        "public/cv.pdf",
+        "src/content/cv/cv-generated.html",
+        "src/content/cv/cv-data.json"
+      ]
+    },
+    "cv:pdf": {
+      "dependencies": [
+        "cv:build"
+      ]
+    },
+    "cv:render": {
+      "dependencies": [
+        "cv:build"
       ]
     },
     "build-storybook": {

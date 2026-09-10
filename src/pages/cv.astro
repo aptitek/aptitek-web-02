@@ -1,0 +1,28 @@
+---
+import Layout from "~/layouts/Layout.astro";
+import { CvDocument } from "~/components/organisms/Cv/CvDocument";
+---
+
+<Layout
+  title="Curriculum Vitae — Antoine Gréa | Aptitek"
+  description="Curriculum Vitae professionnel d'Antoine Gréa, Docteur en IA et Dirigeant Aptitek. Version web interactive et PDF A4 prêt pour l'impression généré par WeasyPrint."
+>
+  <main class="cv-page-wrapper">
+    <CvDocument client:load />
+  </main>
+</Layout>
+
+<style>
+  .cv-page-wrapper {
+    min-height: 100vh;
+    padding: var(--space-4, 1rem) 0;
+    background-color: transparent;
+  }
+
+  @media print {
+    .cv-page-wrapper {
+      padding: 0 !important;
+      background: none !important;
+    }
+  }
+</style>

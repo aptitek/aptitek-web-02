@@ -39,13 +39,21 @@ export function WelcomeCard() {
               "Empty Astro static website with Material UI 3 Expressive and Solarized theme. The entire pipeline, Husky hooks, Wireit task graph, ESLint, Prettier, and testing suite are active.",
             )}
           </Typography>
-          <Stack direction="row" spacing={1} sx={{ pt: 1 }}>
+          <Stack
+            direction="row"
+            spacing={1}
+            sx={{ pt: 1, flexWrap: "wrap" }}
+            useFlexGap
+          >
             <Button
               variant="contained"
               color="primary"
               startIcon={<CheckCircleOutlineRoundedIcon />}
             >
               {t("welcomeCard.cta", "Pipeline Ready")}
+            </Button>
+            <Button variant="outlined" color="primary" href="/cv">
+              📄 Curriculum Vitae
             </Button>
           </Stack>
         </Stack>

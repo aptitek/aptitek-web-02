@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Antoine Gréa — Curriculum Vitae</title>
+  <base href="file:///home/aptitek/50-59_Code/51_Websites/aptitek-02/public/"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Bebas+Neue&family=Biryani:wght@400;700&family=Open+Sans:ital,wght@0,400..800;1,400..800&family=Pacifico&family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&family=Roboto:ital,wght@0,400..700;1,400..700&display=swap"/>
+  <style>
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Bebas+Neue&family=Biryani:wght@400;700&family=Open+Sans:ital,wght@0,400..800;1,400..800&family=Pacifico&family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&family=Roboto:ital,wght@0,400..700;1,400..700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap");
+
+/* === Solarized Color Variables === */
+:root {
+  --base03: var(--color-solarized-base03);
+  --base02: var(--color-solarized-base02);
+  --base01: var(--color-solarized-base01);
+  --base00: var(--color-solarized-base00);
+  --base0: var(--color-solarized-base0);
+  --base1: var(--color-solarized-base1);
+  --base2: var(--color-solarized-base2);
+  --base3: var(--color-solarized-base3);
+
+  --yellow: var(--color-solarized-yellow);
+  --orange: var(--color-solarized-orange);
+  --red: var(--color-solarized-red);
+  --magenta: var(--color-solarized-magenta);
+  --violet: var(--color-solarized-violet);
+  --blue: var(--color-solarized-blue);
+  --cyan: var(--color-solarized-cyan);
+  --green: var(--color-solarized-green);
+}
+
+/* === Color utility classes === */
+.color-base03 {
+  color: var(--base03);
+}
+.color-base02 {
+  color: var(--base02);
+}
+.color-base01 {
+  color: var(--base01);
+}
+.color-base00 {
+  color: var(--base00);
+}
+.color-base0 {
+  color: var(--base0);
+}
+.color-base1 {
+  color: var(--base1);
+}
+.color-base2 {
+  color: var(--base2);
+}
+.color-base3 {
+  color: var(--base3);
+}
+.color-yellow {
+  color: var(--yellow);
+}
+.color-orange {
+  color: var(--orange);
+}
+.color-red {
+  color: var(--red);
+}
+.color-magenta {
+  color: var(--magenta);
+}
+.color-violet {
+  color: var(--violet);
+}
+.color-blue {
+  color: var(--blue);
+}
+.color-cyan {
+  color: var(--cyan);
+}
+.color-green {
+  color: var(--green);
+}
+
+/* === Custom Institution & Logo Fonts (WOFF2) === */
+@font-face {
+  font-family: "Aptitek";
+  src: url("fonts/cv/Aptitek.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lyon1";
+  src: url("fonts/cv/DINPro_Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Polytech";
+  src: url("fonts/cv/PerihelionBB_Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "CPE";
+  src: url("fonts/cv/CPE_LYON_Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "LIRIS-new";
+  src: url("fonts/cv/LIRIS.woff2") format("woff2");
+}
+@font-face {
+  font-family: "LIRIS";
+  src: url("fonts/cv/LIRIS.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lyon2";
+  src: url("fonts/cv/Lyon 2.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Atos";
+  src: url("fonts/cv/Atos-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Astro";
+  src: url("fonts/cv/Astro_Italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "ezinux";
+  src: url("fonts/cv/ezinux_e.woff2") format("woff2");
+}
+@font-face {
+  font-family: "estiam";
+  src: url("fonts/cv/estiam.woff2") format("woff2");
+}
+@font-face {
+  font-family: "GEMA";
+  src: url("fonts/cv/GEMA.woff2") format("woff2");
+}
+@font-face {
+  font-family: "LAMACHE";
+  src: url("fonts/cv/LAMACHE.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Toronto";
+  src: url("fonts/cv/Toronto-Subway.woff2") format("woff2");
+}
+
+/* === Material Design Icons from MUI (replaces Font Awesome & Material Symbols font) === */
+.md-icon,
+.MuiSvgIcon-root {
+  display: inline-block;
+  vertical-align: -0.15em;
+  width: 1.1em;
+  height: 1.1em;
+  fill: currentColor;
+  margin-right: 0.3em;
+}
+
+/* Logo font helper classes */
+.logo-utbm {
+  font-family: "Biryani", sans-serif;
+}
+.logo-polytech {
+  font-family: "Polytech", sans-serif;
+}
+.logo-cpe {
+  font-family: "CPE", sans-serif;
+  letter-spacing: 0.05em;
+}
+.logo-lyon1 {
+  font-family: "Lyon1", sans-serif;
+}
+.logo-lyon2 {
+  font-family: "Lyon2", sans-serif;
+}
+.logo-liris {
+  font-family: "LIRIS-new", sans-serif;
+}
+.logo-aptitek {
+  font-family: "Aptitek", sans-serif;
+}
+.logo-atos {
+  font-family: "Atos", sans-serif;
+}
+.logo-astro {
+  font-family: "Astro", sans-serif;
+  font-style: italic;
+}
+.logo-b-and-d {
+  font-family: "Open Sans", sans-serif;
+}
+.logo-gfi {
+  font-family: "Alegreya", serif;
+}
+.logo-estiam {
+  font-family: "estiam", sans-serif;
+}
+.logo-gema {
+  font-family: "GEMA", sans-serif;
+}
+.logo-sciences-u {
+  font-family: "Roboto", sans-serif;
+}
+.logo-la-mache {
+  font-family: "LAMACHE", sans-serif;
+}
+.logo-heart {
+  font-family: "Pacifico", cursive;
+}
+.logo-lollipops,
+.logo-lollipop {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+/* === Page Setup for WeasyPrint === */
+@page {
+  size: A4 portrait;
+  margin: 7mm 8mm;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--base3);
+  color: var(--base02);
+  font-family:
+    "Recursive",
+    "Inter",
+    -apple-system,
+    sans-serif;
+  font-variation-settings:
+    "MONO" 0,
+    "CASL" 0,
+    "slnt" 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.cv-sheet {
+  width: 100%;
+  height: 283mm;
+  max-height: 283mm;
+  overflow: hidden;
+}
+
+.cv-sheet.page-1 {
+  page-break-after: always;
+  break-after: page;
+}
+
+.cv-sheet.page-2 {
+  page-break-after: auto;
+  break-after: auto;
+}
+
+/* === Layout: Table structure for 100% reliable WeasyPrint 2-column layout === */
+.cv-layout {
+  display: table !important;
+  width: 100% !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+}
+
+.sidebar {
+  display: table-cell !important;
+  width: 54mm !important;
+  vertical-align: top !important;
+  background-color: var(--base02);
+  padding: 3mm !important;
+  border-radius: 8mm !important;
+  color: var(--base3);
+  font-size: 0.82em;
+}
+
+.main-content {
+  display: table-cell !important;
+  width: 140mm !important;
+  vertical-align: top !important;
+  margin-left: 0 !important;
+  padding-left: 4mm !important;
+  break-before: auto !important;
+  break-inside: auto !important;
+}
+
+/* === Typography === */
+h1 {
+  font-family: "Pacifico", cursive;
+  color: var(--blue);
+  font-size: 1.55em;
+  margin: 0 0 1.5mm 0;
+  text-align: center;
+}
+
+h1 + p {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--base2);
+  text-align: center;
+  margin-top: -1mm;
+  margin-bottom: 2mm;
+}
+
+h2 {
+  border-bottom: 2px solid var(--base2);
+  font-family: "Bebas Neue", "Bebas", sans-serif;
+  font-size: 1.28em;
+  font-weight: 700;
+  margin-top: 1.2mm;
+  margin-bottom: 0.8mm;
+  padding-bottom: 0.3mm;
+}
+
+h2 img {
+  height: 1.1em;
+  vertical-align: middle;
+  margin-right: 0.2em;
+}
+
+.sidebar h2 {
+  border-bottom: 1px solid var(--base01);
+  color: var(--base2);
+  font-family: "Bebas Neue", "Bebas", sans-serif;
+  font-size: 1.15em;
+  margin-top: 2mm;
+  margin-bottom: 0.8mm;
+}
+
+h3 {
+  font-family: "Bebas Neue", "Bebas", sans-serif;
+  font-size: 1.02em;
+  font-weight: 700;
+  margin-top: 0.4mm;
+  margin-bottom: 0.6mm;
+}
+
+p {
+  margin: 0.6mm 0;
+  font-size: 0.74em;
+  line-height: 1.25;
+}
+
+/* === Sidebar elements === */
+img.main-logo {
+  display: block;
+  margin: 0 auto 2mm auto;
+  width: 32mm;
+  height: auto;
+  border-radius: 50%;
+}
+
+.logo {
+  display: inline-block;
+  height: 1.2em;
+  vertical-align: middle;
+}
+
+.sidebar a {
+  color: var(--base3);
+  text-decoration: underline;
+}
+
+.sidebar blockquote {
+  font-style: italic;
+  font-size: 0.9em;
+  color: var(--base2);
+  line-height: 1.2;
+  margin: 0 0 2mm 0;
+  padding-left: 2mm;
+  border-left: 3px solid var(--magenta);
+}
+
+.sidebar blockquote::first-letter {
+  float: none !important;
+  display: inline !important;
+  font-family: "Aptitek", cursive;
+  font-size: 1.25em;
+  font-weight: bold;
+  color: var(--magenta);
+}
+
+.icons ul,
+.langs ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.5mm 0;
+}
+
+.icons li,
+.langs li {
+  display: flex;
+  align-items: center;
+  padding: 0.4mm 0;
+  font-size: 0.8em;
+}
+
+.langs li img,
+.icons li .md-icon,
+.icons li .MuiSvgIcon-root {
+  width: 1.1em;
+  height: 1.1em;
+  text-align: center;
+  margin-right: 1.2mm;
+  vertical-align: middle;
+}
+
+.langs li {
+  display: table;
+  width: 100%;
+}
+
+.langs li strong {
+  display: table-cell;
+  text-align: left;
+  width: 100%;
+}
+
+.langs li .level {
+  display: table-cell;
+  text-align: right;
+  font-family: monospace;
+  white-space: nowrap;
+}
+
+/* === Entries in Main Column === */
+.entry {
+  margin: 0 0 1.2mm 0;
+  padding: 1mm 2.2mm;
+  border: 1.5px solid var(--base2);
+  border-radius: 4mm;
+  background-color: var(--base3);
+}
+
+.entry h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 1.1em;
+  margin: 0;
+}
+
+.entry h3 .logo,
+.entry h3 .logo-cpe,
+.entry h3 .logo-polytech,
+.entry h3 .logo-lyon1,
+.entry h3 .logo-lyon2,
+.entry h3 .logo-utbm,
+.entry h3 .logo-b-and-d,
+.entry h3 .logo-atos,
+.entry h3 .logo-gfi {
+  margin-left: auto;
+  float: right;
+  font-size: 0.95em;
+}
+
+.entry h3 img {
+  height: 0.9em;
+  vertical-align: middle;
+  margin-right: 1mm;
+}
+
+.date {
+  font-family: monospace;
+  font-weight: bold;
+  color: var(--base02);
+  margin-right: 1mm;
+  font-size: 0.85em;
+}
+
+.place {
+  color: var(--base01);
+  font-style: italic;
+  font-size: 0.82em;
+}
+
+/* Client pills */
+.clients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1mm 2mm;
+  justify-content: center;
+  background-color: var(--base2);
+  border-radius: 3mm;
+  padding: 1mm 2mm;
+  margin: 1mm 0;
+}
+
+.clients a,
+.clients span {
+  display: inline-block;
+  padding: 0.4mm 2mm;
+  border-radius: 999px;
+  background-color: var(--base3);
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.clients a.logo-aptitek {
+  background-color: var(--base02);
+  color: var(--base3);
+}
+
+/* === Page 2: Thesis & Publications === */
+.thesis,
+.publications {
+  margin-left: 3mm;
+  margin-right: 3mm;
+}
+
+.thesis blockquote {
+  font-style: italic;
+  font-size: 0.95em;
+  line-height: 1.25;
+  margin: 1.5mm 0;
+  padding-left: 3mm;
+  border-left: 3px solid var(--yellow);
+}
+
+.thesis table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5mm;
+  border-radius: 3mm;
+  overflow: hidden;
+  background-color: var(--base2);
+  font-size: 0.78em;
+}
+
+.thesis th {
+  background-color: var(--base2);
+  color: var(--base03);
+  padding: 1mm 2mm;
+  text-align: left;
+  border-bottom: 2px solid var(--base01);
+}
+
+.thesis td {
+  padding: 0.9mm 2mm;
+  vertical-align: middle;
+}
+
+.thesis table img,
+.thesis table svg {
+  height: 1.1em;
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.thesis table .logo-updv-fill {
+  fill: var(--base03) !important;
+}
+
+.thesis table .cril-text {
+  fill: var(--base03) !important;
+}
+
+.thesis table .cril-mark {
+  stroke: var(--green) !important;
+}
+
+.thesis table .lig-facet-02 {
+  fill: var(--base02) !important;
+}
+.thesis table .lig-facet-01 {
+  fill: var(--base01) !important;
+}
+.thesis table .lig-facet-00 {
+  fill: var(--base00) !important;
+}
+.thesis table .lig-facet-0 {
+  fill: var(--base0) !important;
+}
+.thesis table .lig-facet-1 {
+  fill: var(--base1) !important;
+}
+.thesis table .lig-text {
+  fill: var(--cyan) !important;
+}
+.thesis table .lig-arrow {
+  fill: var(--orange) !important;
+}
+
+.thesis ol {
+  margin: 1mm 0 1mm 4mm;
+  padding-left: 2mm;
+  font-size: 0.78em;
+}
+
+.thesis ol li {
+  margin-bottom: 0.8mm;
+}
+
+.thesis ul {
+  margin: 0.4mm 0 0.8mm 2mm;
+  padding-left: 2mm;
+  font-size: 0.92em;
+}
+
+.publications .entry {
+  margin-bottom: 1.8mm;
+  padding: 1.2mm 3mm;
+}
+
+.publications .entry h3 {
+  font-size: 1.05em;
+}
+
+.publications .entry p {
+  text-align: center;
+  font-size: 0.78em;
+  color: var(--base01);
+}
+
+@font-face {
+  font-family: "Milkshake";
+  src: url("/milkshake.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root,
+.dark,
+[data-theme="dark"] {
+  /* Solarized Canonical Base Palette */
+  --color-solarized-base03: #002b36;
+  --color-solarized-base02: #073642;
+  --color-solarized-base01: #586e75;
+  --color-solarized-base00: #657b83;
+  --color-solarized-base0: #839496;
+  --color-solarized-base1: #93a1a1;
+  --color-solarized-base2: #eee8d5;
+  --color-solarized-base3: #fdf6e3;
+  --color-solarized-yellow: #b58900;
+  --color-solarized-orange: #cb4b16;
+  --color-solarized-red: #dc322f;
+  --color-solarized-magenta: #d33682;
+  --color-solarized-violet: #6c71c4;
+  --color-solarized-blue: #268bd2;
+  --color-solarized-cyan: #2aa198;
+  --color-solarized-green: #859900;
+
+  /* Official Identity Card & National / International flag colours */
+  --color-flag-eu-blue: #003399;
+  --color-flag-eu-gold: #ffcc00;
+  --color-flag-fr-blue: #002654;
+  --color-flag-fr-white: #ffffff;
+  --color-flag-fr-red: #ed2939;
+  --color-flag-uk-blue: #012169;
+  --color-flag-uk-red: #c8102e;
+  --color-flag-uk-white: #ffffff;
+  --color-eu-blue: var(--color-flag-eu-blue);
+  --color-eu-gold: var(--color-flag-eu-gold);
+
+  /* Named Role Color Tokens */
+  --color-role-student: var(--color-solarized-green);
+  --color-role-instructor: var(--color-solarized-blue);
+  --color-role-admin: var(--color-solarized-magenta);
+  --color-role-guest: var(--color-solarized-base01);
+
+  /* Named Diploma Color Tokens */
+  --color-diploma-c: var(--color-solarized-base01);
+  --color-diploma-f: var(--color-solarized-blue);
+  --color-diploma-l: var(--color-solarized-green);
+  --color-diploma-b: var(--color-solarized-yellow);
+  --color-diploma-b-text: var(--color-solarized-base03);
+  --color-diploma-m: var(--color-solarized-magenta);
+  --color-diploma-d: var(--color-solarized-violet);
+  --color-diploma-default: var(--color-solarized-base01);
+
+  /* Named Celestial / Astronomy Tokens */
+  --color-celestial-sun-main: var(--color-solarized-yellow);
+  --color-celestial-sun-glow: #d4a400;
+  --color-celestial-sun-light: var(--color-solarized-base3);
+  --color-celestial-sun-golden-core: #fff3cc;
+  --color-celestial-sun-golden-mid: #f5af19;
+  --color-celestial-sun-golden-rim: #d48800;
+  --color-celestial-sun-golden-aura: #e67e22;
+  --color-celestial-moon-main: var(--color-solarized-blue);
+  --color-celestial-moon-glow: var(--color-solarized-violet);
+  --color-celestial-moon-crater: var(--color-solarized-base01);
+  --color-celestial-moon-aura: rgba(180, 215, 225, 0.35);
+  --color-celestial-night-sky-glow: rgba(180, 215, 225, 0.12);
+  --color-celestial-horizon-day: var(--color-solarized-base3);
+  --color-celestial-horizon-night: var(--color-solarized-base03);
+
+  /* Botanical / Leaf & Grass Colors */
+  --color-botanical-leaf-vein-dark: #1f4e2b;
+  --color-botanical-grass-light: #a6bd1a;
+  --color-botanical-grass-highlight: #c2d936;
+  --color-botanical-grass-warm: #d8c93b;
+
+  /* Pastel Sunset Sky Palette */
+  --color-sky-zenith: #fdf8f0;
+  --color-sky-pastel-pink: #f5cad3;
+  --color-sky-pastel-orange: #fcd9be;
+  --color-sky-pastel-yellow: #fae8be;
+  --color-sky-horizon: #eee6d3;
+
+  /* Seasonal Environment Tokens - Daytime / Light Defaults */
+  --color-season-spring-blossom: #fbb1bd;
+  --color-season-spring-blossom-deep: #f48498;
+  --color-season-spring-blossom-core: #e05780;
+  --color-season-spring-blossom-petal: #ffccd5;
+  --color-season-spring-daisy-petal: rgba(255, 255, 255, 0.96);
+  --color-season-spring-daisy-core: var(--color-solarized-yellow);
+  --color-season-spring-grass: #9ec43b;
+  --color-season-fall-foliage-gold: #e5a823;
+  --color-season-fall-foliage-orange: #d35400;
+  --color-season-fall-foliage-red: #b83b1f;
+  --color-season-fall-foliage-sienna: #873600;
+  --color-season-winter-snow-white: #f8fcfd;
+  --color-season-winter-snow-soft: #e0f2f1;
+  --color-season-winter-frost-slate: #93a1a1;
+  --color-season-winter-ice-cyan: #2aa198;
+
+  /* Material 3 Expressive System Colors - Dark Mode (Solarized Dark) */
+  --md-sys-color-primary: var(--color-solarized-blue); /* #268bd2 */
+  --md-sys-color-surface-tint: var(--color-solarized-blue);
+  --md-sys-color-on-primary: var(--color-solarized-base3); /* #fdf6e3 */
+  --md-sys-color-primary-container: var(--color-solarized-base02); /* #073642 */
+  --md-sys-color-on-primary-container: var(
+    --color-solarized-base3
+  ); /* #fdf6e3 */
+
+  --md-sys-color-secondary: var(--color-solarized-cyan); /* #2aa198 */
+  --md-sys-color-on-secondary: var(--color-solarized-base3);
+  --md-sys-color-secondary-container: var(--color-solarized-base02);
+  --md-sys-color-on-secondary-container: var(--color-solarized-base1);
+
+  --md-sys-color-tertiary: var(--color-solarized-magenta); /* #d33682 */
+  --md-sys-color-on-tertiary: var(--color-solarized-base3);
+  --md-sys-color-tertiary-container: var(--color-solarized-base02);
+  --md-sys-color-on-tertiary-container: var(--color-solarized-magenta);
+
+  --md-sys-color-error: var(--color-solarized-red); /* #dc322f */
+  --md-sys-color-on-error: var(--color-solarized-base3);
+  --md-sys-color-error-container: var(--color-solarized-base02);
+  --md-sys-color-on-error-container: var(--color-solarized-red);
+
+  --md-sys-color-background: var(--color-solarized-base03); /* #002b36 */
+  --md-sys-color-on-background: var(--color-solarized-base3); /* #fdf6e3 */
+  --md-sys-color-surface: var(--color-solarized-base03);
+  --md-sys-color-on-surface: var(--color-solarized-base3);
+  --md-sys-color-surface-variant: var(--color-solarized-base02);
+  --md-sys-color-on-surface-variant: var(--color-solarized-base1);
+
+  --md-sys-color-outline: var(--color-solarized-base01); /* #586e75 */
+  --md-sys-color-outline-variant: rgba(88, 110, 117, 0.3);
+  --md-sys-color-shadow: transparent;
+  --md-sys-color-scrim: #000000;
+
+  --md-sys-color-inverse-surface: var(--color-solarized-base2);
+  --md-sys-color-inverse-on-surface: var(--color-solarized-base03);
+  --md-sys-color-inverse-primary: var(--color-solarized-blue);
+
+  --md-sys-color-surface-dim: var(--color-solarized-base03);
+  --md-sys-color-surface-bright: var(--color-solarized-base02);
+  --md-sys-color-surface-container-lowest: var(--color-solarized-base03);
+  --md-sys-color-surface-container-low: var(--color-solarized-base03);
+  --md-sys-color-surface-container: var(--color-solarized-base02);
+  --md-sys-color-surface-container-high: var(--color-solarized-base02);
+  --md-sys-color-surface-container-highest: var(--color-solarized-base01);
+
+  /* Material 3 Elevation Tokens - Dark Mode (Pure Highlights, No Drop Shadows) */
+  --md-sys-elevation-highlight: rgba(255, 255, 255, 0.08);
+  --md-sys-elevation-level0: none;
+  --md-sys-elevation-level1: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --md-sys-elevation-level2: 0 0 0 1px rgba(255, 255, 255, 0.1);
+  --md-sys-elevation-level3: 0 0 0 1px rgba(255, 255, 255, 0.12);
+  --md-sys-elevation-level4: 0 0 0 1px rgba(255, 255, 255, 0.14);
+  --md-sys-elevation-level5: 0 0 0 1px rgba(255, 255, 255, 0.16);
+
+  /* Material 3 Expressive Motion Tokens - Easings */
+  --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --md-sys-motion-easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
+  --md-sys-motion-easing-expressive-standard: cubic-bezier(0.4, 0.14, 0.3, 1);
+  --md-sys-motion-easing-expressive-decelerate: cubic-bezier(0.1, 0.9, 0.2, 1);
+  --md-sys-motion-easing-expressive-accelerate: cubic-bezier(0.4, 0, 0.7, 0.2);
+
+  /* Material 3 Expressive Motion Tokens - Durations */
+  --md-sys-motion-duration-short1: 50ms;
+  --md-sys-motion-duration-short2: 100ms;
+  --md-sys-motion-duration-short3: 150ms;
+  --md-sys-motion-duration-short4: 200ms;
+  --md-sys-motion-duration-medium1: 250ms;
+  --md-sys-motion-duration-medium2: 300ms;
+  --md-sys-motion-duration-medium3: 350ms;
+  --md-sys-motion-duration-medium4: 400ms;
+  --md-sys-motion-duration-long1: 450ms;
+  --md-sys-motion-duration-long2: 500ms;
+  --md-sys-motion-duration-long3: 550ms;
+  --md-sys-motion-duration-long4: 600ms;
+  --md-sys-motion-duration-extra-long1: 700ms;
+  --md-sys-motion-duration-extra-long2: 800ms;
+  --md-sys-motion-duration-extra-long3: 900ms;
+  --md-sys-motion-duration-extra-long4: 1000ms;
+
+  /* Material 3 Semantic Spatial vs Effects Presets */
+  --md-sys-motion-spatial-fast: 350ms cubic-bezier(0.1, 0.9, 0.2, 1);
+  --md-sys-motion-spatial-default: 500ms cubic-bezier(0.1, 0.9, 0.2, 1);
+  --md-sys-motion-spatial-slow: 700ms cubic-bezier(0.1, 0.9, 0.2, 1);
+  --md-sys-motion-effects-fast: 150ms cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-effects-default: 250ms cubic-bezier(0.05, 0.7, 0.1, 1);
+  --md-sys-motion-effects-slow: 400ms cubic-bezier(0.05, 0.7, 0.1, 1);
+
+  /* Material 3 Expressive State Layer Opacities */
+  --md-sys-state-hover-opacity: 0.08;
+  --md-sys-state-focus-opacity: 0.12;
+  --md-sys-state-pressed-opacity: 0.12;
+  --md-sys-state-dragged-opacity: 0.16;
+
+  /* Material Design 3 Shape Corner Radius Scale */
+  --md-sys-shape-corner-none: 0px;
+  --md-sys-shape-corner-extra-small: 4px;
+  --md-sys-shape-corner-small: 8px;
+  --md-sys-shape-corner-medium: 12px;
+  --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-large-increased: 20px;
+  --md-sys-shape-corner-extra-large: 28px;
+  --md-sys-shape-corner-extra-large-increased: 32px;
+  --md-sys-shape-corner-extra-extra-large: 48px;
+  --md-sys-shape-corner-full: 9999px;
+
+  /* Material Design 3 Spacing Scale (8dp grid baseline & half-steps) */
+  --md-sys-spacing-none: 0px;
+  --md-sys-spacing-hairline: 2px;
+  --md-sys-spacing-micro: 4px;
+  --md-sys-spacing-compact-half: 6px;
+  --md-sys-spacing-compact: 8px;
+  --md-sys-spacing-medium-half: 10px;
+  --md-sys-spacing-medium: 12px;
+  --md-sys-spacing-standard: 16px;
+  --md-sys-spacing-large-half: 20px;
+  --md-sys-spacing-large: 24px;
+  --md-sys-spacing-extra-large: 32px;
+  --md-sys-spacing-section-half: 40px;
+  --md-sys-spacing-extra-extra-large: 48px;
+  --md-sys-spacing-huge-half: 56px;
+  --md-sys-spacing-huge: 64px;
+  --md-sys-spacing-massive: 80px;
+  --md-sys-spacing-macro: 96px;
+  --md-sys-spacing-giant: 120px;
+  --md-sys-spacing-jumbo: 160px;
+
+  /* DesignForDucks Spacing Friendship Semantic Tokens */
+  --spacing-friendship-inseparable: 4px;
+  --spacing-friendship-best-friends: 8px;
+  --spacing-friendship-friends: 16px;
+  --spacing-friendship-grouping: 24px;
+  --spacing-friendship-casual-friends: 32px;
+  --spacing-friendship-sections: 48px;
+  --spacing-friendship-acquaintances: 64px;
+  --spacing-friendship-distant-acquaintances: 80px;
+  --spacing-friendship-strangers: 120px;
+
+  /* Line Thickness / Stroke / Border Width Scale */
+  --md-sys-stroke-none: 0px;
+  --md-sys-stroke-hairline: 0.5px;
+  --md-sys-stroke-thin: 1px;
+  --md-sys-stroke-medium: 2px;
+  --md-sys-stroke-thick: 3px;
+  --md-sys-stroke-heavy: 4px;
+  --md-sys-stroke-expressive: 6px;
+
+  /* Standard UI Dimensions */
+  --md-sys-dimension-touch-target: 48px;
+  --md-sys-dimension-touch-target-dense: 40px;
+  --md-sys-dimension-icon-small: 18px;
+  --md-sys-dimension-icon-inline: 20px;
+  --md-sys-dimension-icon-standard: 24px;
+  --md-sys-dimension-icon-large: 32px;
+  --md-sys-dimension-icon-extra-large: 40px;
+  --md-sys-dimension-icon-huge: 48px;
+  --md-sys-dimension-chip-height: 32px;
+  --md-sys-dimension-button-small: 32px;
+  --md-sys-dimension-button-medium: 40px;
+  --md-sys-dimension-button-large: 48px;
+  --md-sys-dimension-input-standard: 56px;
+  --md-sys-dimension-header-height: 64px;
+  --md-sys-dimension-navigation-bar-height: 80px;
+
+  /* Font Families */
+  --font-family-brand:
+    "Recursive", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  --font-family-mono:
+    "Recursive", "JetBrains Mono", "Fira Code", SFMono-Regular, Menlo, Monaco,
+    Consolas, monospace;
+  --font-family-display: "Recursive", sans-serif;
+  --font-family-mrz: "OCR-B", "Recursive", "Courier New", Courier, monospace;
+  --font-family-logo: "Milkshake", cursive, sans-serif;
+  --font-family-icons: "Material Symbols Rounded", sans-serif;
+
+  /* Recursive Variable Font Presets */
+  --font-variation-casual: "CASL" 1, "MONO" 0, "slnt" 0, "CRSV" 0.5;
+  --font-variation-casual-bold:
+    "CASL" 1, "MONO" 0, "wght" 700, "slnt" 0, "CRSV" 0.5;
+  --font-variation-casual-slanted: "CASL" 1, "MONO" 0, "slnt" -15, "CRSV" 1;
+  --font-variation-casual-slanted-semibold:
+    "CASL" 1, "MONO" 0, "wght" 600, "slnt" -15, "CRSV" 1;
+  --font-variation-casual-slanted-bold:
+    "CASL" 1, "MONO" 0, "wght" 700, "slnt" -15, "CRSV" 1;
+  --font-variation-linear: "CASL" 0, "MONO" 0, "slnt" 0, "CRSV" 0;
+  --font-variation-linear-bold:
+    "CASL" 0, "MONO" 0, "wght" 700, "slnt" 0, "CRSV" 0;
+  --font-variation-linear-slanted: "CASL" 0, "MONO" 0, "slnt" -15, "CRSV" 0;
+  --font-variation-mono: "CASL" 0, "MONO" 1, "slnt" 0, "CRSV" 0;
+  --font-variation-casual-mono: "CASL" 1, "MONO" 1, "slnt" 0, "CRSV" 0.5;
+  --font-variation-semi-mono: "CASL" 0, "MONO" 0.5, "slnt" 0, "CRSV" 0;
+
+  /* OpenType Font Features */
+  --font-feature-tabular: "tnum" 1;
+  --font-feature-slashed-zero: "zero" 1;
+  --font-feature-code-ligatures: "dlig" 1;
+  --font-feature-technical: "tnum" 1, "zero" 1;
+
+  /* Material Design 3 Type Scale Tokens */
+  --md-sys-typescale-display-large-size: 3.5625rem;
+  --md-sys-typescale-display-large-line-height: 4rem;
+  --md-sys-typescale-display-large-weight: 400;
+  --md-sys-typescale-display-medium-size: 2.8125rem;
+  --md-sys-typescale-display-medium-line-height: 3.25rem;
+  --md-sys-typescale-display-small-size: 2.25rem;
+  --md-sys-typescale-display-small-line-height: 2.75rem;
+
+  --md-sys-typescale-headline-large-size: 2rem;
+  --md-sys-typescale-headline-large-line-height: 2.5rem;
+  --md-sys-typescale-headline-medium-size: 1.75rem;
+  --md-sys-typescale-headline-medium-line-height: 2.25rem;
+  --md-sys-typescale-headline-small-size: 1.5rem;
+  --md-sys-typescale-headline-small-line-height: 2rem;
+
+  --md-sys-typescale-title-large-size: 1.375rem;
+  --md-sys-typescale-title-large-line-height: 1.75rem;
+  --md-sys-typescale-title-medium-size: 1rem;
+  --md-sys-typescale-title-medium-line-height: 1.5rem;
+  --md-sys-typescale-title-small-size: 0.875rem;
+  --md-sys-typescale-title-small-line-height: 1.25rem;
+
+  --md-sys-typescale-body-large-size: 1rem;
+  --md-sys-typescale-body-large-line-height: 1.5rem;
+  --md-sys-typescale-body-medium-size: 0.875rem;
+  --md-sys-typescale-body-medium-line-height: 1.25rem;
+  --md-sys-typescale-body-small-size: 0.75rem;
+  --md-sys-typescale-body-small-line-height: 1rem;
+
+  --md-sys-typescale-label-large-size: 0.875rem;
+  --md-sys-typescale-label-large-line-height: 1.25rem;
+  --md-sys-typescale-label-medium-size: 0.75rem;
+  --md-sys-typescale-label-medium-line-height: 1rem;
+  --md-sys-typescale-label-small-size: 0.6875rem;
+  --md-sys-typescale-label-small-line-height: 1rem;
+}
+
+.light,
+[data-theme="light"] {
+  /* Material 3 Expressive System Colors - Light Mode (Solarized Light) */
+  --md-sys-color-primary: var(--color-solarized-blue); /* #268bd2 */
+  --md-sys-color-surface-tint: var(--color-solarized-blue);
+  --md-sys-color-on-primary: var(--color-solarized-base3); /* #fdf6e3 */
+  --md-sys-color-primary-container: var(--color-solarized-base2); /* #eee8d5 */
+  --md-sys-color-on-primary-container: var(
+    --color-solarized-base03
+  ); /* #002b36 */
+
+  --md-sys-color-secondary: var(--color-solarized-magenta); /* #d33682 */
+  --md-sys-color-on-secondary: var(--color-solarized-base3);
+  --md-sys-color-secondary-container: var(--color-solarized-base2);
+  --md-sys-color-on-secondary-container: var(--color-solarized-base02);
+
+  --md-sys-color-tertiary: var(--color-solarized-cyan); /* #2aa198 */
+  --md-sys-color-on-tertiary: var(--color-solarized-base3);
+  --md-sys-color-tertiary-container: var(--color-solarized-base2);
+  --md-sys-color-on-tertiary-container: var(--color-solarized-base02);
+
+  --md-sys-color-error: var(--color-solarized-red); /* #dc322f */
+  --md-sys-color-on-error: var(--color-solarized-base3);
+  --md-sys-color-error-container: var(--color-solarized-base2);
+  --md-sys-color-on-error-container: var(--color-solarized-red);
+
+  --md-sys-color-background: var(--color-solarized-base3); /* #fdf6e3 */
+  --md-sys-color-on-background: var(--color-solarized-base03); /* #002b36 */
+  --md-sys-color-surface: var(--color-solarized-base3);
+  --md-sys-color-on-surface: var(--color-solarized-base03);
+  --md-sys-color-surface-variant: var(--color-solarized-base2);
+  --md-sys-color-on-surface-variant: var(--color-solarized-base01);
+
+  --md-sys-color-outline: var(--color-solarized-base1); /* #93a1a1 */
+  --md-sys-color-outline-variant: rgba(88, 110, 117, 0.2);
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-scrim: #000000;
+
+  --md-sys-color-inverse-surface: var(--color-solarized-base02);
+  --md-sys-color-inverse-on-surface: var(--color-solarized-base3);
+  --md-sys-color-inverse-primary: var(--color-solarized-blue);
+
+  --md-sys-color-surface-dim: var(--color-solarized-base2);
+  --md-sys-color-surface-bright: var(--color-solarized-base3);
+  --md-sys-color-surface-container-lowest: var(--color-solarized-base3);
+  --md-sys-color-surface-container-low: var(--color-solarized-base3);
+  --md-sys-color-surface-container: var(--color-solarized-base2);
+  --md-sys-color-surface-container-high: var(--color-solarized-base2);
+  --md-sys-color-surface-container-highest: var(--color-solarized-base1);
+
+  /* Material 3 Elevation Tokens - Light Mode */
+  --md-sys-elevation-highlight: rgba(0, 0, 0, 0);
+  --md-sys-elevation-level0: none;
+  --md-sys-elevation-level1:
+    0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --md-sys-elevation-level2:
+    0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --md-sys-elevation-level3:
+    0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  --md-sys-elevation-level4:
+    0 6px 10px 4px rgba(0, 0, 0, 0.15), 0 2px 3px 0 rgba(0, 0, 0, 0.3);
+  --md-sys-elevation-level5:
+    0 8px 12px 6px rgba(0, 0, 0, 0.15), 0 4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.debug,
+[data-theme="debug"] {
+  /* Material 3 Expressive System Colors - Debug Mode (Loud Neon Palette to Catch Unstyled Items) */
+  --md-sys-color-primary: #00ff66; /* Neon Lime */
+  --md-sys-color-surface-tint: #00ff66;
+  --md-sys-color-on-primary: #000000;
+  --md-sys-color-primary-container: #003816;
+  --md-sys-color-on-primary-container: #55ff99;
+
+  --md-sys-color-secondary: #ff007f; /* Hot Magenta */
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #4d0026;
+  --md-sys-color-on-secondary-container: #ff99cc;
+
+  --md-sys-color-tertiary: #00e5ff; /* Electric Cyan */
+  --md-sys-color-on-tertiary: #000000;
+  --md-sys-color-tertiary-container: #00363d;
+  --md-sys-color-on-tertiary-container: #80f2ff;
+
+  --md-sys-color-error: #ff2a00; /* Vivid Red-Orange */
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #4d0d00;
+  --md-sys-color-on-error-container: #ff9480;
+
+  --md-sys-color-background: #120024; /* Deep Ultraviolet */
+  --md-sys-color-on-background: #ffff00; /* Neon Yellow Text */
+  --md-sys-color-surface: #190033;
+  --md-sys-color-on-surface: #ffff00;
+  --md-sys-color-surface-variant: #28004d;
+  --md-sys-color-on-surface-variant: #00ffff; /* Electric Cyan Subtext */
+
+  --md-sys-color-outline: #ff00aa;
+  --md-sys-color-outline-variant: rgba(255, 0, 170, 0.4);
+  --md-sys-color-shadow: transparent;
+  --md-sys-color-scrim: #000000;
+
+  --md-sys-color-inverse-surface: #ffff00;
+  --md-sys-color-inverse-on-surface: #120024;
+  --md-sys-color-inverse-primary: #006622;
+
+  --md-sys-color-surface-dim: #0e001c;
+  --md-sys-color-surface-bright: #30005a;
+  --md-sys-color-surface-container-lowest: #0a0014;
+  --md-sys-color-surface-container-low: #15002b;
+  --md-sys-color-surface-container: #200042;
+  --md-sys-color-surface-container-high: #2c0059;
+  --md-sys-color-surface-container-highest: #3b0078;
+
+  /* Named Role Color Tokens - Debug Mode */
+  --color-role-student: #00ff66;
+  --color-role-instructor: #00e5ff;
+  --color-role-admin: #ff00aa;
+  --color-role-guest: #a855f7;
+
+  /* Material 3 Elevation Tokens - Debug Mode (Vivid Highlight Rings, No Drop Shadows) */
+  --md-sys-elevation-highlight: #00ff66;
+  --md-sys-elevation-level0: none;
+  --md-sys-elevation-level1: 0 0 0 2px #00ff66;
+  --md-sys-elevation-level2: 0 0 0 2px #00e5ff;
+  --md-sys-elevation-level3: 0 0 0 2px #ff007f;
+  --md-sys-elevation-level4: 0 0 0 3px #ffff00;
+  --md-sys-elevation-level5: 0 0 0 3px #ff00aa;
+}
+
+[data-mode="dark"],
+[data-theme="dark"],
+.dark {
+  /* Seasonal Nocturnal / Moonlit Environment Tokens */
+  --color-season-spring-blossom: #c27ba0;
+  --color-season-spring-blossom-deep: #944d6b;
+  --color-season-spring-blossom-core: #7a2a4c;
+  --color-season-spring-blossom-petal: #e2a8be;
+  --color-season-spring-daisy-petal: rgba(200, 220, 225, 0.7);
+  --color-season-spring-daisy-core: rgba(181, 137, 0, 0.8);
+  --color-season-spring-grass: #164434;
+  --color-season-fall-foliage-gold: #8a4210;
+  --color-season-fall-foliage-orange: #6e2808;
+  --color-season-fall-foliage-red: #541c06;
+  --color-season-fall-foliage-sienna: #381100;
+  --color-season-winter-snow-white: #d8eef2;
+  --color-season-winter-snow-soft: #a8c6ce;
+  --color-season-winter-frost-slate: #475e66;
+  --color-season-winter-ice-cyan: #234a54;
+}
+
+[data-mode="light"],
+[data-theme="light"],
+.light {
+  /* Seasonal Daytime Environment Tokens */
+  --color-season-spring-blossom: #fbb1bd;
+  --color-season-spring-blossom-deep: #f48498;
+  --color-season-spring-blossom-core: #e05780;
+  --color-season-spring-blossom-petal: #ffccd5;
+  --color-season-spring-daisy-petal: rgba(255, 255, 255, 0.96);
+  --color-season-spring-daisy-core: var(--color-solarized-yellow);
+  --color-season-spring-grass: #9ec43b;
+  --color-season-fall-foliage-gold: #e5a823;
+  --color-season-fall-foliage-orange: #d35400;
+  --color-season-fall-foliage-red: #b83b1f;
+  --color-season-fall-foliage-sienna: #873600;
+  --color-season-winter-snow-white: #f8fcfd;
+  --color-season-winter-snow-soft: #e0f2f1;
+  --color-season-winter-frost-slate: #93a1a1;
+  --color-season-winter-ice-cyan: #2aa198;
+}
+
+  </style>
+</head>
+<body>
+  <div class="cv-sheet page-1">
+    <div class="cv-layout">
+<div class="sidebar">
+<p><img src="icons/grea09.svg" class="main-logo"
+alt="Photo de profil d’Antoine Gréa" loading="eager" decoding="async" /></p>
+<h1 id="antoine-gréa">Antoine <span class="color-green">Gréa</span></h1>
+<p><img src="icons/Aptitek.svg" class="logo" alt="Logo Aptitek" loading="eager" decoding="async" /> <span
+class="position">– Dirigeant</span></p>
+<h2 id="person-bio"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-magenta " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="PersonRoundedIcon" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4m0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4"></path></svg>
+Bio</h2>
+<blockquote>
+<p><strong>D<span class="color-magenta">octeur en IA</span></strong> et
+<strong>ingénieur système</strong>, je mets ma passion pour
+l’informatique au service d’une pédagogie active et de systèmes
+intelligents compréhensibles.</p>
+</blockquote>
+<h2 id="link-liens"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-blue " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LinkRoundedIcon" fill="currentColor"><path d="M17 7h-3c-.55 0-1 .45-1 1s.45 1 1 1h3c1.65 0 3 1.35 3 3s-1.35 3-3 3h-3c-.55 0-1 .45-1 1s.45 1 1 1h3c2.76 0 5-2.24 5-5s-2.24-5-5-5m-9 5c0 .55.45 1 1 1h6c.55 0 1-.45 1-1s-.45-1-1-1H9c-.55 0-1 .45-1 1m2 3H7c-1.65 0-3-1.35-3-3s1.35-3 3-3h3c.55 0 1-.45 1-1s-.45-1-1-1H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h3c.55 0 1-.45 1-1s-.45-1-1-1"></path></svg>
+Liens</h2>
+<div class="icons">
+<ul>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-magenta " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="PhoneRoundedIcon" fill="currentColor"><path d="m19.23 15.26-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98"></path></svg> <a
+href="tel:+33766772126">+33 7 66 77 21 26</a></li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-green " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="EmailRoundedIcon" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m-.4 4.25-7.07 4.42c-.32.2-.74.2-1.06 0L4.4 8.25c-.25-.16-.4-.43-.4-.72 0-.67.73-1.07 1.3-.72L12 11l6.7-4.19c.57-.35 1.3.05 1.3.72 0 .29-.15.56-.4.72"></path></svg> <a
+href="mailto:antoine@aptitek.io">antoine@aptitek.io</a></li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-blue " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LanguageRoundedIcon" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2m6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56M12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96M4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56m2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8M12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96M14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2m.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2z"></path></svg> <a
+href="https://aptitek.io">aptitek.io</a></li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-base0 " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="GitHubIcon" fill="currentColor"><path d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27"></path></svg> <a
+href="https://github.com/grea09">GitHub</a></li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-cyan " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LinkedInIcon" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"></path></svg> <a
+href="https://linkedin.com/in/grea09">LinkedIn</a></li>
+</ul>
+</div>
+<h2 id="workspace_premium-certifications"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-red " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="WorkspacePremiumRoundedIcon" fill="currentColor"><path d="m10.92 12.75 1.08-.82 1.07.81c.39.29.92-.08.78-.55l-.42-1.36 1.2-.95c.37-.28.16-.88-.32-.88h-1.4l-.43-1.34c-.15-.46-.8-.46-.95 0L11.09 9H9.68c-.47 0-.68.6-.31.89l1.19.95-.42 1.36c-.14.47.39.84.78.55M6 21.61c0 .68.67 1.16 1.32.95L12 21l4.68 1.56c.65.22 1.32-.26 1.32-.95v-6.33c1.24-1.41 2-3.25 2-5.28 0-4.42-3.58-8-8-8s-8 3.58-8 8c0 2.03.76 3.87 2 5.28zM12 4c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6"></path></svg> Certifications</h2>
+<div class="icons">
+<ul>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-base0 " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="DirectionsCarRoundedIcon" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01l-1.97 5.67c-.07.21-.11.43-.11.66v7.16c0 .83.67 1.5 1.5 1.5S6 20.33 6 19.5V19h12v.5c0 .82.67 1.5 1.5 1.5.82 0 1.5-.67 1.5-1.5v-7.16c0-.22-.04-.45-.11-.66zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16m11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5M5 11l1.27-3.82c.14-.4.52-.68.95-.68h9.56c.43 0 .81.28.95.68L19 11z"></path></svg> Permis
+B</li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-blue " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="HubRoundedIcon" fill="currentColor"><path d="M8.4 18.2c.38.5.6 1.12.6 1.8 0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3c.44 0 .85.09 1.23.26l1.41-1.77c-.92-1.03-1.29-2.39-1.09-3.69l-2.03-.68c-.54.83-1.46 1.38-2.52 1.38-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3c0 .07 0 .14-.01.21l2.03.68c.64-1.21 1.82-2.09 3.22-2.32V5.91C9.96 5.57 9 4.4 9 3c0-1.66 1.34-3 3-3s3 1.34 3 3c0 1.4-.96 2.57-2.25 2.91v2.16c1.4.23 2.58 1.11 3.22 2.32L18 9.71V9.5c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3c-1.06 0-1.98-.55-2.52-1.37l-2.03.68c.2 1.29-.16 2.65-1.09 3.69l1.41 1.77Q17.34 17 18 17c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3c0-.68.22-1.3.6-1.8l-1.41-1.77c-1.35.75-3.01.76-4.37 0z"></path></svg> CCNA 1 &amp; 3</li>
+</ul>
+</div>
+<h2 id="translate-langues"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-green " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="TranslateRoundedIcon" fill="currentColor"><path d="M12.65 15.67c.14-.36.05-.77-.23-1.05l-2.09-2.06.03-.03c1.74-1.94 2.98-4.17 3.71-6.53h1.94c.54 0 .99-.45.99-.99v-.02c0-.54-.45-.99-.99-.99H10V3c0-.55-.45-1-1-1s-1 .45-1 1v1H1.99c-.54 0-.99.45-.99.99 0 .55.45.99.99.99h10.18C11.5 7.92 10.44 9.75 9 11.35c-.81-.89-1.49-1.86-2.06-2.88-.16-.29-.45-.47-.78-.47-.69 0-1.13.75-.79 1.35.63 1.13 1.4 2.21 2.3 3.21L3.3 16.87c-.4.39-.4 1.03 0 1.42.39.39 1.02.39 1.42 0L9 14l2.02 2.02c.51.51 1.38.32 1.63-.35M17.5 10c-.6 0-1.14.37-1.35.94l-3.67 9.8c-.24.61.22 1.26.87 1.26.39 0 .74-.24.88-.61l.89-2.39h4.75l.9 2.39c.14.36.49.61.88.61.65 0 1.11-.65.88-1.26l-3.67-9.8c-.22-.57-.76-.94-1.36-.94m-1.62 7 1.62-4.33L19.12 17z"></path></svg> Langues</h2>
+<div class="langs">
+<ul>
+<li><img src="flags/fr.svg" alt="Drapeau français" loading="lazy" decoding="async" />
+<strong>Français</strong> <span
+class="level color-blue">●●●●●</span></li>
+<li><img src="flags/en.svg" alt="Drapeau britannique" loading="lazy" decoding="async" />
+<strong>Anglais</strong> <span
+class="level color-blue">●●●●●</span></li>
+<li><img src="flags/es.svg" alt="Drapeau espagnol" loading="lazy" decoding="async" />
+<strong>Espagnol</strong> <span
+class="level color-orange">●●○○○</span></li>
+</ul>
+</div>
+<h2 id="tune-compétences"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-yellow " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="TuneRoundedIcon" fill="currentColor"><path d="M3 18c0 .55.45 1 1 1h5v-2H4c-.55 0-1 .45-1 1M3 6c0 .55.45 1 1 1h9V5H4c-.55 0-1 .45-1 1m10 14v-1h7c.55 0 1-.45 1-1s-.45-1-1-1h-7v-1c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1M7 10v1H4c-.55 0-1 .45-1 1s.45 1 1 1h3v1c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1m14 2c0-.55-.45-1-1-1h-9v2h9c.55 0 1-.45 1-1m-5-3c.55 0 1-.45 1-1V7h3c.55 0 1-.45 1-1s-.45-1-1-1h-3V4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .55.45 1 1 1"></path></svg>
+Compétences</h2>
+<div class="icons">
+<ul>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-magenta " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="PsychologyRoundedIcon" fill="currentColor"><path d="M13 8.57c-.79 0-1.43.64-1.43 1.43s.64 1.43 1.43 1.43 1.43-.64 1.43-1.43-.64-1.43-1.43-1.43"></path><path d="M13.21 3c-3.84-.11-7 2.87-7.19 6.64L4.1 12.2c-.25.33-.01.8.4.8H6v3c0 1.1.9 2 2 2h1v2c0 .55.45 1 1 1h5c.55 0 1-.45 1-1v-3.68c2.44-1.16 4.1-3.68 4-6.58-.14-3.62-3.18-6.63-6.79-6.74M16 10c0 .13-.01.26-.02.39l.83.66c.08.06.1.16.05.25l-.8 1.39c-.05.09-.16.12-.24.09l-.99-.4c-.21.16-.43.29-.67.39L14 13.83c-.01.1-.1.17-.2.17h-1.6c-.1 0-.18-.07-.2-.17l-.15-1.06c-.25-.1-.47-.23-.68-.39l-.99.4c-.09.03-.2 0-.25-.09l-.8-1.39c-.05-.08-.03-.19.05-.25l.84-.66c-.01-.13-.02-.26-.02-.39s.02-.27.04-.39l-.85-.66c-.08-.06-.1-.16-.05-.26l.8-1.38c.05-.09.15-.12.24-.09l1 .4c.2-.15.43-.29.67-.39L12 6.17c.02-.1.1-.17.2-.17h1.6c.1 0 .18.07.2.17l.15 1.06c.24.1.46.23.67.39l1-.4c.09-.03.2 0 .24.09l.8 1.38c.05.09.03.2-.05.26l-.85.66c.03.12.04.25.04.39"></path></svg> IA,
+Tensorflow, LLM</li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-violet " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CodeRoundedIcon" fill="currentColor"><path d="M8.7 15.9 4.8 12l3.9-3.9c.39-.39.39-1.01 0-1.4a.984.984 0 0 0-1.4 0l-4.59 4.59c-.39.39-.39 1.02 0 1.41l4.59 4.6c.39.39 1.01.39 1.4 0s.39-1.01 0-1.4m6.6 0 3.9-3.9-3.9-3.9a.984.984 0 0 1 0-1.4c.39-.39 1.01-.39 1.4 0l4.59 4.59c.39.39.39 1.02 0 1.41l-4.59 4.6c-.39.39-1.01.39-1.4 0a.984.984 0 0 1 0-1.4"></path></svg> Python, Java,
+C++</li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-blue " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="TerminalRoundedIcon" fill="currentColor"><path d="M20 4H4c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2m0 14H4V8h16zm-8-2c0-.55.45-1 1-1h4c.55 0 1 .45 1 1s-.45 1-1 1h-4c-.55 0-1-.45-1-1M6.79 9.71c.39-.39 1.02-.39 1.41 0l2.59 2.59c.39.39.39 1.02 0 1.41L8.2 16.3c-.39.39-1.02.39-1.41 0a.996.996 0 0 1 0-1.41L8.67 13l-1.88-1.88a.996.996 0 0 1 0-1.41"></path></svg> Windows, Linux</li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-green " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="Inventory2RoundedIcon" fill="currentColor"><path d="M20 2H4c-1 0-2 .9-2 2v3.01c0 .72.43 1.34 1 1.69V20c0 1.1 1.1 2 2 2h14c.9 0 2-.9 2-2V8.7c.57-.35 1-.97 1-1.69V4c0-1.1-1-2-2-2m-6 12h-4c-.55 0-1-.45-1-1s.45-1 1-1h4c.55 0 1 .45 1 1s-.45 1-1 1m6-7H4V4h16z"></path></svg> Docker, Git,
+Bash</li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-yellow " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="SyncRoundedIcon" fill="currentColor"><path d="M12 4V2.21c0-.45-.54-.67-.85-.35l-2.8 2.79c-.2.2-.2.51 0 .71l2.79 2.79c.32.31.86.09.86-.36V6c3.31 0 6 2.69 6 6 0 .79-.15 1.56-.44 2.25-.15.36-.04.77.23 1.04.51.51 1.37.33 1.64-.34.37-.91.57-1.91.57-2.95 0-4.42-3.58-8-8-8m0 14c-3.31 0-6-2.69-6-6 0-.79.15-1.56.44-2.25.15-.36.04-.77-.23-1.04-.51-.51-1.37-.33-1.64.34C4.2 9.96 4 10.96 4 12c0 4.42 3.58 8 8 8v1.79c0 .45.54.67.85.35l2.79-2.79c.2-.2.2-.51 0-.71l-2.79-2.79c-.31-.31-.85-.09-.85.36z"></path></svg> CI/CD, GitHub
+Actions</li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-orange " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="PaletteRoundedIcon" fill="currentColor"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10c1.38 0 2.5-1.12 2.5-2.5 0-.61-.23-1.2-.64-1.67-.08-.1-.13-.21-.13-.33 0-.28.22-.5.5-.5H16c3.31 0 6-2.69 6-6 0-4.96-4.49-9-10-9m5.5 11c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5m-3-4c-.83 0-1.5-.67-1.5-1.5S13.67 6 14.5 6s1.5.67 1.5 1.5S15.33 9 14.5 9M5 11.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5S7.33 13 6.5 13 5 12.33 5 11.5m6-4c0 .83-.67 1.5-1.5 1.5S8 8.33 8 7.5 8.67 6 9.5 6s1.5.67 1.5 1.5"></path></svg> Typo,
+Graphisme</li>
+</ul>
+</div>
+</div>
+<div class="main-content">
+<h2 id="business-entreprise-individuelle-logo-aptitek"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-base0 " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="BusinessRoundedIcon" fill="currentColor"><path d="M12 7V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM6 19H4v-2h2zm0-4H4v-2h2zm0-4H4V9h2zm0-4H4V5h2zm4 12H8v-2h2zm0-4H8v-2h2zm0-4H8V9h2zm0-4H8V5h2zm9 12h-7v-2h2v-2h-2v-2h2v-2h-2V9h7c.55 0 1 .45 1 1v8c0 .55-.45 1-1 1m-1-8h-2v2h2zm0 4h-2v2h2z"></path></svg> Entreprise Individuelle <img src="icons/Aptitek.svg" class="logo" alt="Logo Aptitek" loading="eager" decoding="async" /></h2>
+<h3 id="school-former-autrement-ludique-concret-durable"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-yellow " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="SchoolRoundedIcon" fill="currentColor"><path d="M5 13.18v2.81c0 .73.4 1.41 1.04 1.76l5 2.73c.6.33 1.32.33 1.92 0l5-2.73c.64-.35 1.04-1.03 1.04-1.76v-2.81l-6.04 3.3c-.6.33-1.32.33-1.92 0zm6.04-9.66-8.43 4.6c-.69.38-.69 1.38 0 1.76l8.43 4.6c.6.33 1.32.33 1.92 0L21 10.09V16c0 .55.45 1 1 1s1-.45 1-1V9.59c0-.37-.2-.7-.52-.88l-9.52-5.19a2.04 2.04 0 0 0-1.92 0"></path></svg> Former autrement : ludique,
+concret, durable</h3>
+<div class="icons">
+<ul>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-magenta " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="PsychologyRoundedIcon" fill="currentColor"><path d="M13 8.57c-.79 0-1.43.64-1.43 1.43s.64 1.43 1.43 1.43 1.43-.64 1.43-1.43-.64-1.43-1.43-1.43"></path><path d="M13.21 3c-3.84-.11-7 2.87-7.19 6.64L4.1 12.2c-.25.33-.01.8.4.8H6v3c0 1.1.9 2 2 2h1v2c0 .55.45 1 1 1h5c.55 0 1-.45 1-1v-3.68c2.44-1.16 4.1-3.68 4-6.58-.14-3.62-3.18-6.63-6.79-6.74M16 10c0 .13-.01.26-.02.39l.83.66c.08.06.1.16.05.25l-.8 1.39c-.05.09-.16.12-.24.09l-.99-.4c-.21.16-.43.29-.67.39L14 13.83c-.01.1-.1.17-.2.17h-1.6c-.1 0-.18-.07-.2-.17l-.15-1.06c-.25-.1-.47-.23-.68-.39l-.99.4c-.09.03-.2 0-.25-.09l-.8-1.39c-.05-.08-.03-.19.05-.25l.84-.66c-.01-.13-.02-.26-.02-.39s.02-.27.04-.39l-.85-.66c-.08-.06-.1-.16-.05-.26l.8-1.38c.05-.09.15-.12.24-.09l1 .4c.2-.15.43-.29.67-.39L12 6.17c.02-.1.1-.17.2-.17h1.6c.1 0 .18.07.2.17l.15 1.06c.24.1.46.23.67.39l1-.4c.09-.03.2 0 .24.09l.8 1.38c.05.09.03.2-.05.26l-.85.66c.03.12.04.25.04.39"></path></svg> <em>IA
+générative, Prompt engineering, TensorFlow, Langchain</em></li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-green " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="TerminalRoundedIcon" fill="currentColor"><path d="M20 4H4c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2m0 14H4V8h16zm-8-2c0-.55.45-1 1-1h4c.55 0 1 .45 1 1s-.45 1-1 1h-4c-.55 0-1-.45-1-1M6.79 9.71c.39-.39 1.02-.39 1.41 0l2.59 2.59c.39.39.39 1.02 0 1.41L8.2 16.3c-.39.39-1.02.39-1.41 0a.996.996 0 0 1 0-1.41L8.67 13l-1.88-1.88a.996.996 0 0 1 0-1.41"></path></svg> <em>Docker, Linux,
+Réseau, Virtualisation</em></li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-violet " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CodeRoundedIcon" fill="currentColor"><path d="M8.7 15.9 4.8 12l3.9-3.9c.39-.39.39-1.01 0-1.4a.984.984 0 0 0-1.4 0l-4.59 4.59c-.39.39-.39 1.02 0 1.41l4.59 4.6c.39.39 1.01.39 1.4 0s.39-1.01 0-1.4m6.6 0 3.9-3.9-3.9-3.9a.984.984 0 0 1 0-1.4c.39-.39 1.01-.39 1.4 0l4.59 4.59c.39.39.39 1.02 0 1.41l-4.59 4.6c-.39.39-1.01.39-1.4 0a.984.984 0 0 1 0-1.4"></path></svg> <em>Développement,
+Git, Bash, No-code</em></li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-blue " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LanguageRoundedIcon" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2m6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56M12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96M4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56m2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8M12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96M14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2m.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2z"></path></svg> <em>Web, APIs,
+Automatisation, Données</em></li>
+</ul>
+</div>
+<div class="clients">
+<p><a href="https://www.sciences-u-lyon.fr/"
+class="logo-sciences-u color-blue">Sciences-U</a> <a
+href="https://estiam.education/"
+class="logo-estiam color-violet">estiam</a> <a
+href="https://www.groupe-gema.com/"
+class="logo-gema color-magenta">GEMA</a> <a
+href="https://www.ecolelamache.org/" class="logo-la-mache color-cyan">LA
+MACHE</a> <a href="https://aptitek.io" class="logo-aptitek">+
+Vous</a></p>
+</div>
+<p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CalendarMonthRoundedIcon" fill="currentColor"><path d="M17 2c-.55 0-1 .45-1 1v1H8V3c0-.55-.45-1-1-1s-1 .45-1 1v1H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-1V3c0-.55-.45-1-1-1m2 18H5V10h14zm-8-7c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 4c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1"></path></svg> <span
+class="date">2023-04 → aujourd’hui</span> – <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnRoundedIcon" fill="currentColor"><path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.18 2.45 6.92 7.34 11.23.38.33.95.33 1.33 0C17.55 17.12 20 13.38 20 10.2 20 5.22 16.2 2 12 2m0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"></path></svg> <span class="place">Villeurbanne,
+France</span></p>
+<h2 id="school-enseignement"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-magenta " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="SchoolRoundedIcon" fill="currentColor"><path d="M5 13.18v2.81c0 .73.4 1.41 1.04 1.76l5 2.73c.6.33 1.32.33 1.92 0l5-2.73c.64-.35 1.04-1.03 1.04-1.76v-2.81l-6.04 3.3c-.6.33-1.32.33-1.92 0zm6.04-9.66-8.43 4.6c-.69.38-.69 1.38 0 1.76l8.43 4.6c.6.33 1.32.33 1.92 0L21 10.09V16c0 .55.45 1 1 1s1-.45 1-1V9.59c0-.37-.2-.7-.52-.88l-9.52-5.19a2.04 2.04 0 0 0-1.92 0"></path></svg> Enseignement</h2>
+<section id="enseignant-chercheur-cpe-lyon" class="entry">
+<h3>Enseignant Chercheur <span class="logo-cpe">CPE Lyon</span></h3>
+<div class="icons">
+<ul>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LanguageRoundedIcon" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2m6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56M12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96M4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56m2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8M12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96M14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2m.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2z"></path></svg> Programmation Web, IoT,
+Domotique</li>
+</ul>
+</div>
+<p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CalendarMonthRoundedIcon" fill="currentColor"><path d="M17 2c-.55 0-1 .45-1 1v1H8V3c0-.55-.45-1-1-1s-1 .45-1 1v1H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-1V3c0-.55-.45-1-1-1m2 18H5V10h14zm-8-7c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 4c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1"></path></svg> <span
+class="date">2020</span> – <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnRoundedIcon" fill="currentColor"><path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.18 2.45 6.92 7.34 11.23.38.33.95.33 1.33 0C17.55 17.12 20 13.38 20 10.2 20 5.22 16.2 2 12 2m0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"></path></svg>
+<span class="place">Lyon, France</span></p>
+</section>
+<section
+id="moniteur-puis-attaché-temporaire-denseignement-et-de-recherche-logo-polytech-polytech-lyon"
+class="entry">
+<h3>Moniteur puis Attaché Temporaire d’Enseignement et de Recherche
+<span class="logo-polytech"><img src="icons/polytech_pastille.svg"
+alt="Logo Polytech" loading="lazy" decoding="async" /> Polytech Lyon</span></h3>
+<div class="icons">
+<ul>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="HubRoundedIcon" fill="currentColor"><path d="M8.4 18.2c.38.5.6 1.12.6 1.8 0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3c.44 0 .85.09 1.23.26l1.41-1.77c-.92-1.03-1.29-2.39-1.09-3.69l-2.03-.68c-.54.83-1.46 1.38-2.52 1.38-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3c0 .07 0 .14-.01.21l2.03.68c.64-1.21 1.82-2.09 3.22-2.32V5.91C9.96 5.57 9 4.4 9 3c0-1.66 1.34-3 3-3s3 1.34 3 3c0 1.4-.96 2.57-2.25 2.91v2.16c1.4.23 2.58 1.11 3.22 2.32L18 9.71V9.5c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3c-1.06 0-1.98-.55-2.52-1.37l-2.03.68c.2 1.29-.16 2.65-1.09 3.69l1.41 1.77Q17.34 17 18 17c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3c0-.68.22-1.3.6-1.8l-1.41-1.77c-1.35.75-3.01.76-4.37 0z"></path></svg> Réseaux, Encodage, Protocoles et
+Routage<br />
+</li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CodeRoundedIcon" fill="currentColor"><path d="M8.7 15.9 4.8 12l3.9-3.9c.39-.39.39-1.01 0-1.4a.984.984 0 0 0-1.4 0l-4.59 4.59c-.39.39-.39 1.02 0 1.41l4.59 4.6c.39.39 1.01.39 1.4 0s.39-1.01 0-1.4m6.6 0 3.9-3.9-3.9-3.9a.984.984 0 0 1 0-1.4c.39-.39 1.01-.39 1.4 0l4.59 4.59c.39.39.39 1.02 0 1.41l-4.59 4.6c-.39.39-1.01.39-1.4 0a.984.984 0 0 1 0-1.4"></path></svg> Programmation Java, UML,
+Algorithmique<br />
+</li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="TerminalRoundedIcon" fill="currentColor"><path d="M20 4H4c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2m0 14H4V8h16zm-8-2c0-.55.45-1 1-1h4c.55 0 1 .45 1 1s-.45 1-1 1h-4c-.55 0-1-.45-1-1M6.79 9.71c.39-.39 1.02-.39 1.41 0l2.59 2.59c.39.39.39 1.02 0 1.41L8.2 16.3c-.39.39-1.02.39-1.41 0a.996.996 0 0 1 0-1.41L8.67 13l-1.88-1.88a.996.996 0 0 1 0-1.41"></path></svg> Systèmes Linux, IPC,
+scripts…</li>
+</ul>
+</div>
+<p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CalendarMonthRoundedIcon" fill="currentColor"><path d="M17 2c-.55 0-1 .45-1 1v1H8V3c0-.55-.45-1-1-1s-1 .45-1 1v1H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-1V3c0-.55-.45-1-1-1m2 18H5V10h14zm-8-7c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 4c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1"></path></svg> <span class="date">2014 →
+2017 | 2018 → 2019</span> – <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnRoundedIcon" fill="currentColor"><path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.18 2.45 6.92 7.34 11.23.38.33.95.33 1.33 0C17.55 17.12 20 13.38 20 10.2 20 5.22 16.2 2 12 2m0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"></path></svg>
+<span class="place">Lyon, France</span></p>
+</section>
+<section
+id="attaché-temporaire-denseignement-et-de-recherche-iut-lumière-lyon-2"
+class="entry">
+<h3>Attaché Temporaire d’Enseignement et de Recherche <span
+class="logo-lyon2 color-red">IUT Lumière Lyon 2</span></h3>
+<div class="icons">
+<ul>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="KeyboardRoundedIcon" fill="currentColor"><path d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2m-9 3h2v2h-2zm0 3h2v2h-2zM8 8h2v2H8zm0 3h2v2H8zm-1 2H5v-2h2zm0-3H5V8h2zm8 7H9c-.55 0-1-.45-1-1s.45-1 1-1h6c.55 0 1 .45 1 1s-.45 1-1 1m1-4h-2v-2h2zm0-3h-2V8h2zm3 3h-2v-2h2zm0-3h-2V8h2z"></path></svg> Bases de l’informatique,
+Microsoft Office<br />
+</li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="StorageRoundedIcon" fill="currentColor"><path d="M4 20h16c1.1 0 2-.9 2-2s-.9-2-2-2H4c-1.1 0-2 .9-2 2s.9 2 2 2m0-3h2v2H4zM2 6c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2s-.9-2-2-2H4c-1.1 0-2 .9-2 2m4 1H4V5h2zm-2 7h16c1.1 0 2-.9 2-2s-.9-2-2-2H4c-1.1 0-2 .9-2 2s.9 2 2 2m0-3h2v2H4z"></path></svg> Bases de données : Modèle
+Relationnel, SQL<br />
+</li>
+</ul>
+</div>
+<p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CalendarMonthRoundedIcon" fill="currentColor"><path d="M17 2c-.55 0-1 .45-1 1v1H8V3c0-.55-.45-1-1-1s-1 .45-1 1v1H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-1V3c0-.55-.45-1-1-1m2 18H5V10h14zm-8-7c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 4c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1"></path></svg> <span class="date">2017 →
+2018</span> – <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnRoundedIcon" fill="currentColor"><path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.18 2.45 6.92 7.34 11.23.38.33.95.33 1.33 0C17.55 17.12 20 13.38 20 10.2 20 5.22 16.2 2 12 2m0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"></path></svg> <span
+class="place">Bron, France</span></p>
+</section>
+<h2 id="school-formation"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-green " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="SchoolRoundedIcon" fill="currentColor"><path d="M5 13.18v2.81c0 .73.4 1.41 1.04 1.76l5 2.73c.6.33 1.32.33 1.92 0l5-2.73c.64-.35 1.04-1.03 1.04-1.76v-2.81l-6.04 3.3c-.6.33-1.32.33-1.92 0zm6.04-9.66-8.43 4.6c-.69.38-.69 1.38 0 1.76l8.43 4.6c.6.33 1.32.33 1.92 0L21 10.09V16c0 .55.45 1 1 1s1-.45 1-1V9.59c0-.37-.2-.7-.52-.88l-9.52-5.19a2.04 2.04 0 0 0-1.92 0"></path></svg> Formation</h2>
+<section
+id="doctorat-en-informatique-logo-université-claude-bernard-lyon-1université-lyon-1"
+class="entry">
+<h3>Doctorat en Informatique <span class="logo-lyon1"><img src="icons/lyon1_pastille.svg"
+alt="Logo Université Claude Bernard Lyon 1" loading="lazy" decoding="async" />Université Lyon
+1</span></h3>
+<p>IA Explicable, Planification, Logique de Description et Languages</p>
+<p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CalendarMonthRoundedIcon" fill="currentColor"><path d="M17 2c-.55 0-1 .45-1 1v1H8V3c0-.55-.45-1-1-1s-1 .45-1 1v1H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-1V3c0-.55-.45-1-1-1m2 18H5V10h14zm-8-7c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 4c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1"></path></svg> <span
+class="date">2014-10 → 2020-01</span> – <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnRoundedIcon" fill="currentColor"><path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.18 2.45 6.92 7.34 11.23.38.33.95.33 1.33 0C17.55 17.12 20 13.38 20 10.2 20 5.22 16.2 2 12 2m0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"></path></svg> <span class="place">Lyon,
+France</span></p>
+</section>
+<section id="diplôme-dingénieur-master-2-logo-utbm-utbm" class="entry">
+<h3>Diplôme d’ingénieur | Master 2 <span class="logo-utbm"><img src="icons/utbm_pastille.svg" alt="Logo UTBM" loading="lazy" decoding="async" /> utbm</span></h3>
+<p>Réseaux et Systèmes Embarqués | Informatique Mobile et Répartie</p>
+<p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CalendarMonthRoundedIcon" fill="currentColor"><path d="M17 2c-.55 0-1 .45-1 1v1H8V3c0-.55-.45-1-1-1s-1 .45-1 1v1H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-1V3c0-.55-.45-1-1-1m2 18H5V10h14zm-8-7c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 4c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1"></path></svg> <span
+class="date">2010-09 → 2013-07</span> – <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnRoundedIcon" fill="currentColor"><path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.18 2.45 6.92 7.34 11.23.38.33.95.33 1.33 0C17.55 17.12 20 13.38 20 10.2 20 5.22 16.2 2 12 2m0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"></path></svg> <span class="place">Belfort,
+France</span></p>
+</section>
+<section
+id="diplôme-universitaire-technologique-logo-université-claude-bernard-lyon-1iut-lyon-1"
+class="entry">
+<h3>Diplôme Universitaire Technologique <span class="logo-lyon1"><img src="icons/lyon1_pastille.svg"
+alt="Logo Université Claude Bernard Lyon 1" loading="lazy" decoding="async" />IUT Lyon 1</span></h3>
+<p>Informatique Générale</p>
+<p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CalendarMonthRoundedIcon" fill="currentColor"><path d="M17 2c-.55 0-1 .45-1 1v1H8V3c0-.55-.45-1-1-1s-1 .45-1 1v1H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-1V3c0-.55-.45-1-1-1m2 18H5V10h14zm-8-7c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 4c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1"></path></svg> <span
+class="date">2008-09 → 2010-07</span> – <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnRoundedIcon" fill="currentColor"><path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.18 2.45 6.92 7.34 11.23.38.33.95.33 1.33 0C17.55 17.12 20 13.38 20 10.2 20 5.22 16.2 2 12 2m0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"></path></svg> <span class="place">Bourg-en-Bresse,
+France</span></p>
+</section>
+<h2 id="work-expérience"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-blue " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="WorkRoundedIcon" fill="currentColor"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2m-6 0h-4V4h4z"></path></svg>
+Expérience</h2>
+<section id="consultant-junior-logo-business-decision-business-decision"
+class="entry">
+<h3>Consultant Junior <span class="logo-b-and-d"><img src="icons/b-and-d_pastille.svg" alt="Logo Business &amp; Decision" loading="lazy" decoding="async" />
+Business &amp; Decision</span></h3>
+<p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CalendarMonthRoundedIcon" fill="currentColor"><path d="M17 2c-.55 0-1 .45-1 1v1H8V3c0-.55-.45-1-1-1s-1 .45-1 1v1H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-1V3c0-.55-.45-1-1-1m2 18H5V10h14zm-8-7c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 4c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1"></path></svg> <span
+class="date">2013-07 → 2013-11</span> – <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnRoundedIcon" fill="currentColor"><path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.18 2.45 6.92 7.34 11.23.38.33.95.33 1.33 0C17.55 17.12 20 13.38 20 10.2 20 5.22 16.2 2 12 2m0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"></path></svg> <span class="place">Lyon,
+France</span></p>
+</section>
+<section id="stage-ingénieur-atos-worldline" class="entry">
+<h3>Stage Ingénieur <span class="logo-atos">Atos Worldline</span></h3>
+<p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CalendarMonthRoundedIcon" fill="currentColor"><path d="M17 2c-.55 0-1 .45-1 1v1H8V3c0-.55-.45-1-1-1s-1 .45-1 1v1H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-1V3c0-.55-.45-1-1-1m2 18H5V10h14zm-8-7c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 4c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1"></path></svg> <span
+class="date">2013-02 → 2013-07</span> – <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnRoundedIcon" fill="currentColor"><path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.18 2.45 6.92 7.34 11.23.38.33.95.33 1.33 0C17.55 17.12 20 13.38 20 10.2 20 5.22 16.2 2 12 2m0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"></path></svg> <span class="place">Lyon,
+France</span></p>
+</section>
+<section id="stage-assistant-ingénieur-gfi" class="entry">
+<h3>Stage Assistant Ingénieur <span class="logo-gfi">gfi</span></h3>
+<p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CalendarMonthRoundedIcon" fill="currentColor"><path d="M17 2c-.55 0-1 .45-1 1v1H8V3c0-.55-.45-1-1-1s-1 .45-1 1v1H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-1V3c0-.55-.45-1-1-1m2 18H5V10h14zm-8-7c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 4c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m-4 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1m8 0c0-.55.45-1 1-1s1 .45 1 1-.45 1-1 1-1-.45-1-1"></path></svg> <span
+class="date">2011-09 → 2012-01</span> – <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnRoundedIcon" fill="currentColor"><path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.18 2.45 6.92 7.34 11.23.38.33.95.33 1.33 0C17.55 17.12 20 13.38 20 10.2 20 5.22 16.2 2 12 2m0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"></path></svg> <span class="place">Belfort,
+France</span></p>
+</section>
+</div>
+</div>
+
+  </div>
+  <div class="cv-sheet page-2">
+    <h2
+id="school-thèse-de-doctorat-logo-université-claude-bernard-lyon-1université-lyon-1-liris"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-blue " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="SchoolRoundedIcon" fill="currentColor"><path d="M5 13.18v2.81c0 .73.4 1.41 1.04 1.76l5 2.73c.6.33 1.32.33 1.92 0l5-2.73c.64-.35 1.04-1.03 1.04-1.76v-2.81l-6.04 3.3c-.6.33-1.32.33-1.92 0zm6.04-9.66-8.43 4.6c-.69.38-.69 1.38 0 1.76l8.43 4.6c.6.33 1.32.33 1.92 0L21 10.09V16c0 .55.45 1 1 1s1-.45 1-1V9.59c0-.37-.2-.7-.52-.88l-9.52-5.19a2.04 2.04 0 0 0-1.92 0"></path></svg> Thèse de doctorat <span
+class="logo-lyon1"><img src="icons/lyon1_pastille.svg"
+alt="Logo Université Claude Bernard Lyon 1" loading="lazy" decoding="async" />Université Lyon 1</span> –
+<span class="logo-liris">LIRIS</span></h2>
+<div class="thesis">
+<h4 id="gavel-jury"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-green " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="GavelRoundedIcon" fill="currentColor"><path d="M2 21h10c.55 0 1 .45 1 1s-.45 1-1 1H2c-.55 0-1-.45-1-1s.45-1 1-1M5.24 8.07l2.83-2.83L20.8 17.97c.78.78.78 2.05 0 2.83s-2.05.78-2.83 0zm8.49-5.66 2.83 2.83c.78.78.78 2.05 0 2.83l-1.42 1.42-5.65-5.66 1.41-1.41c.78-.79 2.05-.79 2.83-.01m-9.9 7.07 5.66 5.66-1.41 1.41c-.78.78-2.05.78-2.83 0l-2.83-2.83c-.78-.78-.78-2.05 0-2.83z"></path></svg>
+Jury</h4>
+<table>
+
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Nom</th>
+<th style="text-align: left;">Titre</th>
+<th style="text-align: left;">Institution</th>
+<th style="text-align: left;">Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-red " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="PersonRoundedIcon" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4m0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4"></path></svg></td>
+<td style="text-align: left;">Hamamache Kheddouci</td>
+<td style="text-align: left;">Professeur</td>
+<td style="text-align: left;"><span class="logo-liris">LIRIS</span></td>
+<td style="text-align: left;">Président</td>
+</tr>
+<tr>
+<td style="text-align: left;"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-magenta " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="DescriptionRoundedIcon" fill="currentColor"><path d="M14.59 2.59c-.38-.38-.89-.59-1.42-.59H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8.83c0-.53-.21-1.04-.59-1.41zM15 18H9c-.55 0-1-.45-1-1s.45-1 1-1h6c.55 0 1 .45 1 1s-.45 1-1 1m0-4H9c-.55 0-1-.45-1-1s.45-1 1-1h6c.55 0 1 .45 1 1s-.45 1-1 1m-2-6V3.5L18.5 9H14c-.55 0-1-.45-1-1"></path></svg></td>
+<td style="text-align: left;">Eva Onainda</td>
+<td style="text-align: left;">Professeure</td>
+<td style="text-align: left;"><svg class="logo-updv" role="img" aria-label="Logo Universitat Politècnica De València" viewBox="0 0 20.214165 6.3852773"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="udv.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  
+  <defs
+     id="defs1">
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      .logo-updv-fill {
+        fill: #002b36;
+      }
+      @media (prefers-color-scheme: dark) {
+        .logo-updv-fill {
+          fill: #fdf6e3;
+        }
+      }
+    </style>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath70">
+      <path
+         d="m 347.5,163 h 65.2 v 21.3 h -65.2 z"
+         transform="translate(0,2.5000001e-5)"
+         clip-rule="evenodd"
+         id="path70" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-103.45209,-124.35416)">
+    <path
+       id="path69"
+       d="m 403.2,177.8 c 0,0.2 0.1,0.4 0.4,0.4 0.2,0 0.4,-0.2 0.4,-0.4 0,-0.1 0,-0.2 0,-0.3 -0.1,0 -0.1,-0.1 -0.2,-0.1 -0.1,-0.1 -0.1,-0.1 -0.2,-0.1 0,0 0,0 0,0 -0.2,0 -0.4,0.2 -0.4,0.5 z m 0.8,3.3 h 0.1 l 1.5,-3.6 0.1,-0.2 c -0.1,0 -0.2,0 -0.3,0 0,0 -0.2,0 -0.3,0 v 0.2 l -0.3,0.6 -0.2,0.7 -0.7,1.6 -0.7,-1.6 -0.6,-1.5 c 0,0 -0.1,0 -0.2,0 0,0 -0.1,0 -0.2,0 z m -9.7,-10.9 -0.7,0.7 c -0.1,0.1 -0.1,0.2 -0.2,0.2 0,0 -0.1,0 -0.1,0.1 -0.1,0 -0.2,-0.1 -0.2,-0.2 0,0 0,0 0,0 0,-0.1 0,-0.1 0,-0.1 0,-0.1 0.1,-0.1 0.1,-0.1 l 0.9,-0.6 z m -0.5,-0.5 0.6,-0.1 c 0.1,0 0.3,0 0.5,0 0,0 -0.1,0.1 -0.1,0.2 0,0 0.1,0.1 0.1,0.1 h -2 v -3.7 h 2 c 0,0 0,0.1 0,0.1 0,0.1 0,0.1 0,0.2 -0.2,0 -0.3,0 -0.5,-0.1 h -1 v 1.6 h 0.8 c 0.2,0 0.4,0 0.5,0 v 0.2 c 0,0 0,0.1 0,0.1 h -0.5 -0.8 v 1.4 z m -4.4,6.8 c 0,0 -0.1,0.1 -0.2,0.2 0,0 0,0 -0.1,0 0,0 -0.1,0 -0.2,-0.1 0,-0.1 0,-0.1 0,-0.2 0.1,0 0.1,0 0.2,-0.1 l 0.8,-0.5 h 0.2 z m -0.2,-1.3 h 0.4 0.6 c 0.1,0 0.3,0 0.5,-0.1 0,0.1 0,0.2 0,0.2 0,0.1 0,0.1 0,0.2 h -2 v -3.8 h 2 c 0,0.1 0,0.1 0,0.2 0,0 0,0.1 0,0.2 -0.2,-0.1 -0.3,-0.1 -0.5,-0.1 h -1 v 1.6 h 0.9 c 0.1,0 0.3,0 0.5,0 l -0.1,0.1 c 0,0.1 0,0.1 0.1,0.2 l -0.5,-0.1 h -0.9 z m -13.6,5.9 c 0.1,0 0.1,-0.1 0.2,-0.1 0.1,0 0.1,0.1 0.2,0.1 -0.1,-0.5 -0.1,-1.5 -0.1,-2.3 0,-1 -0.6,-1.6 -1.6,-1.6 -1.1,0 -1.6,0.5 -1.6,1.6 0,0.3 0.1,0.6 0.1,0.9 0,0.6 0,1.1 -0.1,1.4 0.1,0 0.2,-0.1 0.3,-0.1 0.1,0 0.2,0.1 0.3,0.1 -0.1,-0.4 -0.1,-1.1 -0.1,-1.9 0,-0.7 0,-1.7 1.2,-1.7 1.2,0 1.2,1.1 1.2,1.8 0,1 0,1.6 0,1.8 z m 4.9,-3.9 c -0.9,1 -1.9,2.1 -2.8,3.1 0,-0.3 0,-0.6 0,-1.2 0,-0.4 0,-1.6 0,-1.8 0,0 -0.1,0 -0.2,0 0,0 -0.1,0 -0.2,0 0.1,0.3 0.1,1.7 0.1,2.4 v 1.4 h 0.1 l 2.8,-2.9 c 0,1 0,2 -0.1,2.9 0.1,0 0.2,-0.1 0.2,-0.1 0.1,0 0.1,0.1 0.2,0.1 0,-0.4 -0.1,-1.4 -0.1,-1.9 z m 1.6,2.5 -0.1,1.4 c 0.1,0 0.2,-0.1 0.3,-0.1 0.1,0 0.2,0.1 0.2,0.1 v -1.4 -1 -1.4 c 0,0 -0.1,0 -0.2,0 -0.1,0 -0.2,0 -0.3,0 l 0.1,1.4 z m 1.4,1.4 c 0.1,0 0.2,-0.1 0.3,-0.1 0,0 0.1,0.1 0.2,0.1 0.4,-1 0.8,-2.2 1.3,-3.3 0.4,0.9 1,2.6 1.2,3.3 0.1,0 0.2,-0.1 0.2,-0.1 0.1,0 0.2,0.1 0.2,0.1 -0.5,-1.3 -1.1,-2.5 -1.5,-3.8 -0.1,0 -0.2,0 -0.2,0 -0.1,0 -0.2,0 -0.2,0 -0.3,0.9 -1,2.5 -1.5,3.8 z m 4.4,-1.4 v 1.4 l 0.9,-0.1 1,0.1 c 0,-0.1 0,-0.1 0,-0.2 0,0 0,-0.1 0,-0.2 l -1.4,0.1 -0.1,-0.7 v -0.7 l 1.4,0.1 c 0,-0.1 0,-0.2 0,-0.2 0,-0.1 0,-0.1 0,-0.2 -0.4,0.1 -1.1,0.1 -1.4,0.1 v -0.8 l 0.1,-0.8 h 1.4 c 0,0 0,-0.1 0,-0.1 0,-0.1 0,-0.1 0,-0.2 h -1 -1 l 0.1,1.4 z m 3.1,0 -0.1,1.4 0.7,-0.1 0.6,0.1 c 0.6,0 1.1,-0.2 1.1,-0.9 0,-0.7 -0.7,-1 -1.1,-1 l 1.5,-1.9 c -0.1,0 -0.2,0 -0.3,0 -0.1,0 -0.2,0 -0.4,0 -0.2,0.3 -0.9,1.3 -1.4,1.8 h -0.2 v -0.4 c 0,-0.5 0,-0.9 0.1,-1.4 -0.1,0 -0.2,0 -0.3,0 -0.1,0 -0.2,0 -0.3,0 0,0.5 0.1,0.9 0.1,1.4 z m 0.4,-0.4 c 0.1,0 0.2,0 0.4,0 0.4,0 1,0.2 1,0.9 0,0.5 -0.4,0.7 -0.8,0.7 -0.3,0 -0.4,0 -0.5,-0.1 l -0.1,-1.1 z m 3.2,-1.3 z m 0.8,-0.5 c 0.5,0 0.8,0.3 0.8,0.8 0,1 -1.7,0.5 -1.7,1.8 0,0.6 0.5,1 1.2,1 0.3,0 0.6,0 0.8,-0.2 -0.1,-0.1 -0.1,-0.3 -0.1,-0.5 h -0.1 c -0.1,0.2 -0.3,0.5 -0.7,0.5 -0.4,0 -0.7,-0.2 -0.7,-0.6 0,-1.1 1.8,-0.6 1.8,-1.8 0,-0.7 -0.5,-1.3 -1.4,-1.3 -0.4,0 -0.7,0.2 -0.9,0.3 0.1,0.2 0.1,0.3 0.1,0.5 h 0.1 c 0.1,-0.2 0.4,-0.5 0.8,-0.5 z m 2.5,2.2 -0.1,1.4 c 0.1,0 0.2,-0.1 0.3,-0.1 0.1,0 0.2,0.1 0.3,0.1 l -0.1,-1.4 v -1 l 0.1,-1.4 c -0.1,0 -0.2,0 -0.3,0 -0.1,0 -0.2,0 -0.3,0 l 0.1,1.4 z m -25.2,-5.6 v 1.4 h 0.5 0.7 c 0.3,0 1.2,0 1.2,-0.9 0,-1 -0.9,-1.2 -1.5,-1.2 0,0 0,0 0,0 -0.1,0 -0.3,0 -0.4,0 v -0.3 c 0,-0.4 0,-0.9 0,-1.4 -0.1,0 -0.1,0.1 -0.2,0.1 -0.1,0 -0.2,-0.1 -0.3,-0.1 0,0.5 0,1 0,1.4 z m 0.9,-0.5 c 0.4,0 1,0.2 1,0.9 0,0.7 -0.3,0.8 -0.9,0.8 h -0.5 v -1.6 c 0.1,-0.1 0.3,-0.1 0.4,-0.1 z m 6.2,0 c 0,-1.2 -0.8,-1.9 -2,-1.9 -1.2,0 -2.1,0.7 -2.1,1.9 0,1.3 0.9,2 2.1,2 1.2,0 2,-0.7 2,-2 z m -3.5,0 c 0,-1.2 0.6,-1.7 1.5,-1.7 0.8,0 1.5,0.5 1.5,1.7 0,1.2 -0.7,1.8 -1.5,1.8 -0.9,0 -1.5,-0.6 -1.5,-1.8 z m 4.4,0.5 v 1.4 c 0.1,0 0.2,0 0.3,0 0,0 0.1,0 0.2,0 v -1.4 -2.1 l 1.5,0.1 c 0,-0.1 0,-0.2 0,-0.2 0,-0.1 0,-0.1 0,-0.2 l -1,0.1 -1,-0.1 v 1.4 z m 3,0 v 1.4 c 0.1,0 0.1,0 0.2,0 0.1,0 0.2,0 0.3,0 v -1.4 -1 -1.4 c -0.1,0 -0.2,0.1 -0.3,0.1 -0.1,0 -0.1,-0.1 -0.2,-0.1 v 1.4 z m 2.6,0 v 1.1 c -0.4,0 -0.9,0 -1.2,0 0,0 0,0.1 0,0.1 0,0.1 0,0.1 0,0.2 h 1.4 1.4 c 0,-0.1 0,-0.1 0,-0.2 0,0 0,-0.1 0,-0.1 -0.3,0 -0.8,0 -1.2,0 v -1.1 -1 l 0.1,-1.4 c -0.1,0 -0.2,0.1 -0.3,0.1 -0.1,0 -0.2,-0.1 -0.3,-0.1 l 0.1,1.4 z m 8.3,-2.1 c -0.1,-0.1 -0.6,-0.3 -1.1,-0.3 -1.2,0 -2,0.7 -2,1.9 0,1.3 0.8,2 2,2 0.5,0 0.9,-0.1 1.2,-0.3 -0.1,-0.1 -0.1,-0.3 -0.1,-0.4 v 0 c -0.2,0.2 -0.6,0.5 -1.1,0.5 -0.8,0 -1.5,-0.6 -1.5,-1.8 0,-1.2 0.7,-1.7 1.5,-1.7 0.5,0 0.9,0.3 1.1,0.4 v 0 z m 1.4,2.7 c 0,-0.2 -0.1,-0.6 -0.1,-1.1 0,-0.5 0.1,-1.7 0.1,-1.9 -0.1,0 -0.1,0.1 -0.2,0.1 -0.1,0 -0.1,-0.1 -0.2,-0.1 0,0.3 0.1,1.7 0.1,2.4 v 1.5 h 0.1 l 2.8,-3 c 0,1 0,2.1 -0.1,2.9 0.1,0 0.1,0 0.2,0 0.1,0 0.1,0 0.2,0 -0.1,-0.3 -0.1,-1.4 -0.1,-1.8 v -2 h -0.1 c -0.8,0.9 -1.8,2 -2.7,3 z m 4.1,-0.6 -0.1,1.4 c 0.1,0 0.2,0 0.3,0 0.1,0 0.2,0 0.3,0 l -0.1,-1.4 v -1 l 0.1,-1.4 c -0.1,0 -0.2,0.1 -0.3,0.1 -0.1,0 -0.2,-0.1 -0.3,-0.1 l 0.1,1.4 z m 4.6,-2.1 c -0.2,-0.1 -0.6,-0.3 -1.2,-0.3 -1.1,0 -2,0.7 -2,1.9 0,1.3 0.9,2 2.1,2 0.5,0 0.9,-0.1 1.2,-0.3 -0.1,-0.1 -0.1,-0.3 -0.1,-0.4 h -0.1 c -0.1,0.2 -0.5,0.5 -1,0.5 -0.9,0 -1.5,-0.6 -1.5,-1.8 0,-1.2 0.6,-1.7 1.5,-1.7 0.5,0 0.9,0.3 1.1,0.4 v 0 z m -31.9,-3.5 -0.1,1.4 h 0.9 0.8 c 1.3,0 1.8,-0.7 1.8,-1.8 0,-1.4 -1.1,-1.9 -2,-1.9 -0.2,0 -0.5,0 -0.7,0 -0.3,0 -0.5,0 -0.8,0 0.1,0.4 0.1,0.9 0.1,1.4 z m 0.4,-0.9 c 0,-0.4 0,-0.8 0.1,-1.2 0.1,0 0.4,0 0.7,0 0.8,0 1.7,0.3 1.7,1.7 0,1.3 -0.7,1.6 -1.6,1.6 -0.3,0 -0.6,0 -0.8,-0.1 -0.1,-0.3 -0.1,-0.7 -0.1,-1.1 0,0 0,0 0,0 z m 3.7,0.9 v 1.4 h 0.9 1 c 0,0 0,-0.1 0,-0.1 0,-0.1 0,-0.1 0,-0.2 l -1.4,0.1 -0.1,-0.7 v -0.7 h 1.4 c 0,-0.1 0,-0.1 0,-0.2 0,0 0,-0.1 0,-0.1 -0.4,0 -1.1,0 -1.4,0 v -0.8 l 0.1,-0.8 1.4,0.1 c 0,-0.1 0,-0.1 0,-0.2 0,0 0,-0.1 0,-0.1 h -1 -0.9 v 1.4 z m 5.5,1.4 c 0.1,0 0.2,0 0.3,0 0.1,0 0.2,0 0.3,0 0.3,-0.9 0.7,-2.1 1.2,-3.2 0.4,0.9 1,2.5 1.2,3.2 0.1,0 0.2,0 0.2,0 0.1,0 0.2,0 0.2,0 -0.5,-1.2 -1,-2.5 -1.5,-3.7 -0.1,0 -0.2,0 -0.2,0 -0.1,0 -0.1,0 -0.2,0 -0.3,0.9 -1,2.5 -1.5,3.7 z m 7.6,-1.4 v 1.4 c 0.1,0 0.2,0 0.3,0 0,0 0.1,0 0.2,0 v -1.4 -2.1 l 1.5,0.1 c 0,-0.1 0,-0.1 0,-0.2 0,0 0,-0.1 0,-0.1 h -1 -1 v 1.4 z m 8.9,-2.4 c -0.8,1 -1.8,2 -2.7,3 0,-0.2 0,-0.5 0,-1.1 0,-0.5 0,-1.6 0,-1.8 -0.1,0 -0.1,0 -0.2,0 0,0 -0.1,0 -0.2,0 0.1,0.2 0.1,1.6 0.1,2.3 v 1.5 h 0.1 l 2.8,-3 c 0,1 0,2.1 -0.1,2.9 0.1,0 0.2,0 0.2,0 0.1,0 0.1,0 0.2,0 0,-0.3 -0.1,-1.4 -0.1,-1.8 v -2 z m 4.1,0.3 c -0.1,-0.1 -0.6,-0.3 -1.1,-0.3 -1.2,0 -2,0.7 -2,1.9 0,1.3 0.8,2 2.1,2 0.4,0 0.8,-0.1 1.1,-0.3 0,-0.1 -0.1,-0.3 -0.1,-0.4 v 0 c -0.2,0.2 -0.5,0.5 -1,0.5 -0.9,0 -1.6,-0.5 -1.6,-1.8 0,-1.2 0.7,-1.7 1.6,-1.7 0.5,0 0.9,0.3 1.1,0.4 v 0 z m 1,2.1 v 1.4 c 0,0 0.1,0 0.2,0 0.1,0 0.2,0 0.3,0 l -0.1,-1.4 v -0.9 l 0.1,-1.4 c -0.1,0 -0.2,0 -0.3,0 -0.1,0 -0.2,0 -0.2,0 v 1.4 z m 2.2,3.9 c 0,0.1 0.1,0.1 0.1,0.2 0.1,0 0.2,0 0.2,0 0.1,0 0.2,0 0.3,0 0,-0.1 0.1,-0.1 0.1,-0.2 0.1,-0.1 0.1,-0.1 0.1,-0.2 0,-0.1 0,-0.1 -0.1,-0.2 0,-0.1 -0.1,-0.1 -0.1,-0.2 -0.1,0 -0.2,0 -0.3,0 0,0 -0.1,0 -0.2,0 0,0.1 -0.1,0.1 -0.1,0.2 -0.1,0.1 -0.1,0.1 -0.1,0.2 0,0.1 0,0.1 0.1,0.2 z m 1.4,0.8 -0.7,1.7 -0.7,-1.7 -0.5,-1.4 c -0.1,0 -0.2,0 -0.2,0 -0.1,0 -0.2,0 -0.2,0 l 1.7,3.8 h 0.1 l 1.6,-3.8 c -0.1,0 -0.1,0 -0.2,0 -0.1,0 -0.2,0 -0.3,0 -0.1,0.4 -0.4,1 -0.6,1.4 z m -1.4,-6.4 c 0,0.1 0.1,0.2 0.1,0.2 0.1,0 0.2,0 0.3,0 0,0 0.1,0 0.2,0 0,0 0.1,-0.1 0.1,-0.2 0.1,0 0.1,-0.1 0.1,-0.2 0,-0.1 0,-0.1 -0.1,-0.2 0,-0.1 -0.1,-0.1 -0.1,-0.2 -0.1,0 -0.2,0 -0.2,0 -0.1,0 -0.2,0 -0.3,0 0,0.1 -0.1,0.1 -0.1,0.2 0,0.1 -0.1,0.1 -0.1,0.2 0,0.1 0.1,0.2 0.1,0.2 z m 1.4,0.9 -0.7,1.6 -0.7,-1.6 -0.5,-1.5 c -0.1,0 -0.1,0 -0.2,0 -0.1,0 -0.1,0 -0.2,0 l 1.7,3.8 h 0.1 l 1.7,-3.8 c -0.1,0 -0.2,0 -0.3,0 -0.1,0 -0.2,0 -0.3,0 -0.1,0.4 -0.4,1 -0.6,1.5 z m -20.9,-0.9 c 0.1,0.1 0.1,0.2 0.2,0.2 0,0 0.1,0 0.2,0 0.1,0 0.1,0 0.2,0 0.1,0 0.1,-0.1 0.2,-0.2 0,0 0,-0.1 0,-0.2 0,-0.1 0,-0.1 0,-0.2 -0.1,-0.1 -0.1,-0.1 -0.2,-0.2 -0.1,0 -0.1,0 -0.2,0 -0.1,0 -0.2,0 -0.2,0 -0.1,0.1 -0.1,0.1 -0.2,0.2 0,0.1 0,0.1 0,0.2 0,0.1 0,0.2 0,0.2 z m 1.4,0.9 -0.6,1.6 -0.7,-1.6 -0.6,-1.5 c 0,0 -0.1,0 -0.2,0 0,0 -0.1,0 -0.2,0 l 1.7,3.8 h 0.1 l 1.7,-3.8 c -0.1,0 -0.2,0 -0.3,0 -0.1,0 -0.2,0 -0.3,0 -0.1,0.4 -0.4,1 -0.6,1.5 z m 12.4,11.9 v 1.1 c -0.4,0 -0.9,0 -1.2,0 0,0 0,0.1 0,0.2 0,0 0,0.1 0,0.1 h 1.4 1.4 c 0,0 0,-0.1 0,-0.1 0,-0.1 0,-0.2 0,-0.2 -0.3,0 -0.8,0 -1.1,0 l -0.1,-1.1 v -0.9 l 0.1,-1.4 c -0.1,0 -0.2,0 -0.3,0 -0.1,0 -0.2,0 -0.3,0 l 0.1,1.4 z m 6.6,0 v 1.1 c -0.4,0 -0.9,0 -1.2,0 0,0 0,0.1 0,0.2 0,0 0,0.1 0,0.1 h 1.4 1.4 c 0,0 0,-0.1 0,-0.1 0,-0.1 0,-0.2 0,-0.2 -0.3,0 -0.7,0 -1.1,0 v -1.1 -0.9 -1.4 c -0.1,0 -0.2,0 -0.3,0 -0.1,0 -0.1,0 -0.2,0 v 1.4 z m -40.2,-0.1 -0.1,0.1 -0.1,-0.3 v -0.1 z m -7.5,1.2 c 0.1,-0.3 -0.1,-0.2 -0.1,-0.3 0,0 0,0 0,0 h 0.3 l 0.2,0.1 c 0,0 0.1,0 0.1,0 0,0.1 -0.2,0 -0.3,0.2 l -0.2,1 c 0,0 0,0.1 0.1,0.1 h 0.1 c 0.2,0.1 0.2,-0.2 0.3,-0.2 0,0 0,0.1 0,0.1 l -0.1,0.2 c 0,0 0,0.1 0,0.1 l -0.5,-0.1 -0.5,-0.1 c -0.1,-0.1 -0.1,-0.1 -0.1,-0.1 l 0.1,-0.3 c 0,0 0,0 0,0 0.1,0 0,0.2 0.2,0.3 h 0.1 c 0.1,0 0.1,0 0.1,-0.1 z m -2.2,-0.8 c 0.1,-0.2 -0.1,-0.2 0,-0.3 0,0 0,0 0,0 l 0.2,0.1 0.2,0.1 c 0.1,0 0.1,0 0.1,0.1 0,0 -0.2,-0.1 -0.3,0.1 l -0.4,0.8 c -0.1,0.1 -0.1,0.1 0,0.2 h 0.1 c 0.2,0.1 0.2,-0.1 0.3,-0.1 0,0.1 0,0.1 0,0.1 l -0.1,0.2 c -0.1,0 -0.1,0.1 -0.1,0 l -0.4,-0.2 -0.5,-0.2 c 0,0 0,-0.1 0,-0.1 l 0.1,-0.2 c 0,-0.1 0,-0.1 0.1,-0.1 0,0 -0.1,0.3 0,0.3 l 0.1,0.1 c 0.1,0 0.1,0 0.2,-0.1 z m 2.5,-13 h -0.2 l 0.2,-0.2 h 0.2 z m 3.7,9.4 h -5.7 0.3 c 0.6,0.2 1.3,0.3 2.5,0.3 1.1,0 1.8,-0.1 2.6,-0.3 z m -6,0 V 173 c 0,-1.5 0.1,-2.6 1.2,-3.8 0.7,-0.6 1.1,-0.9 1.9,-1.4 l 0.1,-0.1 h 0.1 c 0.2,0.2 0.4,0.4 0.6,0.5 0.4,0.3 0.7,0.5 1.2,1 1,1.3 1.2,2.3 1.2,3.8 v 3.3 h -0.2 c 0,0 0.1,0 0.1,0.1 0,0.1 -0.1,0.1 -0.1,0.1 l -0.3,0.1 c -0.9,0.2 -1.6,0.3 -2.7,0.3 -1.2,0 -2,-0.2 -2.6,-0.3 l -0.3,-0.1 c 0,0 -0.1,0 -0.1,-0.1 0,-0.1 0.1,-0.1 0.1,-0.1 z m 4.9,-6.9 c -0.5,-0.5 -0.8,-0.7 -1.2,-1 -0.2,-0.1 -0.3,-0.2 -0.5,-0.4 -0.7,0.5 -1.2,0.8 -1.8,1.4 -1,1.1 -1.1,2.2 -1.1,3.6 v 3 h 5.7 v -3 c 0,-1.5 -0.1,-2.4 -1.1,-3.6 z m 3.3,6.4 -0.1,0.2 v 0.1 c 0,0 0,0 0,0 -0.1,0 0,-0.1 -0.1,-0.2 l -0.4,-0.1 c -0.1,-0.1 -0.1,0 -0.2,0 0,0 0,-0.1 0,-0.1 l 0.1,-0.1 c 0,0 0,0 0,-0.1 0,0 0,0 0.1,0 0,0 -0.1,0.1 0,0.1 l 0.2,0.1 c 0,0 0,0 0,0 0,0 0,-0.1 0,-0.1 l -0.1,-0.1 c 0,-0.1 -0.1,-0.1 -0.1,-0.2 0.1,0 0.1,-0.1 0.1,-0.1 0,0.1 0,0.1 0,0.1 0,0 0,0 0,0 0,0 0,0 0,0 l 0.2,0.3 c 0,0 0,0 0.1,-0.1 0,0 0.1,0 0.1,0 0.1,0.1 0.2,0.1 0.1,0.3 z m -0.2,-0.2 c 0,0 -0.1,0 -0.1,0.1 0,0 0,0.1 0,0.1 l 0.2,0.1 c 0,0 0,0 0,-0.1 0.1,0 0,-0.1 -0.1,-0.2 z m 0.7,-1.6 c 0,0 0,-0.1 -0.1,-0.1 h -0.5 c -0.1,0 -0.1,0.1 -0.1,0.1 0,0 0,0 0,0 v -0.2 c 0,0 0,0 0,0 0,0 0,-0.1 0,-0.1 0,0 0,0.1 0.1,0.1 h 0.2 c 0,0 0,0 0,0 0,-0.1 0,-0.1 -0.1,-0.1 l -0.1,-0.1 c -0.1,0 -0.2,0 -0.2,-0.1 0,0 0,-0.1 0.1,-0.1 0,0 0,0 0,0 -0.1,0 -0.1,0 -0.1,0 v -0.1 -0.2 c 0,-0.1 0.1,-0.2 0.2,-0.2 0,0 0,0 0,0 0,0.1 -0.2,0.1 -0.1,0.3 0,0.1 0,0 0.1,0 h 0.1 c 0.1,0 0.1,0 0.1,0 v -0.1 c 0,-0.1 -0.1,0 -0.2,-0.1 0,0 0.1,0 0.1,0 h 0.2 c 0,0 0,0 0,0 0,0 -0.1,0.1 -0.1,0.1 v 0.1 c 0,0 0,0 0.1,0 h 0.1 v 0 c 0.1,0 0.1,0 0.1,-0.1 0,-0.2 -0.1,-0.1 -0.1,-0.1 0,-0.1 0,-0.1 0,-0.1 h 0.1 c 0,0 0,0 0,0 v 0.2 l 0.1,0.3 c 0,0 0,0 -0.1,0 0,0 0,-0.1 -0.1,-0.1 l -0.4,0.1 c -0.1,0 -0.1,0 -0.1,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0.1 0,0.1 0,0 0,0 0,0 l 0.3,0.1 c 0,0 0,0 0,-0.1 0.1,0 0.1,0 0.1,0 0,0 0,0 0.1,0 0,0 0.2,0 0.2,0.2 v 0.1 0.1 c 0,0.1 0,0.1 0,0.1 z m -0.1,-0.3 c 0,-0.1 0,-0.1 -0.1,-0.1 -0.1,0 -0.2,0 -0.2,0.1 0,0.1 0.1,0.1 0.1,0.1 h 0.2 z m -9.6,2.5 h -0.7 c 0,0.1 0,0.1 0,0 0,0 0,0 0,0 l 0.4,-0.5 c 0.1,0 0,-0.1 0.1,-0.1 0,0 0,0 0,0 0,0.1 0,0.1 0,0.1 0,0 0,0.1 0.1,0.1 0,0 0,0 0,0 -0.1,0 -0.1,0 -0.1,0 -0.1,0 -0.1,0 -0.1,0 -0.1,0.1 0,0.1 0,0.1 v 0.2 c 0.1,0 0.1,0 0.1,0 0.1,0 0.1,0 0.1,0 0.1,-0.1 0,-0.1 0,-0.1 0.1,0 0.1,0 0.1,0 v 0.1 l 0.1,0.1 c 0,0 0,0 0,0 -0.1,0 0,0 -0.1,0 z m -0.3,-0.1 -0.1,-0.1 c 0,0 0,-0.1 0,-0.1 0,0.1 0,0.1 0,0.1 l -0.1,0.1 c 0,0 0,0 0,0 0,0 0,0 0,0 z m -0.8,-3.5 c 0.1,0 0.2,0.1 0.2,0.2 0,0.1 -0.1,0.1 -0.1,0.1 0,0 0,0 0,0 0,0 0,0 0,-0.1 0,-0.1 0,-0.1 -0.1,-0.1 -0.1,0 -0.2,0 -0.2,0 0,0.1 0,0.1 0.1,0.1 0,0 0,0 0,0 0,0 -0.1,0.1 -0.1,0.1 0,0 0,-0.1 0,-0.1 0,-0.2 0.1,-0.2 0.2,-0.2 z m -0.2,1.1 c -0.1,0 0,0.1 -0.1,0.1 0,0 0,0 0,-0.1 v -0.1 -0.1 c 0,0 0,0 0,0 0.1,0 0,0.1 0.1,0.1 h 0.2 c 0,0 0,0 0,0 v -0.3 c 0,0 0,0 0,0 h -0.2 c -0.1,0 0,0.1 -0.1,0.1 0,0 0,-0.1 0,-0.1 v -0.1 -0.1 c 0,0 0,0 0,0 0.1,0 0,0.1 0.1,0.1 h 0.5 c 0.1,0 0.1,-0.1 0.1,-0.1 0,0 0,0 0,0 v 0.1 0.2 c 0,0 0,0 0,0 0,0 0,-0.1 -0.1,-0.1 h -0.2 c 0,0 0,0 0,0 v 0.3 c 0,0 0,0 0,0 h 0.2 c 0.1,0 0.1,-0.1 0.1,-0.1 0,0 0,0 0,0 v 0.2 0.1 c 0,0 0,0 0,0 0,0 0,-0.1 -0.1,-0.1 z m 0.5,0.3 c 0.1,0 0.1,-0.1 0.1,-0.1 0,0 0,0 0,0 0,0 0,0 0,0.1 v 0.1 c 0,0 0,0 0,0 0,0 0,-0.1 -0.1,-0.1 h -0.4 c 0,0 0,0 0,0.1 0,0 0,0 0,0 l 0.6,0.3 c 0,0 0,0 0,0.1 0,0 0,0 0,0 h -0.6 c -0.1,0 -0.1,0.1 -0.1,0.1 0,0 0,0 0,0 0,0 0,0 0,-0.1 v -0.1 c 0,0 0,0 0,0 0,0 0,0.1 0.1,0.1 l 0.3,-0.1 c 0.1,0 0.1,0 0.1,0 0,0 0,0 -0.1,0 l -0.4,-0.3 c 0,0 0,0 -0.1,0 V 174 c 0,0 0,-0.1 0,-0.1 0,0 0,0 0,0 0.1,0 0,0.1 0.2,0.1 z m -0.3,1 c -0.1,0 -0.1,0 -0.1,0 0,0 0,0 0,0 v -0.1 l -0.1,-0.1 c 0,0 0,0 0,0 0.1,0 0.1,0.1 0.2,0 h 0.4 c 0.1,-0.1 0.1,-0.1 0.1,-0.1 0,0 0,0 0,0 v 0.1 l 0.1,0.1 c 0,0 0,0 0,0 -0.1,0 0,-0.1 -0.2,0 z m 0.2,0.8 c 0,0 0,0 0,0 0,-0.1 0,-0.1 0,-0.1 0,0 -0.1,-0.1 -0.1,-0.2 -0.1,-0.2 0.1,-0.3 0.2,-0.4 0.1,0 0.3,-0.1 0.4,0.2 0.1,0.2 0,0.3 -0.1,0.3 0,0 0,0 0,0 0,0 0.1,-0.1 0.1,-0.2 -0.1,-0.2 -0.3,-0.2 -0.4,-0.2 -0.1,0.1 -0.2,0.2 -0.2,0.3 0,0.1 0.1,0.2 0.2,0.2 0.1,0 0.1,0 0.1,0 0,0 0,0 0,0 z m 2.1,-8.6 c 0,0.1 0,0.1 0,0.1 0,0 0,0 -0.1,0 l -1,-0.9 c -0.1,-0.1 -0.2,0 -0.2,-0.1 0,0 0,0 0,0 l 0.2,-0.1 0.1,-0.1 c 0.1,0 0.1,0 0.2,0 0,0 -0.2,0.1 -0.2,0.2 0.1,0.1 0.1,0.1 0.2,0.2 0.1,0.1 0.1,0.1 0.1,0 l 0.4,-0.1 c 0,-0.1 0,-0.1 0,-0.3 0,0 0,0 0,-0.1 -0.1,-0.1 -0.2,0 -0.2,-0.1 0,0 0,0 0,0 l 0.2,-0.1 0.2,-0.1 c 0.1,-0.1 0.1,-0.1 0.1,0 0,0 -0.1,0 -0.1,0.2 z m -0.2,-0.6 c -0.1,-0.1 -0.1,-0.1 -0.1,-0.1 0,0 0,0 0,0 l -0.3,0.1 c 0,0 0,0 0,0.1 0,0 0,0 0,0 l 0.3,0.3 c 0.1,0 0.1,0 0.1,0 0,0 0,0 0,0 l -0.1,-0.4 z m 8.6,0.6 c -0.1,0.1 -0.1,0 -0.2,0 l -1.2,0.7 c -0.1,0 -0.1,0 -0.1,0 0,0 0,0 0,-0.1 l 0.3,-1.3 c 0.1,-0.1 0,-0.1 0,-0.2 0,0 0,0 0.1,0 0,0.1 0.1,0.1 0.1,0.1 l 0.2,0.2 c 0,0 0,0 0,0 0,0.1 -0.2,-0.1 -0.3,0 0,0.1 0,0.2 0,0.2 -0.1,0.1 -0.1,0.2 0,0.2 l 0.3,0.2 c 0,0.1 0,0.1 0.2,0 0,-0.1 0.1,-0.1 0.1,-0.1 0.1,-0.1 0,-0.2 0,-0.2 0,-0.1 0,0 0.1,0 l 0.1,0.1 0.2,0.2 c 0.1,0 0.1,0 0.1,0 z m -0.9,0.1 -0.2,-0.2 c -0.1,0 -0.1,0 -0.1,0 0,0 0,0 0,0.1 l -0.1,0.4 c 0,0 0,0 0,0 0,0 0,0 0,0 l 0.3,-0.2 c 0.1,0 0.1,0 0.1,-0.1 z m -5.9,11.5 v 0.2 c 0,0 0,0 0,0.1 0,0 0,0 -0.1,0 0,0 0,0 0,0 0,0 -0.1,0 -0.1,0 h -0.1 l -0.1,0.2 c 0,0 0,0 0,0 0,0 0,0 0,0.1 -0.1,0 -0.1,0 -0.1,0 0,0 0,0 0,0 l -0.2,-0.1 c -0.1,0 -0.1,0 -0.1,0 0,0 0,0 0,0 0,-0.1 -0.1,-0.1 -0.1,-0.1 0,0 0,0 0,0 l 0.1,-0.2 h -0.2 c 0,0 0,-0.1 0,-0.1 0,0 -0.1,0 -0.1,0 0,0 0,-0.1 0,-0.1 0,0 0,0 0,0 v -0.2 c 0.1,0 0.1,0 0.1,-0.1 0,0 0,0 0,0 0,0 0.1,0 0.1,0 0,0 0,0 0,0 l 0.8,0.1 c 0.1,0.1 0.2,0.1 0.1,0.2 z m -0.5,-0.2 c -0.1,0 -0.1,0 -0.1,0 -0.1,0 -0.1,0 -0.1,0.1 0,0 0,0 0,0 0,0.1 0,0.1 0,0.1 0,0 0,0.1 0,0.1 0,0 0,0 0.1,0.1 0,0 0,0 0,0 0.1,0 0.1,0 0.1,0 0,0 0.1,0 0.1,0 0,-0.1 0,-0.1 0.1,-0.1 0,0 0,-0.1 0,-0.1 0,0 0,0 0,0 0,-0.1 0,-0.1 0,-0.1 -0.1,-0.1 -0.1,-0.1 -0.1,-0.1 z m 2.3,0.7 h -0.2 v 0.2 c 0,0 0,0 0,0 0,0 0,0.1 0,0.1 -0.1,0 -0.1,0 -0.1,0 0,0.1 0,0.1 -0.1,0.1 v 0 h -0.2 c 0,0 0,0 0,0 0,0 0,0 0,-0.1 -0.1,0 -0.1,0 -0.1,0 0,0 0,-0.1 0,-0.1 0,0 0,0 0,0 v -0.2 h -0.2 c -0.1,0 -0.1,0 -0.1,-0.1 V 179 c 0,-0.1 0,-0.2 0.1,-0.2 h 0.9 c 0,0 0,0 0,0 0,0 0,0 0,0.1 0,0 0.1,0 0.1,0 0,0 0,0.1 0,0.1 0,0 0,0 0,0 v 0.2 c 0,0 0,0 0,0 0,0 0,0 0,0.1 0,0 -0.1,0 -0.1,0 z m -0.5,-0.4 c 0,0 0,0 0,0 0,0 0,0 -0.1,0 0,0 0,0 0,0.1 -0.1,0 -0.1,0 -0.1,0.1 0,0 0,0 0.1,0.1 0,0 0,0 0,0.1 0.1,0 0.1,0 0.1,0 0,0 0,0 0,0 0.2,0 0.2,-0.1 0.2,-0.2 0,-0.1 0,-0.2 -0.2,-0.2 z m 2.4,0.1 h -0.2 v 0.2 c 0,0 0,0 0,0 0,0 0,0 0,0.1 0,0 0,0 0,0 0,0 -0.1,0 -0.1,0 l -0.2,0.1 c 0,0 0,0 0,0 0,0 -0.1,0 -0.1,0 0,0 0,-0.1 0,-0.1 0,0 0,0 0,0 l -0.1,-0.2 h -0.1 c -0.1,0 -0.1,0 -0.1,0 0,0 0,0 -0.1,0 0,0 0,0 0,0 0,-0.1 0,-0.1 0,-0.1 l -0.1,-0.2 c 0,-0.1 0.1,-0.1 0.2,-0.1 l 0.8,-0.2 c 0,0 0,0 0,0 0,0 0,0 0.1,0 0,0 0,0 0,0.1 0,0 0,0 0,0 l 0.1,0.2 c 0,0 0,0 0,0 0,0 0,0.1 0,0.1 -0.1,0 -0.1,0 -0.1,0 0,0.1 0,0.1 0,0.1 z m -0.3,-0.3 c 0,-0.1 -0.1,-0.1 -0.1,-0.1 0,0 -0.1,0 -0.1,0 0,0 0,0 0,0 -0.1,0 -0.1,0 -0.1,0 0,0 -0.1,0 -0.1,0.1 0,0 0,0 0,0.1 0,0 0,0 0,0 0,0.1 0,0.1 0,0.1 0,0 0.1,0 0.1,0.1 0,0 0.1,0 0.1,0 0,0 0,0 0,0 0.1,0 0.1,0 0.1,0 0,-0.1 0.1,-0.1 0.1,-0.1 0,0 0,-0.1 0,-0.1 z m 1.7,-0.1 c -0.1,0 -0.2,0 -0.2,-0.1 l -0.1,-0.1 -0.2,0.1 c 0,0 0,0 0,0 0,0 0,0 -0.1,0 0,0 0,0 0,0 -0.1,0 -0.1,0 -0.1,-0.1 l -0.1,-0.1 c 0,-0.1 0,-0.2 0.1,-0.2 l 0.3,-0.2 c 0,0 0,0 0,0 0,-0.1 0,-0.1 0.1,-0.1 0,0 0,0 0,0.1 0.1,0 0.1,0 0.1,0 l 0.1,0.2 0.1,0.1 0.1,0.3 z m -0.4,-0.7 c 0,0 0,0 -0.1,0.1 0,0 0,0 0,0.1 0,0 0,0 0,0.1 0,0 0.1,0 0.1,0 0,0.1 0.1,0.1 0.2,0 z m -6.3,0.4 -0.1,0.1 c -0.1,0.1 -0.1,0.1 -0.1,0.1 0,0 0,0 -0.1,0 0,0 0,0 0,0 0,0 0,0 0,0 l -0.2,-0.1 -0.1,0.1 c 0,0.1 -0.1,0.1 -0.2,0.1 l -0.1,-0.1 0.1,-0.3 0.1,-0.1 0.1,-0.2 c 0,-0.1 0.1,-0.1 0.2,0 l 0.3,0.2 c 0,0 0.1,0 0.1,0 0,0 0,0.1 0,0.1 z m -0.4,-0.4 -0.3,0.3 c 0.1,0.1 0.3,0.1 0.3,0 0,0 0,0 0,0 0.1,-0.1 0.1,-0.1 0.1,-0.1 0,-0.1 0,-0.1 -0.1,-0.1 0,-0.1 0,-0.1 0,-0.1 z m -1.4,0.8 c -0.1,0 -0.1,0 -0.1,0 0,0 0,0 0,0 0,-0.1 0,-0.1 -0.1,-0.1 l -0.6,0.2 c 0,0 0,0.1 0,0.1 0,0.1 0,0.2 -0.1,0.3 -0.1,0 -0.3,0.2 -0.6,-0.1 l -0.2,-0.2 -0.1,-0.2 c 0,0 0,0 0,0 0,-0.1 0.1,0.1 0.3,0 l 0.7,-0.6 c 0.2,-0.2 0,-0.3 0.1,-0.3 0,0 0,0 0,0 l 0.2,0.2 c 0.1,0.1 0.1,0.1 0.1,0.1 0,0.1 0,0.1 0,0.1 0,0 -0.1,-0.1 -0.3,0 l -0.2,0.2 c -0.1,0.1 -0.1,0.1 0,0.1 0,0.1 0,0.1 0.1,0.1 l 0.4,-0.1 c 0.1,-0.1 0.2,-0.1 0.3,0 0.1,0 0.1,0.2 0.1,0.2 z m -1,-0.1 c 0,0 -0.1,0 -0.1,0 l -0.3,0.3 c -0.1,0 -0.1,0.1 0,0.1 0.1,0.2 0.2,0.1 0.4,0 0.1,-0.1 0.2,-0.2 0,-0.4 z m 4.3,1.8 c 0,0 -0.1,-0.1 -0.2,0 l -0.8,1.1 c -0.1,0.1 -0.1,0.1 -0.1,0.1 0,0 0,-0.1 0,-0.1 v -1.4 c 0,-0.1 -0.1,-0.1 -0.1,-0.1 0,-0.1 0,0 0,0 0.1,0 0.1,0 0.2,0 0,0 0.1,0 0.1,0.1 0.1,0 0.1,0 0.1,0 0,0.1 -0.2,0 -0.2,0.1 0,0.1 0,0.1 0,0.2 0,0.1 0,0.1 0,0.2 l 0.3,0.1 c 0.1,0 0.1,0 0.2,-0.2 0,0 0,-0.1 0.1,-0.1 0,-0.1 -0.1,-0.1 -0.1,-0.2 0,0 0,0 0.1,0 l 0.1,0.1 h 0.2 c 0.1,0 0.1,0 0.1,0.1 z m -0.8,0.3 h -0.2 c 0,0 0,0 0,0 0,0 0,0 0,0.1 v 0.3 c 0,0.1 0,0.1 0,0.1 0,0 0,0 0,0 l 0.3,-0.4 c 0,0 0,0 0,0 z m 10.5,-6.7 -1.3,0.4 c -0.1,0 -0.1,0.1 -0.2,0.1 0,0 0,-0.1 0,-0.1 l 0.1,-0.1 c 0,-0.1 0,-0.1 0,-0.2 0,0 0,-0.1 0,-0.1 0.1,0 0,0.2 0.2,0.2 0,0 0.1,0 0.1,0 0.2,0 0.2,0 0.2,-0.1 v -0.3 c 0,0 0,-0.1 -0.2,-0.1 0,0 -0.1,-0.1 -0.1,-0.1 -0.1,0 -0.1,0.1 -0.2,0.1 0,0 0,0 0,0 v -0.2 -0.2 c 0.1,-0.1 0,-0.1 0.1,-0.1 0,0 0,0.1 0.1,0.2 l 1.2,0.6 c 0.1,0 0.1,0 0.1,0 z m -0.3,0 -0.4,-0.2 c 0,0 0,0 -0.1,0 0,0 0,0 0,0.1 v 0.2 c 0,0 0,0 0,0 0,0.1 0.1,0 0.1,0 z m -2.6,1.2 c -0.1,0.2 -0.3,0.2 -0.5,0.1 -0.2,0 -0.3,-0.2 -0.2,-0.3 0.1,-0.3 0.3,-0.3 0.4,-0.2 0.3,0 0.3,0.2 0.3,0.4 z m -0.3,-0.3 c -0.2,-0.1 -0.3,-0.1 -0.4,0.1 0,0.1 0.2,0.2 0.3,0.3 0.1,0 0.3,0 0.3,-0.1 0.1,-0.1 0,-0.3 -0.2,-0.3 z m -4.7,2.3 c 0,0.1 -0.1,0.2 -0.3,0.2 -0.2,0 -0.4,0 -0.4,-0.2 0,-0.1 0.1,-0.2 0.3,-0.2 0.3,0 0.4,0.1 0.4,0.2 z m -2.1,0.1 c 0.2,0 0.4,0 0.4,-0.2 0.1,-0.1 -0.1,-0.2 -0.3,-0.2 -0.2,-0.1 -0.4,0 -0.4,0.1 0,0.2 0.1,0.3 0.3,0.3 z m -2.8,-5.6 c 0.1,0 0.1,-0.1 0.2,-0.1 0,0 0,0 0,0.1 l -0.1,0.1 v 0.1 c 0,0 0,0 -0.1,0 0,0 0.1,-0.1 0,-0.1 l -0.4,-0.2 c -0.1,-0.1 -0.1,-0.1 -0.1,0 v 0 c -0.1,0.1 0.1,0.2 0,0.2 0,0 0,0 0,0 l -0.1,-0.1 c 0,0 0,0 0,0 l 0.1,-0.2 0.1,-0.3 c 0,0 0,0 0.1,0 l 0.1,0.1 c 0,0 0,0 0,0 0,0 -0.1,-0.1 -0.2,0 v 0.1 c 0,0 0,0 0,0.1 z m -0.6,0.4 c -0.1,0 -0.1,0 -0.1,0.1 -0.1,0.2 0,0.1 0,0.2 0,0 0,0 0,0 h -0.1 c 0,0 0,-0.1 0,-0.1 v -0.2 l 0.1,-0.2 c 0,0 0,0 0,0 0.1,0 0,0.1 0.1,0.1 l 0.4,0.2 c 0.1,0 0.1,-0.1 0.1,-0.1 0.1,0 0.1,0 0.1,0 l -0.1,0.1 v 0.3 c -0.1,0 -0.2,0.1 -0.2,0 0,0 0,0 0,0 0,0 0.1,0 0.1,-0.2 0.1,0 0,0 0,-0.1 h -0.2 c 0,0 0,0 0,0 v 0.1 c -0.1,0.1 0,0.1 0,0.1 0,0 0,0 0,0 h -0.2 c 0,0 0,-0.1 0,-0.1 0,0 0.1,0 0.1,0 v -0.1 c 0,0 0,0 0,0 z m 2.4,-2.6 c -0.1,0.1 -0.1,0.1 -0.1,0.2 -0.1,0.2 -0.2,0.2 -0.3,0.4 l -0.1,0.1 0.2,0.2 h 0.1 -0.1 v 0 0 0.2 c -0.1,0.1 -0.2,0.2 -0.3,0.4 -0.2,0.3 -0.2,0.5 -0.3,0.8 v 0 0 l -0.4,-0.1 c -0.4,1.1 -0.5,2 -0.3,2.9 l 0.7,-0.3 v 0.1 l 0.3,1 v 0.1 0 0 0 h -0.1 l -0.3,0.1 0.2,0.5 v 0.1 l -1.2,0.8 -0.1,-0.1 v 0 c -0.6,-0.8 -1,-1.9 -1,-3.1 -0.1,-1.1 0.3,-2.3 0.9,-3.2 v -0.1 l 0.4,0.3 c 0.1,-0.1 0.1,-0.1 0.2,-0.2 0,-0.1 0,-0.1 0,-0.1 l -0.3,-0.2 v -0.1 0 -0.1 c 0.2,-0.4 0.8,-1.3 1.3,-1.1 0.2,0 0.3,0.1 0.4,0.2 0,0.1 0.1,0.1 0.2,0.2 v 0 c 0,0 0,0 0,0 z m -0.5,0.8 c -0.1,0.1 -0.2,0.2 -0.3,0.3 l 0.4,-0.2 z m -0.6,1.3 v -0.2 l -0.1,0.2 z m 0.1,2.9 -0.6,0.2 0.1,0.1 h 0.3 v 0 h 0.1 l 0.3,0.4 z m -0.5,0.5 c 0.1,0.3 0.3,0.6 0.5,0.9 l -0.2,-1 z m 0.7,0.4 -0.3,-0.3 0.1,0.4 z m -1.3,-4.7 c -0.6,0.9 -0.9,2 -0.9,3.1 0,1.1 0.4,2.2 1,3 l 1,-0.6 c -1,-1.3 -1.1,-2.9 -0.2,-4.9 z m 0.5,0.2 0.6,0.3 h -0.1 0.1 v 0.4 c 0.1,-0.2 0.2,-0.4 0.3,-0.6 0,-0.2 0.1,-0.3 0.2,-0.4 l -0.4,0.3 v 0 0 h -0.1 l -0.5,-0.4 c 0,0.1 0,0.1 0,0.1 -0.1,0.1 -0.1,0.2 -0.1,0.3 z m 1.3,-1.6 c -0.1,-0.1 -0.2,-0.1 -0.3,-0.2 -0.5,-0.1 -1,0.7 -1.2,1.1 v 0 l 0.8,0.5 c 0.2,-0.2 0.3,-0.5 0.5,-0.6 0.1,-0.2 0.2,-0.3 0.3,-0.4 0,-0.1 0,-0.2 0,-0.3 0,0 -0.1,0 -0.1,-0.1 z m 8.9,4.5 c 0,1.2 -0.4,2.3 -1,3.2 l -0.1,-0.1 v 0.1 l -1.2,-0.8 v 0 -0.1 l 0.1,-0.5 -0.3,-0.1 v 0 0 0 -0.1 l 0.3,-1.1 0.7,0.3 c 0.2,-0.9 0.1,-1.8 -0.4,-2.9 l -0.3,0.1 v 0 0 c -0.1,-0.3 -0.2,-0.5 -0.3,-0.8 -0.1,-0.2 -0.2,-0.3 -0.3,-0.5 l -0.1,-0.1 v 0 0 l 0.1,-0.1 0.1,-0.1 v -0.1 c -0.1,-0.1 -0.1,-0.2 -0.3,-0.3 v 0 c -0.1,-0.1 -0.2,-0.2 -0.2,-0.3 0,-0.1 0,-0.1 0.1,-0.2 0.1,0 0.2,0 0.2,0 0,0 0,0 0.1,0 v 0 c 0,0 0,0 0,0 l 0.1,-0.1 c 0.2,0 0.3,0 0.5,0.1 0.5,0.1 0.8,0.8 0.8,0.8 v 0 0.1 l -0.2,0.1 c 0,0.1 0.1,0.2 0.1,0.3 0.1,0 0.1,0.1 0.1,0.2 l 0.5,-0.3 v 0.1 c 0.6,0.9 0.9,2.1 0.9,3.2 z m -2.1,1.7 0.1,-0.4 -0.3,0.3 z m 0.5,-0.5 -0.3,-0.1 -0.2,1 c 0.2,-0.3 0.4,-0.6 0.5,-0.9 z m -0.5,-0.5 -0.2,0.7 0.3,-0.4 h 0.1 0.3 c 0,0 0.1,0 0.1,-0.1 z m 0.2,-2.9 -0.1,-0.2 v 0.2 z m -0.8,-1.2 0.3,0.1 c -0.1,-0.1 -0.1,-0.1 -0.2,-0.2 z m 1.2,-0.3 c -0.1,-0.2 -0.4,-0.6 -0.7,-0.7 -0.3,-0.1 -0.3,-0.1 -0.5,0 h -0.1 c 0,0 0,0 -0.1,0 0,0 0,0 -0.2,0.1 0,0 0,0 0,0 0,0 0.1,0.1 0.2,0.2 v 0 c 0,0 0,0 0,0 v 0.1 c 0.1,0 0.2,0.1 0.3,0.3 0.1,0.1 0.2,0.2 0.3,0.4 z m -0.1,0.5 c 0,0 -0.1,-0.1 -0.2,-0.2 l -0.5,0.3 v 0 0 0 0 l -0.3,-0.2 c 0.1,0.2 0.1,0.3 0.2,0.5 0.1,0.2 0.2,0.4 0.2,0.6 l 0.1,-0.4 v 0 0 l 0.6,-0.3 c 0,-0.1 0,-0.2 -0.1,-0.3 z m -0.3,0.7 c 0.9,2 0.8,3.6 -0.2,4.9 l 1,0.6 c 0.6,-0.8 1,-1.9 1,-3 0,-1.1 -0.3,-2.2 -0.9,-3.1 z m -5,5.9 0.2,0.1 0.3,-0.1 -0.3,-0.2 z m 4.2,-0.5 c 0.1,0.1 0,0.3 0,0.3 -0.1,0 -0.3,0 -0.3,-0.1 -0.1,-0.2 0,-0.3 0.1,-0.4 0,0 0.1,0.1 0.2,0.2 z m -0.5,0.2 -0.2,0.2 -0.2,-0.1 0.2,-0.2 z m -1.6,0.3 -0.2,0.1 -0.3,-0.1 0.3,-0.2 z m 1,-0.2 c 0,0.2 -0.1,0.3 -0.3,0.3 -0.3,0 -0.4,0 -0.5,-0.2 0,-0.1 0.2,-0.2 0.4,-0.2 0.2,-0.1 0.4,0 0.4,0.1 z m 2.6,-0.7 c 0,0.1 0.1,0.1 0.1,0 0,-0.1 -0.1,-0.2 -0.1,-0.2 0,0 -0.1,-0.1 -0.2,0 0,0.1 0,0.1 0,0.1 0,0 0,0 0,0 0,0 -0.1,0 0,-0.1 0,-0.1 0.2,-0.1 0.3,-0.1 0.1,0.1 0.1,0.2 0,0.3 l -0.1,0.1 v 0.1 c 0,0.1 0,0.1 0,0 -0.1,0 0,0 -0.1,-0.1 l -0.4,-0.2 c -0.1,-0.1 -0.1,0 -0.1,0 0,0 0,0 0,-0.1 0,0 0,0 0,0 l 0.1,-0.1 c 0,-0.1 0,-0.1 0,-0.1 0,0.1 0,0.1 0.1,0.2 z m 0.8,-2.1 c 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0.1,0.1 0,0.2 0,0.3 -0.2,0.3 -0.4,0.3 -0.1,0 -0.3,-0.1 -0.3,-0.4 0,0 0.1,-0.1 0.1,-0.2 0.1,0 0.1,0 0.1,0 h 0.1 c 0.1,0 0,0 0.1,0 0,0 0,0 0,0 v 0.1 0.1 c 0,0 0,0 -0.1,0 0,0 0.1,-0.1 -0.1,-0.1 0,0 -0.1,0 -0.1,0.1 -0.1,0.2 0.1,0.3 0.3,0.3 0.2,0 0.3,-0.1 0.3,-0.2 0,-0.2 -0.2,-0.2 -0.2,-0.2 0,-0.1 0,-0.1 0,-0.1 z m -0.7,-1.3 c 0,0 0,0 0,0 0,-0.1 -0.1,-0.1 -0.1,-0.2 0,-0.1 0.1,-0.2 0.2,-0.2 0.2,0 0.2,0 0.3,0.1 0.1,0.1 0.1,0.2 0.1,0.1 0.1,0 0.1,0 0.1,-0.1 0,-0.1 -0.2,-0.1 -0.2,-0.1 0,0 0,0 0,0 l 0.2,-0.1 c 0,0 0,0 0,0.1 0,0 0,0 0,0 0,0 0.1,0.1 0.1,0.1 0,0.1 -0.1,0.2 -0.2,0.2 -0.1,0 -0.2,0 -0.2,-0.1 -0.1,-0.1 -0.1,-0.1 -0.2,-0.1 -0.1,0 -0.1,0.1 -0.1,0.1 0,0.1 0.1,0.2 0.2,0.2 0,0 0,0 0,0 0,0 0,0 0,0 z m 0,-0.4 c -0.1,0 -0.1,0 -0.1,-0.1 0,0 -0.1,0 -0.1,-0.1 0,-0.1 0.1,-0.2 0.2,-0.2 0.1,-0.1 0.2,0 0.2,0 0.1,0.1 0.2,0.2 0.2,0.2 0.1,-0.1 0.1,-0.1 0.1,-0.2 0,-0.1 -0.2,-0.1 -0.2,-0.1 0,0 0,0 0,0 h 0.1 c 0,-0.1 0.1,-0.1 0.1,-0.1 0,0.1 0,0.1 0,0.1 0,0 0,0 0,0.1 0.1,0.1 0,0.2 -0.1,0.2 -0.1,0.1 -0.2,0 -0.2,0 -0.1,-0.1 -0.2,-0.2 -0.2,-0.2 -0.1,0.1 -0.2,0.1 -0.1,0.2 0,0.1 0.1,0.1 0.2,0.1 0,0 0,0 0,0 0,0 0,0 0,0 z m 0.3,-0.8 c 0.1,0 0,-0.1 0,-0.1 0.1,0 0.1,0 0.1,0.1 v 0.1 c 0,0 0,0 0,0 0,0.1 0,0.1 0,0.1 0,0 0,-0.1 -0.1,-0.1 l -0.5,0.2 c -0.1,0 0,0.1 0,0.1 0,0 0,0 -0.1,0 v -0.1 -0.1 c 0,0 0,-0.1 0,-0.1 0,0 0,0.1 0.1,0.1 z m -0.3,0 c -0.2,0.1 -0.4,0 -0.4,-0.1 -0.1,-0.3 0.1,-0.4 0.2,-0.5 0.2,0 0.4,0 0.4,0.2 0.1,0.2 0,0.4 -0.2,0.4 z m 0.2,-0.4 c 0,-0.1 -0.2,-0.1 -0.4,-0.1 -0.1,0.1 -0.3,0.2 -0.2,0.3 0,0.2 0.3,0.2 0.4,0.1 0.1,0 0.3,-0.1 0.2,-0.3 z m -8.1,5.7 c 1.2,0.4 1.9,0.5 3.2,0.5 1.2,0 1.9,-0.1 3.1,-0.5 0,0 0.1,0 0.2,0.1 0,0.1 -0.1,0.2 -0.1,0.2 -1.2,0.4 -2,0.5 -3.2,0.5 -1.3,0 -2.1,-0.1 -3.3,-0.5 0,0 -0.1,-0.1 0,-0.2 0,-0.1 0.1,-0.1 0.1,-0.1 z m 0.5,-0.1 0.2,0.2 0.2,-0.1 -0.2,-0.2 z m 5.5,1.5 c 0,0 0,-0.1 0,-0.1 0,0 0,0 -0.1,-0.1 0,0 0,0 -0.1,0 0,0 0,0 -0.1,0 0,0.1 0,0.1 0,0.1 -0.1,0 -0.1,0.1 -0.1,0.1 0,0 0,0.1 0.1,0.1 0,0 0,0.1 0,0.1 0.1,0 0.1,0 0.1,0 0.1,0 0.1,0 0.1,0 0.1,0 0.1,-0.1 0.1,-0.1 z m -1.8,0.4 c 0,-0.1 0,-0.1 0,-0.1 0,-0.1 0,-0.1 -0.1,-0.1 0,0 0,0 -0.1,0 0,0 0,0 -0.1,0 0,0 0,0 0,0.1 -0.1,0 -0.1,0 -0.1,0.1 0,0 0,0 0.1,0.1 0,0 0,0 0,0 0.1,0.1 0.1,0.1 0.1,0.1 0.1,0 0.1,0 0.1,-0.1 0.1,0 0.1,0 0.1,0 z m 2.1,-1 c -0.1,-0.1 -0.1,-0.1 -0.3,-0.1 -0.2,0.1 -0.1,0.3 -0.1,0.4 H 363 c -0.1,-0.2 -0.2,-0.2 -0.3,-0.2 -0.2,0 -0.2,0.3 -0.2,0.5 l -0.3,0.1 c -0.1,-0.4 -0.2,-0.4 -0.4,-0.5 -0.1,0 -0.1,0.1 -0.2,0.1 0,0 0,0 0,0.1 0,0 0,0.1 -0.1,0.1 0.1,0.1 0.1,0.1 0.1,0.2 h -0.3 c 0,-0.1 0,-0.1 0,-0.1 -0.1,-0.2 -0.1,-0.2 -0.2,-0.3 0,0 -0.1,0 -0.1,0 -0.1,0 -0.3,0.1 -0.3,0.6 h -0.3 v 0 0 c 0,-0.4 -0.1,-0.6 -0.3,-0.6 -0.1,0 -0.1,0 -0.2,0 0,0.1 -0.1,0.2 -0.1,0.3 0,0 0,0 0,0.1 h -0.3 c 0,-0.1 0,-0.1 0,-0.1 0,-0.1 0,-0.2 -0.1,-0.3 0,-0.1 -0.1,-0.1 -0.2,-0.1 -0.1,0.1 -0.2,0.1 -0.3,0.5 l -0.3,-0.1 c 0,-0.1 0,-0.5 -0.2,-0.5 -0.1,0 -0.2,0 -0.3,0.3 l -0.3,-0.1 c 0,-0.2 0,-0.4 -0.1,-0.4 -0.2,0 -0.2,0 -0.3,0.1 v 0.1 l -0.2,-0.2 v 0 c 0.1,-0.2 0.2,-0.3 0.5,-0.2 0.2,0 0.3,0.1 0.4,0.3 0.1,-0.2 0.2,-0.2 0.4,-0.2 0.1,0 0.3,0.1 0.3,0.4 0.1,-0.1 0.2,-0.2 0.4,-0.2 0.1,-0.1 0.3,0 0.4,0.1 0,0 0.1,0.1 0.1,0.1 0,0 0,-0.1 0.1,-0.1 0.1,-0.1 0.2,-0.1 0.4,-0.1 0.2,0.1 0.3,0.2 0.4,0.3 0,-0.1 0.1,-0.2 0.2,-0.2 0,-0.1 0.1,-0.1 0.1,-0.1 0.1,0 0.1,0 0.1,0 0.1,0 0.2,0 0.3,0.1 0,0 0,0 0,0 0,0 0.1,0 0.1,0.1 0,0 0,-0.1 0,-0.1 0.2,-0.1 0.3,-0.2 0.5,-0.1 0.2,0 0.3,0.1 0.3,0.2 0.1,-0.3 0.3,-0.3 0.4,-0.4 0.1,0 0.3,0 0.4,0.1 0.1,-0.1 0.2,-0.2 0.4,-0.2 0.1,-0.1 0.4,-0.1 0.6,0.2 z m -5.6,0.6 c 0,-0.1 -0.1,-0.1 -0.1,-0.1 0,0 0,-0.1 0,-0.1 -0.1,0 -0.1,0 -0.1,0 -0.1,0 -0.1,0 -0.1,0 -0.1,0 -0.1,0.1 -0.1,0.1 0,0 0,0 0,0.1 0,0 0,0 0,0.1 0,0 0,0 0.1,0.1 0,0 0,0 0.1,0 0,0 0,0 0.1,0 0,-0.1 0,-0.1 0,-0.1 0,-0.1 0.1,-0.1 0.1,-0.1 z m 1.7,0.3 c 0,-0.1 0,-0.1 -0.1,-0.1 0,0 0,0 -0.1,0 0,0 0,0 -0.1,0 0,0 0,0 0,0.1 -0.1,0 -0.1,0 -0.1,0.1 0,0 0,0 0.1,0.1 0,0 0,0 0,0 0.1,0.1 0.1,0.1 0.1,0.1 0.1,0 0.1,0 0.1,-0.1 0.1,0 0.1,0 0.1,0 0,-0.1 0,-0.1 0,-0.1 z m -2.8,-8.6 c 0.1,0 0.1,-0.1 0.1,-0.1 0,0.1 0,0.1 0,0.1 0,0 0,0 -0.1,0 0,0.1 0,0.1 0,0.1 0,0 0,0 0,0 -0.1,0 0,0 0,-0.1 -0.1,0 -0.1,0 -0.1,0 h -0.1 -0.1 c 0,0 0,0 0,0.1 l 0.1,0.1 c 0,0 0,0 0,0 0,0.1 0.1,0 0.1,0 0,0 0,0.1 0,0.1 h -0.1 c 0,0.1 0,0.1 0,0.1 -0.1,0 -0.1,0 -0.1,0 0,0 0,0 0,-0.1 l -0.1,-0.2 c 0,-0.1 0,-0.1 0,-0.1 0,0 0,0 -0.1,0 h -0.1 c -0.2,0 -0.2,0.1 -0.2,0 0,0 0,0 0,0 l 0.1,-0.1 v 0 c 0,0 0,0 0,0 0.1,0 0,0 0,0 0.1,0.1 0.1,0.1 0.1,0.1 h 0.1 c 0.1,0 0.1,0 0.1,0 0,0 0,0 0,-0.1 l -0.1,-0.1 c 0,0 0,0 0,0 0,-0.1 -0.1,0 -0.1,0 0,0 0,0 0,-0.1 0,0 0,0 0.1,0 v -0.1 c 0.1,-0.1 0.1,-0.1 0.1,0 0,0 -0.1,0 0,0.1 l 0.1,0.2 c 0,0 0,0.1 0,0.1 0,0 0,0 0,0 z m -3.6,7.4 c -0.1,0.1 -0.1,0.2 -0.1,0.2 0,0 0,0 -0.1,0 0,-0.1 0,-0.1 0,-0.2 0,0 0,-0.1 -0.1,-0.1 0,0 0,-0.1 0,-0.1 0.1,0 0.1,0.2 0.3,0.1 0,0 0.1,0 0.2,-0.1 l 0.5,-0.5 c 0,0 0,0 0,0 0,-0.1 0,-0.1 0,-0.1 l -0.7,0.1 c -0.2,0 -0.3,0.1 -0.3,0.1 -0.1,0 0,0.1 -0.1,0.1 0,0 0,0 -0.1,0 0,-0.1 0,-0.1 0,-0.2 0,0 -0.1,-0.1 -0.1,-0.1 0,-0.1 0,-0.1 0,-0.1 0,0 0,0 0,0 0.1,0 0.1,0 0.2,0 l 1.3,-0.1 c 0.1,0 0.1,0 0.1,0 0,0.1 0,0.1 0,0.1 z m 0.4,0.5 c -0.2,0 -0.2,0 -0.1,0.2 0.2,0.3 0.4,0 0.4,0.1 0,0 0,0.1 -0.1,0.1 l -0.1,0.1 c -0.1,0 -0.1,0 -0.1,0 l -0.2,-0.3 -0.2,-0.4 c -0.1,0 -0.1,0 0,-0.1 0,0 0.1,0.2 0.2,0.1 l 0.9,-0.5 c 0.2,-0.2 0,-0.2 0.1,-0.3 0,0 0,0 0,0 l 0.1,0.2 0.3,0.4 c 0,0.1 0,0.3 -0.2,0.4 0,0 0,0 0,0 -0.1,-0.1 0.2,-0.2 0,-0.6 -0.1,-0.1 -0.2,0 -0.3,0.1 l -0.2,0.1 c -0.1,0.1 -0.1,0.1 -0.1,0.1 l 0.1,0.2 c 0.1,0.1 0.2,-0.1 0.3,0 0,0 -0.1,0.1 -0.1,0.1 l -0.3,0.2 c -0.1,0 -0.1,0 -0.1,0 0,-0.1 0.2,-0.2 0.1,-0.3 l -0.1,-0.1 c 0,0 0,0 -0.1,0 l -0.3,0.2 z m 2,0.8 c 0.1,-0.1 0.1,-0.1 0.1,-0.1 0.1,0.1 0.2,0.1 0.3,0.2 0.1,0.1 0.1,0.3 0,0.5 -0.2,0.2 -0.3,0.2 -0.5,0.2 -0.3,0 -0.4,-0.1 -0.5,0 -0.1,0.1 0,0.2 0,0.3 0.3,0.2 0.5,-0.1 0.6,-0.1 0,0.1 0,0.1 -0.1,0.1 l -0.2,0.2 c 0,0.1 0,0.1 0,0.1 0,-0.1 -0.1,-0.1 -0.1,-0.1 0,0 -0.1,0 -0.2,-0.1 -0.2,-0.1 -0.2,-0.4 0,-0.5 0.1,-0.2 0.3,-0.2 0.4,-0.2 0.3,0.1 0.4,0.1 0.5,0 0.1,-0.1 0.1,-0.3 0,-0.4 -0.1,-0.1 -0.3,0 -0.5,0.1 0,0 0,0 0,0 -0.1,0 0,0 0,-0.1 z m 0.2,1.5 c -0.1,0.2 0.1,0.2 0,0.3 0,0 0,0 0,0 l -0.2,-0.2 -0.2,-0.1 c 0,0 0,0 0,0 0.1,-0.1 0.2,0.1 0.3,-0.1 l 0.6,-0.8 c 0.1,-0.2 -0.1,-0.2 0,-0.3 0,0 0,0 0,0 l 0.2,0.1 0.2,0.2 c 0,0 0,0 0,0 0,0.1 -0.1,-0.1 -0.3,0.1 z m 5.8,1.3 c 0.1,0.1 0.1,0.1 0.2,0.1 0.2,0 0.2,-0.3 0.2,-0.4 0,0 -0.1,-0.3 -0.3,-0.2 0,0 -0.1,0 -0.1,0 0,0 0,0 0,0 0,-0.1 0,-0.1 0.2,-0.1 0.2,-0.1 0.3,0.1 0.4,0.3 0,0.3 -0.2,0.5 -0.4,0.5 h -0.2 l -0.2,0.1 c -0.1,0 -0.1,0 -0.1,-0.1 0,0 0.2,0 0.1,-0.2 l -0.1,-0.9 c -0.1,-0.3 -0.2,-0.2 -0.2,-0.2 0,-0.1 0,-0.1 0,-0.1 0,0 0.2,0 0.2,0 l 0.2,-0.1 c 0.1,0 0.1,0 0.1,0.1 0,0 -0.2,0 -0.1,0.2 z m 1.4,-0.1 c -0.4,0.1 -0.7,-0.1 -0.8,-0.6 -0.2,-0.4 0,-0.7 0.3,-0.8 0.5,-0.2 0.7,0.3 0.8,0.6 0.2,0.4 0,0.7 -0.3,0.8 z m 0.1,-0.9 c -0.1,-0.3 -0.3,-0.5 -0.5,-0.4 -0.3,0.1 -0.3,0.5 -0.2,0.8 0.1,0.3 0.3,0.5 0.5,0.4 0.3,0 0.4,-0.3 0.2,-0.8 z m 0.8,0.3 c 0.1,0.1 0.2,0 0.2,0.1 0,0 0,0 0,0 0,0 0,0 -0.2,0.1 l -0.2,0.1 c 0,0 0,0 0,0 -0.1,0 0.1,-0.1 0,-0.2 l -0.4,-0.9 c -0.1,-0.2 -0.2,-0.1 -0.2,-0.2 0,0 0,0 0,0 l 0.2,-0.1 0.4,-0.2 c 0.1,-0.1 0.3,0 0.3,0.2 0.1,0 0,0 0,0 0,0.1 -0.1,-0.2 -0.5,0 -0.1,0.1 -0.1,0.1 0,0.2 z m 0.9,-0.6 c 0.2,0.2 0.2,0.1 0.3,0.1 0,0.1 0,0.1 -0.1,0.1 l -0.2,0.1 -0.1,0.1 c 0,0 -0.1,0 -0.1,0 0,0 0.2,-0.1 0.1,-0.3 l -0.6,-0.8 c -0.1,-0.1 -0.2,0 -0.2,-0.1 0,0 0,0 0,0 l 0.1,-0.1 0.3,-0.2 c 0,0 0,0 0,0 0.1,0.1 -0.2,0.1 0,0.3 z m 0,-1.1 c -0.2,-0.2 -0.3,0 -0.3,-0.1 0,0 0,0 0,-0.1 l 0.2,-0.1 0.2,-0.1 c 0,-0.1 0,-0.1 0.1,-0.1 0,0.1 -0.2,0.2 0,0.4 l 0.5,0.7 c 0.1,0.1 0.1,0.1 0.2,0 h 0.1 c 0.1,-0.2 0,-0.3 0,-0.3 0,-0.1 0.1,0 0.1,0 l 0.1,0.2 c 0,0 0,0 0,0 l -0.4,0.4 -0.4,0.3 c 0,0 0,0 0,-0.1 l -0.2,-0.2 c -0.1,0 -0.1,0 -0.1,0 0.1,-0.1 0.2,0.2 0.4,0.1 l 0.1,-0.1 c 0,-0.1 0,-0.1 0,-0.2 z m 1.4,0 c 0.1,0.1 0.1,0.1 0.3,-0.1 0.2,-0.2 -0.1,-0.3 0,-0.4 0,0 0,0.1 0.1,0.1 l 0.1,0.1 c 0,0 0,0.1 0,0.1 l -0.3,0.3 -0.2,0.3 c -0.1,0 -0.1,0 -0.1,0 -0.1,-0.1 0.1,-0.2 0,-0.3 l -0.7,-0.7 c -0.2,-0.1 -0.2,0 -0.3,0 0,0 0,0 0,-0.1 l 0.2,-0.1 0.3,-0.3 c 0,-0.1 0.2,-0.1 0.4,0 0,0 0,0.1 0,0.1 -0.1,0 -0.3,-0.2 -0.5,0.1 -0.1,0.1 -0.1,0.1 0,0.2 l 0.2,0.2 c 0.1,0.1 0.1,0.1 0.2,0.1 l 0.1,-0.1 c 0.1,-0.2 -0.1,-0.3 -0.1,-0.3 0.1,0 0.1,0 0.1,0 l 0.3,0.3 c 0,0 0,0.1 0,0.1 0,0 -0.2,-0.1 -0.3,0 v 0 c -0.1,0.1 -0.1,0.1 0,0.2 z m 1.3,-1.3 c 0,0 0,0 -0.1,0 0,0 0,0 0,0 -0.1,0 0,0.2 -0.1,0.4 -0.3,0.3 -0.8,0.2 -1,0 -0.2,-0.1 -0.6,-0.4 -0.3,-0.8 0.2,-0.3 0.5,-0.3 0.6,-0.3 0,0.1 0,0.1 0,0.1 0,0 -0.3,0 -0.4,0.2 -0.2,0.2 0.1,0.6 0.3,0.7 0.2,0.2 0.5,0.2 0.7,0 0.1,-0.1 0,-0.3 -0.1,-0.5 0,0 0,-0.1 0,-0.1 0,0 0,0 0,0 z m -0.9,-0.9 c -0.2,0 -0.2,0.1 -0.3,0.1 0,0 0,-0.1 0,-0.1 0,0 0.1,-0.1 0.1,-0.1 l 0.1,-0.2 c 0,0 0,0 0,0 0.1,0 -0.1,0.1 0.2,0.3 l 0.7,0.3 c 0,0 0,0 0,0 0,0 0,0 0,0 l -0.6,-1.2 c 0,0 -0.1,0 0,-0.1 0,0 0,0 0,0.1 l 1.1,0.4 c 0.2,0.1 0.2,0 0.3,0 0,0 0,0 0,0.1 0,0 -0.1,0 -0.1,0.1 l -0.1,0.2 c 0,0 0,0 0,0 -0.1,0 0,-0.2 -0.2,-0.3 l -0.6,-0.3 c 0,0 -0.1,0 -0.1,0 0,0 0.1,0 0.1,0.1 l 0.5,1 c 0,0 0.1,0 0,0.1 v 0.1 c -0.1,0 -0.1,0.1 -0.1,0.1 0,0 0,0 0,0 -0.1,0 0.1,-0.2 -0.3,-0.3 z m 1.5,-1 c 0.2,0 0.2,-0.1 0.2,-0.1 0.1,0 0.1,0 0,0.1 v 0.2 l -0.1,0.1 c 0,0.1 0,0.1 0,0.1 -0.1,0 0,-0.2 -0.2,-0.3 l -0.9,-0.3 c -0.2,0 -0.2,0.1 -0.3,0.1 0,0 0,0 0,0 l 0.1,-0.2 0.1,-0.3 c 0,0 0,0 0,0 0.1,0 -0.1,0.2 0.2,0.2 l 0.9,0.3 z m 0.5,-1.3 c 0,0.1 -0.1,0 -0.1,0.1 0,0 0.1,0.2 0,0.4 0,0.4 -0.5,0.5 -0.9,0.4 -0.1,0 -0.6,-0.2 -0.6,-0.7 0.1,-0.3 0.5,-0.4 0.5,-0.4 0,0 0.1,0 0.1,0 -0.1,0.1 -0.3,0.1 -0.4,0.4 0,0.3 0.3,0.5 0.6,0.5 0.3,0.1 0.6,0 0.7,-0.2 0,-0.2 -0.2,-0.4 -0.3,-0.5 -0.1,0 -0.1,0 -0.1,-0.1 0,0 0,0 0.1,0 l 0.3,0.1 v 0 c 0.1,0 0.1,0 0.1,0 z m -12,-5.2 c 0,-0.1 0,-0.1 -0.1,0 -0.1,0.2 0,0.2 0,0.2 0,0 0,0 0,0 l -0.1,-0.1 c 0,0 0,0 0,0 l 0.1,-0.2 0.1,-0.1 c 0.1,0 0.1,-0.1 0.1,0 0,0 -0.1,0 0,0.1 l 0.4,0.3 c 0,0 0,0 0.1,0 0,0 0,0 0,0 l -0.1,0.1 -0.1,0.2 c -0.1,0 -0.2,0 -0.2,0 0,0 0,0 0,0 0,-0.1 0.1,0 0.2,-0.2 0,0 0,0 0,-0.1 h -0.1 c -0.1,-0.1 -0.1,-0.1 -0.1,-0.1 v 0.1 c -0.1,0.1 0,0.1 0,0.1 0,0.1 -0.1,0 -0.1,0 l -0.1,-0.1 c 0,0 0,0 0,0 0,0 0.1,0 0.1,0 v -0.1 c 0.1,0 0.1,0 0,0 z m -3.3,5.1 c 0.2,0 0.1,-0.2 0.2,-0.2 0,0 0,0 0,0 0,0.1 0,0.1 0,0.2 l 0.1,0.2 c 0,0 0,0 0,0 -0.1,0.1 0,-0.2 -0.4,-0.1 l -0.7,0.2 c 0,0 0,0 0,0 0,0 0,0 0,0 l 1.2,0.5 c 0.1,0.1 0.1,0.1 0.1,0.1 0,0 0,0 -0.1,0 l -1.1,0.3 c -0.2,0 -0.1,0.1 -0.2,0.2 0,0 0,0 0,-0.1 0,0 -0.1,0 -0.1,-0.1 v -0.2 c 0,0 0,0 0,-0.1 0.1,0 0.1,0.2 0.3,0.2 l 0.6,-0.2 c 0.1,0 0.1,0 0.1,0 0,0 0,0 -0.1,0 l -1,-0.5 c 0,0 -0.1,0 -0.1,0 v -0.2 c 0,0 0,-0.1 0,-0.1 0,0 0,0 0,0 0.1,0 0,0.2 0.4,0.1 z m -0.6,1.7 c -0.2,0.1 0,0.2 -0.1,0.2 0,0 0,0 -0.1,0 v -0.2 l -0.1,-0.2 c 0,0 0,-0.1 0,-0.1 0.1,0 0.1,0.2 0.3,0.2 l 0.9,-0.4 c 0.2,0 0.1,-0.1 0.2,-0.1 0,0 0,0 0,0 l 0.1,0.2 0.1,0.2 c 0,0 0,0 -0.1,0 0,0.1 0,-0.1 -0.2,-0.1 z m 15.1,-6.2 c -0.1,0.1 -0.2,0.2 -0.4,0.3 -0.1,-0.2 -0.1,-0.3 -0.1,-0.5 l -0.5,0.2 c 0.2,0.1 0.3,0.2 0.3,0.4 -0.1,0.1 -0.3,0.1 -0.5,0.1 l 0.2,0.5 c 0.2,-0.2 0.3,-0.3 0.4,-0.3 0.1,0.1 0.1,0.3 0.1,0.5 l 0.5,-0.2 v 0 c -0.1,-0.2 -0.2,-0.3 -0.3,-0.5 0.2,0 0.3,-0.1 0.5,-0.1 z m -11,-2.7 c 0.1,0 0.2,0 0.2,0 0,0 0,0 0,0.1 -0.1,0 -0.1,0 -0.2,0.1 l -0.1,0.1 c 0,0 0,0 -0.1,0 0,-0.1 0.2,-0.1 0.1,-0.3 0,0 -0.1,-0.1 -0.2,-0.1 l -0.6,-0.4 c 0,0 -0.1,0 -0.1,0 0,0 0,0.1 0,0.1 l 0.2,0.7 c 0.1,0.1 0.1,0.2 0.2,0.2 0,0.1 0.1,0 0.1,0 0,0.1 0,0.1 0,0.1 0,0 -0.1,0.1 -0.2,0.1 l -0.1,0.2 c -0.1,0 -0.1,0 -0.1,0 0,0 0,0 0,0 0,-0.1 0,-0.1 0,-0.2 l -0.4,-1.3 c 0,-0.1 0,-0.1 0,-0.1 0.1,0 0.1,0 0.1,0 z m 1.6,-0.7 c 0,0.2 0.1,0.1 0.2,0.1 0,0.1 0,0.1 -0.1,0.1 0,0 0,0 -0.2,0 l -0.3,0.1 c 0,0 0,0 0,0 -0.1,-0.1 0.2,-0.1 0.1,-0.3 l -0.2,-0.9 c -0.1,-0.3 -0.2,-0.1 -0.2,-0.2 0,0 0,0 0,-0.1 h 0.3 l 0.5,-0.1 c 0.1,-0.1 0.3,0.1 0.3,0.2 0,0.1 0,0.1 0,0.1 -0.1,0 -0.1,-0.3 -0.6,-0.2 -0.1,0.1 -0.1,0.1 -0.1,0.3 z m 1.1,-0.2 c 0,0.1 0,0.1 0.3,0.1 0.4,0 0.2,-0.3 0.3,-0.3 0,0 0,0.1 0,0.1 v 0.2 c 0,0 0,0.1 0,0.1 h -0.5 -0.5 c 0,0 0,0 0,0 0,-0.1 0.2,0 0.2,-0.2 l -0.1,-1 c 0,-0.2 -0.1,-0.1 -0.1,-0.2 0,0 0,0 0,0 h 0.2 l 0.6,-0.1 c 0.1,0 0.2,0.2 0.3,0.3 0,0.1 0,0.1 -0.1,0.1 0,0 0,-0.3 -0.5,-0.3 -0.2,0 -0.1,0.1 -0.1,0.3 v 0.2 c 0,0.1 0,0.2 0.1,0.2 l 0.1,-0.1 c 0.2,0 0.2,-0.2 0.2,-0.2 0.1,0 0.1,0.1 0.1,0.1 v 0.4 c 0,0 0,0 -0.1,0 0,0 0,-0.2 -0.2,-0.1 h -0.1 c -0.1,0 -0.1,0 -0.1,0.1 z m 1.1,-1 c 0,-0.2 -0.2,-0.2 -0.2,-0.3 0,0 0.1,0 0.1,0 0,0 0.1,0 0.1,0 h 0.3 c 0,0 0.1,0 0.1,0 -0.1,0.1 -0.3,0 -0.3,0.4 l -0.1,0.7 c 0,0 0,0 0,0 0,0 0,0 0.1,0 l 1,-1 c 0,0 0,0 0.1,0 0,0 0,0 0,0 l -0.1,1.2 c 0,0.2 0.1,0.2 0.1,0.2 0,0.1 0,0.1 0,0.1 0,0 -0.1,0 -0.2,-0.1 h -0.3 c 0,0 0,0 0,0 0,-0.1 0.3,0 0.3,-0.2 v -0.7 c 0,0 0,-0.1 0,-0.1 0,0 0,0 0,0.1 l -0.9,0.8 c 0,0.1 0,0.1 -0.1,0.1 l -0.2,-0.1 c 0,0 -0.1,0 -0.1,0 0,0 0,0 0,0 0,-0.1 0.2,0.1 0.2,-0.3 z m 2.4,1.6 c 0,0 0,0 0,0 0,0 0,-0.1 0,-0.1 -0.1,0 -0.3,0 -0.5,0 -0.5,-0.2 -0.5,-0.7 -0.4,-1 0,-0.2 0.2,-0.6 0.8,-0.5 0.4,0.1 0.5,0.5 0.5,0.6 0,0 0,0 0,0 -0.1,0 -0.1,-0.3 -0.4,-0.4 -0.4,-0.1 -0.7,0.2 -0.8,0.5 0,0.3 0,0.6 0.3,0.7 0.2,0.1 0.4,-0.1 0.6,-0.2 0,0 0,-0.1 0.1,-0.1 0,0 0,0.1 0,0.1 z m 0.6,0.1 c -0.1,0.2 0.1,0.2 0,0.2 0,0 0,0 0,0 l -0.3,-0.1 -0.2,-0.1 c 0,0 0,0 0,-0.1 0,0 0.2,0.1 0.3,0 l 0.5,-0.9 c 0.1,-0.2 -0.1,-0.2 -0.1,-0.3 0,0 0.1,0 0.1,0 l 0.2,0.1 0.2,0.2 c 0.1,0 0.1,0 0.1,0 -0.1,0.1 -0.2,-0.1 -0.3,0.1 z m -11.3,7.3 c -0.1,0 -0.1,0.1 -0.2,0.1 0,0 0,0 0,-0.1 0,0 0,-0.1 0,-0.1 0,0 0,-0.1 0,-0.1 0,-0.1 -0.1,-0.1 0,-0.1 0.1,0 0,0.2 0.2,0.1 0,0 0.1,0 0.2,0 l 0.6,-0.3 c 0.1,0 0.1,0 0.1,-0.1 0,0 0,0 -0.1,0 l -0.6,-0.1 c -0.2,-0.1 -0.3,-0.1 -0.3,-0.1 -0.1,0.1 -0.1,0.1 -0.1,0.2 -0.1,0 -0.1,-0.1 -0.1,-0.1 0,0 0,-0.1 0,-0.2 v -0.2 c 0,0 0,0 0,0 0,0 0,0 0,0 0.1,0.1 0.1,0.1 0.2,0.1 l 1.2,0.3 c 0.1,0 0.1,0 0.1,0 0,0.1 0,0.1 0,0.1 z m 0.6,-4.4 c 0.1,0.1 0.2,0.2 0.4,0.3 0.1,-0.2 0.1,-0.3 0.1,-0.5 l 0.5,0.2 c -0.2,0.1 -0.3,0.2 -0.4,0.4 0.2,0.1 0.3,0.1 0.6,0.1 l -0.2,0.5 c -0.2,-0.2 -0.3,-0.3 -0.5,-0.3 0,0.1 0,0.3 -0.1,0.5 l -0.4,-0.2 v 0 c 0.1,-0.2 0.2,-0.3 0.3,-0.5 -0.2,0 -0.3,-0.1 -0.6,-0.1 l 0.2,-0.4 z m 1.2,3.5 c 0,3.5 2.8,6.3 6.3,6.3 3.4,0 6.3,-2.8 6.3,-6.3 0,-3.4 -2.9,-6.3 -6.3,-6.3 -3.5,0 -6.3,2.9 -6.3,6.3 z m 12.8,0 c 0,3.6 -3,6.5 -6.5,6.5 -3.6,0 -6.6,-2.9 -6.6,-6.5 0,-3.6 3,-6.5 6.6,-6.5 3.5,0 6.5,2.9 6.5,6.5 z m -15.3,0 c 0,4.9 3.9,8.8 8.8,8.8 4.8,0 8.7,-3.9 8.7,-8.8 0,-4.8 -3.9,-8.7 -8.7,-8.7 v 0 c -4.9,0 -8.8,3.9 -8.8,8.7 z m 17.8,0 c 0,5 -4.1,9.1 -9,9.1 -5,0 -9.1,-4.1 -9.1,-9.1 0,-5 4.1,-9 9.1,-9 4.9,0 9,4 9,9 z m -12.2,3.1 c -0.1,0.1 0,0.3 0,0.3 0.1,0 0.3,0 0.3,-0.1 0.1,-0.2 0,-0.3 -0.1,-0.4 0,0 -0.1,0.1 -0.2,0.2 z m 4.4,-7.6 -0.9,-0.7 v 7.5 h 0.9 z m 0.6,6.8 h 0.7 l 0.1,-4.7 c -0.2,-0.4 -0.4,-0.9 -0.8,-1.4 z m -3,-6.9 0.9,-0.7 v 7.6 h -0.9 z m -0.5,6.9 H 358 v -5 c 0.1,-0.3 0.7,-1.2 0.9,-1.4 z"
+       class="logo-updv-fill"
+       style="fill-opacity:1;fill-rule:evenodd;stroke:none"
+       transform="matrix(0.35277776,0,0,-0.35277776,-20.549297,188.80666)"
+       clip-path="url(#clipPath70)" />
+  </g>
+</svg></td>
+<td style="text-align: left;">Rapporteuse</td>
+</tr>
+<tr>
+<td style="text-align: left;"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-magenta " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="DescriptionRoundedIcon" fill="currentColor"><path d="M14.59 2.59c-.38-.38-.89-.59-1.42-.59H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8.83c0-.53-.21-1.04-.59-1.41zM15 18H9c-.55 0-1-.45-1-1s.45-1 1-1h6c.55 0 1 .45 1 1s-.45 1-1 1m0-4H9c-.55 0-1-.45-1-1s.45-1 1-1h6c.55 0 1 .45 1 1s-.45 1-1 1m-2-6V3.5L18.5 9H14c-.55 0-1-.45-1-1"></path></svg></td>
+<td style="text-align: left;">Damien Pellier</td>
+<td style="text-align: left;">Professeur Associé</td>
+<td style="text-align: left;"><svg class="logo-lig" role="img" aria-label="Logo LIG" viewBox="0 0 14.06493 6.9849997"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="lig.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  
+  <defs
+     id="defs1">
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      .lig-facet-02 { fill: #073642; }
+      .lig-facet-01 { fill: #586e75; }
+      .lig-facet-00 { fill: #657b83; }
+      .lig-facet-0  { fill: #839496; }
+      .lig-facet-1  { fill: #93a1a1; }
+      .lig-text     { fill: #2aa198; }
+      .lig-arrow    { fill: #cb4b16; }
+
+      @media (prefers-color-scheme: dark) {
+        .lig-facet-02 { fill: #eee8d5; }
+        .lig-facet-01 { fill: #93a1a1; }
+        .lig-facet-00 { fill: #839496; }
+        .lig-facet-0  { fill: #657b83; }
+        .lig-facet-1  { fill: #586e75; }
+        .lig-text     { fill: #2aa198; }
+        .lig-arrow    { fill: #cb4b16; }
+      }
+    </style>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath85">
+      <path
+         d="m 361.6,140.6 h 40.2 v 22 h -40.2 z"
+         transform="translate(0,2.5000001e-5)"
+         clip-rule="evenodd"
+         id="path85" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath83">
+      <path
+         d="m 361.6,140.6 h 40.2 v 22 h -40.2 z"
+         transform="translate(0,2.5000001e-5)"
+         clip-rule="evenodd"
+         id="path83" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath81">
+      <path
+         d="m 361.6,140.6 h 40.2 v 22 h -40.2 z"
+         transform="translate(0,2.5000001e-5)"
+         clip-rule="evenodd"
+         id="path81" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath94">
+      <path
+         d="m 361.6,140.6 h 40.2 v 22 h -40.2 z"
+         transform="matrix(1.3333333,0,0,-1.3333333,0,1122.4819)"
+         clip-rule="evenodd"
+         id="path94" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath92">
+      <path
+         d="m 366.9,153.8 h 6.8 v 7 h -6.8 z"
+         transform="translate(0,2.5000001e-5)"
+         id="path92" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4">
+      <path
+         d="M 0,0 H 595.2 V 841.8 H 0 Z"
+         transform="translate(0,2.5000001e-5)"
+         clip-rule="evenodd"
+         id="path4" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath79">
+      <path
+         d="m 361.6,140.6 h 40.2 v 22 h -40.2 z"
+         transform="translate(0,2.5000001e-5)"
+         clip-rule="evenodd"
+         id="path79" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath87">
+      <path
+         d="m 361.6,140.6 h 40.2 v 22 h -40.2 z"
+         transform="translate(0,2.5000001e-5)"
+         clip-rule="evenodd"
+         id="path87" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath89">
+      <path
+         d="m 361.6,140.6 h 40.2 v 22 h -40.2 z"
+         transform="translate(0,2.5000001e-5)"
+         clip-rule="evenodd"
+         id="path89" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath91">
+      <path
+         d="m 361.6,140.6 h 40.2 v 22 h -40.2 z"
+         transform="translate(0,2.5000001e-5)"
+         clip-rule="evenodd"
+         id="path91" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath96">
+      <path
+         d="m 361.6,140.6 h 40.2 v 22 h -40.2 z"
+         transform="translate(0,2.5000001e-5)"
+         clip-rule="evenodd"
+         id="path96" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath77">
+      <path
+         d="m 361.6,140.6 h 40.2 v 22 h -40.2 z"
+         transform="translate(0,2.5000001e-5)"
+         clip-rule="evenodd"
+         id="path77" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath98">
+      <path
+         d="m 361.6,140.6 h 40.2 v 22 h -40.2 z"
+         transform="translate(0,2.5000001e-5)"
+         clip-rule="evenodd"
+         id="path98" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-199.07249,-240.50625)">
+    <path
+       id="path76"
+       class="lig-facet-1"
+       d="m 379.5,149.8 -3.8,-1.3 -2.4,1.5 3.2,0.7 z"
+       style="fill-opacity:1;fill-rule:evenodd;stroke:none"
+       transform="matrix(0.35277776,0,0,-0.35277776,71.4375,297.76208)"
+       clip-path="url(#clipPath77)" />
+    <path
+       id="path78"
+       class="lig-facet-02"
+       d="m 368.8,152.4 -5.9,-2.4 -1.1,6.4 6,1.9 z"
+       style="fill-opacity:1;fill-rule:evenodd;stroke:none"
+       transform="matrix(0.35277776,0,0,-0.35277776,71.4375,297.76208)"
+       clip-path="url(#clipPath79)" />
+    <path
+       id="path80"
+       class="lig-text"
+       d="m 362.9,146.7 h 1.1 v -3.1 h 1.7 v -0.8 h -2.8 z"
+       style="fill-opacity:1;fill-rule:evenodd;stroke:none"
+       transform="matrix(0.35277776,0,0,-0.35277776,71.4375,297.76208)"
+       clip-path="url(#clipPath81)" />
+    <path
+       id="path82"
+       class="lig-text"
+       d="m 372,146.7 h 1.1 v -3.9 H 372 Z"
+       style="fill-opacity:1;fill-rule:evenodd;stroke:none"
+       transform="matrix(0.35277776,0,0,-0.35277776,71.4375,297.76208)"
+       clip-path="url(#clipPath83)" />
+    <path
+       id="path84"
+       class="lig-text"
+       d="m 382.3,145.5 c 0,0.4 -0.4,0.6 -0.7,0.6 -0.7,0 -0.9,-0.7 -0.9,-1.3 0,-0.9 0.5,-1.3 1.1,-1.3 0.2,0 0.4,0 0.6,0.1 v 0.7 h -0.8 v 0.7 h 1.8 v -2 c -0.6,-0.2 -1.2,-0.3 -1.7,-0.3 -0.4,0 -1,0.1 -1.5,0.4 -0.5,0.4 -0.7,1 -0.7,1.6 0,0.5 0.2,1.1 0.6,1.6 0.4,0.4 1.1,0.5 1.6,0.5 0.6,0 1.1,-0.1 1.4,-0.5 0.3,-0.3 0.3,-0.6 0.3,-0.8 z"
+       style="fill-opacity:1;fill-rule:evenodd;stroke:none"
+       transform="matrix(0.35277776,0,0,-0.35277776,71.4375,297.76208)"
+       clip-path="url(#clipPath85)" />
+    <path
+       id="path86"
+       class="lig-facet-0"
+       d="m 377.9,155.1 -4,2.1 3.5,5.1 3.2,-3.3 z"
+       style="fill-opacity:1;fill-rule:evenodd;stroke:none"
+       transform="matrix(0.35277776,0,0,-0.35277776,71.4375,297.76208)"
+       clip-path="url(#clipPath87)" />
+    <path
+       id="path88"
+       class="lig-facet-00"
+       d="m 383.8,155 1.1,-0.9 -6,-0.4 1,1 z"
+       style="fill-opacity:1;fill-rule:evenodd;stroke:none"
+       transform="matrix(0.35277776,0,0,-0.35277776,71.4375,297.76208)"
+       clip-path="url(#clipPath89)" />
+    <path
+       id="path90"
+       class="lig-facet-1"
+       d="m 384.8,151.8 -2.7,-2 -5.4,1.1 3.4,1.4 z"
+       style="fill-opacity:1;fill-rule:evenodd;stroke:none"
+       transform="matrix(0.35277776,0,0,-0.35277776,71.4375,297.76208)"
+       clip-path="url(#clipPath91)" />
+    <g
+       opacity="0.75"
+       id="g93"
+       clip-path="url(#clipPath94)"
+       transform="matrix(0.26458333,0,0,0.26458333,71.4375,0.77208202)">
+      <path
+         id="path93"
+         class="lig-facet-01"
+         d="m 372.8,154.2 -5.9,-0.3 0.7,6.8 6.1,-0.2 z"
+         style="fill-opacity:1;fill-rule:evenodd;stroke:none"
+         transform="matrix(1.3333333,0,0,-1.3333333,0,1122.4819)"
+         clip-path="url(#clipPath92)" />
+    </g>
+    <path
+       id="path95"
+       class="lig-facet-01"
+       d="m 377.6,149.2 1.9,0.6 -2.6,0.8 -2.1,-0.6 z"
+       style="fill-opacity:1;fill-rule:evenodd;stroke:none"
+       transform="matrix(0.35277776,0,0,-0.35277776,71.4375,297.76208)"
+       clip-path="url(#clipPath96)" />
+    <path
+       id="path97"
+       class="lig-arrow"
+       d="m 394.5,146.2 v -3.7 l -5.8,5.7 5.8,5.8 v -3.8 c 6.7,-0.2 6.4,4.5 4.7,7.6 4.2,-4.5 3.3,-11.8 -4.7,-11.6 z"
+       style="fill-opacity:1;fill-rule:evenodd;stroke:none"
+       transform="matrix(0.35277776,0,0,-0.35277776,71.4375,297.76208)"
+       clip-path="url(#clipPath98)" />
+  </g>
+</svg></td>
+<td style="text-align: left;">Rapporteur</td>
+</tr>
+<tr>
+<td style="text-align: left;"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-blue " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="VisibilityRoundedIcon" fill="currentColor"><path d="M12 4C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4m0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5m0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg></td>
+<td style="text-align: left;">Ivan Varzinczac</td>
+<td style="text-align: left;">Professeur Associé</td>
+<td style="text-align: left;"><svg class="logo-cril" role="img" aria-label="Logo CRIL" viewBox="0 0 16.404165 6.5486207"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="cril.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  
+  <defs
+     id="defs1">
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      .cril-mark {
+        fill: none;
+        stroke: #859900;
+        stroke-width: 2.62873;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10;
+        stroke-dasharray: none;
+        stroke-opacity: 1;
+      }
+      .cril-text {
+        fill: #002b36;
+        fill-opacity: 1;
+        fill-rule: evenodd;
+        stroke: none;
+      }
+      @media (prefers-color-scheme: dark) {
+        .cril-text {
+          fill: #fdf6e3;
+        }
+      }
+    </style>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath107">
+      <path
+         d="M 358.5,122 H 405 v 18.7 h -46.5 z"
+         transform="translate(0,2.5000001e-5)"
+         clip-rule="evenodd"
+         id="path107" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath105">
+      <path
+         d="M 358.5,122 H 405 v 18.7 h -46.5 z"
+         transform="translate(0,2.5000001e-5)"
+         clip-rule="evenodd"
+         id="path105" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-186.53125,-138.90625)">
+    <path
+       id="path104"
+       class="cril-mark"
+       d="m 359.8,123.1 c 6.7,5.6 18.6,16.6 20.4,16.1 2.4,-0.7 -10.7,-11.5 -11,-14.5 -0.4,-2.5 14.2,10.9 15.5,10.3 1.4,-0.7 -5.4,-7.1 -6.5,-10.8 -0.8,-2.7 8,5.6 11.1,6.2 2.1,0.4 -3.4,-5.7 -2.7,-6.5 0.8,-0.8 6.5,3.4 8,2.3 3,-2.1 0.6,-2.8 9.1,-2.8"
+       transform="matrix(0.35277776,0,0,-0.35277776,60.06042,188.49377)"
+       clip-path="url(#clipPath105)" />
+    <path
+       id="path106"
+       class="cril-text"
+       d="m 399.5,135.9 v -3.7 c 0,-3.6 0,-3.8 0.1,-4 0,-0.1 0.1,-0.3 0.1,-0.4 0.1,-0.1 0.5,-0.5 0.6,-0.5 0,0 0.1,-0.1 0.1,-0.1 0,0 0.2,-0.1 0.3,-0.1 0.1,-0.1 0.2,-0.1 1.2,-0.1 h 1 v 0.7 0.6 H 402 c -0.8,0 -0.9,0 -1,0.1 -0.2,0.1 -0.2,-0.2 -0.2,3.8 v 3.7 h -0.7 z m -10.8,-1.3 V 134 c 0,-0.3 0,-0.6 0,-0.6 0,0 0.3,0 0.7,0 h 0.6 v 0.6 0.6 h -0.7 z m -10.4,-2.3 c 0,0 0,0 0,-0.1 z m 0,-0.1 c -0.1,0 -0.1,0 -0.1,0 z m -1.3,0 c -0.1,-0.1 -0.2,-0.1 -0.7,-0.1 -0.3,0 -0.6,0 -0.7,-0.1 0,0 -0.1,0 -0.2,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,-0.1 -0.1,-0.1 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 -0.1,0 -0.1,0 -0.6,-0.3 -0.8,-0.5 -0.2,-0.3 -0.5,-0.7 -0.6,-0.9 0,-0.1 0,-0.1 0,-0.1 0,0 0,-0.1 0,-0.1 0,0 0,0 0,0 0,0 0,0 0,0 0,-0.1 0,-0.1 0,0 0,0 0,0 0,0 -0.1,-0.1 -0.1,-0.7 -0.1,-1.9 V 127 h 0.6 0.7 v 1.4 c 0,0.7 0,1.3 0,1.3 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0.1 0.2,0.5 0.5,1 1.4,1 0,0 0,0 0,0 v 0 h 2.5 2.4 v 0.7 0.6 h -1.6 -1.6 l 0.1,0.1 c -0.1,-0.1 -0.1,-0.1 -0.7,-0.1 H 377 Z m -10.7,-0.1 h -2.8 -2.8 l -0.3,-0.1 c -0.4,-0.1 -0.7,-0.3 -1,-0.6 -0.1,-0.2 -0.2,-0.3 -0.4,-0.6 -0.2,-0.3 -0.3,-0.8 -0.3,-1.4 0,-0.4 0.1,-0.8 0.3,-1.1 0.3,-0.6 0.8,-0.9 1.4,-1.2 0.3,-0.1 0.3,-0.1 1,-0.1 h 0.7 l -0.1,-0.1 c 0,0 0,0 0,0 0,0 0,0 0,0 l 0.1,0.1 h 2.1 c 1.4,0 2,0 2,0 0.1,0 0.1,0 0.1,0.1 0,0 0,0.1 0,0.6 v 0.6 h -1.4 c -0.9,0 -1.3,0 -1.3,0 0,0 0,0 0,0 0,0 -0.4,0 -1.3,0 -1.2,0 -1.3,0 -1.5,0.1 -0.2,0 -0.2,0.1 -0.4,0.3 -0.1,0.1 -0.3,0.2 -0.3,0.4 -0.1,0.1 -0.1,0.2 -0.1,0.5 0,0.2 0,0.3 0.1,0.4 0.1,0.2 0.4,0.6 0.5,0.7 0.3,0.1 0.3,0.1 3.1,0.1 h 2.6 v 0.7 z m 22.4,0 v -0.2 -0.2 0 -1.7 c 0,-1.5 0,-1.7 0.1,-1.8 0,-0.1 0,-0.2 0,-0.2 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0.1,0 0.1,-0.1 0,0 0,0 0,0 0.1,-0.2 0.3,-0.4 0.4,-0.5 0.1,-0.1 0.4,-0.2 0.6,-0.3 0.1,-0.1 0.1,-0.1 0.1,-0.1 0,0 0.5,0 0.5,0 h 0.5 v 0 h 0.5 0.6 v 0.2 c 0,0.2 0,0.2 0.1,0.2 -0.1,0 -0.1,0.1 -0.1,0.5 v 0.4 h -0.7 c -0.3,0 -0.6,0 -0.6,0 0,0 0,0 0,0 -0.1,0 -0.1,0 -0.2,0 -0.1,0 -0.2,0 -0.3,0 -0.2,0.1 -0.2,0.1 -0.3,0.3 0,0.1 0,0.7 0,1.6 v 1.5 0 0.2 0.2 h -0.7 z m 2.2,-3.4 c 0,0 0,-0.1 0,-0.1 0,0 0,-0.1 -0.1,-0.2 0.1,0.1 0.1,0.1 0.1,0.2 z"
+       style="fill-opacity:1;fill-rule:evenodd;stroke:none"
+       transform="matrix(0.35277776,0,0,-0.35277776,60.06042,188.49377)"
+       clip-path="url(#clipPath107)" />
+  </g>
+</svg></td>
+<td style="text-align: left;">Examinateur</td>
+</tr>
+<tr>
+<td style="text-align: left;"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-green " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="SchoolRoundedIcon" fill="currentColor"><path d="M5 13.18v2.81c0 .73.4 1.41 1.04 1.76l5 2.73c.6.33 1.32.33 1.92 0l5-2.73c.64-.35 1.04-1.03 1.04-1.76v-2.81l-6.04 3.3c-.6.33-1.32.33-1.92 0zm6.04-9.66-8.43 4.6c-.69.38-.69 1.38 0 1.76l8.43 4.6c.6.33 1.32.33 1.92 0L21 10.09V16c0 .55.45 1 1 1s1-.45 1-1V9.59c0-.37-.2-.7-.52-.88l-9.52-5.19a2.04 2.04 0 0 0-1.92 0"></path></svg></td>
+<td style="text-align: left;">Samir Aknine</td>
+<td style="text-align: left;">Professeur</td>
+<td style="text-align: left;"><span class="logo-liris">LIRIS</span></td>
+<td style="text-align: left;">Directeur de thèse</td>
+</tr>
+<tr>
+<td style="text-align: left;"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-green " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="GroupRoundedIcon" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3m-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3m0 2c-2.33 0-7 1.17-7 3.5V18c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-1.5c0-2.33-4.67-3.5-7-3.5m8 0c-.29 0-.62.02-.97.05.02.01.03.03.04.04 1.14.83 1.93 1.94 1.93 3.41V18c0 .35-.07.69-.18 1H22c.55 0 1-.45 1-1v-1.5c0-2.33-4.67-3.5-7-3.5"></path></svg></td>
+<td style="text-align: left;">Lætitia Matignon</td>
+<td style="text-align: left;">Professeure Associée</td>
+<td style="text-align: left;"><span class="logo-liris">LIRIS</span></td>
+<td style="text-align: left;">Co-directrice de thèse</td>
+</tr>
+</tbody>
+</table>
+<h4 id="lightbulb-sujet"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-yellow " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LightbulbRoundedIcon" fill="currentColor"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2m-3-3h6c.55 0 1-.45 1-1s-.45-1-1-1H9c-.55 0-1 .45-1 1s.45 1 1 1m3-17C7.86 2 4.5 5.36 4.5 9.5c0 3.82 2.66 5.86 3.77 6.5h7.46c1.11-.64 3.77-2.68 3.77-6.5C19.5 5.36 16.14 2 12 2"></path></svg> Sujet</h4>
+<blockquote>
+<p>Méta-langage endomorphe et planification abstraite pour la
+reconnaissance des intentions en temps réel</p>
+</blockquote>
+<p><strong>Comment représenter et manipuler la connaissance de manière
+plus fluide, explicable et adaptable</strong> pour améliorer
+l’interaction personne-machine dans des systèmes d’IA complexes.</p>
+<h4 id="explore-axes-de-recherche"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-red " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ExploreRoundedIcon" fill="currentColor"><path d="M12 10.9c-.61 0-1.1.49-1.1 1.1s.49 1.1 1.1 1.1 1.1-.49 1.1-1.1-.49-1.1-1.1-1.1M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m2.19 12.19L6 18l3.81-8.19L18 6z"></path></svg> Axes de recherche</h4>
+<ol type="1">
+<li><strong>Modèle mathématique original</strong>
+<ul>
+<li>Définition d’un formalisme inspiré du lambda-calcul et de la théorie
+des catégories.</li>
+<li>Création d’un métalangage flexible sans mots-clés, capable d’adapter
+dynamiquement sa grammaire et sa sémantique.</li>
+</ul></li>
+<li><strong>Cadriciels expressifs pour l’IA</strong>
+<ul>
+<li>Application à la planification automatique avec un cadre unifié pour
+divers types de domaines.</li>
+<li>Construction de représentations intermédiaires plus utiles que des
+solutions entièrement optimisées.</li>
+</ul></li>
+<li><strong>Algorithmes de planification hybride</strong>
+<ul>
+<li>Réparation de plans par heuristique.</li>
+<li>Génération de plans abstraits hiérarchiques utilisables en temps
+réel.</li>
+</ul></li>
+<li><strong>Reconnaissance d’intention</strong>
+<ul>
+<li>Usage de la planification inversée avec des plans abstraits.</li>
+<li>Réduction de la dépendance aux bibliothèques prédéfinies de
+plans.</li>
+</ul></li>
+</ol>
+</div>
+<h2 id="menu_book-publications"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon color-base0 " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="MenuBookRoundedIcon" fill="currentColor"><path d="M17.5 4.5c-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5-1.45 0-2.99.22-4.28.79C1.49 5.62 1 6.33 1 7.14v11.28c0 1.3 1.22 2.26 2.48 1.94.98-.25 2.02-.36 3.02-.36 1.56 0 3.22.26 4.56.92.6.3 1.28.3 1.87 0 1.34-.67 3-.92 4.56-.92 1 0 2.04.11 3.02.36 1.26.33 2.48-.63 2.48-1.94V7.14c0-.81-.49-1.52-1.22-1.85-1.28-.57-2.82-.79-4.27-.79M21 17.23c0 .63-.58 1.09-1.2.98-.75-.14-1.53-.2-2.3-.2-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5.92 0 1.83.09 2.7.28.46.1.8.51.8.98z"></path><path d="M13.98 11.01c-.32 0-.61-.2-.71-.52-.13-.39.09-.82.48-.94 1.54-.5 3.53-.66 5.36-.45.41.05.71.42.66.83s-.42.71-.83.66c-1.62-.19-3.39-.04-4.73.39-.08.01-.16.03-.23.03m0 2.66c-.32 0-.61-.2-.71-.52-.13-.39.09-.82.48-.94 1.53-.5 3.53-.66 5.36-.45.41.05.71.42.66.83s-.42.71-.83.66c-1.62-.19-3.39-.04-4.73.39-.08.02-.16.03-.23.03m0 2.66c-.32 0-.61-.2-.71-.52-.13-.39.09-.82.48-.94 1.53-.5 3.53-.66 5.36-.45.41.05.71.42.66.83s-.42.7-.83.66c-1.62-.19-3.39-.04-4.73.39-.08.02-.16.03-.23.03"></path></svg> Publications</h2>
+<div class="publications">
+<section
+id="heart-using-abstract-plans-as-a-guarantee-of-downward-refinement-in-decompositional-planning"
+class="entry">
+<h3><span class="logo-heart color-magenta">heart</span> – Using Abstract
+Plans As A Guarantee Of Downward Refinement In Decompositional
+Planning</h3>
+<p>Antoine Gréa, Samir Aknine, Lætitia Matignon</p>
+<div class="icons">
+<ul>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnRoundedIcon" fill="currentColor"><path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.18 2.45 6.92 7.34 11.23.38.33.95.33 1.33 0C17.55 17.12 20 13.38 20 10.2 20 5.22 16.2 2 12 2m0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"></path></svg> ICAAI 2019 – International
+Conference on Agents and Artificial Intelligence</li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnRoundedIcon" fill="currentColor"><path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.18 2.45 6.92 7.34 11.23.38.33.95.33 1.33 0C17.55 17.12 20 13.38 20 10.2 20 5.22 16.2 2 12 2m0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"></path></svg> IJCAI 2018 – XAI
+Workshop</li>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnRoundedIcon" fill="currentColor"><path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.18 2.45 6.92 7.34 11.23.38.33.95.33 1.33 0C17.55 17.12 20 13.38 20 10.2 20 5.22 16.2 2 12 2m0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"></path></svg> ICAPS 2018 – HPlan
+Workshop</li>
+</ul>
+</div>
+</section>
+<section
+id="lollipop-generating-and-using-an-operator-graph-and-negative-refinements-for-online-partial-order-planning"
+class="entry">
+<h3><span class="logo-lollipops color-green">LOLLIPOP</span> –
+Generating and Using an Operator Graph and Negative Refinements for
+Online Partial Order Planning</h3>
+<p>Antoine Gréa, Samir Aknine, Lætitia Matignon</p>
+<div class="icons">
+<ul>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnRoundedIcon" fill="currentColor"><path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.18 2.45 6.92 7.34 11.23.38.33.95.33 1.33 0C17.55 17.12 20 13.38 20 10.2 20 5.22 16.2 2 12 2m0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"></path></svg> JFPDA 2016 – Journées
+Francophones sur la Planification, la Décision et l’Apprentissage</li>
+</ul>
+</div>
+</section>
+<section id="astro-a-robotic-and-automation-services-ontology"
+class="entry">
+<h3><span class="logo-astro color-blue">Astro</span> – A Robotic and
+Automation Services Ontology</h3>
+<p>Antoine Gréa, Jacques Saraydaryan, Fabrice Jumel, Adrien Guenard</p>
+<div class="icons">
+<ul>
+<li><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium md-icon " focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="LocationOnRoundedIcon" fill="currentColor"><path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.18 2.45 6.92 7.34 11.23.38.33.95.33 1.33 0C17.55 17.12 20 13.38 20 10.2 20 5.22 16.2 2 12 2m0 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2"></path></svg> CAR 2015 – Control
+Architectures of Robots</li>
+</ul>
+</div>
+</section>
+</div>
+
+  </div>
+</body>
+</html>

@@ -315,6 +315,7 @@ import CloseIcon from "@mui/icons-material/Close";`;
     it("permits rounded unfilled icons and brand icon exceptions", async () => {
       const code = `import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import CheckCircleOutlineRoundedIcon from "@mui/icons-material/CheckCircleOutlineRounded";`;
       const [result] = await eslint.lintText(code, {
         filePath: "app/components/molecules/Test/Test.tsx",

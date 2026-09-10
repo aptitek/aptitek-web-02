@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16.404165mm"
+   height="6.5486207mm"
+   viewBox="0 0 16.404165 6.5486207"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="cril.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="7.7543232"
+     inkscape:cx="33.013842"
+     inkscape:cy="-8.2534605"
+     inkscape:window-width="2560"
+     inkscape:window-height="1379"
+     inkscape:window-x="2160"
+     inkscape:window-y="1230"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      .cril-mark {
+        fill: none;
+        stroke: #859900;
+        stroke-width: 2.62873;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10;
+        stroke-dasharray: none;
+        stroke-opacity: 1;
+      }
+      .cril-text {
+        fill: #002b36;
+        fill-opacity: 1;
+        fill-rule: evenodd;
+        stroke: none;
+      }
+      @media (prefers-color-scheme: dark) {
+        .cril-text {
+          fill: #fdf6e3;
+        }
+      }
+    </style>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath107">
+      <path
+         d="M 358.5,122 H 405 v 18.7 h -46.5 z"
+         transform="translate(0,2.5000001e-5)"
+         clip-rule="evenodd"
+         id="path107" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath105">
+      <path
+         d="M 358.5,122 H 405 v 18.7 h -46.5 z"
+         transform="translate(0,2.5000001e-5)"
+         clip-rule="evenodd"
+         id="path105" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-186.53125,-138.90625)">
+    <path
+       id="path104"
+       class="cril-mark"
+       d="m 359.8,123.1 c 6.7,5.6 18.6,16.6 20.4,16.1 2.4,-0.7 -10.7,-11.5 -11,-14.5 -0.4,-2.5 14.2,10.9 15.5,10.3 1.4,-0.7 -5.4,-7.1 -6.5,-10.8 -0.8,-2.7 8,5.6 11.1,6.2 2.1,0.4 -3.4,-5.7 -2.7,-6.5 0.8,-0.8 6.5,3.4 8,2.3 3,-2.1 0.6,-2.8 9.1,-2.8"
+       transform="matrix(0.35277776,0,0,-0.35277776,60.06042,188.49377)"
+       clip-path="url(#clipPath105)" />
+    <path
+       id="path106"
+       class="cril-text"
+       d="m 399.5,135.9 v -3.7 c 0,-3.6 0,-3.8 0.1,-4 0,-0.1 0.1,-0.3 0.1,-0.4 0.1,-0.1 0.5,-0.5 0.6,-0.5 0,0 0.1,-0.1 0.1,-0.1 0,0 0.2,-0.1 0.3,-0.1 0.1,-0.1 0.2,-0.1 1.2,-0.1 h 1 v 0.7 0.6 H 402 c -0.8,0 -0.9,0 -1,0.1 -0.2,0.1 -0.2,-0.2 -0.2,3.8 v 3.7 h -0.7 z m -10.8,-1.3 V 134 c 0,-0.3 0,-0.6 0,-0.6 0,0 0.3,0 0.7,0 h 0.6 v 0.6 0.6 h -0.7 z m -10.4,-2.3 c 0,0 0,0 0,-0.1 z m 0,-0.1 c -0.1,0 -0.1,0 -0.1,0 z m -1.3,0 c -0.1,-0.1 -0.2,-0.1 -0.7,-0.1 -0.3,0 -0.6,0 -0.7,-0.1 0,0 -0.1,0 -0.2,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,-0.1 -0.1,-0.1 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 -0.1,0 -0.1,0 -0.6,-0.3 -0.8,-0.5 -0.2,-0.3 -0.5,-0.7 -0.6,-0.9 0,-0.1 0,-0.1 0,-0.1 0,0 0,-0.1 0,-0.1 0,0 0,0 0,0 0,0 0,0 0,0 0,-0.1 0,-0.1 0,0 0,0 0,0 0,0 -0.1,-0.1 -0.1,-0.7 -0.1,-1.9 V 127 h 0.6 0.7 v 1.4 c 0,0.7 0,1.3 0,1.3 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0.1 0.2,0.5 0.5,1 1.4,1 0,0 0,0 0,0 v 0 h 2.5 2.4 v 0.7 0.6 h -1.6 -1.6 l 0.1,0.1 c -0.1,-0.1 -0.1,-0.1 -0.7,-0.1 H 377 Z m -10.7,-0.1 h -2.8 -2.8 l -0.3,-0.1 c -0.4,-0.1 -0.7,-0.3 -1,-0.6 -0.1,-0.2 -0.2,-0.3 -0.4,-0.6 -0.2,-0.3 -0.3,-0.8 -0.3,-1.4 0,-0.4 0.1,-0.8 0.3,-1.1 0.3,-0.6 0.8,-0.9 1.4,-1.2 0.3,-0.1 0.3,-0.1 1,-0.1 h 0.7 l -0.1,-0.1 c 0,0 0,0 0,0 0,0 0,0 0,0 l 0.1,0.1 h 2.1 c 1.4,0 2,0 2,0 0.1,0 0.1,0 0.1,0.1 0,0 0,0.1 0,0.6 v 0.6 h -1.4 c -0.9,0 -1.3,0 -1.3,0 0,0 0,0 0,0 0,0 -0.4,0 -1.3,0 -1.2,0 -1.3,0 -1.5,0.1 -0.2,0 -0.2,0.1 -0.4,0.3 -0.1,0.1 -0.3,0.2 -0.3,0.4 -0.1,0.1 -0.1,0.2 -0.1,0.5 0,0.2 0,0.3 0.1,0.4 0.1,0.2 0.4,0.6 0.5,0.7 0.3,0.1 0.3,0.1 3.1,0.1 h 2.6 v 0.7 z m 22.4,0 v -0.2 -0.2 0 -1.7 c 0,-1.5 0,-1.7 0.1,-1.8 0,-0.1 0,-0.2 0,-0.2 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0.1,0 0.1,-0.1 0,0 0,0 0,0 0.1,-0.2 0.3,-0.4 0.4,-0.5 0.1,-0.1 0.4,-0.2 0.6,-0.3 0.1,-0.1 0.1,-0.1 0.1,-0.1 0,0 0.5,0 0.5,0 h 0.5 v 0 h 0.5 0.6 v 0.2 c 0,0.2 0,0.2 0.1,0.2 -0.1,0 -0.1,0.1 -0.1,0.5 v 0.4 h -0.7 c -0.3,0 -0.6,0 -0.6,0 0,0 0,0 0,0 -0.1,0 -0.1,0 -0.2,0 -0.1,0 -0.2,0 -0.3,0 -0.2,0.1 -0.2,0.1 -0.3,0.3 0,0.1 0,0.7 0,1.6 v 1.5 0 0.2 0.2 h -0.7 z m 2.2,-3.4 c 0,0 0,-0.1 0,-0.1 0,0 0,-0.1 -0.1,-0.2 0.1,0.1 0.1,0.1 0.1,0.2 z"
+       style="fill-opacity:1;fill-rule:evenodd;stroke:none"
+       transform="matrix(0.35277776,0,0,-0.35277776,60.06042,188.49377)"
+       clip-path="url(#clipPath107)" />
+  </g>
+</svg>

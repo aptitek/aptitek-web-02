@@ -1,0 +1,604 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Bebas+Neue&family=Biryani:wght@400;700&family=Open+Sans:ital,wght@0,400..800;1,400..800&family=Pacifico&family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&family=Roboto:ital,wght@0,400..700;1,400..700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap");
+
+/* === Solarized Color Variables === */
+:root {
+  --base03: var(--color-solarized-base03);
+  --base02: var(--color-solarized-base02);
+  --base01: var(--color-solarized-base01);
+  --base00: var(--color-solarized-base00);
+  --base0: var(--color-solarized-base0);
+  --base1: var(--color-solarized-base1);
+  --base2: var(--color-solarized-base2);
+  --base3: var(--color-solarized-base3);
+
+  --yellow: var(--color-solarized-yellow);
+  --orange: var(--color-solarized-orange);
+  --red: var(--color-solarized-red);
+  --magenta: var(--color-solarized-magenta);
+  --violet: var(--color-solarized-violet);
+  --blue: var(--color-solarized-blue);
+  --cyan: var(--color-solarized-cyan);
+  --green: var(--color-solarized-green);
+}
+
+/* === Color utility classes === */
+.color-base03 {
+  color: var(--base03);
+}
+.color-base02 {
+  color: var(--base02);
+}
+.color-base01 {
+  color: var(--base01);
+}
+.color-base00 {
+  color: var(--base00);
+}
+.color-base0 {
+  color: var(--base0);
+}
+.color-base1 {
+  color: var(--base1);
+}
+.color-base2 {
+  color: var(--base2);
+}
+.color-base3 {
+  color: var(--base3);
+}
+.color-yellow {
+  color: var(--yellow);
+}
+.color-orange {
+  color: var(--orange);
+}
+.color-red {
+  color: var(--red);
+}
+.color-magenta {
+  color: var(--magenta);
+}
+.color-violet {
+  color: var(--violet);
+}
+.color-blue {
+  color: var(--blue);
+}
+.color-cyan {
+  color: var(--cyan);
+}
+.color-green {
+  color: var(--green);
+}
+
+/* === Custom Institution & Logo Fonts (WOFF2) === */
+@font-face {
+  font-family: "Aptitek";
+  src: url("fonts/cv/Aptitek.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lyon1";
+  src: url("fonts/cv/DINPro_Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Polytech";
+  src: url("fonts/cv/PerihelionBB_Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "CPE";
+  src: url("fonts/cv/CPE_LYON_Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "LIRIS-new";
+  src: url("fonts/cv/LIRIS.woff2") format("woff2");
+}
+@font-face {
+  font-family: "LIRIS";
+  src: url("fonts/cv/LIRIS.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lyon2";
+  src: url("fonts/cv/Lyon 2.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Atos";
+  src: url("fonts/cv/Atos-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Astro";
+  src: url("fonts/cv/Astro_Italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "ezinux";
+  src: url("fonts/cv/ezinux_e.woff2") format("woff2");
+}
+@font-face {
+  font-family: "estiam";
+  src: url("fonts/cv/estiam.woff2") format("woff2");
+}
+@font-face {
+  font-family: "GEMA";
+  src: url("fonts/cv/GEMA.woff2") format("woff2");
+}
+@font-face {
+  font-family: "LAMACHE";
+  src: url("fonts/cv/LAMACHE.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Toronto";
+  src: url("fonts/cv/Toronto-Subway.woff2") format("woff2");
+}
+
+/* === Material Design Icons from MUI (replaces Font Awesome & Material Symbols font) === */
+.md-icon,
+.MuiSvgIcon-root {
+  display: inline-block;
+  vertical-align: -0.15em;
+  width: 1.1em;
+  height: 1.1em;
+  fill: currentColor;
+  margin-right: 0.3em;
+}
+
+/* Logo font helper classes */
+.logo-utbm {
+  font-family: "Biryani", sans-serif;
+}
+.logo-polytech {
+  font-family: "Polytech", sans-serif;
+}
+.logo-cpe {
+  font-family: "CPE", sans-serif;
+  letter-spacing: 0.05em;
+}
+.logo-lyon1 {
+  font-family: "Lyon1", sans-serif;
+}
+.logo-lyon2 {
+  font-family: "Lyon2", sans-serif;
+}
+.logo-liris {
+  font-family: "LIRIS-new", sans-serif;
+}
+.logo-aptitek {
+  font-family: "Aptitek", sans-serif;
+}
+.logo-atos {
+  font-family: "Atos", sans-serif;
+}
+.logo-astro {
+  font-family: "Astro", sans-serif;
+  font-style: italic;
+}
+.logo-b-and-d {
+  font-family: "Open Sans", sans-serif;
+}
+.logo-gfi {
+  font-family: "Alegreya", serif;
+}
+.logo-estiam {
+  font-family: "estiam", sans-serif;
+}
+.logo-gema {
+  font-family: "GEMA", sans-serif;
+}
+.logo-sciences-u {
+  font-family: "Roboto", sans-serif;
+}
+.logo-la-mache {
+  font-family: "LAMACHE", sans-serif;
+}
+.logo-heart {
+  font-family: "Pacifico", cursive;
+}
+.logo-lollipops,
+.logo-lollipop {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+/* === Page Setup for WeasyPrint === */
+@page {
+  size: A4 portrait;
+  margin: 7mm 8mm;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--base3);
+  color: var(--base02);
+  font-family:
+    "Recursive",
+    "Inter",
+    -apple-system,
+    sans-serif;
+  font-variation-settings:
+    "MONO" 0,
+    "CASL" 0,
+    "slnt" 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.cv-sheet {
+  width: 100%;
+  height: 283mm;
+  max-height: 283mm;
+  overflow: hidden;
+}
+
+.cv-sheet.page-1 {
+  page-break-after: always;
+  break-after: page;
+}
+
+.cv-sheet.page-2 {
+  page-break-after: auto;
+  break-after: auto;
+}
+
+/* === Layout: Table structure for 100% reliable WeasyPrint 2-column layout === */
+.cv-layout {
+  display: table !important;
+  width: 100% !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+}
+
+.sidebar {
+  display: table-cell !important;
+  width: 54mm !important;
+  vertical-align: top !important;
+  background-color: var(--base02);
+  padding: 3mm !important;
+  border-radius: 8mm !important;
+  color: var(--base3);
+  font-size: 0.82em;
+}
+
+.main-content {
+  display: table-cell !important;
+  width: 140mm !important;
+  vertical-align: top !important;
+  margin-left: 0 !important;
+  padding-left: 4mm !important;
+  break-before: auto !important;
+  break-inside: auto !important;
+}
+
+/* === Typography === */
+h1 {
+  font-family: "Pacifico", cursive;
+  color: var(--blue);
+  font-size: 1.55em;
+  margin: 0 0 1.5mm 0;
+  text-align: center;
+}
+
+h1 + p {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--base2);
+  text-align: center;
+  margin-top: -1mm;
+  margin-bottom: 2mm;
+}
+
+h2 {
+  border-bottom: 2px solid var(--base2);
+  font-family: "Bebas Neue", "Bebas", sans-serif;
+  font-size: 1.28em;
+  font-weight: 700;
+  margin-top: 1.2mm;
+  margin-bottom: 0.8mm;
+  padding-bottom: 0.3mm;
+}
+
+h2 img {
+  height: 1.1em;
+  vertical-align: middle;
+  margin-right: 0.2em;
+}
+
+.sidebar h2 {
+  border-bottom: 1px solid var(--base01);
+  color: var(--base2);
+  font-family: "Bebas Neue", "Bebas", sans-serif;
+  font-size: 1.15em;
+  margin-top: 2mm;
+  margin-bottom: 0.8mm;
+}
+
+h3 {
+  font-family: "Bebas Neue", "Bebas", sans-serif;
+  font-size: 1.02em;
+  font-weight: 700;
+  margin-top: 0.4mm;
+  margin-bottom: 0.6mm;
+}
+
+p {
+  margin: 0.6mm 0;
+  font-size: 0.74em;
+  line-height: 1.25;
+}
+
+/* === Sidebar elements === */
+img.main-logo {
+  display: block;
+  margin: 0 auto 2mm auto;
+  width: 32mm;
+  height: auto;
+  border-radius: 50%;
+}
+
+.logo {
+  display: inline-block;
+  height: 1.2em;
+  vertical-align: middle;
+}
+
+.sidebar a {
+  color: var(--base3);
+  text-decoration: underline;
+}
+
+.sidebar blockquote {
+  font-style: italic;
+  font-size: 0.9em;
+  color: var(--base2);
+  line-height: 1.2;
+  margin: 0 0 2mm 0;
+  padding-left: 2mm;
+  border-left: 3px solid var(--magenta);
+}
+
+.sidebar blockquote::first-letter {
+  float: none !important;
+  display: inline !important;
+  font-family: "Aptitek", cursive;
+  font-size: 1.25em;
+  font-weight: bold;
+  color: var(--magenta);
+}
+
+.icons ul,
+.langs ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.5mm 0;
+}
+
+.icons li,
+.langs li {
+  display: flex;
+  align-items: center;
+  padding: 0.4mm 0;
+  font-size: 0.8em;
+}
+
+.langs li img,
+.icons li .md-icon,
+.icons li .MuiSvgIcon-root {
+  width: 1.1em;
+  height: 1.1em;
+  text-align: center;
+  margin-right: 1.2mm;
+  vertical-align: middle;
+}
+
+.langs li {
+  display: table;
+  width: 100%;
+}
+
+.langs li strong {
+  display: table-cell;
+  text-align: left;
+  width: 100%;
+}
+
+.langs li .level {
+  display: table-cell;
+  text-align: right;
+  font-family: monospace;
+  white-space: nowrap;
+}
+
+/* === Entries in Main Column === */
+.entry {
+  margin: 0 0 1.2mm 0;
+  padding: 1mm 2.2mm;
+  border: 1.5px solid var(--base2);
+  border-radius: 4mm;
+  background-color: var(--base3);
+}
+
+.entry h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 1.1em;
+  margin: 0;
+}
+
+.entry h3 .logo,
+.entry h3 .logo-cpe,
+.entry h3 .logo-polytech,
+.entry h3 .logo-lyon1,
+.entry h3 .logo-lyon2,
+.entry h3 .logo-utbm,
+.entry h3 .logo-b-and-d,
+.entry h3 .logo-atos,
+.entry h3 .logo-gfi {
+  margin-left: auto;
+  float: right;
+  font-size: 0.95em;
+}
+
+.entry h3 img {
+  height: 0.9em;
+  vertical-align: middle;
+  margin-right: 1mm;
+}
+
+.date {
+  font-family: monospace;
+  font-weight: bold;
+  color: var(--base02);
+  margin-right: 1mm;
+  font-size: 0.85em;
+}
+
+.place {
+  color: var(--base01);
+  font-style: italic;
+  font-size: 0.82em;
+}
+
+/* Client pills */
+.clients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1mm 2mm;
+  justify-content: center;
+  background-color: var(--base2);
+  border-radius: 3mm;
+  padding: 1mm 2mm;
+  margin: 1mm 0;
+}
+
+.clients a,
+.clients span {
+  display: inline-block;
+  padding: 0.4mm 2mm;
+  border-radius: 999px;
+  background-color: var(--base3);
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.clients a.logo-aptitek {
+  background-color: var(--base02);
+  color: var(--base3);
+}
+
+/* === Page 2: Thesis & Publications === */
+.thesis,
+.publications {
+  margin-left: 3mm;
+  margin-right: 3mm;
+}
+
+.thesis blockquote {
+  font-style: italic;
+  font-size: 0.95em;
+  line-height: 1.25;
+  margin: 1.5mm 0;
+  padding-left: 3mm;
+  border-left: 3px solid var(--yellow);
+}
+
+.thesis table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5mm;
+  border-radius: 3mm;
+  overflow: hidden;
+  background-color: var(--base2);
+  font-size: 0.78em;
+}
+
+.thesis th {
+  background-color: var(--base2);
+  color: var(--base03);
+  padding: 1mm 2mm;
+  text-align: left;
+  border-bottom: 2px solid var(--base01);
+}
+
+.thesis td {
+  padding: 0.9mm 2mm;
+  vertical-align: middle;
+}
+
+.thesis table img,
+.thesis table svg {
+  height: 1.1em;
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.thesis table .logo-updv-fill {
+  fill: var(--base03) !important;
+}
+
+.thesis table .cril-text {
+  fill: var(--base03) !important;
+}
+
+.thesis table .cril-mark {
+  stroke: var(--green) !important;
+}
+
+.thesis table .lig-facet-02 {
+  fill: var(--base02) !important;
+}
+.thesis table .lig-facet-01 {
+  fill: var(--base01) !important;
+}
+.thesis table .lig-facet-00 {
+  fill: var(--base00) !important;
+}
+.thesis table .lig-facet-0 {
+  fill: var(--base0) !important;
+}
+.thesis table .lig-facet-1 {
+  fill: var(--base1) !important;
+}
+.thesis table .lig-text {
+  fill: var(--cyan) !important;
+}
+.thesis table .lig-arrow {
+  fill: var(--orange) !important;
+}
+
+.thesis ol {
+  margin: 1mm 0 1mm 4mm;
+  padding-left: 2mm;
+  font-size: 0.78em;
+}
+
+.thesis ol li {
+  margin-bottom: 0.8mm;
+}
+
+.thesis ul {
+  margin: 0.4mm 0 0.8mm 2mm;
+  padding-left: 2mm;
+  font-size: 0.92em;
+}
+
+.publications .entry {
+  margin-bottom: 1.8mm;
+  padding: 1.2mm 3mm;
+}
+
+.publications .entry h3 {
+  font-size: 1.05em;
+}
+
+.publications .entry p {
+  text-align: center;
+  font-size: 0.78em;
+  color: var(--base01);
+}
