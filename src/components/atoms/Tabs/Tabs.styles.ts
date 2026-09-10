@@ -1,9 +1,4 @@
-import {
-  styled,
-  alpha,
-  type Theme,
-  type CSSObject,
-} from "@mui/material/styles";
+import { styled, type Theme, type CSSObject } from "@mui/material/styles";
 import MuiTabs from "@mui/material/Tabs";
 import MuiTab from "@mui/material/Tab";
 import { M3_MOTION_DURATIONS, M3_MOTION_EASINGS } from "~/tokens/motion";
@@ -112,8 +107,8 @@ function getVerticalTabStyles(theme: Theme): CSSObject {
         theme.palette.surfaceContainerHigh || theme.palette.background.paper,
       border: `1px solid ${theme.palette.divider}`,
       backgroundClip: "padding-box",
-      boxShadow: `0 4px 16px ${alpha(theme.palette.common.black, 0.14)}`,
-      zIndex: 100,
+      boxShadow: theme.shadows[2],
+      zIndex: 5,
       "& .MuiTab-labelSlot": {
         opacity: 1,
         maxWidth: 240,
@@ -173,7 +168,7 @@ export const StyledTab = styled(MuiTab, {
     "&:hover": {
       color: theme.palette.text.primary,
       ...theme.applyStyles("dark", {
-        color: theme.palette.common.white,
+        color: theme.palette.primary.contrastText,
       }),
     },
     "&.Mui-selected": {

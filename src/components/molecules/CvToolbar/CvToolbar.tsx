@@ -79,7 +79,7 @@ export const CvToolbar: React.FC<CvToolbarProps> = ({
       {/* Toast feedback */}
       {toastMessage && (
         <div className={styles.toast} role="status" aria-live="polite">
-          <CheckRoundedIcon sx={{ fontSize: "1.1rem" }} /> {toastMessage}
+          <CheckRoundedIcon sx={{ fontSize: 18 }} /> {toastMessage}
         </div>
       )}
 
@@ -95,7 +95,7 @@ export const CvToolbar: React.FC<CvToolbarProps> = ({
               onClick={() => onThemeModeChange("light")}
               title="Solarized Papier Clair"
             >
-              <LightModeRoundedIcon sx={{ fontSize: "1.1rem" }} /> Clair
+              <LightModeRoundedIcon sx={{ fontSize: 18 }} /> Clair
             </Button>
             <Button
               role="tab"
@@ -104,7 +104,7 @@ export const CvToolbar: React.FC<CvToolbarProps> = ({
               onClick={() => onThemeModeChange("dark")}
               title="Solarized Écran Sombre"
             >
-              <DarkModeRoundedIcon sx={{ fontSize: "1.1rem" }} /> Sombre
+              <DarkModeRoundedIcon sx={{ fontSize: 18 }} /> Sombre
             </Button>
           </div>
         </div>
@@ -112,7 +112,7 @@ export const CvToolbar: React.FC<CvToolbarProps> = ({
         <div className={styles.actions}>
           <CvActionButton
             variant="accent"
-            icon={<PictureAsPdfRoundedIcon sx={{ fontSize: "1.15rem" }} />}
+            icon={<PictureAsPdfRoundedIcon sx={{ fontSize: 20 }} />}
             href={pdfUrl}
             download="CV-Antoine-Grea.pdf"
             target="_blank"
@@ -123,7 +123,7 @@ export const CvToolbar: React.FC<CvToolbarProps> = ({
 
           <CvActionButton
             variant="ghost"
-            icon={<EmailRoundedIcon sx={{ fontSize: "1.15rem" }} />}
+            icon={<EmailRoundedIcon sx={{ fontSize: 20 }} />}
             onClick={handleCopyEmail}
             title="Copier l'adresse email"
           >
@@ -132,7 +132,7 @@ export const CvToolbar: React.FC<CvToolbarProps> = ({
 
           <CvActionButton
             variant="ghost"
-            icon={<PhoneRoundedIcon sx={{ fontSize: "1.15rem" }} />}
+            icon={<PhoneRoundedIcon sx={{ fontSize: 20 }} />}
             onClick={handleCopyPhone}
             title="Copier le numéro de téléphone"
           >
@@ -150,8 +150,7 @@ export const CvToolbar: React.FC<CvToolbarProps> = ({
               className={styles.resetBtn}
               onClick={() => onSelectSkill(null)}
             >
-              <CloseRoundedIcon sx={{ fontSize: "0.95rem" }} /> Réinitialiser le
-              filtre
+              <CloseRoundedIcon sx={{ fontSize: 16 }} /> Réinitialiser le filtre
             </Button>
           )}
         </div>

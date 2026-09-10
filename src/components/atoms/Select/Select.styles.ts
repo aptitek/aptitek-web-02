@@ -61,7 +61,7 @@ export const MENU_PROPS = {
       sx: {
         borderRadius: "12px",
         mt: 0.5,
-        boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
+        boxShadow: (theme: Theme) => theme.shadows[2],
         backdropFilter: "blur(12px)",
         maxHeight: 320,
         "& .MuiMenuItem-root": {

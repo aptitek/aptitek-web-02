@@ -45,7 +45,7 @@ export const StyledMuiChip = styled(MuiChip, {
         clipPath: shapeStyle.clipPath,
         WebkitClipPath: shapeStyle.clipPath,
         border: "none",
-        filter: `drop-shadow(0 1px 3px ${alpha(theme.palette.common.black, 0.15)})`,
+        filter: `drop-shadow(0 1px 3px ${alpha(theme.palette.background.default, 0.15)})`,
       }),
     }),
 
@@ -64,6 +64,7 @@ export const StyledMuiChip = styled(MuiChip, {
       fontSize: "inherit",
       marginLeft: "6px",
       marginRight: "-2px",
+      color: "inherit",
     },
 
     "&.MuiChip-clickable:hover": {
@@ -82,7 +83,7 @@ export const StyledMuiChip = styled(MuiChip, {
 
     ...theme.applyStyles("dark", {
       ...(hasClipPath && {
-        filter: `drop-shadow(0 1px 4px ${alpha(theme.palette.common.black, 0.45)})`,
+        filter: `drop-shadow(0 0 1px ${alpha(theme.palette.primary.contrastText, 0.12)})`,
       }),
       "&.MuiChip-clickable:hover": {
         boxShadow: hasClipPath

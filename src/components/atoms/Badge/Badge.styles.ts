@@ -303,7 +303,7 @@ export const StandaloneBadgeRoot = styled("span", {
     flexShrink: 0,
     cursor: "default",
     position: "relative",
-    zIndex: 10,
+    zIndex: 1,
     isolation: "isolate",
     lineHeight: 1,
     verticalAlign: "middle",

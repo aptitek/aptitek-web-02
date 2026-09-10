@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "@mui/material/styles";
+import { useTheme, alpha } from "@mui/material/styles";
 import { M3_SPRINGS } from "~/tokens/motion";
 import { useThemeMode } from "~/utils/themeContext";
 import type { ThemeMode } from "~/tokens/theme";
@@ -104,8 +104,8 @@ export const ZenithSwitch = forwardRef<HTMLButtonElement, ZenithSwitchProps>(
         }
         customThumbShadow={() =>
           isDark
-            ? `0 0 12px ${primaryMain}, 0 0 0 1px rgba(255, 255, 255, 0.2)`
-            : `0 0 14px ${warningLight}, 0 2px 5px rgba(0, 0, 0, 0.2)`
+            ? `0 0 12px ${primaryMain}, 0 0 0 1px ${alpha(theme.palette.primary.contrastText, 0.2)}`
+            : `0 0 14px ${warningLight}, 0 2px 5px ${alpha(theme.palette.background.default, 0.2)}`
         }
         thumbContent={({ cfg }) => (
           <AnimatePresence mode="wait" initial={false}>

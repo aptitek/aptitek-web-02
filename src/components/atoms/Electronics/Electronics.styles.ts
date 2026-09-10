@@ -13,14 +13,14 @@ export const getFinishColors = (finish: ElectronicsFinish, theme: Theme) => {
     case "silver":
       return {
         primary: theme.palette.text.primary,
-        highlight: theme.palette.common.white,
+        highlight: theme.palette.primary.contrastText,
         glow: theme.palette.divider,
         groove: theme.palette.background.default,
       };
     case "cyan-laser":
       return {
         primary: theme.palette.primary.light,
-        highlight: theme.palette.common.white,
+        highlight: theme.palette.primary.contrastText,
         glow: theme.palette.primary.main,
         groove: theme.palette.background.default,
       };

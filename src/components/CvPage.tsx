@@ -12,7 +12,7 @@ export function CvPage(props: CvDocumentProps) {
           position: "fixed",
           top: "1.25rem",
           right: "1.25rem",
-          zIndex: 50,
+          zIndex: (theme) => theme.zIndex.speedDial,
           "@media print": {
             display: "none",
           },

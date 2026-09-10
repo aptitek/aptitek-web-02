@@ -145,4 +145,103 @@ export const iconRules = {
       };
     },
   },
+
+  "enforce-icon-tokens": {
+    meta: {
+      type: "problem",
+      docs: {
+        description:
+          "Enforce Material Design 3 icon dimension tokens across <Icon /> and MUI icon primitives.",
+      },
+      messages: {
+        nonStandardIconSize:
+          "Non-standard icon size '{{value}}' detected. Use Material Design 3 icon dimension tokens from '~/tokens/spacing' (e.g. 'M3_DIMENSIONS.iconSmall' [18], 'iconInline' [20], 'iconStandard' [24], 'iconLarge' [32], 'iconHuge' [48]) or approved CSS variables.",
+      },
+    },
+    create(context) {
+      const APPROVED_ICON_SIZES = new Set([14, 16, 18, 20, 24, 28, 32, 40, 48]);
+      const APPROVED_STRING_KEYWORDS = new Set([
+        "inherit",
+        "small",
+        "medium",
+        "large",
+        "1em",
+        "1.1em",
+        "1.2em",
+        "1.25rem",
+        "1.5rem",
+        "2rem",
+      ]);
+
+      function checkSize(valNode, reportNode) {
+        if (!valNode) return;
+        if (valNode.type === "Literal") {
+          const val = valNode.value;
+          if (typeof val === "number") {
+            if (!APPROVED_ICON_SIZES.has(val)) {
+              context.report({
+                node: reportNode,
+                messageId: "nonStandardIconSize",
+                data: { value: String(val) },
+              });
+            }
+          } else if (typeof val === "string") {
+            const trimmed = val.trim();
+            if (
+              APPROVED_STRING_KEYWORDS.has(trimmed.toLowerCase()) ||
+              trimmed.startsWith("var(--")
+            ) {
+              return;
+            }
+            const pxMatch = /^(\d+(?:\.\d+)?)px$/i.exec(trimmed);
+            if (pxMatch && APPROVED_ICON_SIZES.has(parseFloat(pxMatch[1]))) {
+              return;
+            }
+            context.report({
+              node: reportNode,
+              messageId: "nonStandardIconSize",
+              data: { value: trimmed },
+            });
+          }
+        }
+      }
+
+      function inspectSxProperties(properties) {
+        for (const prop of properties || []) {
+          if (prop.type !== "Property") continue;
+          const key = prop.key?.name || prop.key?.value;
+          if (key === "fontSize" || key === "width" || key === "height") {
+            checkSize(prop.value, prop);
+          }
+        }
+      }
+
+      return {
+        JSXOpeningElement(node) {
+          const tagName = node.name?.name || "";
+          const isIconElement =
+            tagName === "Icon" ||
+            tagName === "SvgIcon" ||
+            tagName.endsWith("Icon") ||
+            tagName.endsWith("RoundedIcon");
+
+          if (!isIconElement) return;
+
+          for (const attr of node.attributes || []) {
+            if (attr.type !== "JSXAttribute") continue;
+            const attrName = attr.name?.name;
+            if (attrName === "size" || attrName === "fontSize") {
+              const valNode = attr.value?.expression || attr.value;
+              checkSize(valNode, attr);
+            } else if (
+              attrName === "sx" &&
+              attr.value?.expression?.type === "ObjectExpression"
+            ) {
+              inspectSxProperties(attr.value.expression.properties);
+            }
+          }
+        },
+      };
+    },
+  },
 };

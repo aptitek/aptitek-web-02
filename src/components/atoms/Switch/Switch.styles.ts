@@ -140,8 +140,7 @@ export const SwitchThumb = styled(motion.span, {
   $isPressed: boolean;
   $hasIcon: boolean;
 }>(({ theme, $cfg, $checked, $hasIcon: _hasIcon }) => {
-  const onPrimary =
-    theme.palette.primary.contrastText || theme.palette.common.white;
+  const onPrimary = theme.palette.primary.contrastText;
 
   return {
     position: "absolute",
@@ -157,7 +156,7 @@ export const SwitchThumb = styled(motion.span, {
       : theme.palette.surfaceContainerHighest || theme.palette.background.paper,
     pointerEvents: "none",
     zIndex: 3,
-    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.2)",
+    boxShadow: theme.shadows[1],
     ...theme.applyStyles("dark", {
       ...(!$checked && {
         backgroundColor:

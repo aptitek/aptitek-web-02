@@ -181,7 +181,7 @@ const HeroOverlayContent: FC = () => (
       <CardContent sx={{ p: 4 }}>
         <Stack spacing={2.5}>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-            <NaturePeopleRoundedIcon color="primary" sx={{ fontSize: 36 }} />
+            <NaturePeopleRoundedIcon color="primary" sx={{ fontSize: 40 }} />
             <Typography variant="h4" component="h1">
               Solarized Sanctuary
             </Typography>

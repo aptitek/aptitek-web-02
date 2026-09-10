@@ -15,7 +15,7 @@ export const ClockDigitPuckText = styled(motion.span, {
   fontVariantNumeric: "tabular-nums",
   letterSpacing: "-0.04em",
   lineHeight: 1,
-  color: theme.palette.common.white,
+  color: theme.palette.primary.contrastText,
   userSelect: "none",
   pointerEvents: "none",
   display: "flex",
@@ -50,7 +50,7 @@ export const AnalogClockGlyph: React.FC<{
 }> = ({ size, isAnimating }) => {
   return (
     <GlyphMotionCenter
-      sx={{ width: "100%", height: "100%", color: "common.white" }}
+      sx={{ width: "100%", height: "100%", color: "primary.contrastText" }}
     >
       <AnalogClock
         size={size}

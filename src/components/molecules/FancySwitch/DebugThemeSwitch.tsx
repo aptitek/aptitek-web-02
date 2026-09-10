@@ -57,7 +57,7 @@ export default function DebugThemeSwitch({
             <BugReportRoundedIcon
               sx={{
                 fontSize: cfg.thumbIconSize,
-                color: checked ? "common.black" : "text.secondary",
+                color: checked ? "primary.contrastText" : "text.secondary",
               }}
             />
           )}

@@ -1,4 +1,4 @@
-import { styled, alpha } from "@mui/material/styles";
+import { styled, alpha, type Theme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import {
@@ -51,12 +51,16 @@ function resolveRootBg(
   return alpha(paperColor, 0.95);
 }
 
-function resolveHoverStyles(isClickable?: boolean, primaryColor?: string) {
+function resolveHoverStyles(
+  theme: Theme,
+  isClickable?: boolean,
+  primaryColor?: string,
+) {
   if (!isClickable) return {};
   return {
     "&:hover": {
       transform: "translateY(-1px)",
-      boxShadow: "0 3px 8px rgba(0, 0, 0, 0.15)",
+      boxShadow: theme.shadows[1],
       borderColor: primaryColor ? alpha(primaryColor, 0.5) : undefined,
     },
     "&:active": {
@@ -146,7 +150,7 @@ export const SegmentedChipRoot = styled(Box, {
     border: `${M3_STROKES.thin}px solid ${defaultBorderColor}`,
     backgroundColor: defaultBgColor,
     backdropFilter: "blur(8px)",
-    boxShadow: `0 1px 2px ${alpha(theme.palette.common.black, 0.05)}`,
+    boxShadow: theme.shadows[1],
     cursor: $isClickable ? "pointer" : "default",
     userSelect: "none",
     transition:
@@ -164,7 +168,7 @@ export const SegmentedChipRoot = styled(Box, {
         flexShrink: 0,
       },
     }),
-    ...resolveHoverStyles($isClickable, theme.palette.primary.main),
+    ...resolveHoverStyles(theme, $isClickable, theme.palette.primary.main),
   };
 });
 
@@ -248,7 +252,7 @@ export const SegmentItem = styled("span", {
 
     ...($isClickable && {
       "&:hover": {
-        opacity: 0.85,
+        backgroundColor: alpha(theme.palette.action.hover, 0.08),
       },
     }),
 
@@ -278,7 +282,8 @@ export const SegmentInlineInput = styled("input", {
     ...typography,
     fontSize: sizeConfig.fontSize,
     color: $color || theme.palette.text.primary,
-    backgroundColor: alpha(theme.palette.background.paper, 0.95),
+    backgroundColor:
+      theme.palette.surfaceContainerLow || theme.palette.background.paper,
     border: `${M3_STROKES.thin}px solid ${theme.palette.primary.main}`,
     borderRadius: `${M3_SHAPE_CORNERS.extraSmall}px`,
     padding: "0 4px",

@@ -55,7 +55,7 @@ export const LockSecureGlyph: React.FC<{
             <LockOpenRoundedIcon
               sx={{
                 fontSize: size,
-                color: theme.palette.common.white,
+                color: theme.palette.primary.contrastText,
                 display: "block",
                 filter:
                   "drop-shadow(0 0 4px rgba(255, 255, 255, 0.8)) drop-shadow(0 1px 2px rgba(0,0,0,0.3))",
@@ -80,7 +80,7 @@ export const LockSecureGlyph: React.FC<{
             <LockOutlineRoundedIcon
               sx={{
                 fontSize: size,
-                color: theme.palette.common.white,
+                color: theme.palette.primary.contrastText,
                 display: "block",
                 filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.35))",
               }}
@@ -270,7 +270,7 @@ export const PeekingBadgeCompanion: React.FC<{
           sx={{
             fontSize: badgeSize,
             color: isUnlocked
-              ? theme.palette.common.white
+              ? theme.palette.primary.contrastText
               : theme.palette.warning.light,
             filter: isUnlocked
               ? "drop-shadow(0 0 4px rgba(16, 185, 129, 0.8))"

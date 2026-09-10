@@ -1,4 +1,4 @@
-import { styled } from "@mui/material/styles";
+import { styled, alpha } from "@mui/material/styles";
 import { motion, type Transition } from "framer-motion";
 import {
   M3_SPRINGS,
@@ -60,6 +60,7 @@ export const FancyTrack = styled(motion.button, {
     boxSizing: "border-box",
     border: $customBorder ? `2px solid ${$customBorder}` : defaultBorder,
     background: $customBackground || defaultBackground,
+    color: theme.palette.text.primary,
     boxShadow: $customShadow,
     opacity: $disabled ? 0.38 : 1,
     overflow: "hidden",
@@ -85,8 +86,7 @@ export const FancyThumb = styled(motion.span, {
   $customShadow?: string;
   $checked: boolean;
 }>(({ theme, $cfg, $customColor, $customShadow, $checked }) => {
-  const onPrimary =
-    theme.palette.primary.contrastText || theme.palette.common.white;
+  const onPrimary = theme.palette.primary.contrastText;
   const defaultBg = $checked ? onPrimary : theme.palette.primary.main;
 
   return {
@@ -106,13 +106,13 @@ export const FancyThumb = styled(motion.span, {
     zIndex: 3,
     cursor: "inherit",
     background: $customColor || defaultBg,
-    boxShadow: $customShadow || "0 1px 3px rgba(0, 0, 0, 0.22)",
+    boxShadow: $customShadow || theme.shadows[1],
     "& svg": {
       display: "block",
       flexShrink: 0,
     },
     ...theme.applyStyles("dark", {
-      boxShadow: $customShadow || "0 0 0 1px rgba(255, 255, 255, 0.14)",
+      boxShadow: $customShadow || theme.shadows[1],
     }),
   };
 });
@@ -254,7 +254,7 @@ export const PeekingCompanionLayer = styled(motion.div, {
   zIndex: 2,
   pointerEvents: "none",
   color: theme.palette.text.primary,
-  filter: "drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25))",
+  filter: `drop-shadow(0 1px 2px ${alpha(theme.palette.background.default, 0.25)})`,
 }));
 
 export const InactiveDigitalSlot = styled("div", {
@@ -293,6 +293,7 @@ export const ArcOverlaySvg = styled("svg")(({ theme }) => ({
   pointerEvents: "none",
   zIndex: 1,
   color: theme.palette.text.secondary,
+  fill: "none",
 }));
 
 export const StateRippleLayer = styled(motion.div, {
@@ -342,12 +343,12 @@ export const BadgeReaderWave = styled(motion.div, {
   zIndex: 1,
 }));
 
-export const AccessBadgePuck = styled(motion.div)({
+export const AccessBadgePuck = styled(motion.div)(({ theme }) => ({
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35))",
-});
+  filter: `drop-shadow(0 2px 4px ${alpha(theme.palette.background.default, 0.35)})`,
+}));
 
 export const CenteredMotionBox = styled(motion.div)({
   display: "flex",

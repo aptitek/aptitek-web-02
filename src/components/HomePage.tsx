@@ -14,7 +14,7 @@ export function HomePage() {
           position: "fixed",
           top: "1.25rem",
           right: "1.25rem",
-          zIndex: 50,
+          zIndex: (theme) => theme.zIndex.speedDial,
         }}
       >
         <ThemeSwitch />
@@ -26,7 +26,7 @@ export function HomePage() {
           position: "fixed",
           bottom: { xs: "1.5rem", sm: "2rem" },
           right: { xs: "1.5rem", sm: "2rem" },
-          zIndex: 50,
+          zIndex: (theme) => theme.zIndex.speedDial,
         }}
       >
         <FloatingActionButton

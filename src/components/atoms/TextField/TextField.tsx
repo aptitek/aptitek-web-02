@@ -25,7 +25,7 @@ const StyledSearchTextField = styled(MuiTextField)(({ theme }) => ({
     },
     "&.Mui-focused": {
       backgroundColor: theme.palette.background.paper,
-      boxShadow: `0 2px 8px ${alpha(theme.palette.primary.main, 0.15)}`,
+      boxShadow: theme.shadows[1],
     },
     "& fieldset": {
       borderColor: alpha(theme.palette.divider, 0.8),

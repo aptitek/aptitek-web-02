@@ -29,7 +29,7 @@ export const MapPinDrop: React.FC<{ size: number }> = ({ size }) => {
       <PlaceRoundedIcon
         sx={{
           fontSize: size,
-          color: "common.white",
+          color: "primary.contrastText",
           display: "block",
           filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.3))",
         }}
@@ -52,7 +52,7 @@ export const RemoteHomeGlyph: React.FC<{ size: number }> = ({ size }) => {
       <LaptopRoundedIcon
         sx={{
           fontSize: size,
-          color: "common.white",
+          color: "primary.contrastText",
           display: "block",
           filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.3))",
         }}

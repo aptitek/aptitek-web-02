@@ -18,6 +18,7 @@
   --color-solarized-blue: #268bd2;
   --color-solarized-cyan: #2aa198;
   --color-solarized-green: #859900;
+  --color-solarized-bg-alpha: rgba(0, 43, 54, 0.5);
 
   /* Official Identity Card & National / International flag colours */
   --color-flag-eu-blue: #003399;
@@ -334,6 +335,29 @@
   --md-sys-typescale-label-medium-line-height: 1rem;
   --md-sys-typescale-label-small-size: 0.6875rem;
   --md-sys-typescale-label-small-line-height: 1rem;
+
+  /* M3 Design System Token Aliases for CSS Modules */
+  --space-1: var(--md-sys-spacing-micro); /* 4px */
+  --space-2: var(--md-sys-spacing-compact); /* 8px */
+  --space-3: var(--md-sys-spacing-medium); /* 12px */
+  --space-4: var(--md-sys-spacing-standard); /* 16px */
+  --space-5: var(--md-sys-spacing-large-half); /* 20px */
+  --space-6: var(--md-sys-spacing-large); /* 24px */
+  --space-8: var(--md-sys-spacing-extra-large); /* 32px */
+
+  --shape-corner-extra-small: var(--md-sys-shape-corner-extra-small);
+  --shape-corner-small: var(--md-sys-shape-corner-small);
+  --shape-corner-medium: var(--md-sys-shape-corner-medium);
+  --shape-corner-large: var(--md-sys-shape-corner-large);
+  --shape-corner-full: var(--md-sys-shape-corner-full);
+
+  --font-family-body: var(--font-family-brand);
+  --typography-body-sm-font-size: var(--md-sys-typescale-body-small-size);
+  --typography-body-md-font-size: var(--md-sys-typescale-body-medium-size);
+
+  --motion-duration-short2: var(--md-sys-motion-duration-short2);
+  --motion-duration-medium1: var(--md-sys-motion-duration-medium1);
+  --motion-easing-standard: var(--md-sys-motion-easing-standard);
 }
 
 .light,
@@ -399,6 +423,7 @@
     0 6px 10px 4px rgba(0, 0, 0, 0.15), 0 2px 3px 0 rgba(0, 0, 0, 0.3);
   --md-sys-elevation-level5:
     0 8px 12px 6px rgba(0, 0, 0, 0.15), 0 4px 4px 0 rgba(0, 0, 0, 0.3);
+  --color-solarized-bg-alpha: rgba(0, 43, 54, 0.08);
 }
 
 .debug,
@@ -463,6 +488,7 @@
   --md-sys-elevation-level3: 0 0 0 2px #ff007f;
   --md-sys-elevation-level4: 0 0 0 3px #ffff00;
   --md-sys-elevation-level5: 0 0 0 3px #ff00aa;
+  --color-solarized-bg-alpha: rgba(0, 255, 102, 0.25);
 }
 
 [data-mode="dark"],

@@ -37,11 +37,11 @@ function resolveDashedCardStyles(theme: Theme, isInteractive?: boolean) {
       "&:hover": {
         transform: "translateY(-3px)",
         borderColor: primary,
-        backgroundColor: alpha(primary, 0.04),
-        boxShadow: `0 8px 24px -4px ${alpha(primary, 0.15)}`,
+        backgroundColor: alpha(primary, 0.08),
+        boxShadow: theme.shadows[2],
         "& .md3-ghost-fab": {
           transform: "scale(1.1)",
-          boxShadow: `0 8px 20px -2px ${alpha(primary, 0.55)}, 0 4px 10px -1px ${alpha(theme.palette.common.black, 0.25)}`,
+          boxShadow: theme.shadows[3],
         },
       },
       "&:focus-visible": {
@@ -59,7 +59,7 @@ function resolveDashedCardStyles(theme: Theme, isInteractive?: boolean) {
         "&:hover": {
           borderColor: primary,
           backgroundColor: alpha(primary, 0.08),
-          boxShadow: `0 8px 24px -4px ${alpha(primary, 0.25)}`,
+          boxShadow: theme.shadows[2],
         },
       }),
     }),
@@ -199,22 +199,23 @@ export const DashedSkeletonCard = styled(StyledCard, {
     "&:hover": {
       transform: "translateY(-3px)",
       borderColor: theme.palette.primary.main,
-      backgroundColor: alpha(theme.palette.primary.main, 0.04),
-      boxShadow: `0 8px 24px -4px ${alpha(theme.palette.primary.main, 0.15)}`,
+      backgroundColor: alpha(theme.palette.primary.main, 0.08),
+      boxShadow: theme.shadows[2],
       "& .md3-ghost-fab": {
         transform: "scale(1.1)",
-        boxShadow: `0 8px 20px -2px ${alpha(theme.palette.primary.main, 0.55)}, 0 4px 10px -1px ${alpha(theme.palette.common.black, 0.25)}`,
+        boxShadow: theme.shadows[3],
       },
     },
   }),
   ...theme.applyStyles("dark", {
     borderColor: alpha(theme.palette.divider, 0.25),
-    backgroundColor: alpha(theme.palette.background.paper, 0.35),
+    backgroundColor:
+      theme.palette.surfaceContainerLow || theme.palette.background.paper,
     ...(isInteractive && {
       "&:hover": {
         borderColor: theme.palette.primary.main,
         backgroundColor: alpha(theme.palette.primary.main, 0.08),
-        boxShadow: `0 8px 24px -4px ${alpha(theme.palette.primary.main, 0.25)}`,
+        boxShadow: theme.shadows[2],
       },
     }),
   }),

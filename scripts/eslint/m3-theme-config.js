@@ -29,18 +29,40 @@ export const m3ThemeRules = {
     },
   ],
   "m3-theme/no-static-role-colors": "error",
-  "m3-theme/no-alpha-paper-surface": "off",
-  "m3-theme/no-dark-mode-black-shadow": "off",
-  "m3-theme/no-hardcoded-box-shadow": "off",
+  "m3-theme/no-alpha-paper-surface": "error",
+  "m3-theme/no-dark-mode-black-shadow": "error",
+  "m3-theme/no-hardcoded-box-shadow": "error",
   "m3-theme/no-raw-svg-icons": "error",
   "m3-theme/enforce-rounded-icons": "error",
+  "m3-theme/enforce-icon-tokens": "error",
   "m3-theme/enforce-motion-tokens": "error",
   "m3-theme/enforce-shape-tokens": "error",
   "m3-theme/enforce-spacing-tokens": "error",
   "m3-theme/enforce-typography-tokens": "error",
-  "m3-theme/enforce-elevation-levels": "off",
-  "m3-theme/enforce-state-layers": "off",
-  "m3-theme/enforce-minimum-touch-target": "off",
+  "m3-theme/enforce-elevation-levels": [
+    "error",
+    {
+      allowed: [
+        "var(--color-celestial-sun-golden-mid)",
+        "var(--color-celestial-sun-golden-aura)",
+        "6",
+        "10",
+      ],
+    },
+  ],
+  "m3-theme/enforce-state-layers": [
+    "error",
+    {
+      allowed: ["accentVars.main", "1 !important", "0.6"],
+    },
+  ],
+  "m3-theme/enforce-minimum-touch-target": "error",
+  "m3-theme/no-arbitrary-z-index": [
+    "error",
+    {
+      allowed: ["6", "10"],
+    },
+  ],
 };
 
 export const m3Config = {

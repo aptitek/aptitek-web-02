@@ -22,7 +22,9 @@ export const HighContrastSunGlyph: React.FC<{ size: number }> = ({ size }) => {
     <LightModeRoundedIcon
       sx={{
         fontSize: size,
-        color: theme.palette.common.white,
+        color:
+          theme.palette?.warning?.contrastText ||
+          theme.palette?.primary?.contrastText,
         display: "block",
         filter: `drop-shadow(0 0 4px ${glow})`,
       }}
@@ -39,7 +41,7 @@ export const HighContrastMoonGlyph: React.FC<{ size: number }> = ({ size }) => {
     <DarkModeRoundedIcon
       sx={{
         fontSize: size,
-        color: theme.palette.common.white,
+        color: theme.palette?.primary?.contrastText,
         display: "block",
         filter: `drop-shadow(0 0 4px ${glow})`,
       }}

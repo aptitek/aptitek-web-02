@@ -34,9 +34,11 @@ describe("Material Design 3 ESLint Theming Rules", () => {
     "m3-theme/no-hardcoded-box-shadow": "error",
     "m3-theme/no-raw-svg-icons": "error",
     "m3-theme/enforce-rounded-icons": "error",
+    "m3-theme/enforce-icon-tokens": "error",
     "m3-theme/enforce-motion-tokens": "error",
     "m3-theme/enforce-shape-tokens": "error",
     "m3-theme/enforce-elevation-levels": "error",
+    "m3-theme/no-arbitrary-z-index": "error",
     "m3-theme/enforce-state-layers": "error",
     "m3-theme/enforce-minimum-touch-target": "error",
   });
@@ -322,6 +324,56 @@ import CheckCircleOutlineRoundedIcon from "@mui/icons-material/CheckCircleOutlin
       });
       const violations = result?.messages.filter(
         (m) => m.ruleId === "m3-theme/enforce-rounded-icons",
+      );
+      expect(violations).toHaveLength(0);
+    });
+  });
+
+  describe("m3-theme/enforce-icon-tokens", () => {
+    it("reports non-standard icon sizes on Icon and MUI icon primitives", async () => {
+      const code = `import { Icon } from "~/components/atoms/Icon";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+export function BadIcons() {
+  return (
+    <>
+      <Icon name="search" size={17} />
+      <SearchRoundedIcon sx={{ fontSize: "1.1rem" }} />
+    </>
+  );
+}`;
+      const [result] = await eslint.lintText(code, {
+        filePath: "app/components/molecules/Test/Test.tsx",
+      });
+      const violations = result?.messages.filter(
+        (m) => m.ruleId === "m3-theme/enforce-icon-tokens",
+      );
+      expect(violations).toHaveLength(2);
+      expect(violations[0]?.message).toContain(
+        "Non-standard icon size '17' detected",
+      );
+      expect(violations[1]?.message).toContain(
+        "Non-standard icon size '1.1rem' detected",
+      );
+    });
+
+    it("permits standard M3 icon dimension tokens and keywords", async () => {
+      const code = `import { Icon } from "~/components/atoms/Icon";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+export function GoodIcons() {
+  return (
+    <>
+      <Icon name="search" size={24} />
+      <SearchRoundedIcon sx={{ fontSize: 20 }} />
+      <SearchRoundedIcon fontSize="small" />
+      <SearchRoundedIcon sx={{ fontSize: "var(--md-sys-dimension-icon-standard)" }} />
+    </>
+  );
+}`;
+      const [result] = await eslint.lintText(code, {
+        filePath: "app/components/molecules/Test/Test.tsx",
+      });
+      const violations = result?.messages.filter(
+        (m) => m.ruleId === "m3-theme/enforce-icon-tokens",
       );
       expect(violations).toHaveLength(0);
     });

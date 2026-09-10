@@ -578,7 +578,8 @@
 
 /* Material Design Icons from MUI (replaces Font Awesome & Material Symbols font) */
 :global(.md-icon),
-:global(.MuiSvgIcon-root) {
+:global(.MuiSvgIcon-root),
+:global(.thesis table svg) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
