@@ -215,9 +215,9 @@ export function getSeasonalParticleType(
     return getWinterSpringParticle(p, particleHash);
   }
 
-  // Spring into Summer (0.0 <= p <= 0.6): Petals transition into fresh green leaves
-  if (p <= 0.6) {
-    const petalRatio = 1 - p / 0.6;
+  // Spring into Summer (0.0 <= p <= 0.85): Petals transition into fresh green leaves
+  if (p <= 0.85) {
+    const petalRatio = 1 - p / 0.85;
     return particleHash < petalRatio ? "petal" : "leaf";
   }
 
@@ -227,7 +227,7 @@ export function getSeasonalParticleType(
     return particleHash < snowRatio ? "snowflake" : "leaf";
   }
 
-  // Summer and Fall (0.6 < p < 2.4): 100% leaves
+  // Summer and Fall (0.85 < p < 2.4): 100% leaves
   return "leaf";
 }
 

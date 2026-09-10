@@ -10,6 +10,14 @@ import {
   WindBreezeStream,
   getSeasonalParticleType,
 } from "./SolarizedLeafRenderer";
+import {
+  CANOPY_BUD_THRESHOLDS,
+  getCanopyClusterFill,
+} from "./SolarizedLandscapeShapeDefs";
+import {
+  SPRING_FLOWER_SCHEDULES,
+  getFlowerBloomFactor,
+} from "./SpringMeadowFlowers";
 import type { WindState, MouseState } from "./SolarizedBackground.types";
 import {
   resolveSeasonProgress,
@@ -480,5 +488,103 @@ describe("SolarizedBackground Component", () => {
     // 7. Late Autumn to Winter (2.4 to 3.0): leaves transition into snowflakes
     expect(getSeasonalParticleType(2.7, 0.1)).toBe("snowflake");
     expect(getSeasonalParticleType(2.7, 0.9)).toBe("leaf");
+  });
+
+  it("transitions tree canopy in spring from pink to green via staggered cluster budding without intermediate muddy colors", () => {
+    expect(CANOPY_BUD_THRESHOLDS).toHaveLength(17);
+
+    // At Spring (0.0): all 17 canopy clusters use Spring cherry blossom pink gradients
+    for (let i = 0; i < 17; i++) {
+      const fill1 = getCanopyClusterFill(i, "grad1", 0.0);
+      const fill2 = getCanopyClusterFill(i, "grad2", 0.0);
+      const fillWarm = getCanopyClusterFill(i, "warm", 0.0);
+      expect(fill1).toBe("url(#treeCanopyGrad1Spring)");
+      expect(fill2).toBe("url(#treeCanopyGrad2Spring)");
+      expect(fillWarm).toBe("url(#treeCanopyWarmSpring)");
+    }
+
+    // Mid-spring (0.5): clusters are either purely Spring (pink) or purely Summer (green)
+    let greenCount = 0;
+    let pinkCount = 0;
+    for (let i = 0; i < 17; i++) {
+      const fill = getCanopyClusterFill(i, "grad1", 0.5);
+      if (fill === "url(#treeCanopyGrad1Summer)") greenCount++;
+      if (fill === "url(#treeCanopyGrad1Spring)") pinkCount++;
+    }
+    expect(greenCount + pinkCount).toBe(17);
+    expect(greenCount).toBeGreaterThan(5);
+    expect(pinkCount).toBeGreaterThan(5);
+
+    // At Summer (1.0) and later: all clusters use standard seasonal gradients
+    for (let i = 0; i < 17; i++) {
+      expect(getCanopyClusterFill(i, "grad1", 1.0)).toBe(
+        "url(#treeCanopyGrad1)",
+      );
+      expect(getCanopyClusterFill(i, "grad2", 2.0)).toBe(
+        "url(#treeCanopyGrad2)",
+      );
+      expect(getCanopyClusterFill(i, "warm", 3.0)).toBe("url(#treeCanopyWarm)");
+    }
+  });
+
+  it("blooms meadow floor flowers in staggered appearing sequence across spring without monolithic fading", () => {
+    expect(SPRING_FLOWER_SCHEDULES).toHaveLength(20);
+
+    // Winter (3.0): strictly zero flowers
+    for (const schedule of SPRING_FLOWER_SCHEDULES) {
+      expect(
+        getFlowerBloomFactor(3.0, schedule.bloomIn, schedule.bloomOut),
+      ).toBe(0);
+    }
+
+    // Right after winter (3.2): strictly zero flowers
+    for (const schedule of SPRING_FLOWER_SCHEDULES) {
+      expect(
+        getFlowerBloomFactor(3.2, schedule.bloomIn, schedule.bloomOut),
+      ).toBe(0);
+    }
+
+    // Late thaw into spring (3.65): flowers appear one by one
+    let thawingBloomed = 0;
+    for (const schedule of SPRING_FLOWER_SCHEDULES) {
+      const factor = getFlowerBloomFactor(
+        3.65,
+        schedule.bloomIn,
+        schedule.bloomOut,
+      );
+      if (factor > 0) thawingBloomed++;
+    }
+    expect(thawingBloomed).toBeGreaterThan(5);
+    expect(thawingBloomed).toBeLessThan(20);
+
+    // Peak spring (0.0): all 20 flowers in full bloom
+    for (const schedule of SPRING_FLOWER_SCHEDULES) {
+      expect(
+        getFlowerBloomFactor(0.0, schedule.bloomIn, schedule.bloomOut),
+      ).toBe(1);
+    }
+
+    // Mid-spring into summer (0.5): flowers depart one by one
+    let summerTransitionBloomed = 0;
+    for (const schedule of SPRING_FLOWER_SCHEDULES) {
+      const factor = getFlowerBloomFactor(
+        0.5,
+        schedule.bloomIn,
+        schedule.bloomOut,
+      );
+      if (factor > 0) summerTransitionBloomed++;
+    }
+    expect(summerTransitionBloomed).toBeGreaterThan(5);
+    expect(summerTransitionBloomed).toBeLessThan(20);
+
+    // Summer (1.0) and Fall (2.0): strictly zero flowers
+    for (const schedule of SPRING_FLOWER_SCHEDULES) {
+      expect(
+        getFlowerBloomFactor(1.0, schedule.bloomIn, schedule.bloomOut),
+      ).toBe(0);
+      expect(
+        getFlowerBloomFactor(2.0, schedule.bloomIn, schedule.bloomOut),
+      ).toBe(0);
+    }
   });
 });

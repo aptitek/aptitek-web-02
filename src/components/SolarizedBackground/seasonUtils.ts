@@ -191,22 +191,46 @@ export function getSeasonalCanopyTokens(
     ? "var(--color-solarized-base02)"
     : "var(--color-solarized-base00)";
 
+  // Spring to Summer transition (0 -> 1): Avoid muddy intermediate colors
+  const springToSummer = fromIndex === 0 && toIndex === 1;
+  const effectiveBlend = springToSummer
+    ? blendFactor >= 0.5
+      ? 1
+      : 0
+    : blendFactor;
+
   return {
     trunkPrimary,
     trunkSecondary,
-    foliage1A: interpolateHex(palFrom.foliage1A, palTo.foliage1A, blendFactor),
-    foliage1B: interpolateHex(palFrom.foliage1B, palTo.foliage1B, blendFactor),
-    foliage2A: interpolateHex(palFrom.foliage2A, palTo.foliage2A, blendFactor),
-    foliage2B: interpolateHex(palFrom.foliage2B, palTo.foliage2B, blendFactor),
+    foliage1A: interpolateHex(
+      palFrom.foliage1A,
+      palTo.foliage1A,
+      effectiveBlend,
+    ),
+    foliage1B: interpolateHex(
+      palFrom.foliage1B,
+      palTo.foliage1B,
+      effectiveBlend,
+    ),
+    foliage2A: interpolateHex(
+      palFrom.foliage2A,
+      palTo.foliage2A,
+      effectiveBlend,
+    ),
+    foliage2B: interpolateHex(
+      palFrom.foliage2B,
+      palTo.foliage2B,
+      effectiveBlend,
+    ),
     foliageWarmA: interpolateHex(
       palFrom.foliageWarmA,
       palTo.foliageWarmA,
-      blendFactor,
+      effectiveBlend,
     ),
     foliageWarmB: interpolateHex(
       palFrom.foliageWarmB,
       palTo.foliageWarmB,
-      blendFactor,
+      effectiveBlend,
     ),
     blossomOpacity,
     snowOpacity,
